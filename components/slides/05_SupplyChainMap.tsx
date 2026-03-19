@@ -2,56 +2,44 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { supplyChainRegions } from "@/data/supplychain";
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Marker,
+  Line,
+} from "react-simple-maps";
 
-// Simplified SVG world map paths (stylized outlines)
-const worldPaths = {
-  northAmerica:
-    "M50,80 L70,60 L100,55 L130,60 L150,70 L155,90 L140,110 L120,120 L100,115 L80,120 L60,110 L50,95 Z",
-  southAmerica:
-    "M110,130 L125,125 L140,140 L145,170 L140,200 L125,215 L110,210 L105,180 L100,150 Z",
-  europe:
-    "M270,55 L285,48 L310,50 L320,55 L315,70 L305,80 L290,78 L275,72 Z",
-  africa:
-    "M270,90 L295,85 L315,95 L320,120 L310,150 L290,160 L270,150 L265,120 Z",
-  middleEast:
-    "M320,75 L345,70 L355,80 L350,95 L335,100 L320,95 Z",
-  russia:
-    "M310,30 L350,25 L420,28 L460,35 L450,50 L400,55 L350,52 L310,45 Z",
-  eastAsia:
-    "M400,55 L440,50 L460,60 L455,80 L440,90 L420,85 L405,75 Z",
-  seAsia:
-    "M420,95 L450,90 L465,100 L460,115 L440,120 L425,110 Z",
-  oceania:
-    "M440,150 L470,140 L490,150 L485,170 L460,175 L445,165 Z",
-};
+const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-// Node positions (relative to SVG viewBox 500x230)
-const nodes = [
-  { id: 0, label: "USA", x: 100, y: 85, region: "United States" },
-  { id: 1, label: "Taiwan", x: 435, y: 82, region: "Taiwan" },
-  { id: 2, label: "S. Korea", x: 440, y: 62, region: "South Korea" },
-  { id: 3, label: "Netherlands", x: 283, y: 56, region: "Netherlands / Europe" },
-  { id: 4, label: "Japan", x: 460, y: 68, region: "Japan" },
-  { id: 5, label: "China", x: 410, y: 70, region: "China" },
-  { id: 6, label: "Qatar", x: 340, y: 88, region: "Middle East (Qatar)" },
+// Marker positions [longitude, latitude]
+const markers = [
+  { id: 0, label: "USA", coordinates: [-95, 40] as [number, number], region: "United States" },
+  { id: 1, label: "Taiwan", coordinates: [121, 23.5] as [number, number], region: "Taiwan" },
+  { id: 2, label: "S. Korea", coordinates: [127, 37] as [number, number], region: "South Korea" },
+  { id: 3, label: "Netherlands", coordinates: [5.3, 52.1] as [number, number], region: "Netherlands / Europe" },
+  { id: 4, label: "Japan", coordinates: [139, 36] as [number, number], region: "Japan" },
+  { id: 5, label: "China", coordinates: [104, 35] as [number, number], region: "China" },
+  { id: 6, label: "Qatar", coordinates: [51.2, 25.3] as [number, number], region: "Middle East (Qatar)" },
 ];
 
-// Connection lines showing dependencies
+// Supply chain dependency connections
 const connections = [
-  { from: 0, to: 1, label: "Designs → Fab" },
-  { from: 0, to: 3, label: "Equipment" },
-  { from: 3, to: 1, label: "EUV machines" },
-  { from: 1, to: 2, label: "Packaging" },
-  { from: 4, to: 1, label: "Materials" },
-  { from: 6, to: 2, label: "Helium" },
-  { from: 6, to: 4, label: "Helium" },
+  { from: 0, to: 1 },  // US designs → Taiwan fab
+  { from: 0, to: 3 },  // US → Netherlands equipment
+  { from: 3, to: 1 },  // Netherlands EUV → Taiwan
+  { from: 1, to: 2 },  // Taiwan → Korea packaging
+  { from: 4, to: 1 },  // Japan materials → Taiwan
+  { from: 6, to: 2 },  // Qatar helium → Korea
+  { from: 6, to: 4 },  // Qatar helium → Japan
 ];
 
 export default function SupplyChainMap() {
   const [selected, setSelected] = useState<number | null>(null);
-  const selectedRegion = selected !== null
-    ? supplyChainRegions.find((r) => r.region === nodes[selected].region)
-    : null;
+  const selectedRegion =
+    selected !== null
+      ? supplyChainRegions.find((r) => r.region === markers[selected].region)
+      : null;
 
   return (
     <div className="slide-container">
@@ -64,7 +52,7 @@ export default function SupplyChainMap() {
           The Global Supply Chain
         </motion.h2>
         <motion.p
-          className="text-xl md:text-2xl font-heading font-semibold text-white mb-6"
+          className="text-xl md:text-2xl font-heading font-semibold text-white mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
@@ -78,100 +66,128 @@ export default function SupplyChainMap() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <svg
-            viewBox="0 0 500 230"
-            className="w-full h-auto"
-            style={{ maxHeight: "340px" }}
+          <ComposableMap
+            projection="geoMercator"
+            projectionConfig={{
+              scale: 120,
+              center: [30, 30],
+            }}
+            style={{ width: "100%", height: "auto" }}
+            viewBox="0 0 800 450"
           >
-            {/* Continent outlines */}
-            {Object.values(worldPaths).map((d, i) => (
-              <path
-                key={i}
-                d={d}
-                fill="rgba(30, 41, 59, 0.5)"
-                stroke="rgba(71, 85, 105, 0.4)"
-                strokeWidth="0.5"
+            <Geographies geography={geoUrl}>
+              {({ geographies }) =>
+                geographies.map((geo) => (
+                  <Geography
+                    key={geo.rpiKey}
+                    geography={geo}
+                    fill="#1a2340"
+                    stroke="#2d3a5c"
+                    strokeWidth={0.4}
+                    style={{
+                      default: { outline: "none" },
+                      hover: { outline: "none", fill: "#1f2b47" },
+                      pressed: { outline: "none" },
+                    }}
+                  />
+                ))
+              }
+            </Geographies>
+
+            {/* Connection lines */}
+            {connections.map((conn, i) => (
+              <Line
+                key={`line-${i}`}
+                from={markers[conn.from].coordinates}
+                to={markers[conn.to].coordinates}
+                stroke="rgba(148, 163, 184, 0.12)"
+                strokeWidth={1}
+                strokeLinecap="round"
+                strokeDasharray="4 4"
               />
             ))}
 
-            {/* Connection lines */}
-            {connections.map((conn, i) => {
-              const from = nodes[conn.from];
-              const to = nodes[conn.to];
-              return (
-                <motion.line
-                  key={`conn-${i}`}
-                  x1={from.x}
-                  y1={from.y}
-                  x2={to.x}
-                  y2={to.y}
-                  stroke="rgba(148, 163, 184, 0.15)"
-                  strokeWidth="0.5"
-                  strokeDasharray="3,3"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.5 + i * 0.08 }}
-                />
-              );
-            })}
-
-            {/* Nodes */}
-            {nodes.map((node, i) => {
+            {/* Marker nodes */}
+            {markers.map((marker, i) => {
               const region = supplyChainRegions.find(
-                (r) => r.region === node.region
+                (r) => r.region === marker.region
               );
               const color = region?.highlight || "#3b82f6";
               const isSelected = selected === i;
+
               return (
-                <g
-                  key={node.id}
+                <Marker
+                  key={marker.id}
+                  coordinates={marker.coordinates}
                   onClick={() => setSelected(isSelected ? null : i)}
-                  style={{ cursor: "pointer" }}
+                  /* @ts-ignore cursor style */
+                  className="cursor-pointer"
                 >
                   {/* Pulse ring */}
-                  <motion.circle
-                    cx={node.x}
-                    cy={node.y}
-                    r={isSelected ? 10 : 7}
+                  <circle
+                    r={isSelected ? 14 : 10}
                     fill="transparent"
                     stroke={color}
-                    strokeWidth="0.5"
-                    opacity={0.3}
-                    initial={{ r: 4 }}
-                    animate={{ r: isSelected ? 12 : 8, opacity: [0.3, 0.1, 0.3] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
+                    strokeWidth={1}
+                    opacity={0.25}
+                  >
+                    <animate
+                      attributeName="r"
+                      values={isSelected ? "10;16;10" : "7;12;7"}
+                      dur="2.5s"
+                      repeatCount="indefinite"
+                    />
+                    <animate
+                      attributeName="opacity"
+                      values="0.3;0.08;0.3"
+                      dur="2.5s"
+                      repeatCount="indefinite"
+                    />
+                  </circle>
                   {/* Main dot */}
-                  <motion.circle
-                    cx={node.x}
-                    cy={node.y}
-                    r={isSelected ? 5 : 3.5}
+                  <circle
+                    r={isSelected ? 6 : 4}
                     fill={color}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.4 + i * 0.08 }}
+                    stroke={isSelected ? "#ffffff" : "transparent"}
+                    strokeWidth={isSelected ? 1.5 : 0}
                   />
                   {/* Label */}
                   <text
-                    x={node.x}
-                    y={node.y - 9}
                     textAnchor="middle"
-                    fill={isSelected ? "#ffffff" : "#94a3b8"}
-                    fontSize="6"
-                    fontFamily="Inter, sans-serif"
-                    fontWeight={isSelected ? 600 : 400}
+                    y={-12}
+                    style={{
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: isSelected ? "9px" : "8px",
+                      fill: isSelected ? "#ffffff" : "#94a3b8",
+                      fontWeight: isSelected ? 600 : 400,
+                    }}
                   >
-                    {node.label}
+                    {marker.label}
                   </text>
-                </g>
+                  {/* Role subtitle */}
+                  {isSelected && region && (
+                    <text
+                      textAnchor="middle"
+                      y={-3}
+                      style={{
+                        fontFamily: "Inter, sans-serif",
+                        fontSize: "6px",
+                        fill: color,
+                        fontWeight: 500,
+                      }}
+                    >
+                      {region.role}
+                    </text>
+                  )}
+                </Marker>
               );
             })}
-          </svg>
+          </ComposableMap>
         </motion.div>
 
         {/* Detail panel */}
         <motion.div
-          className="mt-4 min-h-[100px]"
+          className="min-h-[90px] -mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
@@ -205,19 +221,21 @@ export default function SupplyChainMap() {
               </p>
             </motion.div>
           ) : (
-            <div className="text-center text-sm text-slate-500 py-4">
+            <div className="text-center text-sm text-slate-500 py-3">
               Click a node on the map to explore each region&apos;s role
             </div>
           )}
         </motion.div>
 
         <motion.p
-          className="text-xs text-slate-500 mt-3"
+          className="text-xs text-slate-500 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
         >
-          A single advanced chip crosses 70+ international borders before reaching a consumer. The supply chain is the most globally interdependent system ever built.
+          A single advanced chip crosses 70+ international borders before
+          reaching a consumer. The supply chain is the most globally
+          interdependent system ever built.
         </motion.p>
       </div>
     </div>

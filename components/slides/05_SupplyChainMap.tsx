@@ -20,19 +20,23 @@ const markers = [
     label: "USA",
     coordinates: [-95, 40] as [number, number],
     region: "United States",
+    labelOffset: { x: 0, yName: -14, yRole: -3 },
+    anchor: "middle" as const,
   },
   {
     id: 1,
     label: "Taiwan",
     coordinates: [121, 23.5] as [number, number],
     region: "Taiwan",
+    labelOffset: { x: 0, yName: 16, yRole: 27 },
+    anchor: "middle" as const,
   },
   {
     id: 2,
     label: "S. Korea",
     coordinates: [127, 37] as [number, number],
     region: "South Korea",
-    labelOffset: { x: -16, yName: -8, yRole: 4 } as const,
+    labelOffset: { x: -14, yName: -12, yRole: -1 },
     anchor: "end" as const,
   },
   {
@@ -40,13 +44,15 @@ const markers = [
     label: "Netherlands",
     coordinates: [5.3, 52.1] as [number, number],
     region: "Netherlands / Europe",
+    labelOffset: { x: 0, yName: -14, yRole: -3 },
+    anchor: "middle" as const,
   },
   {
     id: 4,
     label: "Japan",
     coordinates: [139, 36] as [number, number],
     region: "Japan",
-    labelOffset: { x: 14, yName: 2, yRole: 14 } as const,
+    labelOffset: { x: 14, yName: -4, yRole: 8 },
     anchor: "start" as const,
   },
   {
@@ -54,6 +60,8 @@ const markers = [
     label: "China",
     coordinates: [104, 35] as [number, number],
     region: "China",
+    labelOffset: { x: -14, yName: 4, yRole: 16 },
+    anchor: "end" as const,
   },
 ];
 
@@ -146,17 +154,10 @@ export default function SupplyChainMap() {
               );
               const color = region?.highlight || "#3b82f6";
               const isSelected = selected === i;
-              const offset = (marker as any).labelOffset;
-              const anchor = (marker as any).anchor;
-              // Default offsets
-              const nameX = offset?.x ?? 0;
-              const nameY = offset?.yName ?? -14;
-              const roleY = offset?.yRole ?? -3;
-              const textAnchor =
-                anchor ??
-                (marker.label === "China" ? "end" : "middle");
-              const defaultNameX =
-                marker.label === "China" ? -12 : nameX;
+              const nameX = marker.labelOffset.x;
+              const nameY = marker.labelOffset.yName;
+              const roleY = marker.labelOffset.yRole;
+              const textAnchor = marker.anchor;
 
               return (
                 <Marker
@@ -197,7 +198,7 @@ export default function SupplyChainMap() {
                   {/* Label — country name */}
                   <text
                     textAnchor={textAnchor}
-                    x={defaultNameX}
+                    x={nameX}
                     y={nameY}
                     style={{
                       fontFamily: "Inter, sans-serif",
@@ -212,7 +213,7 @@ export default function SupplyChainMap() {
                   {isSelected && region && (
                     <text
                       textAnchor={textAnchor}
-                      x={defaultNameX}
+                      x={nameX}
                       y={roleY}
                       style={{
                         fontFamily: "Inter, sans-serif",

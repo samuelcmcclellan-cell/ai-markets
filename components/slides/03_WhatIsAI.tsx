@@ -66,24 +66,6 @@ const timeline = [
   },
 ];
 
-const keyTerms = [
-  {
-    term: "Training",
-    def: "Teaching the model. Massive compute, done once.",
-  },
-  {
-    term: "Inference",
-    def: "Using the model. Scales with every user.",
-  },
-  {
-    term: "Parameters",
-    def: "The model\u2019s learned knowledge. GPT-4: ~1.8T.",
-  },
-  {
-    term: "Context window",
-    def: "How much text the model can process at once.",
-  },
-];
 
 export default function WhatIsAI() {
   return (
@@ -274,25 +256,6 @@ export default function WhatIsAI() {
           </div>
         </div>
 
-        {/* Key terms strip */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-        >
-          {keyTerms.map((t, i) => (
-            <div
-              key={i}
-              className="bg-navy-700/30 border border-slate-700/30 rounded-lg px-4 py-2.5"
-            >
-              <span className="text-xs font-heading font-semibold text-blue-400">
-                {t.term}
-              </span>
-              <span className="text-xs text-slate-500 ml-2">{t.def}</span>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </div>
   );

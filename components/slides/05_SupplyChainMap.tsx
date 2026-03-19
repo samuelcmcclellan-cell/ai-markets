@@ -10,25 +10,60 @@ import {
   Line,
 } from "react-simple-maps";
 
-const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+const geoUrl =
+  "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
 // Marker positions [longitude, latitude] — Qatar removed
 const markers = [
-  { id: 0, label: "USA", coordinates: [-95, 40] as [number, number], region: "United States" },
-  { id: 1, label: "Taiwan", coordinates: [121, 23.5] as [number, number], region: "Taiwan" },
-  { id: 2, label: "S. Korea", coordinates: [127, 37] as [number, number], region: "South Korea" },
-  { id: 3, label: "Netherlands", coordinates: [5.3, 52.1] as [number, number], region: "Netherlands / Europe" },
-  { id: 4, label: "Japan", coordinates: [139, 36] as [number, number], region: "Japan" },
-  { id: 5, label: "China", coordinates: [104, 35] as [number, number], region: "China" },
+  {
+    id: 0,
+    label: "USA",
+    coordinates: [-95, 40] as [number, number],
+    region: "United States",
+  },
+  {
+    id: 1,
+    label: "Taiwan",
+    coordinates: [121, 23.5] as [number, number],
+    region: "Taiwan",
+  },
+  {
+    id: 2,
+    label: "S. Korea",
+    coordinates: [127, 37] as [number, number],
+    region: "South Korea",
+    labelOffset: { x: -16, yName: -8, yRole: 4 } as const,
+    anchor: "end" as const,
+  },
+  {
+    id: 3,
+    label: "Netherlands",
+    coordinates: [5.3, 52.1] as [number, number],
+    region: "Netherlands / Europe",
+  },
+  {
+    id: 4,
+    label: "Japan",
+    coordinates: [139, 36] as [number, number],
+    region: "Japan",
+    labelOffset: { x: 14, yName: 2, yRole: 14 } as const,
+    anchor: "start" as const,
+  },
+  {
+    id: 5,
+    label: "China",
+    coordinates: [104, 35] as [number, number],
+    region: "China",
+  },
 ];
 
-// Supply chain dependency connections — Qatar connections removed
+// Supply chain dependency connections
 const connections = [
-  { from: 0, to: 1 },  // US designs → Taiwan fab
-  { from: 0, to: 3 },  // US → Netherlands equipment
-  { from: 3, to: 1 },  // Netherlands EUV → Taiwan
-  { from: 1, to: 2 },  // Taiwan → Korea packaging
-  { from: 4, to: 1 },  // Japan materials → Taiwan
+  { from: 0, to: 1 }, // US designs → Taiwan fab
+  { from: 0, to: 3 }, // US → Netherlands equipment
+  { from: 3, to: 1 }, // Netherlands EUV → Taiwan
+  { from: 1, to: 2 }, // Taiwan → Korea packaging
+  { from: 4, to: 1 }, // Japan materials → Taiwan
 ];
 
 export default function SupplyChainMap() {
@@ -42,14 +77,14 @@ export default function SupplyChainMap() {
     <div className="slide-container">
       <div className="slide-content">
         <motion.h2
-          className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-4"
+          className="text-base uppercase tracking-widest text-blue-400 font-mono mb-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
           The Global Supply Chain
         </motion.h2>
         <motion.p
-          className="text-xl md:text-2xl font-heading font-semibold text-white mb-4"
+          className="text-lg md:text-xl font-heading font-semibold text-white mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
@@ -76,7 +111,7 @@ export default function SupplyChainMap() {
               {({ geographies }) =>
                 geographies.map((geo) => (
                   <Geography
-                    key={geo.rpiKey}
+                    key={geo.rsmKey}
                     geography={geo}
                     fill="#1a2340"
                     stroke="#2d3a5c"
@@ -111,6 +146,17 @@ export default function SupplyChainMap() {
               );
               const color = region?.highlight || "#3b82f6";
               const isSelected = selected === i;
+              const offset = (marker as any).labelOffset;
+              const anchor = (marker as any).anchor;
+              // Default offsets
+              const nameX = offset?.x ?? 0;
+              const nameY = offset?.yName ?? -14;
+              const roleY = offset?.yRole ?? -3;
+              const textAnchor =
+                anchor ??
+                (marker.label === "China" ? "end" : "middle");
+              const defaultNameX =
+                marker.label === "China" ? -12 : nameX;
 
               return (
                 <Marker
@@ -148,15 +194,16 @@ export default function SupplyChainMap() {
                     stroke={isSelected ? "#ffffff" : "transparent"}
                     strokeWidth={isSelected ? 1.5 : 0}
                   />
-                  {/* Label */}
+                  {/* Label — country name */}
                   <text
-                    textAnchor="middle"
-                    y={-12}
+                    textAnchor={textAnchor}
+                    x={defaultNameX}
+                    y={nameY}
                     style={{
                       fontFamily: "Inter, sans-serif",
-                      fontSize: isSelected ? "12px" : "11px",
+                      fontSize: isSelected ? "13px" : "12px",
                       fill: isSelected ? "#ffffff" : "#94a3b8",
-                      fontWeight: isSelected ? 600 : 400,
+                      fontWeight: 700,
                     }}
                   >
                     {marker.label}
@@ -164,11 +211,12 @@ export default function SupplyChainMap() {
                   {/* Role subtitle */}
                   {isSelected && region && (
                     <text
-                      textAnchor="middle"
-                      y={-3}
+                      textAnchor={textAnchor}
+                      x={defaultNameX}
+                      y={roleY}
                       style={{
                         fontFamily: "Inter, sans-serif",
-                        fontSize: "7px",
+                        fontSize: "8px",
                         fill: color,
                         fontWeight: 500,
                       }}
@@ -203,7 +251,7 @@ export default function SupplyChainMap() {
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: selectedRegion.highlight }}
                 />
-                <h3 className="text-base font-heading font-semibold text-white">
+                <h3 className="text-base font-heading font-bold text-white">
                   {selectedRegion.region}
                 </h3>
                 <span className="text-sm text-slate-500 ml-2">

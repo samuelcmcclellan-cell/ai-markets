@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { companyProfiles } from "@/data/capex";
-import { Building2, Globe, Briefcase, Server } from "lucide-react";
+import { Building2, Globe, Briefcase, Server, Sparkles } from "lucide-react";
 
 const neoclouds = [
   { name: "CoreWeave", detail: "GPU-first cloud. Raised $23B. Key NVIDIA partner." },
@@ -13,8 +13,8 @@ const neoclouds = [
 const sovereigns = [
   { name: "Saudi Arabia (NEOM)", detail: "Massive AI infrastructure investment. Partnering with NVIDIA." },
   { name: "UAE (G42 / Falcon)", detail: "Abu Dhabi building sovereign AI stack. Falcon LLMs." },
-  { name: "France (Mistral)", detail: "State-backed AI champion. €2B+ in subsidies." },
-  { name: "Japan", detail: "¥2T national AI compute initiative. TSMC fab subsidies." },
+  { name: "France (Mistral)", detail: "State-backed AI champion. \u20AC2B+ in subsidies." },
+  { name: "Japan", detail: "\u00A52T national AI compute initiative. TSMC fab subsidies." },
 ];
 
 const enterprises = [
@@ -24,12 +24,33 @@ const enterprises = [
   { name: "ByteDance", detail: "Largest NVIDIA customer outside hyperscalers by GPU count." },
 ];
 
+const aiLabs = [
+  {
+    name: "OpenAI",
+    metric: "~$25B ARR",
+    detail: "910M weekly active users. Massive GPU consumer via Azure + Stargate JV ($500B target).",
+    color: "#a855f7",
+  },
+  {
+    name: "Anthropic",
+    metric: "~$19B ARR",
+    detail: "Fastest-growing enterprise AI company. 40% enterprise share vs OpenAI\u2019s 27%. Primary compute via AWS + GCP.",
+    color: "#ec4899",
+  },
+  {
+    name: "xAI",
+    metric: "Colossus 2",
+    detail: "Built 100K+ H100 cluster in 119 days. 41 gas turbines in Mississippi. Hardware-first approach.",
+    color: "#f472b6",
+  },
+];
+
 export default function WhoIsBuying() {
   return (
     <div className="slide-container">
       <div className="slide-content">
         <motion.h2
-          className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-3"
+          className="text-base uppercase tracking-widest text-amber-400 font-mono mb-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
@@ -53,9 +74,9 @@ export default function WhoIsBuying() {
           transition={{ delay: 0.25 }}
         >
           <div className="flex items-center gap-2 mb-2">
-            <Server className="w-5 h-5 text-amber-400" />
+            <Server className="w-6 h-6 text-amber-400" />
             <h3 className="text-sm font-heading font-semibold text-amber-400 uppercase tracking-wide">
-              Hyperscalers — $685B+ capex in 2026
+              Hyperscalers &mdash; $685B+ capex in 2026
             </h3>
           </div>
           <div className="grid grid-cols-5 gap-2">
@@ -69,14 +90,14 @@ export default function WhoIsBuying() {
               >
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <div
-                    className="w-2 h-2 rounded-full flex-shrink-0"
+                    className="w-2.5 h-2.5 rounded-full flex-shrink-0"
                     style={{ backgroundColor: c.color }}
                   />
                   <span className="text-sm font-heading font-bold text-white truncate">
                     {c.company.split(" (")[0]}
                   </span>
                 </div>
-                <span className="text-lg font-mono font-bold text-amber-400">
+                <span className="text-xl font-mono font-bold text-amber-400">
                   {c.capex2026}
                 </span>
                 <p className="text-xs text-slate-500 mt-1 leading-snug line-clamp-2">
@@ -87,14 +108,59 @@ export default function WhoIsBuying() {
           </div>
         </motion.div>
 
-        {/* Three new categories */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+        {/* AI Labs row */}
+        <motion.div
+          className="mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.55 }}
+        >
+          <div className="flex items-center gap-2 mb-2">
+            <Sparkles className="w-6 h-6 text-purple-400" />
+            <h3 className="text-sm font-heading font-semibold text-purple-400 uppercase tracking-wide">
+              The AI Labs &mdash; Model Builders
+            </h3>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {aiLabs.map((lab, i) => (
+              <motion.div
+                key={i}
+                className="bg-navy-700/30 border border-purple-500/15 rounded-lg p-2.5"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 + i * 0.06 }}
+              >
+                <div className="flex items-center gap-1.5 mb-1">
+                  <div
+                    className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: lab.color }}
+                  />
+                  <span className="text-sm font-heading font-bold text-white">
+                    {lab.name}
+                  </span>
+                </div>
+                <span
+                  className="text-lg font-mono font-bold"
+                  style={{ color: lab.color }}
+                >
+                  {lab.metric}
+                </span>
+                <p className="text-xs text-slate-500 mt-1 leading-snug">
+                  {lab.detail}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Three categories: Neoclouds, Sovereigns, Enterprises */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
           {/* Neoclouds */}
           <motion.div
             className="stat-card"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55 }}
+            transition={{ delay: 0.7 }}
           >
             <div className="flex items-center gap-2 mb-2">
               <Building2 className="w-5 h-5 text-cyan-400" />
@@ -102,9 +168,6 @@ export default function WhoIsBuying() {
                 Neoclouds
               </h3>
             </div>
-            <p className="text-xs text-slate-500 mb-2">
-              GPU-native challengers building AI-first infrastructure.
-            </p>
             <div className="space-y-1.5">
               {neoclouds.map((n, i) => (
                 <div key={i} className="flex items-start gap-2">
@@ -113,7 +176,7 @@ export default function WhoIsBuying() {
                     <span className="text-xs font-heading font-bold text-white">
                       {n.name}
                     </span>
-                    <span className="text-[11px] text-slate-500 ml-1.5">
+                    <span className="text-xs text-slate-500 ml-1.5">
                       {n.detail}
                     </span>
                   </div>
@@ -127,7 +190,7 @@ export default function WhoIsBuying() {
             className="stat-card"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65 }}
+            transition={{ delay: 0.8 }}
           >
             <div className="flex items-center gap-2 mb-2">
               <Globe className="w-5 h-5 text-emerald-400" />
@@ -135,9 +198,6 @@ export default function WhoIsBuying() {
                 Sovereign Governments
               </h3>
             </div>
-            <p className="text-xs text-slate-500 mb-2">
-              Nations building domestic AI compute for strategic independence.
-            </p>
             <div className="space-y-1.5">
               {sovereigns.map((s, i) => (
                 <div key={i} className="flex items-start gap-2">
@@ -146,7 +206,7 @@ export default function WhoIsBuying() {
                     <span className="text-xs font-heading font-bold text-white">
                       {s.name}
                     </span>
-                    <span className="text-[11px] text-slate-500 ml-1.5">
+                    <span className="text-xs text-slate-500 ml-1.5">
                       {s.detail}
                     </span>
                   </div>
@@ -160,7 +220,7 @@ export default function WhoIsBuying() {
             className="stat-card"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.75 }}
+            transition={{ delay: 0.9 }}
           >
             <div className="flex items-center gap-2 mb-2">
               <Briefcase className="w-5 h-5 text-purple-400" />
@@ -168,9 +228,6 @@ export default function WhoIsBuying() {
                 Enterprises
               </h3>
             </div>
-            <p className="text-xs text-slate-500 mb-2">
-              Companies building proprietary AI infrastructure in-house.
-            </p>
             <div className="space-y-1.5">
               {enterprises.map((e, i) => (
                 <div key={i} className="flex items-start gap-2">
@@ -179,7 +236,7 @@ export default function WhoIsBuying() {
                     <span className="text-xs font-heading font-bold text-white">
                       {e.name}
                     </span>
-                    <span className="text-[11px] text-slate-500 ml-1.5">
+                    <span className="text-xs text-slate-500 ml-1.5">
                       {e.detail}
                     </span>
                   </div>
@@ -193,11 +250,11 @@ export default function WhoIsBuying() {
           className="text-xs text-slate-500 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.9 }}
+          transition={{ delay: 1 }}
         >
-          The demand base is diversifying beyond hyperscalers — neoclouds,
-          governments, and enterprises are all competing for the same constrained
-          GPU supply.
+          The demand base is diversifying beyond hyperscalers &mdash; AI labs,
+          neoclouds, governments, and enterprises are all competing for the same
+          constrained GPU supply.
         </motion.p>
       </div>
     </div>

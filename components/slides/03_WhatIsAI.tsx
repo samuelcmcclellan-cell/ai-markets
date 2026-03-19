@@ -3,54 +3,47 @@ import { motion } from "framer-motion";
 
 const timeline = [
   {
-    year: "1950s-80s",
+    year: "1950s–80s",
     label: "Symbolic AI",
-    description: "Hand-coded rules and logic. Expert systems. Could play chess but couldn't recognize a cat.",
+    description: "Hand-coded rules. Expert systems. Could play chess but couldn't recognize a cat.",
     color: "#475569",
-    side: "left" as const,
+    position: "above" as const,
   },
   {
-    year: "1990s-2000s",
+    year: "1990s–2000s",
     label: "Machine Learning",
-    description: "Systems learn from data instead of rules. Statistical pattern recognition at scale.",
+    description: "Systems learn from data instead of rules. Statistical pattern recognition.",
     color: "#6366f1",
-    side: "right" as const,
+    position: "below" as const,
   },
   {
     year: "2012",
     label: "Deep Learning",
-    description: "Neural networks with many layers. AlexNet wins ImageNet. Unlocks image and speech recognition.",
+    description: "Neural networks with many layers. AlexNet wins ImageNet.",
     color: "#3b82f6",
-    side: "left" as const,
-  },
-  {
-    year: "2017",
-    label: "Transformers",
-    description: "Google's 'Attention Is All You Need' paper. The architecture behind every major AI model today.",
-    color: "#0891b2",
-    side: "right" as const,
+    position: "above" as const,
   },
   {
     year: "Nov 2022",
     label: "ChatGPT",
-    description: "100M users in 2 months. Generative AI goes mainstream. The moment everything changed.",
+    description: "100M users in 2 months. Generative AI goes mainstream.",
     color: "#f59e0b",
-    side: "inflection" as const,
+    position: "inflection" as const,
     isInflection: true,
   },
   {
-    year: "2023-24",
+    year: "2023–24",
     label: "Reasoning",
-    description: "Models that think step-by-step. Chain-of-thought, multi-step logic. OpenAI o-series, Claude extended thinking.",
+    description: "Chain-of-thought, multi-step logic. o-series, Claude extended thinking.",
     color: "#10b981",
-    side: "left" as const,
+    position: "below" as const,
   },
   {
     year: "2025+",
     label: "Agentic AI",
-    description: "AI that acts autonomously — sets goals, uses tools, executes plans, iterates. From answering questions to completing tasks.",
+    description: "Sets goals, uses tools, executes plans, iterates autonomously.",
     color: "#f59e0b",
-    side: "right" as const,
+    position: "above" as const,
   },
 ];
 
@@ -66,103 +59,158 @@ export default function WhatIsAI() {
     <div className="slide-container">
       <div className="slide-content">
         <motion.h2
-          className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-3"
+          className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
           What Is AI?
         </motion.h2>
         <motion.p
-          className="text-lg md:text-xl font-heading font-semibold text-white mb-6"
+          className="text-base md:text-lg font-heading font-semibold text-white mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
         >
           Seven decades of progress — and one{" "}
-          <span className="text-amber-400">inflection point</span> that changed everything.
+          <span className="text-amber-400">inflection point</span> that changed
+          everything.
         </motion.p>
 
-        {/* Timeline — the centerpiece */}
-        <div className="relative max-w-4xl mx-auto mb-6">
-          {/* Vertical center line */}
-          <motion.div
-            className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-slate-700/0 via-slate-600/50 to-slate-700/0 -translate-x-1/2 hidden md:block"
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-          />
+        {/* Horizontal timeline */}
+        <div className="relative w-full px-2 mb-8">
+          {/* Items above the line */}
+          <div className="flex items-end justify-between mb-2" style={{ minHeight: "80px" }}>
+            {timeline.map((item, i) => (
+              <div
+                key={`above-${i}`}
+                className="flex-1 px-1"
+                style={{ visibility: item.position === "above" ? "visible" : "hidden" }}
+              >
+                {item.position === "above" && (
+                  <motion.div
+                    className="text-center"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + i * 0.12 }}
+                  >
+                    <p className="text-xs font-heading font-bold text-white leading-tight">
+                      {item.label}
+                    </p>
+                    <p
+                      className="text-[10px] font-mono mb-0.5"
+                      style={{ color: item.color }}
+                    >
+                      {item.year}
+                    </p>
+                    <p className="text-[9px] text-slate-500 leading-tight">
+                      {item.description}
+                    </p>
+                  </motion.div>
+                )}
+              </div>
+            ))}
+          </div>
 
-          <div className="space-y-3 md:space-y-1">
+          {/* The horizontal line + dots */}
+          <div className="relative flex items-center justify-between">
+            {/* Background line — muted before inflection */}
+            <motion.div
+              className="absolute top-1/2 left-0 h-[2px] -translate-y-1/2 bg-slate-700/60"
+              style={{ width: "50%" }}
+              initial={{ scaleX: 0, transformOrigin: "left" }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            />
+            {/* Background line — bright after inflection */}
+            <motion.div
+              className="absolute top-1/2 left-1/2 h-[3px] -translate-y-1/2 bg-gradient-to-r from-amber-500/80 to-emerald-500/60"
+              style={{ width: "50%" }}
+              initial={{ scaleX: 0, transformOrigin: "left" }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            />
+
+            {/* Dots */}
             {timeline.map((item, i) => (
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + i * 0.1 }}
-                className={`relative flex items-center ${
-                  item.isInflection
-                    ? "md:justify-center my-3"
-                    : item.side === "left"
-                    ? "md:justify-start"
-                    : "md:justify-end"
-                }`}
+                key={`dot-${i}`}
+                className="flex-1 flex justify-center relative z-10"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 + i * 0.12 }}
               >
                 {item.isInflection ? (
-                  /* ChatGPT inflection — center, big, glowing */
-                  <div className="w-full md:w-auto md:max-w-sm relative z-10">
-                    <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 text-center glow-amber">
-                      <div className="flex items-center justify-center gap-2 mb-1">
-                        <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                        <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest">
-                          Inflection Point
-                        </span>
-                        <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                      </div>
-                      <p className="text-xl font-heading font-bold text-amber-400 mb-0.5">
-                        {item.label}
-                      </p>
-                      <p className="text-xs font-mono text-amber-500/70 mb-1.5">
-                        {item.year}
-                      </p>
-                      <p className="text-xs text-slate-300 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
+                  <div className="w-5 h-5 rounded-full bg-amber-500 ring-4 ring-amber-500/30 shadow-[0_0_20px_rgba(245,158,11,0.4)] animate-pulse" />
                 ) : (
-                  /* Regular timeline item */
                   <div
-                    className={`w-full md:w-[45%] flex items-start gap-3 ${
-                      item.side === "right" ? "md:flex-row-reverse md:text-right" : ""
-                    }`}
-                  >
-                    {/* Dot connector */}
-                    <div className="flex-shrink-0 mt-1 hidden md:block">
-                      <div
-                        className="w-2.5 h-2.5 rounded-full ring-2 ring-navy-900"
-                        style={{ backgroundColor: item.color }}
-                      />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div
-                        className={`flex items-baseline gap-2 mb-0.5 ${
-                          item.side === "right" ? "md:flex-row-reverse" : ""
-                        }`}
-                      >
-                        <span className="text-xs font-heading font-semibold text-white">
-                          {item.label}
-                        </span>
-                        <span className="text-[10px] font-mono" style={{ color: item.color }}>
-                          {item.year}
-                        </span>
-                      </div>
-                      <p className="text-[10px] text-slate-400 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
+                    className="w-3 h-3 rounded-full ring-2 ring-navy-900"
+                    style={{ backgroundColor: item.color }}
+                  />
                 )}
               </motion.div>
+            ))}
+          </div>
+
+          {/* Items below the line + inflection card */}
+          <div className="flex items-start justify-between mt-2" style={{ minHeight: "80px" }}>
+            {timeline.map((item, i) => (
+              <div
+                key={`below-${i}`}
+                className="flex-1 px-1"
+                style={{
+                  visibility:
+                    item.position === "below" || item.position === "inflection"
+                      ? "visible"
+                      : "hidden",
+                }}
+              >
+                {item.isInflection && (
+                  <motion.div
+                    className="mx-auto max-w-[160px] bg-amber-500/10 border border-amber-500/30 rounded-lg p-2 text-center glow-amber"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.6 }}
+                  >
+                    <div className="flex items-center justify-center gap-1 mb-0.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                      <span className="text-[8px] font-mono text-amber-400 uppercase tracking-widest">
+                        Inflection Point
+                      </span>
+                      <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    </div>
+                    <p className="text-sm font-heading font-bold text-amber-400">
+                      {item.label}
+                    </p>
+                    <p className="text-[9px] font-mono text-amber-500/70">
+                      {item.year}
+                    </p>
+                    <p className="text-[8px] text-slate-400 leading-tight mt-0.5">
+                      {item.description}
+                    </p>
+                  </motion.div>
+                )}
+                {item.position === "below" && !item.isInflection && (
+                  <motion.div
+                    className="text-center"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + i * 0.12 }}
+                  >
+                    <p className="text-xs font-heading font-bold text-white leading-tight">
+                      {item.label}
+                    </p>
+                    <p
+                      className="text-[10px] font-mono mb-0.5"
+                      style={{ color: item.color }}
+                    >
+                      {item.year}
+                    </p>
+                    <p className="text-[9px] text-slate-500 leading-tight">
+                      {item.description}
+                    </p>
+                  </motion.div>
+                )}
+              </div>
             ))}
           </div>
         </div>
@@ -172,7 +220,7 @@ export default function WhatIsAI() {
           className="flex flex-wrap justify-center gap-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.1 }}
+          transition={{ delay: 1.2 }}
         >
           {keyTerms.map((t, i) => (
             <div

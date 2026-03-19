@@ -20,7 +20,7 @@ export const nuclearDeals = [
   },
   {
     company: "Amazon",
-    detail: "3 nuclear investments including X-energy SMR, Talen Energy, Dominion",
+    detail: "3 nuclear investments: X-energy SMR, Talen Energy, Dominion",
     color: "#ff9900",
   },
   {
@@ -30,8 +30,46 @@ export const nuclearDeals = [
   },
   {
     company: "Meta",
-    detail: "Seeking 1-4 GW nuclear for data centers by early 2030s",
+    detail: "Seeking 1-4 GW nuclear for DCs by early 2030s",
     color: "#0668e1",
+  },
+];
+
+export const gasTurbineData = [
+  {
+    label: "xAI Colossus 2",
+    detail: "41 gas turbines permitted in Mississippi — 1.2 GW behind-the-meter",
+  },
+  {
+    label: "GE Vernova",
+    detail: "80 GW turbine backlog, $150B pending orders, waitlists to 2028",
+  },
+  {
+    label: "Behind-the-meter",
+    detail: "Bypasses 3-5 year grid queue. Aeroderivative turbines: 48 MW+ per unit, fast-start",
+  },
+  {
+    label: "US gas projects",
+    detail: "Development pipeline rose 30%+ in 2025. Speed-to-power while nuclear catches up",
+  },
+];
+
+export const spaceDataCenters = [
+  {
+    label: "Starcloud",
+    detail: "First H100 in space (Nov 2025), first LLM trained in orbit (Dec 2025), 88K-satellite filing",
+  },
+  {
+    label: "SpaceX / xAI",
+    detail: "FCC application for up to 1M orbital DC satellites (Jan 2026) after $1.25T merger",
+  },
+  {
+    label: "Google Suncatcher",
+    detail: "Radiation-hardened TPUs, 1.6 Tbps optical links demonstrated in lab",
+  },
+  {
+    label: "Aetherflux",
+    detail: "$50M Series A — orbital compute + power beaming",
   },
 ];
 

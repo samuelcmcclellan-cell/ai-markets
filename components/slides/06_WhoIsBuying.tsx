@@ -2,6 +2,75 @@
 import { motion } from "framer-motion";
 import { Server, Brain, Building2, Globe, Briefcase } from "lucide-react";
 
+/* ── Inline company logos ── */
+const hyperscalerLogos: Record<string, React.ReactNode> = {
+  Amazon: (
+    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
+      <path
+        d="M1.5 16.5c5 3 12.5 4 19 1"
+        stroke="#ff9900"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M17 14.5l3.5 3-3.5 3"
+        stroke="#ff9900"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+  Alphabet: (
+    <svg viewBox="0 0 24 24" className="w-6 h-6">
+      <text
+        x="12"
+        y="18"
+        textAnchor="middle"
+        fill="#4285f4"
+        fontSize="18"
+        fontWeight="700"
+        fontFamily="Arial, sans-serif"
+      >
+        G
+      </text>
+    </svg>
+  ),
+  Microsoft: (
+    <svg viewBox="0 0 24 24" className="w-5 h-5">
+      <rect x="2" y="2" width="9" height="9" fill="#f25022" />
+      <rect x="13" y="2" width="9" height="9" fill="#7fba00" />
+      <rect x="2" y="13" width="9" height="9" fill="#00a4ef" />
+      <rect x="13" y="13" width="9" height="9" fill="#ffb900" />
+    </svg>
+  ),
+  Meta: (
+    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
+      <path
+        d="M4 18C4 12 6 6 9 6c2 0 3.5 3 3.5 3S14 6 16 6c3 0 5 6 5 12"
+        stroke="#0668e1"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  Oracle: (
+    <svg viewBox="0 0 24 24" className="w-6 h-6">
+      <text
+        x="12"
+        y="17"
+        textAnchor="middle"
+        fill="#f80000"
+        fontSize="14"
+        fontWeight="700"
+        fontFamily="Arial, sans-serif"
+      >
+        O
+      </text>
+    </svg>
+  ),
+};
+
 const hyperscalers = [
   { company: "Amazon", capex: "$200B", color: "#ff9900" },
   { company: "Alphabet", capex: "$180B", color: "#4285f4" },
@@ -11,11 +80,63 @@ const hyperscalers = [
 ];
 
 const aiLabs = [
-  { name: "OpenAI", metric: "~$25B ARR", color: "#a855f7" },
-  { name: "Anthropic", metric: "~$19B ARR", color: "#ec4899" },
-  { name: "xAI", metric: "Colossus 2", color: "#f472b6" },
-  { name: "DeepSeek", metric: "Open-source", color: "#f9a8d4" },
-  { name: "Meta AI", metric: "Llama 4", color: "#f0abfc" },
+  {
+    name: "OpenAI",
+    metric: "$25B",
+    metricLabel: "ARR",
+    detail: "910M weekly users. Stargate JV with SoftBank/Oracle.",
+    color: "#a855f7",
+    logo: (
+      <span className="text-sm font-bold text-white tracking-tight">AI</span>
+    ),
+  },
+  {
+    name: "Anthropic",
+    metric: "$19B",
+    metricLabel: "ARR",
+    detail: "300K+ enterprise customers. Claude Code + Cowork.",
+    color: "#ec4899",
+    logo: (
+      <span className="text-sm font-bold text-orange-400">A</span>
+    ),
+  },
+  {
+    name: "xAI",
+    metric: "$3B+",
+    metricLabel: "est. ARR",
+    detail: "Grok powers X/Twitter. Colossus 2 cluster in Mississippi.",
+    color: "#f472b6",
+    logo: (
+      <span className="text-sm font-bold text-white">xAI</span>
+    ),
+  },
+  {
+    name: "DeepSeek",
+    metric: "$1B+",
+    metricLabel: "est. ARR",
+    detail: "Open-source models. R1 reasoning drives enterprise adoption.",
+    color: "#f9a8d4",
+    logo: (
+      <span className="text-sm font-bold text-blue-300">DS</span>
+    ),
+  },
+  {
+    name: "Meta AI",
+    metric: "$5B+",
+    metricLabel: "est. compute",
+    detail: "Llama 4 open-source. Largest in-house GPU fleet.",
+    color: "#f0abfc",
+    logo: (
+      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
+        <path
+          d="M4 18C4 12 6 6 9 6c2 0 3.5 3 3.5 3S14 6 16 6c3 0 5 6 5 12"
+          stroke="#f0abfc"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+  },
 ];
 
 const smallCategories = [
@@ -98,10 +219,9 @@ export default function WhoIsBuying() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + i * 0.06 }}
               >
-                <div
-                  className="w-2.5 h-2.5 rounded-full mx-auto mb-1.5"
-                  style={{ backgroundColor: c.color }}
-                />
+                <div className="flex items-center justify-center mb-1.5">
+                  {hyperscalerLogos[c.company]}
+                </div>
                 <p className="text-sm font-heading font-bold text-white">
                   {c.company}
                 </p>
@@ -136,19 +256,30 @@ export default function WhoIsBuying() {
             {aiLabs.map((lab, i) => (
               <motion.div
                 key={i}
-                className="bg-navy-700/30 rounded-lg px-3 py-2 text-center"
+                className="bg-navy-700/30 border border-purple-500/10 rounded-lg px-3 py-2.5"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 + i * 0.05 }}
               >
-                <p className="text-sm font-heading font-bold text-white">
-                  {lab.name}
-                </p>
-                <p
-                  className="text-xs font-mono font-bold mt-0.5"
-                  style={{ color: lab.color }}
-                >
-                  {lab.metric}
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  {lab.logo}
+                  <span className="text-sm font-heading font-bold text-white">
+                    {lab.name}
+                  </span>
+                </div>
+                <div className="mb-1">
+                  <span
+                    className="text-base font-mono font-bold"
+                    style={{ color: lab.color }}
+                  >
+                    {lab.metric}
+                  </span>
+                  <span className="text-xs text-slate-500 ml-1">
+                    {lab.metricLabel}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-500 leading-snug line-clamp-1">
+                  {lab.detail}
                 </p>
               </motion.div>
             ))}

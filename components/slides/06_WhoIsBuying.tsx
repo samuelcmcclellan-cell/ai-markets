@@ -2,35 +2,23 @@
 import { motion } from "framer-motion";
 import { Server, Brain, Building2, Globe, Briefcase } from "lucide-react";
 
-const capexBar = [
-  { company: "Amazon", capex: 200, color: "#ff9900" },
-  { company: "Alphabet", capex: 180, color: "#4285f4" },
-  { company: "Microsoft", capex: 130, color: "#00a4ef" },
-  { company: "Meta", capex: 125, color: "#0668e1" },
-  { company: "Oracle", capex: 50, color: "#f80000" },
+const hyperscalers = [
+  { company: "Amazon", capex: "$200B", color: "#ff9900" },
+  { company: "Alphabet", capex: "$180B", color: "#4285f4" },
+  { company: "Microsoft", capex: "$130B", color: "#00a4ef" },
+  { company: "Meta", capex: "$125B", color: "#0668e1" },
+  { company: "Oracle", capex: "$50B", color: "#f80000" },
 ];
-const totalCapex = 685;
 
-const buyerCategories = [
-  {
-    icon: Server,
-    name: "Hyperscalers",
-    color: "#f59e0b",
-    bg: "bg-amber-500/5",
-    border: "border-amber-500/15",
-    summary: "$685B in 2026. Supply-constrained, not demand-constrained.",
-    companies: ["Amazon", "Alphabet", "Microsoft", "Meta", "Oracle"],
-  },
-  {
-    icon: Brain,
-    name: "AI Labs",
-    color: "#ec4899",
-    bg: "bg-pink-500/5",
-    border: "border-pink-500/15",
-    summary:
-      "Building the models. Consuming compute through cloud partnerships.",
-    companies: ["OpenAI", "Anthropic", "xAI", "DeepSeek", "Meta AI"],
-  },
+const aiLabs = [
+  { name: "OpenAI", metric: "~$25B ARR", color: "#a855f7" },
+  { name: "Anthropic", metric: "~$19B ARR", color: "#ec4899" },
+  { name: "xAI", metric: "Colossus 2", color: "#f472b6" },
+  { name: "DeepSeek", metric: "Open-source", color: "#f9a8d4" },
+  { name: "Meta AI", metric: "Llama 4", color: "#f0abfc" },
+];
+
+const smallCategories = [
   {
     icon: Building2,
     name: "Neoclouds",
@@ -73,7 +61,7 @@ export default function WhoIsBuying() {
           Who Is Buying All These Chips?
         </motion.h2>
         <motion.p
-          className="text-lg md:text-xl font-heading font-bold text-white mb-5"
+          className="text-lg md:text-xl font-heading font-bold text-white mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -82,70 +70,119 @@ export default function WhoIsBuying() {
           <span className="text-amber-400">broadening</span>.
         </motion.p>
 
-        {/* Hero: Horizontal stacked capex bar */}
+        {/* Row 1: Hyperscalers — largest section */}
         <motion.div
-          className="mb-1"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          className="bg-amber-500/5 border border-amber-500/15 rounded-xl p-4 mb-3"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <div className="flex h-14 rounded-lg overflow-hidden">
-            {capexBar.map((seg, i) => (
+          <div className="flex items-center gap-2 mb-3">
+            <Server className="w-6 h-6 text-amber-400" />
+            <h3 className="text-sm font-heading font-bold text-amber-400">
+              Hyperscalers
+            </h3>
+            <span className="text-xs text-slate-500 ml-auto">
+              <span className="font-mono font-bold text-amber-400">$685B</span>{" "}
+              combined 2026 capex &middot;{" "}
+              <span className="font-mono font-bold text-amber-400">75%</span>{" "}
+              AI-related
+            </span>
+          </div>
+          <div className="grid grid-cols-5 gap-3">
+            {hyperscalers.map((c, i) => (
               <motion.div
                 key={i}
-                className="relative flex items-center justify-center overflow-hidden"
-                style={{
-                  width: `${(seg.capex / totalCapex) * 100}%`,
-                  backgroundColor: seg.color,
-                }}
-                initial={{ scaleX: 0, transformOrigin: "left" }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.25 + i * 0.08, duration: 0.5 }}
+                className="bg-navy-700/30 rounded-lg p-3 text-center"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + i * 0.06 }}
               >
-                <span className="text-xs font-mono font-bold text-white whitespace-nowrap drop-shadow-sm">
-                  {seg.company} ${seg.capex}B
-                </span>
+                <div
+                  className="w-2.5 h-2.5 rounded-full mx-auto mb-1.5"
+                  style={{ backgroundColor: c.color }}
+                />
+                <p className="text-sm font-heading font-bold text-white">
+                  {c.company}
+                </p>
+                <p
+                  className="text-xl font-mono font-bold mt-1"
+                  style={{ color: c.color }}
+                >
+                  {c.capex}
+                </p>
               </motion.div>
             ))}
           </div>
-          <div className="flex justify-between mt-1.5">
-            <span className="text-xs text-slate-500">
-              <span className="font-mono font-bold text-amber-400">$685B</span>{" "}
-              Total 2026 Capex
+        </motion.div>
+
+        {/* Row 2: AI Labs — medium section */}
+        <motion.div
+          className="bg-pink-500/5 border border-pink-500/15 rounded-xl p-4 mb-3"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.55 }}
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <Brain className="w-6 h-6 text-pink-400" />
+            <h3 className="text-sm font-heading font-bold text-pink-400">
+              AI Labs
+            </h3>
+            <span className="text-xs text-slate-500 ml-auto">
+              Building the models. Consuming compute through cloud partnerships.
             </span>
-            <span className="text-xs text-slate-500">
-              <span className="font-mono font-bold text-amber-400">75%</span>{" "}
-              AI-Related
-            </span>
+          </div>
+          <div className="grid grid-cols-5 gap-3">
+            {aiLabs.map((lab, i) => (
+              <motion.div
+                key={i}
+                className="bg-navy-700/30 rounded-lg px-3 py-2 text-center"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 + i * 0.05 }}
+              >
+                <p className="text-sm font-heading font-bold text-white">
+                  {lab.name}
+                </p>
+                <p
+                  className="text-xs font-mono font-bold mt-0.5"
+                  style={{ color: lab.color }}
+                >
+                  {lab.metric}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 
-        {/* Five buyer category cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-4 mt-5">
-          {buyerCategories.map((cat, i) => {
+        {/* Row 3: Neoclouds, Governments, Enterprises — equal, smaller */}
+        <div className="grid grid-cols-3 gap-3 mb-3">
+          {smallCategories.map((cat, i) => {
             const Icon = cat.icon;
             return (
               <motion.div
                 key={i}
-                className={`${cat.bg} border ${cat.border} rounded-xl p-3 flex flex-col`}
+                className={`${cat.bg} border ${cat.border} rounded-xl p-3`}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + i * 0.08 }}
+                transition={{ delay: 0.8 + i * 0.08 }}
               >
-                <Icon
-                  className="w-6 h-6 mb-2 flex-shrink-0"
-                  style={{ color: cat.color }}
-                />
-                <h3
-                  className="text-sm font-heading font-bold mb-1"
-                  style={{ color: cat.color }}
-                >
-                  {cat.name}
-                </h3>
-                <p className="text-xs text-slate-400 leading-snug mb-3">
+                <div className="flex items-center gap-2 mb-2">
+                  <Icon
+                    className="w-5 h-5 flex-shrink-0"
+                    style={{ color: cat.color }}
+                  />
+                  <h3
+                    className="text-sm font-heading font-bold"
+                    style={{ color: cat.color }}
+                  >
+                    {cat.name}
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-400 leading-snug mb-2">
                   {cat.summary}
                 </p>
-                <div className="flex flex-wrap gap-1 mt-auto">
+                <div className="flex flex-wrap gap-1">
                   {cat.companies.map((c, j) => (
                     <span
                       key={j}

@@ -10,7 +10,7 @@ const takeaways = [
   {
     number: "02",
     headline: "The market is already picking winners — and the basket trade is over.",
-    detail: "Correlation across the big AI stocks has collapsed from 80% to 20% since mid-2025. The market is no longer buying \"AI\" as a theme — it's differentiating between companies that control scarce physical resources and those that don't. Semis up ~40% YTD, software down ~25%. Within infrastructure, memory makers with oligopoly pricing power are outperforming cloud providers burning cash. The investable question is which constraints persist and which get solved.",
+    detail: "Correlation across the big AI stocks has collapsed from 80% to 20% since mid-2025. The market is no longer buying \"AI\" as a theme — it's differentiating between companies that control scarce physical resources and those that don't. Semis (SOXX) up ~13% YTD, software (IGV) down ~20%. Within infrastructure, memory makers with oligopoly pricing power are outperforming cloud providers burning cash. The investable question is which constraints persist and which get solved.",
   },
   {
     number: "03",

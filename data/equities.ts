@@ -2,7 +2,7 @@ export const memoryEquities = [
   {
     ticker: "MU",
     company: "Micron Technology",
-    ytd2026: "+54%",
+    ytd2026: "+62%",
     trailing12m: "+242%",
     fwdPE: "~11x",
     wallStreetEps2026: "$31.20",
@@ -15,7 +15,7 @@ export const memoryEquities = [
   {
     ticker: "000660.KS",
     company: "SK Hynix",
-    ytd2026: "+49%",
+    ytd2026: "+49%", // TODO: verify YTD as of March 19, 2026
     trailing12m: "strong",
     fwdPE: "Korea-listed",
     revenueQ4: "30.7T KRW",
@@ -26,7 +26,7 @@ export const memoryEquities = [
   {
     ticker: "005930.KS",
     company: "Samsung Electronics",
-    ytd2026: "+57%",
+    ytd2026: "+57%", // TODO: verify YTD as of March 19, 2026
     trailing12m: "recovering",
     fwdPE: "Korea-listed",
     memoryOpGrowth: "+250% YoY",
@@ -46,15 +46,15 @@ export const softwareDeclines = [
 ];
 
 export const hardwarePerformance = [
-  { ticker: "SOXX", name: "Semiconductor ETF", ytd: "+39.7%" },
-  { ticker: "MU", name: "Micron", ytd: "+54%" },
+  { ticker: "SOXX", name: "Semiconductor ETF", ytd: "+13%" },
+  { ticker: "MU", name: "Micron", ytd: "+62%" },
   { ticker: "005930.KS", name: "Samsung", ytd: "+57%" },
   { ticker: "000660.KS", name: "SK Hynix", ytd: "+49%" },
   { ticker: "TSM", name: "TSMC", ytd: "+20%" },
 ];
 
 export const softwarePerformance = [
-  { ticker: "IGV", name: "Software ETF", ytd: "-25%" },
+  { ticker: "IGV", name: "Software ETF", ytd: "-20%" },
   { ticker: "CRM", name: "Salesforce", ytd: "-30%" },
   { ticker: "ADBE", name: "Adobe", ytd: "-27%" },
   { ticker: "SHOP", name: "Shopify", ytd: "-26%" },

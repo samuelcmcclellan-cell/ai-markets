@@ -15,7 +15,7 @@ const statements = [
   {
     headline: "The market is repricing everything.",
     supporting:
-      "Semiconductor stocks up ~40% YTD. Software stocks down ~25% YTD. The same AI wave is creating winners and losers simultaneously.",
+      "Semiconductor stocks (SOXX) up ~13% YTD. Software stocks (IGV) down ~20% YTD. A 33-point spread — the same AI wave is creating winners and losers simultaneously.",
   },
 ];
 

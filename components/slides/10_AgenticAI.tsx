@@ -22,7 +22,7 @@ const adoptionStats = [
   { label: "Market size 2026", value: "$8.5B", note: "→ $45B by 2030" },
 ];
 
-export default function WhatIsAgenticAI() {
+export default function AgenticAI() {
   return (
     <div className="slide-container">
       <div className="slide-content">

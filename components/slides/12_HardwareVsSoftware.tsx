@@ -44,9 +44,9 @@ export default function HardwareVsSoftware() {
 
         <motion.div className="bg-navy-700/30 border border-slate-700/30 rounded-lg p-5" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}>
           <p className="text-sm text-slate-300 leading-relaxed mb-3">
-            <span className="text-amber-400 font-medium">The Gold Rush analogy:</span> The people selling picks and shovels (hardware) are getting rich. The people panning for gold (software) are finding the river crowded.
+            <span className="text-amber-400 font-medium">The pattern:</span> Infrastructure providers are capturing the early value. Application builders are under pressure. This divergence reflects where capital is flowing today — not necessarily where it will flow tomorrow.
           </p>
-          <p className="text-xs text-slate-500">This divergence won&apos;t last forever. Eventually, the application layer will capture enormous value. But right now, in early 2026, the market is pricing the infrastructure buildout — not the applications on top of it.</p>
+          <p className="text-xs text-slate-500">Eventually, the application layer will capture enormous value. But right now, in early 2026, the market is pricing the buildout — not the apps on top of it.</p>
         </motion.div>
       </div>
     </div>

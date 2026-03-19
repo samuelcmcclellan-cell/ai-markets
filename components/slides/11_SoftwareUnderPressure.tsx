@@ -28,7 +28,7 @@ export default function SoftwareUnderPressure() {
     <div className="slide-container">
       <div className="slide-content">
         <motion.h2 className="text-sm uppercase tracking-widest text-emerald-400 font-mono mb-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>Software Under Pressure</motion.h2>
-        <motion.p className="text-xl md:text-2xl font-heading font-semibold text-white mb-2" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>The SaaSpocalypse</motion.p>
+        <motion.p className="text-xl md:text-2xl font-heading font-semibold text-white mb-2" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>The SaaS Reckoning</motion.p>
         <motion.p className="text-sm text-slate-400 mb-8 max-w-3xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
           The iShares Software ETF (IGV) is down ~25% YTD — while the broader tech sector (XLK) is down only ~3-5%. That divergence is nearly 4 standard deviations from the historical norm.
         </motion.p>

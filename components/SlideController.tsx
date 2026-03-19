@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 interface SlideControllerProps {
   slides: React.ReactNode[];
   sectionColors: string[];
+  sectionLabels: string[];
 }
 
 const contentVariants = {
@@ -26,6 +27,7 @@ const contentVariants = {
 export default function SlideController({
   slides,
   sectionColors,
+  sectionLabels,
 }: SlideControllerProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -35,6 +37,7 @@ export default function SlideController({
   const totalSlides = slides.length;
   const progress = ((currentSlide + 1) / totalSlides) * 100;
   const accentColor = sectionColors[currentSlide] || "#f59e0b";
+  const sectionLabel = sectionLabels[currentSlide] || "";
 
   const goTo = useCallback(
     (index: number) => {
@@ -93,7 +96,29 @@ export default function SlideController({
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Slide counter */}
+      {/* Section badge — top left */}
+      {sectionLabel && (
+        <motion.div
+          className="fixed top-4 left-6 z-50 flex items-center gap-2"
+          key={sectionLabel}
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div
+            className="w-1.5 h-1.5 rounded-full"
+            style={{ backgroundColor: accentColor }}
+          />
+          <span
+            className="text-[10px] uppercase tracking-[0.2em] font-mono font-medium"
+            style={{ color: accentColor }}
+          >
+            {sectionLabel}
+          </span>
+        </motion.div>
+      )}
+
+      {/* Slide counter — top right */}
       <div className="fixed top-4 right-6 z-50 text-sm text-slate-500 font-mono">
         {currentSlide + 1} / {totalSlides}
       </div>

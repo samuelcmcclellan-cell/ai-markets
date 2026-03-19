@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import {
   powerDemandGrowth,
   nuclearDeals,
+  solarData,
   gasTurbineData,
   spaceDataCenters,
   powerStats,
@@ -15,7 +16,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { Atom, Flame, Satellite } from "lucide-react";
+import { Atom, Sun, Flame, Satellite } from "lucide-react";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -51,7 +52,7 @@ export default function PowerSupply() {
           <span className="text-red-400">straining the power grid</span>.
         </motion.p>
 
-        {/* Key stats row */}
+        {/* Key stats row — problem framing */}
         <div className="grid grid-cols-4 gap-2 mb-4">
           <motion.div
             className="stat-card text-center py-2"
@@ -59,10 +60,8 @@ export default function PowerSupply() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <p className="text-lg font-mono font-bold text-red-400">
-              {powerStats.currentUSShare}
-            </p>
-            <p className="text-[9px] text-slate-500">US electricity today</p>
+            <p className="text-lg font-mono font-bold text-red-400">96 GW</p>
+            <p className="text-[9px] text-slate-500">Global DC critical IT power by 2026 (IEA)</p>
           </motion.div>
           <motion.div
             className="stat-card text-center py-2"
@@ -70,10 +69,8 @@ export default function PowerSupply() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
           >
-            <p className="text-lg font-mono font-bold text-amber-400">
-              {powerStats.projected2030Share}
-            </p>
-            <p className="text-[9px] text-slate-500">Projected by 2030</p>
+            <p className="text-lg font-mono font-bold text-amber-400">2,600 GW</p>
+            <p className="text-[9px] text-slate-500">US grid interconnection queue</p>
           </motion.div>
           <motion.div
             className="stat-card text-center py-2"
@@ -81,10 +78,8 @@ export default function PowerSupply() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <p className="text-lg font-mono font-bold text-blue-400">
-              {powerStats.singleClusterMW} MW
-            </p>
-            <p className="text-[9px] text-slate-500">Single GPU cluster</p>
+            <p className="text-lg font-mono font-bold text-blue-400">3–5 yrs</p>
+            <p className="text-[9px] text-slate-500">Average grid connection wait time</p>
           </motion.div>
           <motion.div
             className="stat-card text-center py-2"
@@ -92,10 +87,8 @@ export default function PowerSupply() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
           >
-            <p className="text-lg font-mono font-bold text-emerald-400">
-              {powerStats.metaLouisiana}
-            </p>
-            <p className="text-[9px] text-slate-500">Meta Louisiana facility</p>
+            <p className="text-lg font-mono font-bold text-emerald-400">$2T+</p>
+            <p className="text-[9px] text-slate-500">Estimated grid modernization cost</p>
           </motion.div>
         </div>
 
@@ -161,7 +154,7 @@ export default function PowerSupply() {
             </p>
           </motion.div>
 
-          {/* Right: Three power solutions stacked */}
+          {/* Right: Power solutions stacked */}
           <div className="space-y-2.5">
             {/* Nuclear Renaissance */}
             <motion.div
@@ -196,7 +189,37 @@ export default function PowerSupply() {
               </div>
             </motion.div>
 
-            {/* Gas Turbine Rush */}
+            {/* Solar & Storage */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.575 }}
+            >
+              <div className="flex items-center gap-2 mb-1.5">
+                <Sun className="w-4 h-4 text-amber-400" />
+                <h3 className="text-[10px] font-heading font-semibold text-amber-400 uppercase tracking-wider">
+                  Solar &amp; Storage
+                </h3>
+              </div>
+              <div className="space-y-1">
+                {solarData.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-2 bg-navy-700/20 rounded px-2 py-1"
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 bg-amber-400/60" />
+                    <p className="text-[9px] text-slate-400">
+                      <span className="font-semibold text-white">
+                        {item.label}:
+                      </span>{" "}
+                      {item.detail}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Behind-the-Meter Gas */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -208,6 +231,9 @@ export default function PowerSupply() {
                   Behind-the-Meter Gas
                 </h3>
               </div>
+              <p className="text-[8px] text-orange-300/60 mb-1 pl-6">
+                The only power source deployable in &lt;1 year behind the meter, bypassing the 3–5 year grid queue. The bridge fuel while nuclear and renewables scale.
+              </p>
               <div className="space-y-1">
                 {gasTurbineData.map((item, i) => (
                   <div

@@ -12,7 +12,7 @@ import {
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-// Marker positions [longitude, latitude]
+// Marker positions [longitude, latitude] — Qatar removed
 const markers = [
   { id: 0, label: "USA", coordinates: [-95, 40] as [number, number], region: "United States" },
   { id: 1, label: "Taiwan", coordinates: [121, 23.5] as [number, number], region: "Taiwan" },
@@ -20,18 +20,15 @@ const markers = [
   { id: 3, label: "Netherlands", coordinates: [5.3, 52.1] as [number, number], region: "Netherlands / Europe" },
   { id: 4, label: "Japan", coordinates: [139, 36] as [number, number], region: "Japan" },
   { id: 5, label: "China", coordinates: [104, 35] as [number, number], region: "China" },
-  { id: 6, label: "Qatar", coordinates: [51.2, 25.3] as [number, number], region: "Middle East (Qatar)" },
 ];
 
-// Supply chain dependency connections
+// Supply chain dependency connections — Qatar connections removed
 const connections = [
   { from: 0, to: 1 },  // US designs → Taiwan fab
   { from: 0, to: 3 },  // US → Netherlands equipment
   { from: 3, to: 1 },  // Netherlands EUV → Taiwan
   { from: 1, to: 2 },  // Taiwan → Korea packaging
   { from: 4, to: 1 },  // Japan materials → Taiwan
-  { from: 6, to: 2 },  // Qatar helium → Korea
-  { from: 6, to: 4 },  // Qatar helium → Japan
 ];
 
 export default function SupplyChainMap() {
@@ -157,7 +154,7 @@ export default function SupplyChainMap() {
                     y={-12}
                     style={{
                       fontFamily: "Inter, sans-serif",
-                      fontSize: isSelected ? "9px" : "8px",
+                      fontSize: isSelected ? "12px" : "11px",
                       fill: isSelected ? "#ffffff" : "#94a3b8",
                       fontWeight: isSelected ? 600 : 400,
                     }}
@@ -171,7 +168,7 @@ export default function SupplyChainMap() {
                       y={-3}
                       style={{
                         fontFamily: "Inter, sans-serif",
-                        fontSize: "6px",
+                        fontSize: "7px",
                         fill: color,
                         fontWeight: 500,
                       }}
@@ -209,14 +206,14 @@ export default function SupplyChainMap() {
                 <h3 className="text-base font-heading font-semibold text-white">
                   {selectedRegion.region}
                 </h3>
-                <span className="text-xs text-slate-500 ml-2">
+                <span className="text-sm text-slate-500 ml-2">
                   {selectedRegion.role}
                 </span>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed mb-2">
                 {selectedRegion.detail}
               </p>
-              <p className="text-[10px] text-red-400/80">
+              <p className="text-xs text-red-400/80">
                 Risk: {selectedRegion.risk}
               </p>
             </motion.div>
@@ -228,7 +225,7 @@ export default function SupplyChainMap() {
         </motion.div>
 
         <motion.p
-          className="text-xs text-slate-500 mt-2"
+          className="text-sm text-slate-500 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}

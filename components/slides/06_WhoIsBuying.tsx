@@ -53,8 +53,8 @@ export default function WhoIsBuying() {
           transition={{ delay: 0.25 }}
         >
           <div className="flex items-center gap-2 mb-2">
-            <Server className="w-4 h-4 text-amber-400" />
-            <h3 className="text-xs font-heading font-semibold text-amber-400 uppercase tracking-wide">
+            <Server className="w-5 h-5 text-amber-400" />
+            <h3 className="text-sm font-heading font-semibold text-amber-400 uppercase tracking-wide">
               Hyperscalers — $685B+ capex in 2026
             </h3>
           </div>
@@ -72,14 +72,14 @@ export default function WhoIsBuying() {
                     className="w-2 h-2 rounded-full flex-shrink-0"
                     style={{ backgroundColor: c.color }}
                   />
-                  <span className="text-[10px] font-heading font-semibold text-white truncate">
+                  <span className="text-sm font-heading font-bold text-white truncate">
                     {c.company.split(" (")[0]}
                   </span>
                 </div>
-                <span className="text-sm font-mono font-medium text-amber-400">
+                <span className="text-lg font-mono font-bold text-amber-400">
                   {c.capex2026}
                 </span>
-                <p className="text-[9px] text-slate-500 mt-1 leading-snug line-clamp-2">
+                <p className="text-xs text-slate-500 mt-1 leading-snug line-clamp-2">
                   {c.whySpending}
                 </p>
               </motion.div>
@@ -97,12 +97,12 @@ export default function WhoIsBuying() {
             transition={{ delay: 0.55 }}
           >
             <div className="flex items-center gap-2 mb-2">
-              <Building2 className="w-3.5 h-3.5 text-cyan-400" />
-              <h3 className="text-xs font-heading font-semibold text-cyan-400">
+              <Building2 className="w-5 h-5 text-cyan-400" />
+              <h3 className="text-sm font-heading font-semibold text-cyan-400">
                 Neoclouds
               </h3>
             </div>
-            <p className="text-[10px] text-slate-500 mb-2">
+            <p className="text-xs text-slate-500 mb-2">
               GPU-native challengers building AI-first infrastructure.
             </p>
             <div className="space-y-1.5">
@@ -110,10 +110,10 @@ export default function WhoIsBuying() {
                 <div key={i} className="flex items-start gap-2">
                   <div className="w-1 h-1 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0" />
                   <div>
-                    <span className="text-[10px] font-heading font-semibold text-white">
+                    <span className="text-xs font-heading font-bold text-white">
                       {n.name}
                     </span>
-                    <span className="text-[10px] text-slate-500 ml-1.5">
+                    <span className="text-[11px] text-slate-500 ml-1.5">
                       {n.detail}
                     </span>
                   </div>
@@ -130,12 +130,12 @@ export default function WhoIsBuying() {
             transition={{ delay: 0.65 }}
           >
             <div className="flex items-center gap-2 mb-2">
-              <Globe className="w-3.5 h-3.5 text-emerald-400" />
-              <h3 className="text-xs font-heading font-semibold text-emerald-400">
+              <Globe className="w-5 h-5 text-emerald-400" />
+              <h3 className="text-sm font-heading font-semibold text-emerald-400">
                 Sovereign Governments
               </h3>
             </div>
-            <p className="text-[10px] text-slate-500 mb-2">
+            <p className="text-xs text-slate-500 mb-2">
               Nations building domestic AI compute for strategic independence.
             </p>
             <div className="space-y-1.5">
@@ -143,10 +143,10 @@ export default function WhoIsBuying() {
                 <div key={i} className="flex items-start gap-2">
                   <div className="w-1 h-1 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0" />
                   <div>
-                    <span className="text-[10px] font-heading font-semibold text-white">
+                    <span className="text-xs font-heading font-bold text-white">
                       {s.name}
                     </span>
-                    <span className="text-[10px] text-slate-500 ml-1.5">
+                    <span className="text-[11px] text-slate-500 ml-1.5">
                       {s.detail}
                     </span>
                   </div>
@@ -163,12 +163,12 @@ export default function WhoIsBuying() {
             transition={{ delay: 0.75 }}
           >
             <div className="flex items-center gap-2 mb-2">
-              <Briefcase className="w-3.5 h-3.5 text-purple-400" />
-              <h3 className="text-xs font-heading font-semibold text-purple-400">
+              <Briefcase className="w-5 h-5 text-purple-400" />
+              <h3 className="text-sm font-heading font-semibold text-purple-400">
                 Enterprises
               </h3>
             </div>
-            <p className="text-[10px] text-slate-500 mb-2">
+            <p className="text-xs text-slate-500 mb-2">
               Companies building proprietary AI infrastructure in-house.
             </p>
             <div className="space-y-1.5">
@@ -176,10 +176,10 @@ export default function WhoIsBuying() {
                 <div key={i} className="flex items-start gap-2">
                   <div className="w-1 h-1 rounded-full bg-purple-400 mt-1.5 flex-shrink-0" />
                   <div>
-                    <span className="text-[10px] font-heading font-semibold text-white">
+                    <span className="text-xs font-heading font-bold text-white">
                       {e.name}
                     </span>
-                    <span className="text-[10px] text-slate-500 ml-1.5">
+                    <span className="text-[11px] text-slate-500 ml-1.5">
                       {e.detail}
                     </span>
                   </div>

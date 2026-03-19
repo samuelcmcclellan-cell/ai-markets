@@ -19,7 +19,7 @@ export default function HardwareVsSoftware() {
             <div className="space-y-2">
               {hardwarePerformance.map((stock, i) => (
                 <motion.div key={i} className="flex items-center justify-between bg-emerald-500/5 border border-emerald-500/10 rounded-lg px-4 py-3" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 + i * 0.08 }}>
-                  <div><span className="text-xs font-mono text-slate-500 mr-2">{stock.ticker}</span><span className="text-sm text-white">{stock.name}</span></div>
+                  <div><span className="text-sm text-white">{stock.name}</span></div>
                   <span className="text-sm font-mono font-medium text-emerald-400">{stock.ytd}</span>
                 </motion.div>
               ))}
@@ -34,7 +34,7 @@ export default function HardwareVsSoftware() {
             <div className="space-y-2">
               {softwarePerformance.map((stock, i) => (
                 <motion.div key={i} className="flex items-center justify-between bg-red-500/5 border border-red-500/10 rounded-lg px-4 py-3" initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 + i * 0.08 }}>
-                  <div><span className="text-xs font-mono text-slate-500 mr-2">{stock.ticker}</span><span className="text-sm text-white">{stock.name}</span></div>
+                  <div><span className="text-sm text-white">{stock.name}</span></div>
                   <span className="text-sm font-mono font-medium text-red-400">{stock.ytd}</span>
                 </motion.div>
               ))}

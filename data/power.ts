@@ -73,6 +73,12 @@ export const spaceDataCenters = [
   },
 ];
 
+export const solarData = [
+  { label: "Google / Amazon / Meta", detail: "15+ GW in solar PPAs combined. Largest corporate clean energy buyers globally" },
+  { label: "Battery co-location", detail: "4-hour lithium-ion storage paired with solar farms for partial baseload" },
+  { label: "Limitation", detail: "Intermittency — capacity factor ~25% vs nuclear ~93%. Can't serve 24/7 AI workloads alone" },
+];
+
 export const powerStats = {
   currentUSShare: "4.4%",
   projected2030Share: "12%",

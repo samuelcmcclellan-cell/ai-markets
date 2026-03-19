@@ -4,28 +4,23 @@ import { motion } from "framer-motion";
 const takeaways = [
   {
     number: "01",
-    headline: "AI infrastructure spending is accelerating, not peaking.",
-    detail: "$685B in hyperscaler capex for 2026. Supply-constrained, not demand-constrained. The open question is ROI timeline, not commitment level.",
+    headline: "This is the largest capital expenditure cycle in history — and it's being financed differently than you think.",
+    detail: "$685B in hyperscaler capex for 2026. But the financing has shifted: Morgan Stanley projects $400B+ in hyperscaler borrowing this year alone — more than double 2025. Alphabet issued a 100-year bond. Oracle's CDS has tripled. These companies are spending 90% of operating cash flow on capex, up from 65% last year. This is no longer a cash-flow story — it's a credit story. That changes the risk profile for anyone holding these names.",
   },
   {
     number: "02",
-    headline: "Memory bandwidth is the critical AI bottleneck.",
-    detail: "HBM sold out through 2026. Three companies control 95% of supply. Micron trades at ~11x forward earnings with triple-digit revenue growth. Capacity constraints are structural, not cyclical.",
+    headline: "The market is already picking winners — and the basket trade is over.",
+    detail: "Correlation across the big AI stocks has collapsed from 80% to 20% since mid-2025. The market is no longer buying \"AI\" as a theme — it's differentiating between companies that control scarce physical resources and those that don't. Semis up ~40% YTD, software down ~25%. Within infrastructure, memory makers with oligopoly pricing power are outperforming cloud providers burning cash. The investable question is which constraints persist and which get solved.",
   },
   {
     number: "03",
-    headline: "Agentic AI is compressing software valuations.",
-    detail: "35% enterprise adoption in under 2 years. Seat-based SaaS models face structural pressure. IGV -25% YTD while infrastructure rallies.",
+    headline: "The bottleneck keeps moving — and that's the opportunity.",
+    detail: "SemiAnalysis calls it 'whack-a-mole': the constraint has shifted from CoWoS packaging (2023-24) to silicon wafer supply (now) and will likely hit EUV lithography (<100 machines/year) by 2028. Each shift reprices a different part of the stack. Meanwhile, the consumer electronics spillover is real — memory prices are up 50%+ QoQ, PCs face 15–20% price hikes, and every HBM bit produced costs 3 bits of conventional DRAM. AI infrastructure costs are showing up in places your clients don't expect.",
   },
   {
     number: "04",
-    headline: "Supply chains, power grids, and politics are the new constraints.",
-    detail: "Geographic concentration in Taiwan and South Korea. Helium supply disrupted. Data center power demand growing 5x by 2030. Permitting bottlenecks extending timelines to 5-12 years.",
-  },
-  {
-    number: "05",
-    headline: "The AI buildout is a full-stack transformation.",
-    detail: "From silicon to software, energy to regulation — every layer of the economy is being repriced. The biggest returns will come from identifying which layer captures value next.",
+    headline: "Your clients already have significant AI exposure — whether they know it or not.",
+    detail: "AI-linked stocks now make up over 30% of US large-cap benchmarks. Anyone holding an S&P 500 index fund is making an implicit bet on $685B in annual capex paying off. That's not a sector allocation decision — it's a market-level concentration risk. And it cuts both ways: if the capex cycle delivers, today's valuations may look cheap. If it doesn't, the drawdown won't be confined to tech.",
   },
 ];
 
@@ -41,7 +36,7 @@ export default function KeyTakeaways() {
           Key Takeaways
         </motion.h2>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {takeaways.map((t, i) => (
             <motion.div
               key={i}
@@ -76,7 +71,7 @@ export default function KeyTakeaways() {
             <span className="text-slate-500 font-normal">— March 2026</span>
           </p>
           <p className="text-[10px] text-slate-600 mt-2 leading-relaxed">
-            Sources: Deloitte, Goldman Sachs, Bank of America, Gartner, MIT/BCG, CNBC, SK Hynix, Micron, Fitch Ratings, SIA, Counterpoint Research, WSTS, TrendForce, CRS, Kpler, WEF, IEA, EIA
+            Sources: Goldman Sachs, Morgan Stanley, Bank of America, Morningstar, SemiAnalysis, IEA, company filings
           </p>
         </motion.div>
       </div>

@@ -8,6 +8,7 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  ReferenceLine,
 } from "recharts";
 
 const semiRevenue = [
@@ -18,6 +19,33 @@ const semiRevenue = [
   { year: "2024", revenue: 627, ai: 250 },
   { year: "2025", revenue: 792, ai: 380 },
   { year: "2026E", revenue: 975, ai: 490 },
+];
+
+const companyCallouts = [
+  {
+    name: "NVIDIA",
+    color: "#22c55e",
+    stat: "~$130B+ FY2026 rev",
+    detail: "Data center dominant",
+  },
+  {
+    name: "TSMC",
+    color: "#3b82f6",
+    stat: "~$100B+ revenue",
+    detail: "Monopoly on advanced nodes",
+  },
+  {
+    name: "SK Hynix",
+    color: "#f59e0b",
+    stat: "Record HBM rev",
+    detail: "56% operating margin",
+  },
+  {
+    name: "ASML",
+    color: "#a855f7",
+    stat: "Equipment backlog",
+    detail: "<100 EUV machines/yr",
+  },
 ];
 
 const CustomTooltip = ({ active, payload, label }: any) => {
@@ -43,22 +71,30 @@ export default function SemiMarketSize() {
     <div className="slide-container">
       <div className="slide-content">
         <motion.h2
-          className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-4"
+          className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
           The Semiconductor Market
         </motion.h2>
         <motion.p
-          className="text-xl md:text-2xl font-heading font-semibold text-white mb-8"
+          className="text-xl md:text-2xl font-heading font-semibold text-white mb-1"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
         >
-          Approaching $1 Trillion
+          The $1 Trillion Semiconductor Market
+        </motion.p>
+        <motion.p
+          className="text-sm text-slate-400 mb-5"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          AI has flipped the growth engine. Memory and accelerators now drive the industry.
         </motion.p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <motion.div
             className="stat-card text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -69,9 +105,10 @@ export default function SemiMarketSize() {
               target={975}
               prefix="$"
               suffix="B"
-              className="text-xl md:text-2xl text-amber-400 font-bold"
+              className="text-2xl md:text-3xl text-amber-400 font-bold"
             />
-            <p className="text-xs text-slate-500 mt-1">2026E Revenue</p>
+            <p className="text-[11px] text-emerald-400 font-mono font-semibold">+25% YoY</p>
+            <p className="text-xs text-slate-500 mt-0.5">2026E Revenue</p>
           </motion.div>
           <motion.div
             className="stat-card text-center"
@@ -80,12 +117,13 @@ export default function SemiMarketSize() {
             transition={{ delay: 0.4 }}
           >
             <AnimatedCounter
-              target={200}
+              target={440}
               prefix="$"
               suffix="B"
-              className="text-xl md:text-2xl text-emerald-400 font-bold"
+              className="text-2xl md:text-3xl text-emerald-400 font-bold"
             />
-            <p className="text-xs text-slate-500 mt-1">Memory Market</p>
+            <p className="text-[11px] text-emerald-400 font-mono font-semibold">Memory Market</p>
+            <p className="text-xs text-slate-500 mt-0.5">HBM + DRAM + NAND</p>
           </motion.div>
           <motion.div
             className="stat-card text-center"
@@ -96,9 +134,10 @@ export default function SemiMarketSize() {
             <AnimatedCounter
               target={50}
               suffix="%"
-              className="text-xl md:text-2xl text-blue-400 font-bold"
+              className="text-2xl md:text-3xl text-blue-400 font-bold"
             />
-            <p className="text-xs text-slate-500 mt-1">AI Data Center Share</p>
+            <p className="text-[11px] text-blue-400 font-mono font-semibold">AI DC Share</p>
+            <p className="text-xs text-slate-500 mt-0.5">Of total data center spend</p>
           </motion.div>
           <motion.div
             className="stat-card text-center"
@@ -110,14 +149,15 @@ export default function SemiMarketSize() {
               target={133}
               prefix="$"
               suffix="B+"
-              className="text-xl md:text-2xl text-purple-400 font-bold"
+              className="text-2xl md:text-3xl text-purple-400 font-bold"
             />
-            <p className="text-xs text-slate-500 mt-1">Equipment (2025)</p>
+            <p className="text-[11px] text-purple-400 font-mono font-semibold">Equipment</p>
+            <p className="text-xs text-slate-500 mt-0.5">2025 WFE spend</p>
           </motion.div>
         </div>
 
         <motion.div
-          className="w-full h-[280px] md:h-[320px]"
+          className="w-full h-[220px] md:h-[260px] mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
@@ -147,6 +187,30 @@ export default function SemiMarketSize() {
                 tickFormatter={(v) => `$${v}B`}
               />
               <Tooltip content={<CustomTooltip />} />
+              <ReferenceLine
+                x="2023"
+                stroke="#f59e0b"
+                strokeDasharray="3 3"
+                strokeOpacity={0.5}
+                label={{
+                  value: "ChatGPT inflection",
+                  position: "top",
+                  fill: "#f59e0b",
+                  fontSize: 10,
+                }}
+              />
+              <ReferenceLine
+                x="2025"
+                stroke="#22c55e"
+                strokeDasharray="3 3"
+                strokeOpacity={0.5}
+                label={{
+                  value: "AI >50% of DC",
+                  position: "top",
+                  fill: "#22c55e",
+                  fontSize: 10,
+                }}
+              />
               <Area
                 type="monotone"
                 dataKey="revenue"
@@ -167,8 +231,35 @@ export default function SemiMarketSize() {
           </ResponsiveContainer>
         </motion.div>
 
-        <p className="text-xs text-slate-600 mt-4">
-          Source: WSTS, Deloitte, company estimates
+        {/* Company callout cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+          {companyCallouts.map((c, i) => (
+            <motion.div
+              key={i}
+              className="bg-navy-700/30 border border-slate-700/30 rounded-lg px-3 py-2 flex items-start gap-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9 + i * 0.07 }}
+            >
+              <div
+                className="w-2 h-2 rounded-full mt-1 flex-shrink-0"
+                style={{ backgroundColor: c.color }}
+              />
+              <div>
+                <span className="text-xs font-heading font-bold text-white">
+                  {c.name}
+                </span>
+                <p className="text-xs font-mono text-emerald-400 font-semibold">
+                  {c.stat}
+                </p>
+                <p className="text-[11px] text-slate-500">{c.detail}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <p className="text-xs text-slate-600">
+          Source: WSTS, Deloitte, SemiAnalysis, company filings
         </p>
       </div>
     </div>

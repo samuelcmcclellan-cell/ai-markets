@@ -91,10 +91,10 @@ export default function MemoryDeepDive() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 + i * 0.08 }}
             >
-              <p className="text-[11px] font-heading font-semibold text-white mb-0.5">
+              <p className="text-xs font-heading font-bold text-white mb-0.5">
                 {item.label}
               </p>
-              <p className="text-[10px] text-slate-400 leading-relaxed">
+              <p className="text-[11px] text-slate-400 leading-relaxed">
                 {item.detail}
               </p>
             </motion.div>
@@ -116,7 +116,7 @@ export default function MemoryDeepDive() {
             <div className="space-y-2">
               {bandwidth.map((b, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <span className="text-[9px] font-mono text-slate-400 w-11">
+                  <span className="text-xs font-mono text-slate-400 w-11">
                     {b.type}
                   </span>
                   <div className="flex-1 h-3.5 bg-navy-900 rounded-full overflow-hidden">
@@ -131,7 +131,7 @@ export default function MemoryDeepDive() {
                       transition={{ duration: 1, delay: 0.7 + i * 0.15 }}
                     />
                   </div>
-                  <span className="text-[9px] font-mono text-slate-300 w-16 text-right">
+                  <span className="text-xs font-mono text-slate-300 w-16 text-right">
                     {b.value}
                   </span>
                 </div>
@@ -163,12 +163,12 @@ export default function MemoryDeepDive() {
                   </defs>
                   <XAxis
                     dataKey="year"
-                    tick={{ fill: "#94a3b8", fontSize: 8 }}
+                    tick={{ fill: "#94a3b8", fontSize: 10 }}
                     axisLine={{ stroke: "#334155" }}
                     tickLine={false}
                   />
                   <YAxis
-                    tick={{ fill: "#94a3b8", fontSize: 8 }}
+                    tick={{ fill: "#94a3b8", fontSize: 10 }}
                     axisLine={{ stroke: "#334155" }}
                     tickLine={false}
                     tickFormatter={(v) => `$${v}`}
@@ -228,10 +228,10 @@ export default function MemoryDeepDive() {
                       className="w-2 h-2 rounded-full flex-shrink-0"
                       style={{ backgroundColor: entry.color }}
                     />
-                    <span className="text-[9px] text-slate-400">
+                    <span className="text-xs text-slate-400">
                       {entry.company}
                     </span>
-                    <span className="text-[9px] font-mono text-white ml-auto">
+                    <span className="text-xs font-mono font-bold text-white ml-auto">
                       {entry.share}%
                     </span>
                   </div>
@@ -258,14 +258,14 @@ export default function MemoryDeepDive() {
                 <span className="text-[9px] font-mono text-slate-500">
                   {stock.ticker}
                 </span>
-                <span className="text-xs font-mono font-medium text-emerald-400">
+                <span className="text-sm font-mono font-bold text-emerald-400">
                   {stock.ytd2026}
                 </span>
               </div>
-              <h4 className="text-[11px] font-heading font-semibold text-white mb-0.5">
+              <h4 className="text-sm font-heading font-semibold text-white mb-0.5">
                 {stock.company}
               </h4>
-              <div className="flex gap-3 text-[9px]">
+              <div className="flex gap-3 text-xs">
                 <span className="text-slate-500">
                   HBM: <span className="text-amber-400">{stock.hbmShare}</span>
                 </span>
@@ -286,8 +286,8 @@ export default function MemoryDeepDive() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}
         >
-          <p className="text-[11px] text-slate-300 leading-relaxed">
-            <span className="text-amber-400 font-heading font-semibold">Why agentic AI changes the math: </span>
+          <p className="text-xs text-slate-300 leading-relaxed">
+            <span className="text-amber-400 font-heading text-sm font-bold">Why agentic AI changes the math: </span>
             A single chatbot query loads the model once. An AI agent running a 20-step workflow
             holds the full context window open the entire time — and each step may trigger new inference calls.
             Multiply by millions of concurrent agents, and memory demand scales non-linearly.
@@ -295,7 +295,7 @@ export default function MemoryDeepDive() {
           </p>
         </motion.div>
 
-        <p className="text-[9px] text-slate-600 mt-2">
+        <p className="text-[10px] text-slate-600 mt-2">
           Source: Micron, Counterpoint Research, BofA, TrendForce, Bloomberg
         </p>
       </div>

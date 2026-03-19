@@ -1,17 +1,27 @@
 "use client";
 import { motion } from "framer-motion";
+import {
+  BookOpen,
+  BarChart3,
+  Brain,
+  Sparkles,
+  Lightbulb,
+  Bot,
+} from "lucide-react";
 
 const timeline = [
   {
-    year: "1950s–80s",
+    year: "1950s\u201380s",
     label: "Symbolic AI",
-    description: "Hand-coded rules. Expert systems. Could play chess but couldn't recognize a cat.",
+    icon: BookOpen,
+    description: "Hand-coded rules. Expert systems. Could play chess but couldn\u2019t recognize a cat.",
     color: "#475569",
     position: "above" as const,
   },
   {
-    year: "1990s–2000s",
+    year: "1990s\u20132000s",
     label: "Machine Learning",
+    icon: BarChart3,
     description: "Systems learn from data instead of rules. Statistical pattern recognition.",
     color: "#6366f1",
     position: "below" as const,
@@ -19,6 +29,7 @@ const timeline = [
   {
     year: "2012",
     label: "Deep Learning",
+    icon: Brain,
     description: "Neural networks with many layers. AlexNet wins ImageNet.",
     color: "#3b82f6",
     position: "above" as const,
@@ -26,22 +37,25 @@ const timeline = [
   {
     year: "Nov 2022",
     label: "ChatGPT",
-    description: "100M users in 2 months. Generative AI goes mainstream.",
+    icon: Sparkles,
+    description: "OpenAI\u2019s ChatGPT reaches 100M users in 2 months. Generative AI goes mainstream.",
     color: "#f59e0b",
     position: "inflection" as const,
     isInflection: true,
   },
   {
-    year: "2023–24",
+    year: "2023\u201324",
     label: "Reasoning",
-    description: "Chain-of-thought, multi-step logic. o-series, Claude extended thinking.",
+    icon: Lightbulb,
+    description: "Chain-of-thought, multi-step logic. DeepSeek R1 shocks the industry with open-source reasoning.",
     color: "#10b981",
     position: "below" as const,
   },
   {
     year: "2025+",
     label: "Agentic AI",
-    description: "Sets goals, uses tools, executes plans, iterates autonomously.",
+    icon: Bot,
+    description: "AI that sets goals, uses tools, and executes autonomously. Claude Code, OpenClaw, and Codex lead the shift.",
     color: "#f59e0b",
     position: "above" as const,
   },
@@ -50,7 +64,7 @@ const timeline = [
 const keyTerms = [
   { term: "Training", def: "Teaching the model. Massive compute, done once." },
   { term: "Inference", def: "Using the model. Scales with every user." },
-  { term: "Parameters", def: "The model's learned knowledge. GPT-4: ~1.8T." },
+  { term: "Parameters", def: "The model\u2019s learned knowledge. GPT-4: ~1.8T." },
   { term: "Context window", def: "How much text the model can process at once." },
 ];
 
@@ -66,14 +80,14 @@ export default function WhatIsAI() {
           What Is AI?
         </motion.h2>
         <motion.p
-          className="text-base md:text-lg font-heading font-semibold text-white mb-6"
+          className="text-sm text-white mb-6 max-w-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
         >
-          Seven decades of progress — and one{" "}
-          <span className="text-amber-400">inflection point</span> that changed
-          everything.
+          Artificial intelligence is software that learns from data, reasons
+          through problems, and takes action &mdash; increasingly without human
+          direction.
         </motion.p>
 
         {/* Horizontal timeline */}
@@ -93,16 +107,19 @@ export default function WhatIsAI() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + i * 0.12 }}
                   >
-                    <p className="text-xs font-heading font-bold text-white leading-tight">
-                      {item.label}
-                    </p>
+                    <div className="flex items-center justify-center gap-1 mb-0.5">
+                      <item.icon className="w-4 h-4" style={{ color: item.color }} />
+                      <p className="text-sm font-heading font-bold text-white leading-tight">
+                        {item.label}
+                      </p>
+                    </div>
                     <p
-                      className="text-[10px] font-mono mb-0.5"
+                      className="text-xs font-mono mb-0.5"
                       style={{ color: item.color }}
                     >
                       {item.year}
                     </p>
-                    <p className="text-[9px] text-slate-500 leading-tight">
+                    <p className="text-[11px] text-slate-500 leading-tight">
                       {item.description}
                     </p>
                   </motion.div>
@@ -178,13 +195,16 @@ export default function WhatIsAI() {
                       </span>
                       <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                     </div>
-                    <p className="text-sm font-heading font-bold text-amber-400">
-                      {item.label}
-                    </p>
+                    <div className="flex items-center justify-center gap-1 mb-0.5">
+                      <item.icon className="w-4 h-4" style={{ color: item.color }} />
+                      <p className="text-lg font-heading font-bold text-amber-400">
+                        {item.label}
+                      </p>
+                    </div>
                     <p className="text-[9px] font-mono text-amber-500/70">
                       {item.year}
                     </p>
-                    <p className="text-[8px] text-slate-400 leading-tight mt-0.5">
+                    <p className="text-[11px] text-slate-400 leading-tight mt-0.5">
                       {item.description}
                     </p>
                   </motion.div>
@@ -196,16 +216,19 @@ export default function WhatIsAI() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + i * 0.12 }}
                   >
-                    <p className="text-xs font-heading font-bold text-white leading-tight">
-                      {item.label}
-                    </p>
+                    <div className="flex items-center justify-center gap-1 mb-0.5">
+                      <item.icon className="w-4 h-4" style={{ color: item.color }} />
+                      <p className="text-sm font-heading font-bold text-white leading-tight">
+                        {item.label}
+                      </p>
+                    </div>
                     <p
-                      className="text-[10px] font-mono mb-0.5"
+                      className="text-xs font-mono mb-0.5"
                       style={{ color: item.color }}
                     >
                       {item.year}
                     </p>
-                    <p className="text-[9px] text-slate-500 leading-tight">
+                    <p className="text-[11px] text-slate-500 leading-tight">
                       {item.description}
                     </p>
                   </motion.div>
@@ -227,10 +250,10 @@ export default function WhatIsAI() {
               key={i}
               className="bg-navy-700/30 border border-slate-700/30 rounded-lg px-3 py-2"
             >
-              <span className="text-[10px] font-heading font-semibold text-blue-400">
+              <span className="text-xs font-heading font-semibold text-blue-400">
                 {t.term}
               </span>
-              <span className="text-[10px] text-slate-500 ml-1.5">{t.def}</span>
+              <span className="text-[11px] text-slate-500 ml-1.5">{t.def}</span>
             </div>
           ))}
         </motion.div>

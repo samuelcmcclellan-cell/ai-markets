@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 import {
   MessageSquare,
   Bot,
-  Clock,
   Coins,
   Database,
   Wrench,
-  FileText,
+  Brain,
+  Code,
+  GitBranch,
 } from "lucide-react";
 
 const comparison = [
@@ -18,28 +19,16 @@ const comparison = [
     agent: "Sets goals, executes autonomously",
   },
   {
-    dimension: "Session length",
-    icon: Clock,
-    chatbot: "Seconds to minutes",
-    agent: "Minutes to hours to days",
-  },
-  {
-    dimension: "Tokens / session",
-    icon: FileText,
-    chatbot: "~1K–5K",
-    agent: "~50K–500K+",
-  },
-  {
     dimension: "Compute / user",
     icon: Coins,
     chatbot: "1x",
-    agent: "10–100x",
+    agent: "10\u2013100x",
   },
   {
     dimension: "Memory",
     icon: Database,
-    chatbot: "Stateless — forgets between turns",
-    agent: "Persistent — retains context across sessions",
+    chatbot: "Stateless \u2014 forgets between turns",
+    agent: "Persistent \u2014 retains context across sessions",
   },
   {
     dimension: "Tools",
@@ -51,7 +40,7 @@ const comparison = [
 
 const evidence = [
   {
-    metric: "$1B → $19B",
+    metric: "$1B \u2192 $19B",
     label: "Anthropic ARR",
     context:
       "Jan 2025 to March 2026. Claude Code alone: $2.5B ARR in 9 months.",
@@ -69,17 +58,60 @@ const evidence = [
       "Single quarter (FY2026). Jensen Huang forecasts $1T in agentic AI infra demand.",
   },
   {
-    metric: "10–100x",
+    metric: "10\u2013100x",
     label: "Agentic Inference",
     context:
-      "More tokens per session vs. chatbot. Per-million-token cost fell 92% since 2023 — making this viable.",
+      "More tokens per session vs. chatbot. Per-million-token cost fell 92% since 2023 \u2014 making this viable.",
   },
 ];
 
 const adoption = [
-  "Gartner: 40% of enterprise apps will have AI agents by 2026 — up from <5% today",
+  "Gartner: 40% of enterprise apps will have AI agents by 2026 \u2014 up from <5% today",
   "82% of organizations plan to increase AI investment",
   "Salesforce AI revenue up 114% YoY",
+];
+
+const archComponents = [
+  {
+    key: "llm",
+    label: "LLM (Reasoning Engine)",
+    icon: Brain,
+    color: "#10b981",
+    bg: "bg-emerald-500/10",
+    border: "border-emerald-500/20",
+    textColor: "text-emerald-400",
+    desc: "Foundation model that reasons about next steps",
+  },
+  {
+    key: "context",
+    label: "Context / Memory",
+    icon: Database,
+    color: "#3b82f6",
+    bg: "bg-blue-500/10",
+    border: "border-blue-500/20",
+    textColor: "text-blue-400",
+    desc: "Persistent state, conversation history, RAG",
+  },
+  {
+    key: "software",
+    label: "Deterministic Software",
+    icon: Code,
+    color: "#f59e0b",
+    bg: "bg-amber-500/10",
+    border: "border-amber-500/20",
+    textColor: "text-amber-400",
+    desc: "Code execution, APIs, browsers, databases",
+  },
+  {
+    key: "orchestration",
+    label: "Orchestration",
+    icon: GitBranch,
+    color: "#94a3b8",
+    bg: "bg-slate-500/10",
+    border: "border-slate-500/20",
+    textColor: "text-slate-300",
+    desc: "Goal decomposition, tool selection, error recovery",
+  },
 ];
 
 export default function AgenticAI() {
@@ -104,14 +136,93 @@ export default function AgenticAI() {
           <span className="text-emerald-400">coworkers</span>.
         </motion.p>
         <motion.p
-          className="text-sm text-slate-400 mb-4 max-w-3xl"
+          className="text-sm text-slate-400 mb-3 max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          AI that doesn&apos;t wait for instructions — it sets goals, uses
+          AI that doesn&apos;t wait for instructions &mdash; it sets goals, uses
           tools, and completes tasks end-to-end. And it&apos;s happening now.
         </motion.p>
+
+        {/* Architecture Diagram */}
+        <motion.div
+          className="mb-4"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
+        >
+          <div className="relative">
+            {/* Orchestration wrapper */}
+            <div className="rounded-xl border border-slate-500/20 bg-slate-500/5 p-3 pt-2">
+              <div className="flex items-center gap-1.5 mb-2">
+                <GitBranch className="w-3 h-3 text-slate-400" />
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                  Orchestration Layer &mdash; Goal decomposition, tool selection, error recovery
+                </span>
+              </div>
+
+              <div className="flex flex-col items-center gap-1.5">
+                {/* LLM at top center */}
+                <div
+                  className={`${archComponents[0].bg} ${archComponents[0].border} border rounded-lg px-4 py-2 flex items-center gap-2.5 w-fit`}
+                >
+                  <Brain className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <div>
+                    <span className="text-xs font-heading font-semibold text-emerald-400">
+                      {archComponents[0].label}
+                    </span>
+                    <p className="text-[10px] text-slate-400">
+                      {archComponents[0].desc}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Arrows down */}
+                <div className="flex items-center gap-1 text-slate-500 text-xs font-mono">
+                  <span>\u2190 feeds</span>
+                  <span className="text-slate-600">\u2502</span>
+                  <span>calls \u2192</span>
+                </div>
+
+                {/* Context and Software side by side */}
+                <div className="flex items-stretch gap-4 w-full max-w-2xl">
+                  <div
+                    className={`flex-1 ${archComponents[1].bg} ${archComponents[1].border} border rounded-lg px-3 py-2 flex items-center gap-2.5`}
+                  >
+                    <Database className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                    <div>
+                      <span className="text-xs font-heading font-semibold text-blue-400">
+                        {archComponents[1].label}
+                      </span>
+                      <p className="text-[10px] text-slate-400">
+                        {archComponents[1].desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center text-slate-500 text-xs font-mono">
+                    \u2190 \u2192
+                  </div>
+
+                  <div
+                    className={`flex-1 ${archComponents[2].bg} ${archComponents[2].border} border rounded-lg px-3 py-2 flex items-center gap-2.5`}
+                  >
+                    <Code className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                    <div>
+                      <span className="text-xs font-heading font-semibold text-amber-400">
+                        {archComponents[2].label}
+                      </span>
+                      <p className="text-[10px] text-slate-400">
+                        {archComponents[2].desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Table + Evidence side by side */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-3">
@@ -130,7 +241,7 @@ export default function AgenticAI() {
               <div className="flex items-center gap-1.5">
                 <MessageSquare className="w-3 h-3 text-slate-500" />
                 <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wide">
-                  Chatbot (2023–24)
+                  Chatbot (2023&ndash;24)
                 </span>
               </div>
               <div className="flex items-center gap-1.5">

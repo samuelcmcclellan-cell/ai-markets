@@ -1,11 +1,92 @@
 "use client";
 import { motion } from "framer-motion";
-import { aiStack } from "@/data/stack";
-import { useState } from "react";
+import {
+  Layers,
+  Brain,
+  Cloud,
+  Network,
+  Package,
+  Database,
+  Cpu,
+  Factory,
+  Wrench,
+  Gem,
+} from "lucide-react";
+
+const stack = [
+  {
+    icon: Layers,
+    layer: "Applications & Agents",
+    color: "#a855f7",
+    description: "Copilots, AI agents, enterprise workflows. Where AI meets the end user.",
+    companies: "Salesforce, ServiceNow, Palantir",
+  },
+  {
+    icon: Brain,
+    layer: "Models & Platforms",
+    color: "#ec4899",
+    description: "Foundation models — the 'brains' trained on massive compute.",
+    companies: "OpenAI, Anthropic, Google DeepMind, Meta AI",
+  },
+  {
+    icon: Cloud,
+    layer: "Cloud / Data Centers",
+    color: "#ef4444",
+    description: "Hyperscalers that buy the hardware and rent compute to the world.",
+    companies: "AWS, Azure, GCP, Oracle, CoreWeave",
+  },
+  {
+    icon: Network,
+    layer: "Systems & Networking",
+    color: "#f59e0b",
+    description: "Servers, switches, optical interconnects — data center plumbing.",
+    companies: "Dell, HPE, Arista, Cisco, Coherent",
+  },
+  {
+    icon: Package,
+    layer: "Advanced Packaging",
+    color: "#14b8a6",
+    description: "Stacking chips together (CoWoS, HBM). A growing performance bottleneck.",
+    companies: "ASE, Amkor, TSMC (in-house)",
+  },
+  {
+    icon: Database,
+    layer: "Memory",
+    color: "#10b981",
+    description: "DRAM, NAND, and HBM — working memory for AI. Three companies control 95%.",
+    companies: "SK Hynix, Samsung, Micron",
+  },
+  {
+    icon: Cpu,
+    layer: "Chip Design",
+    color: "#06b6d4",
+    description: "Architects of GPUs, CPUs, and AI accelerators. Where equity gains concentrate.",
+    companies: "NVIDIA, AMD, Broadcom, Qualcomm",
+  },
+  {
+    icon: Factory,
+    layer: "Foundry / Fabrication",
+    color: "#3b82f6",
+    description: "Contract manufacturers turning designs into physical chips. TSMC dominates.",
+    companies: "TSMC (~90% advanced), Samsung, Intel",
+  },
+  {
+    icon: Wrench,
+    layer: "Equipment",
+    color: "#8b5cf6",
+    description: "The machines that make chips. ASML's EUV monopoly is the single biggest bottleneck.",
+    companies: "ASML, Applied Materials, Lam Research, TEL",
+  },
+  {
+    icon: Gem,
+    layer: "Raw Materials",
+    color: "#6b7280",
+    description: "Silicon, rare earths, helium, neon, photoresists. Commodity-level exposure.",
+    companies: "Shin-Etsu, BASF, Linde",
+  },
+];
 
 export default function TheAIStack() {
-  const [selected, setSelected] = useState<number | null>(null);
-
   return (
     <div className="slide-container">
       <div className="slide-content">
@@ -17,7 +98,7 @@ export default function TheAIStack() {
           The AI Stack
         </motion.h2>
         <motion.p
-          className="text-lg md:text-xl font-heading font-semibold text-white mb-8"
+          className="text-lg md:text-xl font-heading font-semibold text-white mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
@@ -25,93 +106,49 @@ export default function TheAIStack() {
           The full AI ecosystem — from raw materials to applications.
         </motion.p>
 
-        <div className="flex flex-col md:flex-row gap-6">
-          {/* Stack layers */}
-          <div className="flex-1 space-y-1">
-            {aiStack.map((layer, i) => (
-              <motion.button
-                key={i}
-                className={`w-full text-left px-4 py-2.5 rounded-lg transition-all flex items-center gap-3 ${
-                  selected === i
-                    ? "bg-navy-600 ring-1 ring-white/20"
-                    : "bg-navy-700/40 hover:bg-navy-700/70"
-                }`}
-                style={{
-                  borderLeft: `3px solid ${layer.color}`,
-                }}
-                onClick={() => setSelected(selected === i ? null : i)}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 + i * 0.05 }}
+        {/* Stack layers — all visible with inline descriptions */}
+        <div className="space-y-1.5">
+          {stack.map((layer, i) => (
+            <motion.div
+              key={i}
+              className="flex items-center gap-3 bg-navy-700/30 rounded-lg px-4 py-2.5 border-l-[3px]"
+              style={{ borderLeftColor: layer.color }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 + i * 0.06 }}
+            >
+              <div
+                className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{ backgroundColor: `${layer.color}15`, border: `1px solid ${layer.color}30` }}
               >
-                <div
-                  className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-                  style={{ backgroundColor: layer.color }}
-                />
-                <span className="text-sm font-heading font-medium text-white">
-                  {layer.layer}
-                </span>
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Detail panel */}
-          <motion.div
-            className="flex-1 stat-card min-h-[240px]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-          >
-            {selected !== null ? (
-              <motion.div
-                key={selected}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <div
-                    className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: aiStack[selected].color }}
-                  />
-                  <h3 className="text-lg font-heading font-semibold text-white">
-                    {aiStack[selected].layer}
-                  </h3>
-                </div>
-                <p className="text-sm text-slate-300 mb-4 leading-relaxed">
-                  {aiStack[selected].description}
-                </p>
-                <p className="text-xs text-slate-400 mb-2">
-                  <span className="text-slate-300 font-medium">
-                    Key companies:
-                  </span>{" "}
-                  {aiStack[selected].companies}
-                </p>
-                <p className="text-xs text-slate-400">
-                  <span className="text-slate-300 font-medium">
-                    Investability:
-                  </span>{" "}
-                  {aiStack[selected].investability}
-                </p>
-              </motion.div>
-            ) : (
-              <div className="flex items-center justify-center h-full text-slate-500 text-sm">
-                Click a layer to explore
+                <layer.icon className="w-4 h-4" style={{ color: layer.color }} />
               </div>
-            )}
-          </motion.div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-baseline gap-2 flex-wrap">
+                  <span className="text-sm font-heading font-semibold text-white">
+                    {layer.layer}
+                  </span>
+                  <span className="text-[10px] text-slate-500 font-mono">
+                    {layer.companies}
+                  </span>
+                </div>
+                <p className="text-[10px] text-slate-400 leading-relaxed">
+                  {layer.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         <motion.p
-          className="text-xs text-slate-500 mt-6 leading-relaxed max-w-3xl"
+          className="text-xs text-slate-500 mt-5 leading-relaxed max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
+          transition={{ delay: 1 }}
         >
-          When we talk about &quot;AI investing,&quot; we&apos;re really talking about ALL
-          of these layers. Most of the money so far has flowed into the middle of
-          the stack — chips, memory, and cloud. The question is whether the top
-          of the stack (applications) will ever justify the bottom.
+          Most investment has flowed into the middle of the stack — chips, memory,
+          and cloud. The question is whether the top of the stack (applications)
+          will ever justify the bottom.
         </motion.p>
       </div>
     </div>

@@ -30,9 +30,28 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   return null;
 };
 
+const whyMemoryMatters = [
+  {
+    label: "Every AI query loads the entire model into memory",
+    detail: "GPT-4 has ~1.8 trillion parameters. Each one needs to be read from memory during inference.",
+  },
+  {
+    label: "GPUs spend most of their time waiting for data",
+    detail: "Modern GPUs can compute faster than memory can feed them. This is the 'memory wall.'",
+  },
+  {
+    label: "Agentic AI multiplies memory demand",
+    detail: "Agents run multi-step workflows, hold context across tasks, and call tools — each step keeps the full context in memory.",
+  },
+  {
+    label: "Context windows are exploding",
+    detail: "From 4K tokens (GPT-3) to 1M+ (Gemini). Longer context = proportionally more memory per request.",
+  },
+];
+
 const bandwidth = [
   { type: "DDR5", value: "~50 GB/s", bar: 2 },
-  { type: "HBM3E", value: "~1.2 TB/s", bar: 48 },
+  { type: "HBM3E", value: "~1.2 TB/s", bar: 43 },
   { type: "HBM4", value: "~2.8 TB/s", bar: 100 },
 ];
 
@@ -41,41 +60,66 @@ export default function MemoryDeepDive() {
     <div className="slide-container">
       <div className="slide-content">
         <motion.h2
-          className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-4"
+          className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
           Memory & HBM
         </motion.h2>
         <motion.p
-          className="text-xl md:text-2xl font-heading font-semibold text-white mb-6"
+          className="text-lg md:text-xl font-heading font-semibold text-white mb-5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
         >
-          AI&apos;s real bottleneck is{" "}
-          <span className="text-amber-400">memory bandwidth</span>, not processing power.
+          AI&apos;s real bottleneck isn&apos;t processing power — it&apos;s{" "}
+          <span className="text-amber-400">memory bandwidth</span>.
         </motion.p>
 
-        {/* Top row: Bandwidth + HBM explainer */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+        {/* Why memory matters — the narrative */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.25 }}
+        >
+          {whyMemoryMatters.map((item, i) => (
+            <motion.div
+              key={i}
+              className="bg-navy-700/30 border-l-2 border-amber-500/40 rounded-r-lg px-3 py-2"
+              initial={{ opacity: 0, x: -15 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 + i * 0.08 }}
+            >
+              <p className="text-[11px] font-heading font-semibold text-white mb-0.5">
+                {item.label}
+              </p>
+              <p className="text-[10px] text-slate-400 leading-relaxed">
+                {item.detail}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Middle row: Bandwidth + HBM TAM + Market Share */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
           {/* Bandwidth bars */}
           <motion.div
             className="stat-card accent-border-amber"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25 }}
+            transition={{ delay: 0.6 }}
           >
-            <h3 className="text-xs font-heading font-semibold text-white mb-3">
-              Bandwidth Comparison
+            <h3 className="text-xs font-heading font-semibold text-white mb-2">
+              The Bandwidth Gap
             </h3>
-            <div className="space-y-2.5">
+            <div className="space-y-2">
               {bandwidth.map((b, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <span className="text-[10px] font-mono text-slate-400 w-12">
+                <div key={i} className="flex items-center gap-2">
+                  <span className="text-[9px] font-mono text-slate-400 w-11">
                     {b.type}
                   </span>
-                  <div className="flex-1 h-4 bg-navy-900 rounded-full overflow-hidden">
+                  <div className="flex-1 h-3.5 bg-navy-900 rounded-full overflow-hidden">
                     <motion.div
                       className="h-full rounded-full"
                       style={{
@@ -84,16 +128,16 @@ export default function MemoryDeepDive() {
                       }}
                       initial={{ width: 0 }}
                       animate={{ width: `${b.bar}%` }}
-                      transition={{ duration: 1, delay: 0.5 + i * 0.15 }}
+                      transition={{ duration: 1, delay: 0.7 + i * 0.15 }}
                     />
                   </div>
-                  <span className="text-[10px] font-mono text-slate-300 w-16 text-right">
+                  <span className="text-[9px] font-mono text-slate-300 w-16 text-right">
                     {b.value}
                   </span>
                 </div>
               ))}
             </div>
-            <p className="text-[9px] text-slate-600 mt-2">
+            <p className="text-[8px] text-slate-600 mt-1.5">
               HBM4 delivers 56x the bandwidth of standard DDR5
             </p>
           </motion.div>
@@ -101,14 +145,14 @@ export default function MemoryDeepDive() {
           {/* HBM TAM chart */}
           <motion.div
             className="stat-card"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
+            transition={{ delay: 0.7 }}
           >
-            <h3 className="text-xs font-heading font-semibold text-white mb-2">
-              HBM TAM Growth ($B)
+            <h3 className="text-xs font-heading font-semibold text-white mb-1.5">
+              HBM TAM ($B)
             </h3>
-            <div className="h-[130px]">
+            <div className="h-[100px]">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={hbmTam}>
                   <defs>
@@ -119,16 +163,16 @@ export default function MemoryDeepDive() {
                   </defs>
                   <XAxis
                     dataKey="year"
-                    tick={{ fill: "#94a3b8", fontSize: 9 }}
+                    tick={{ fill: "#94a3b8", fontSize: 8 }}
                     axisLine={{ stroke: "#334155" }}
                     tickLine={false}
                   />
                   <YAxis
-                    tick={{ fill: "#94a3b8", fontSize: 9 }}
+                    tick={{ fill: "#94a3b8", fontSize: 8 }}
                     axisLine={{ stroke: "#334155" }}
                     tickLine={false}
-                    tickFormatter={(v) => `$${v}B`}
-                    width={40}
+                    tickFormatter={(v) => `$${v}`}
+                    width={32}
                   />
                   <Tooltip content={<CustomTooltip />} />
                   <Area
@@ -142,22 +186,22 @@ export default function MemoryDeepDive() {
                 </AreaChart>
               </ResponsiveContainer>
             </div>
-            <p className="text-[9px] text-slate-500 mt-1">
-              ~40% CAGR: $4B (2023) → $100B (2028)
+            <p className="text-[8px] text-slate-500 mt-1">
+              25x growth: $4B (2023) → $100B (2028E)
             </p>
           </motion.div>
 
           {/* Market share donut */}
           <motion.div
             className="stat-card"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45 }}
+            transition={{ delay: 0.8 }}
           >
-            <h3 className="text-xs font-heading font-semibold text-white mb-2">
-              HBM Market Share (Q2 2025)
+            <h3 className="text-xs font-heading font-semibold text-white mb-1.5">
+              Only 3 Companies Make HBM
             </h3>
-            <div className="h-[110px] flex items-center">
+            <div className="h-[90px] flex items-center">
               <div className="w-1/2 h-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -165,8 +209,8 @@ export default function MemoryDeepDive() {
                       data={hbmMarketShare}
                       cx="50%"
                       cy="50%"
-                      innerRadius={30}
-                      outerRadius={48}
+                      innerRadius={25}
+                      outerRadius={40}
                       dataKey="share"
                       strokeWidth={0}
                     >
@@ -184,44 +228,44 @@ export default function MemoryDeepDive() {
                       className="w-2 h-2 rounded-full flex-shrink-0"
                       style={{ backgroundColor: entry.color }}
                     />
-                    <span className="text-[10px] text-slate-400">
+                    <span className="text-[9px] text-slate-400">
                       {entry.company}
                     </span>
-                    <span className="text-[10px] font-mono text-white ml-auto">
+                    <span className="text-[9px] font-mono text-white ml-auto">
                       {entry.share}%
                     </span>
                   </div>
                 ))}
               </div>
             </div>
-            <p className="text-[9px] text-slate-500 mt-1">
-              Only 3 companies worldwide can produce HBM
+            <p className="text-[8px] text-slate-500 mt-1">
+              SK Hynix is NVIDIA&apos;s primary HBM supplier
             </p>
           </motion.div>
         </div>
 
         {/* Equity cards row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-3">
           {memoryEquities.map((stock, i) => (
             <motion.div
               key={i}
-              className="bg-navy-700/30 border border-slate-700/30 rounded-lg p-3"
-              initial={{ opacity: 0, y: 15 }}
+              className="bg-navy-700/30 border border-slate-700/30 rounded-lg p-2.5"
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 + i * 0.1 }}
+              transition={{ delay: 0.9 + i * 0.08 }}
             >
-              <div className="flex items-baseline justify-between mb-1">
-                <span className="text-[10px] font-mono text-slate-500">
+              <div className="flex items-baseline justify-between mb-0.5">
+                <span className="text-[9px] font-mono text-slate-500">
                   {stock.ticker}
                 </span>
-                <span className="text-sm font-mono font-medium text-emerald-400">
+                <span className="text-xs font-mono font-medium text-emerald-400">
                   {stock.ytd2026}
                 </span>
               </div>
-              <h4 className="text-xs font-heading font-semibold text-white mb-1">
+              <h4 className="text-[11px] font-heading font-semibold text-white mb-0.5">
                 {stock.company}
               </h4>
-              <div className="flex gap-3 text-[10px]">
+              <div className="flex gap-3 text-[9px]">
                 <span className="text-slate-500">
                   HBM: <span className="text-amber-400">{stock.hbmShare}</span>
                 </span>
@@ -235,30 +279,23 @@ export default function MemoryDeepDive() {
           ))}
         </div>
 
-        {/* Bottom stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-          {[
-            { label: "DRAM ASP Forecast", value: "+33% YoY" },
-            { label: "Memory Prices (2025)", value: "+246%" },
-            { label: "Total Memory Market", value: "$200B" },
-            { label: "HBM TAM 2028E", value: "$100B" },
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              className="bg-navy-700/20 rounded-lg p-2 text-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 + i * 0.06 }}
-            >
-              <p className="text-xs font-mono font-medium text-amber-400">
-                {stat.value}
-              </p>
-              <p className="text-[9px] text-slate-500">{stat.label}</p>
-            </motion.div>
-          ))}
-        </div>
+        {/* Agentic AI callout */}
+        <motion.div
+          className="bg-amber-500/5 border border-amber-500/20 rounded-lg px-4 py-2.5"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1 }}
+        >
+          <p className="text-[11px] text-slate-300 leading-relaxed">
+            <span className="text-amber-400 font-heading font-semibold">Why agentic AI changes the math: </span>
+            A single chatbot query loads the model once. An AI agent running a 20-step workflow
+            holds the full context window open the entire time — and each step may trigger new inference calls.
+            Multiply by millions of concurrent agents, and memory demand scales non-linearly.
+            This is why HBM is the supply chain&apos;s tightest constraint.
+          </p>
+        </motion.div>
 
-        <p className="text-xs text-slate-600 mt-3">
+        <p className="text-[9px] text-slate-600 mt-2">
           Source: Micron, Counterpoint Research, BofA, TrendForce, Bloomberg
         </p>
       </div>

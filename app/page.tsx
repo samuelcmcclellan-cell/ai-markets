@@ -8,7 +8,6 @@ import BubbleDebunk from "@/components/slides/04_BubbleDebunk";
 import TheAIStack from "@/components/slides/04_TheAIStack";
 import SupplyChainMap from "@/components/slides/05_SupplyChainMap";
 import WhoIsBuying from "@/components/slides/06_WhoIsBuying";
-import HyperscalerCapex from "@/components/slides/07_HyperscalerCapex";
 import SemiMarketSize from "@/components/slides/08_SemiMarketSize";
 import MemoryDeepDive from "@/components/slides/09_MemoryDeepDive";
 import AgenticAI from "@/components/slides/10_AgenticAI";
@@ -27,16 +26,15 @@ const slides = [
   <TheAIStack key="05" />,
   <SupplyChainMap key="06" />,
   <WhoIsBuying key="07" />,
-  <HyperscalerCapex key="08" />,
-  <SemiMarketSize key="09" />,
-  <MemoryDeepDive key="10" />,
-  <AgenticAI key="11" />,
-  <SoftwareUnderPressure key="12" />,
-  <HardwareVsSoftware key="13" />,
-  <SupplyChainRisk key="14" />,
-  <PowerSupply key="15" />,
-  <PoliticalChallenges key="16" />,
-  <KeyTakeaways key="17" />,
+  <SemiMarketSize key="08" />,
+  <MemoryDeepDive key="09" />,
+  <AgenticAI key="10" />,
+  <SoftwareUnderPressure key="11" />,
+  <HardwareVsSoftware key="12" />,
+  <SupplyChainRisk key="13" />,
+  <PowerSupply key="14" />,
+  <PoliticalChallenges key="15" />,
+  <KeyTakeaways key="16" />,
 ];
 
 // Section color per slide
@@ -48,16 +46,15 @@ const sectionColors = [
   "#3b82f6", // 5  AI Stack         - THE LANDSCAPE
   "#3b82f6", // 6  Supply Chain     - THE LANDSCAPE
   "#f59e0b", // 7  Who Is Buying    - THE MONEY
-  "#f59e0b", // 8  Capex            - THE MONEY
-  "#f59e0b", // 9  Semi Market      - THE MONEY
-  "#f59e0b", // 10 Memory Deep Dive - THE MONEY
-  "#10b981", // 11 Agentic AI       - THE SHIFTS
-  "#10b981", // 12 Software         - THE SHIFTS
-  "#10b981", // 13 HW vs SW         - THE SHIFTS
-  "#ef4444", // 14 Supply Chain Risk- THE RISKS
-  "#ef4444", // 15 Power Supply     - THE RISKS
-  "#ef4444", // 16 Political        - THE RISKS
-  "#f59e0b", // 17 Key Takeaways
+  "#f59e0b", // 8  Semi Market      - THE MONEY
+  "#f59e0b", // 9  Memory Deep Dive - THE MONEY
+  "#10b981", // 10 Agentic AI       - THE SHIFTS
+  "#10b981", // 11 Software         - THE SHIFTS
+  "#10b981", // 12 HW vs SW         - THE SHIFTS
+  "#ef4444", // 13 Supply Chain Risk- THE RISKS
+  "#ef4444", // 14 Power Supply     - THE RISKS
+  "#ef4444", // 15 Political        - THE RISKS
+  "#f59e0b", // 16 Key Takeaways
 ];
 
 // Section labels shown as corner badges
@@ -68,7 +65,6 @@ const sectionLabels = [
   "THE DEBATE",
   "THE LANDSCAPE",
   "THE LANDSCAPE",
-  "THE MONEY",
   "THE MONEY",
   "THE MONEY",
   "THE MONEY",

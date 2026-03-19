@@ -1,0 +1,51 @@
+export const supplyChainRegions = [
+  {
+    region: "United States",
+    role: "Design & Software",
+    detail: "Dominates chip design (~50% of global revenue), EDA tools (Synopsys, Cadence = duopoly), and equipment. Home to NVIDIA, AMD, Broadcom, Qualcomm, Micron, Applied Materials. The 'brains' of the supply chain.",
+    highlight: "#3b82f6",
+    risk: "Export controls could backfire; limited advanced manufacturing capacity (improving via CHIPS Act)",
+  },
+  {
+    region: "Taiwan",
+    role: "The Factory Floor",
+    detail: "TSMC manufactures ~90% of the world's most advanced chips (sub-7nm). Apple, NVIDIA, AMD, Qualcomm all depend on TSMC. Taiwan also supplies ~20% of global advanced packaging.",
+    highlight: "#f59e0b",
+    risk: "Extreme geographic concentration. China tensions. Natural disaster exposure. SINGLE POINT OF FAILURE for global AI.",
+  },
+  {
+    region: "South Korea",
+    role: "Memory Capital",
+    detail: "Samsung + SK Hynix together control ~70% of DRAM and ~62% of HBM. SK Hynix is NVIDIA's primary memory supplier. Their HBM capacity is sold out through 2026.",
+    highlight: "#10b981",
+    risk: "Helium dependence on Qatar (65% of imports). Geopolitical proximity to North Korea.",
+  },
+  {
+    region: "Netherlands / Europe",
+    role: "The Gatekeeper",
+    detail: "ASML is the sole manufacturer of EUV lithography machines — the $380M tools required to print advanced chips. No ASML, no advanced chips. Period. NXP, Infineon, STMicro also based in Europe.",
+    highlight: "#8b5cf6",
+    risk: "Single-company dependency. Export control compliance with US/China rules.",
+  },
+  {
+    region: "Japan",
+    role: "Hidden Backbone",
+    detail: "Supplies ~50% of key semiconductor materials (wafers, photoresists, specialty chemicals). Tokyo Electron is a top-3 equipment maker. Shin-Etsu is the world's largest silicon wafer supplier.",
+    highlight: "#14b8a6",
+    risk: "Aging demographics. Yen volatility.",
+  },
+  {
+    region: "China",
+    role: "The Wildcard",
+    detail: "Largest aggregate wafer capacity by volume, but concentrated in mature nodes (28nm+). Rapidly building domestic ecosystem. SMIC, CXMT (memory), Huawei's HiSilicon. Cut off from advanced EUV equipment.",
+    highlight: "#ef4444",
+    risk: "Export controls limit access to leading-edge tech. Could accelerate self-sufficiency over 5-10 year horizon.",
+  },
+  {
+    region: "Middle East (Qatar)",
+    role: "Critical Gas Supplier",
+    detail: "Qatar supplies ~1/3 of global helium — essential for semiconductor fabrication. Helium has NO substitute. Also a major LNG supplier, powering data center energy grids.",
+    highlight: "#f59e0b",
+    risk: "CURRENTLY DISRUPTED by Iran/Hormuz conflict. Ras Laffan offline since March 2.",
+  },
+];

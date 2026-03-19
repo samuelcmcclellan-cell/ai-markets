@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-navy-900 text-slate-200 font-body;
+  }
+
+  ::selection {
+    @apply bg-amber-500/30 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full;
+  }
+}
+
+@layer components {
+  .slide-container {
+    @apply min-h-screen w-full flex flex-col items-center justify-center px-4 md:px-8 py-12 relative overflow-hidden;
+  }
+
+  .slide-content {
+    @apply w-full max-w-6xl mx-auto;
+  }
+
+  .stat-card {
+    @apply bg-navy-700/50 border border-slate-700/50 rounded-xl p-6 backdrop-blur-sm;
+  }
+
+  .accent-border-blue {
+    @apply border-t-2 border-t-blue-500;
+  }
+
+  .accent-border-amber {
+    @apply border-t-2 border-t-amber-500;
+  }
+
+  .accent-border-green {
+    @apply border-t-2 border-t-emerald-500;
+  }
+
+  .accent-border-red {
+    @apply border-t-2 border-t-red-500;
+  }
+}
+
+@layer utilities {
+  .text-gradient-amber {
+    @apply bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(circle, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .glow-amber {
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.1);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.1);
+  }
+}

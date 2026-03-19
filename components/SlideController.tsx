@@ -1,0 +1,153 @@
+"use client";
+
+import { useState, useEffect, useCallback, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+interface SlideControllerProps {
+  slides: React.ReactNode[];
+  sectionColors: string[];
+}
+
+const contentVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 300 : -300,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? -300 : 300,
+    opacity: 0,
+  }),
+};
+
+export default function SlideController({
+  slides,
+  sectionColors,
+}: SlideControllerProps) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const touchStartX = useRef(0);
+  const isAnimating = useRef(false);
+
+  const totalSlides = slides.length;
+  const progress = ((currentSlide + 1) / totalSlides) * 100;
+  const accentColor = sectionColors[currentSlide] || "#f59e0b";
+
+  const goTo = useCallback(
+    (index: number) => {
+      if (isAnimating.current) return;
+      if (index < 0 || index >= totalSlides) return;
+      isAnimating.current = true;
+      setDirection(index > currentSlide ? 1 : -1);
+      setCurrentSlide(index);
+      setTimeout(() => {
+        isAnimating.current = false;
+      }, 500);
+    },
+    [currentSlide, totalSlides]
+  );
+
+  const next = useCallback(() => goTo(currentSlide + 1), [currentSlide, goTo]);
+  const prev = useCallback(() => goTo(currentSlide - 1), [currentSlide, goTo]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight" || e.key === " ") {
+        e.preventDefault();
+        next();
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        prev();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [next, prev]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 50) {
+      if (delta > 0) next();
+      else prev();
+    }
+  };
+
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const pct = x / rect.width;
+    const targetSlide = Math.round(pct * (totalSlides - 1));
+    goTo(targetSlide);
+  };
+
+  return (
+    <div
+      className="h-screen w-screen relative overflow-hidden bg-navy-900"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* Slide counter */}
+      <div className="fixed top-4 right-6 z-50 text-sm text-slate-500 font-mono">
+        {currentSlide + 1} / {totalSlides}
+      </div>
+
+      {/* Section accent line */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-0.5 z-50"
+        style={{ backgroundColor: accentColor }}
+        initial={false}
+        animate={{ backgroundColor: accentColor }}
+        transition={{ duration: 0.3 }}
+      />
+
+      {/* Slide content */}
+      <AnimatePresence mode="wait" custom={direction}>
+        <motion.div
+          key={currentSlide}
+          custom={direction}
+          variants={contentVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+          className="h-full w-full overflow-y-auto"
+        >
+          {slides[currentSlide]}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Progress bar */}
+      <div
+        className="fixed bottom-0 left-0 right-0 h-1 bg-navy-700 z-50 cursor-pointer"
+        onClick={handleProgressClick}
+      >
+        <motion.div
+          className="h-full"
+          style={{ backgroundColor: accentColor }}
+          initial={false}
+          animate={{ width: `${progress}%` }}
+          transition={{ duration: 0.3 }}
+        />
+      </div>
+
+      {/* Navigation hint (first slide only) */}
+      {currentSlide === 0 && (
+        <motion.div
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 text-xs text-slate-600 z-40"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+        >
+          Use arrow keys or swipe to navigate
+        </motion.div>
+      )}
+    </div>
+  );
+}

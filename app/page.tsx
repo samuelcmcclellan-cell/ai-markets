@@ -12,6 +12,7 @@ import SemiMarketSize from "@/components/slides/08_SemiMarketSize";
 import MemoryDeepDive from "@/components/slides/09_MemoryDeepDive";
 import AgenticAI from "@/components/slides/10_AgenticAI";
 import SoftwareUnderPressure from "@/components/slides/11_SoftwareUnderPressure";
+import BubbleDebunk from "@/components/slides/12_BubbleDebunk";
 import HardwareVsSoftware from "@/components/slides/12_HardwareVsSoftware";
 import SupplyChainRisk from "@/components/slides/13_SupplyChainRisk";
 import PowerSupply from "@/components/slides/14_PowerSupply";
@@ -30,11 +31,12 @@ const slides = [
   <MemoryDeepDive key="09" />,
   <AgenticAI key="10" />,
   <SoftwareUnderPressure key="11" />,
-  <HardwareVsSoftware key="12" />,
-  <SupplyChainRisk key="13" />,
-  <PowerSupply key="14" />,
-  <PoliticalChallenges key="15" />,
-  <KeyTakeaways key="16" />,
+  <BubbleDebunk key="12" />,
+  <HardwareVsSoftware key="13" />,
+  <SupplyChainRisk key="14" />,
+  <PowerSupply key="15" />,
+  <PoliticalChallenges key="16" />,
+  <KeyTakeaways key="17" />,
 ];
 
 // Section color per slide
@@ -50,11 +52,12 @@ const sectionColors = [
   "#f59e0b", // 9  Memory Deep Dive- THE MONEY
   "#10b981", // 10 Agentic AI      - THE SHIFTS
   "#10b981", // 11 Software        - THE SHIFTS
-  "#10b981", // 12 HW vs SW        - THE SHIFTS
-  "#ef4444", // 13 Supply Chain Risk- THE RISKS
-  "#ef4444", // 14 Power Supply    - THE RISKS
-  "#ef4444", // 15 Political       - THE RISKS
-  "#f59e0b", // 16 Key Takeaways
+  "#10b981", // 12 Bubble Debunk   - THE DEBATE
+  "#10b981", // 13 HW vs SW        - THE SHIFTS
+  "#ef4444", // 14 Supply Chain Risk- THE RISKS
+  "#ef4444", // 15 Power Supply    - THE RISKS
+  "#ef4444", // 16 Political       - THE RISKS
+  "#f59e0b", // 17 Key Takeaways
 ];
 
 // Section labels shown as corner badges
@@ -70,6 +73,7 @@ const sectionLabels = [
   "THE MONEY",
   "THE SHIFTS",
   "THE SHIFTS",
+  "THE DEBATE",
   "THE SHIFTS",
   "THE RISKS",
   "THE RISKS",

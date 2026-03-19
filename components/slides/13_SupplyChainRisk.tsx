@@ -144,7 +144,7 @@ export default function SupplyChainRisk() {
                       x={marker.label === "China" ? -12 : 12}
                       y={10}
                       style={{
-                        fontSize: "8px",
+                        fontSize: "10px",
                         fill: "#94a3b8",
                         fontFamily: "system-ui, sans-serif",
                       }}
@@ -183,10 +183,10 @@ export default function SupplyChainRisk() {
                   >
                     <Cpu className="w-3 h-3 text-blue-400 mt-0.5 flex-shrink-0" />
                     <div>
-                      <span className="text-[11px] font-heading font-semibold text-white">
+                      <span className="text-xs font-heading font-semibold text-white">
                         {item.name}
                       </span>
-                      <p className="text-[10px] text-slate-400">
+                      <p className="text-xs text-slate-400">
                         {item.detail}
                       </p>
                     </div>
@@ -208,7 +208,7 @@ export default function SupplyChainRisk() {
                   Energy Dependence
                 </h3>
               </div>
-              <p className="text-[11px] text-slate-300 leading-relaxed mb-1">
+              <p className="text-xs text-slate-300 leading-relaxed mb-1">
                 <span className="font-semibold text-red-300">
                   Hormuz Crisis:
                 </span>{" "}
@@ -216,7 +216,7 @@ export default function SupplyChainRisk() {
                 helium from Qatar. Extended disruption threatens Samsung/SK Hynix
                 production.
               </p>
-              <p className="text-[10px] text-slate-500">
+              <p className="text-xs text-slate-500">
                 Helium is non-substitutable in semiconductor fabrication.
                 European gas prices doubled during the crisis.
               </p>

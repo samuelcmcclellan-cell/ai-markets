@@ -216,7 +216,7 @@ export default function SupplyChainMap() {
                       y={roleY}
                       style={{
                         fontFamily: "Inter, sans-serif",
-                        fontSize: "8px",
+                        fontSize: "10px",
                         fill: color,
                         fontWeight: 500,
                       }}

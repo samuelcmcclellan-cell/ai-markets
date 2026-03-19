@@ -55,7 +55,7 @@ export default function PoliticalChallenges() {
                   {risk.items.map((item, j) => (
                     <li
                       key={j}
-                      className="text-[10px] text-slate-400 leading-relaxed flex items-start gap-1.5"
+                      className="text-xs text-slate-400 leading-relaxed flex items-start gap-1.5"
                     >
                       <span className="text-red-500/60 mt-0.5 flex-shrink-0">•</span>
                       {item}
@@ -79,7 +79,7 @@ export default function PoliticalChallenges() {
           <div className="space-y-2">
             {permitTimeline.map((stage, i) => (
               <div key={i} className="flex items-center gap-3">
-                <span className="text-[10px] text-slate-400 w-32 text-right flex-shrink-0">
+                <span className="text-xs text-slate-400 w-32 text-right flex-shrink-0">
                   {stage.stage}
                 </span>
                 <div className="flex-1 h-5 bg-navy-900/50 rounded overflow-hidden">
@@ -89,7 +89,7 @@ export default function PoliticalChallenges() {
                     animate={{ width: `${stage.width}%` }}
                     transition={{ duration: 0.8, delay: 0.9 + i * 0.1 }}
                   >
-                    <span className="text-[9px] font-mono text-red-300 whitespace-nowrap">
+                    <span className="text-xs font-mono text-red-300 whitespace-nowrap">
                       {stage.months}
                     </span>
                   </motion.div>

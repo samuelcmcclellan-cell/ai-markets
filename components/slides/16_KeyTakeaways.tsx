@@ -70,7 +70,7 @@ export default function KeyTakeaways() {
             AI Markets{" "}
             <span className="text-slate-500 font-normal">— March 2026</span>
           </p>
-          <p className="text-[10px] text-slate-600 mt-2 leading-relaxed">
+          <p className="text-[11px] text-slate-600 mt-2 leading-relaxed">
             Sources: Goldman Sachs, Morgan Stanley, Bank of America, Morningstar, SemiAnalysis, IEA, company filings
           </p>
         </motion.div>

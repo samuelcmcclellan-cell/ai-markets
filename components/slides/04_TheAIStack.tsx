@@ -188,7 +188,7 @@ export default function TheAIStack() {
                     <h3 className="text-base font-heading font-bold text-white">
                       {current.layer}
                     </h3>
-                    <p className="text-[10px] font-mono text-slate-500">
+                    <p className="text-xs font-mono text-slate-500">
                       Layer {selectedLayer + 1} of {stack.length}
                     </p>
                   </div>
@@ -199,7 +199,7 @@ export default function TheAIStack() {
                 </p>
 
                 <div className="mb-3">
-                  <p className="text-[10px] uppercase tracking-wider text-slate-500 font-mono mb-1">
+                  <p className="text-xs uppercase tracking-wider text-slate-500 font-mono mb-1">
                     Key Companies
                   </p>
                   <p className="text-xs text-slate-400 font-mono">
@@ -208,7 +208,7 @@ export default function TheAIStack() {
                 </div>
 
                 <div className="bg-navy-700/40 rounded-lg p-3 border border-slate-700/20">
-                  <p className="text-[10px] uppercase tracking-wider text-slate-500 font-mono mb-1">
+                  <p className="text-xs uppercase tracking-wider text-slate-500 font-mono mb-1">
                     Investability
                   </p>
                   <p className="text-xs text-slate-300 leading-relaxed">

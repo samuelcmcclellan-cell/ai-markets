@@ -92,7 +92,7 @@ export default function BubbleDebunk() {
                 <span className="text-lg font-mono font-bold text-emerald-400">
                   {card.killer.stat}
                 </span>
-                <span className="text-[10px] text-slate-500">
+                <span className="text-xs text-slate-500">
                   {card.killer.label}
                 </span>
               </div>
@@ -101,13 +101,13 @@ export default function BubbleDebunk() {
               {card.table && (
                 <div className="mb-2 bg-navy-800/40 rounded-lg overflow-hidden">
                   <div className="grid grid-cols-[1fr_0.6fr_0.7fr] px-2 py-1 border-b border-slate-700/20">
-                    <span className="text-[8px] font-mono text-slate-600 uppercase">
+                    <span className="text-[11px] font-mono text-slate-600 uppercase">
                       Company
                     </span>
-                    <span className="text-[8px] font-mono text-slate-600 uppercase">
+                    <span className="text-[11px] font-mono text-slate-600 uppercase">
                       Fwd P/E
                     </span>
-                    <span className="text-[8px] font-mono text-slate-600 uppercase">
+                    <span className="text-[11px] font-mono text-slate-600 uppercase">
                       Rev Growth
                     </span>
                   </div>
@@ -116,13 +116,13 @@ export default function BubbleDebunk() {
                       key={j}
                       className="grid grid-cols-[1fr_0.6fr_0.7fr] px-2 py-0.5 border-b border-slate-700/10 last:border-b-0"
                     >
-                      <span className="text-[10px] font-heading font-semibold text-white">
+                      <span className="text-xs font-heading font-semibold text-white">
                         {row.name}
                       </span>
-                      <span className="text-[10px] font-mono text-emerald-400">
+                      <span className="text-xs font-mono text-emerald-400">
                         {row.pe}
                       </span>
-                      <span className="text-[10px] font-mono text-slate-400">
+                      <span className="text-xs font-mono text-slate-400">
                         {row.growth}
                       </span>
                     </div>
@@ -131,7 +131,7 @@ export default function BubbleDebunk() {
               )}
 
               {/* Body text */}
-              <p className="text-[10px] text-slate-400 leading-relaxed">
+              <p className="text-xs text-slate-400 leading-relaxed">
                 {card.body}
               </p>
             </motion.div>
@@ -145,7 +145,7 @@ export default function BubbleDebunk() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          <p className="text-[10px] text-slate-500 leading-relaxed">
+          <p className="text-xs text-slate-500 leading-relaxed">
             This is not a call to ignore risk. AI stocks could correct 20&ndash;30%
             on any given catalyst &mdash; capex guidance cuts, an earnings miss, a
             geopolitical shock. But a correction is not a bubble. A bubble
@@ -155,7 +155,7 @@ export default function BubbleDebunk() {
         </motion.div>
 
         <motion.p
-          className="text-[8px] text-slate-600 mt-2"
+          className="text-[11px] text-slate-600 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}

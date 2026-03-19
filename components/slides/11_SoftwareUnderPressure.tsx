@@ -10,7 +10,7 @@ const CustomTooltip = ({ active, payload }: any) => {
       <div className="bg-navy-800 border border-slate-700 rounded-lg p-3 shadow-xl">
         <p className="text-sm font-heading font-medium text-white">{data.company} ({data.ticker})</p>
         <p className="text-xs text-red-400">{data.ytd}% YTD</p>
-        {data.note && <p className="text-[10px] text-slate-500 mt-1">{data.note}</p>}
+        {data.note && <p className="text-xs text-slate-500 mt-1">{data.note}</p>}
       </div>
     );
   }

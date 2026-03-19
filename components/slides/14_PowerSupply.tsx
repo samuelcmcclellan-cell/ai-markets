@@ -61,7 +61,7 @@ export default function PowerSupply() {
             transition={{ delay: 0.2 }}
           >
             <p className="text-lg font-mono font-bold text-red-400">96 GW</p>
-            <p className="text-[9px] text-slate-500">Global DC critical IT power by 2026 (IEA)</p>
+            <p className="text-xs text-slate-500">Global DC critical IT power by 2026 (IEA)</p>
           </motion.div>
           <motion.div
             className="stat-card text-center py-2"
@@ -70,7 +70,7 @@ export default function PowerSupply() {
             transition={{ delay: 0.25 }}
           >
             <p className="text-lg font-mono font-bold text-amber-400">2,600 GW</p>
-            <p className="text-[9px] text-slate-500">US grid interconnection queue</p>
+            <p className="text-xs text-slate-500">US grid interconnection queue</p>
           </motion.div>
           <motion.div
             className="stat-card text-center py-2"
@@ -79,7 +79,7 @@ export default function PowerSupply() {
             transition={{ delay: 0.3 }}
           >
             <p className="text-lg font-mono font-bold text-blue-400">3–5 yrs</p>
-            <p className="text-[9px] text-slate-500">Average grid connection wait time</p>
+            <p className="text-xs text-slate-500">Average grid connection wait time</p>
           </motion.div>
           <motion.div
             className="stat-card text-center py-2"
@@ -88,7 +88,7 @@ export default function PowerSupply() {
             transition={{ delay: 0.35 }}
           >
             <p className="text-lg font-mono font-bold text-emerald-400">$2T+</p>
-            <p className="text-[9px] text-slate-500">Estimated grid modernization cost</p>
+            <p className="text-xs text-slate-500">Estimated grid modernization cost</p>
           </motion.div>
         </div>
 
@@ -99,7 +99,7 @@ export default function PowerSupply() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            <h3 className="text-[10px] font-heading font-medium text-slate-500 uppercase tracking-wider mb-2">
+            <h3 className="text-xs font-heading font-medium text-slate-500 uppercase tracking-wider mb-2">
               US Data Center Power Demand (TWh)
             </h3>
             <div className="h-[170px]">
@@ -127,12 +127,12 @@ export default function PowerSupply() {
                   </defs>
                   <XAxis
                     dataKey="year"
-                    tick={{ fill: "#94a3b8", fontSize: 9 }}
+                    tick={{ fill: "#94a3b8", fontSize: 11 }}
                     axisLine={{ stroke: "#334155" }}
                     tickLine={false}
                   />
                   <YAxis
-                    tick={{ fill: "#94a3b8", fontSize: 9 }}
+                    tick={{ fill: "#94a3b8", fontSize: 11 }}
                     axisLine={{ stroke: "#334155" }}
                     tickLine={false}
                     tickFormatter={(v) => `${v}`}
@@ -149,7 +149,7 @@ export default function PowerSupply() {
                 </AreaChart>
               </ResponsiveContainer>
             </div>
-            <p className="text-[8px] text-slate-600 mt-1">
+            <p className="text-[11px] text-slate-600 mt-1">
               5x growth projected from 2020 to 2030
             </p>
           </motion.div>
@@ -164,7 +164,7 @@ export default function PowerSupply() {
             >
               <div className="flex items-center gap-2 mb-1.5">
                 <Atom className="w-4 h-4 text-cyan-400" />
-                <h3 className="text-[10px] font-heading font-semibold text-cyan-400 uppercase tracking-wider">
+                <h3 className="text-xs font-heading font-semibold text-cyan-400 uppercase tracking-wider">
                   Nuclear Renaissance
                 </h3>
               </div>
@@ -178,7 +178,7 @@ export default function PowerSupply() {
                       className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
                       style={{ backgroundColor: deal.color }}
                     />
-                    <p className="text-[9px] text-slate-400">
+                    <p className="text-xs text-slate-400">
                       <span className="font-semibold text-white">
                         {deal.company}:
                       </span>{" "}
@@ -197,7 +197,7 @@ export default function PowerSupply() {
             >
               <div className="flex items-center gap-2 mb-1.5">
                 <Sun className="w-4 h-4 text-amber-400" />
-                <h3 className="text-[10px] font-heading font-semibold text-amber-400 uppercase tracking-wider">
+                <h3 className="text-xs font-heading font-semibold text-amber-400 uppercase tracking-wider">
                   Solar &amp; Storage
                 </h3>
               </div>
@@ -208,7 +208,7 @@ export default function PowerSupply() {
                     className="flex items-start gap-2 bg-navy-700/20 rounded px-2 py-1"
                   >
                     <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 bg-amber-400/60" />
-                    <p className="text-[9px] text-slate-400">
+                    <p className="text-xs text-slate-400">
                       <span className="font-semibold text-white">
                         {item.label}:
                       </span>{" "}
@@ -227,11 +227,11 @@ export default function PowerSupply() {
             >
               <div className="flex items-center gap-2 mb-1.5">
                 <Flame className="w-4 h-4 text-orange-400" />
-                <h3 className="text-[10px] font-heading font-semibold text-orange-400 uppercase tracking-wider">
+                <h3 className="text-xs font-heading font-semibold text-orange-400 uppercase tracking-wider">
                   Behind-the-Meter Gas
                 </h3>
               </div>
-              <p className="text-[8px] text-orange-300/60 mb-1 pl-6">
+              <p className="text-[11px] text-orange-300/60 mb-1 pl-6">
                 The only power source deployable in &lt;1 year behind the meter, bypassing the 3–5 year grid queue. The bridge fuel while nuclear and renewables scale.
               </p>
               <div className="space-y-1">
@@ -241,7 +241,7 @@ export default function PowerSupply() {
                     className="flex items-start gap-2 bg-navy-700/20 rounded px-2 py-1"
                   >
                     <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 bg-orange-400/60" />
-                    <p className="text-[9px] text-slate-400">
+                    <p className="text-xs text-slate-400">
                       <span className="font-semibold text-white">
                         {item.label}:
                       </span>{" "}
@@ -260,10 +260,10 @@ export default function PowerSupply() {
             >
               <div className="flex items-center gap-2 mb-1.5">
                 <Satellite className="w-4 h-4 text-violet-400" />
-                <h3 className="text-[10px] font-heading font-semibold text-violet-400 uppercase tracking-wider">
+                <h3 className="text-xs font-heading font-semibold text-violet-400 uppercase tracking-wider">
                   Orbital Compute
                 </h3>
-                <span className="text-[7px] font-mono text-violet-400/50 bg-violet-500/10 px-1 rounded">
+                <span className="text-[11px] font-mono text-violet-400/50 bg-violet-500/10 px-1 rounded">
                   EARLY
                 </span>
               </div>
@@ -274,7 +274,7 @@ export default function PowerSupply() {
                     className="flex items-start gap-2 bg-navy-700/20 rounded px-2 py-1"
                   >
                     <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 bg-violet-400/60" />
-                    <p className="text-[9px] text-slate-400">
+                    <p className="text-xs text-slate-400">
                       <span className="font-semibold text-white">
                         {item.label}:
                       </span>{" "}
@@ -282,7 +282,7 @@ export default function PowerSupply() {
                     </p>
                   </div>
                 ))}
-                <p className="text-[8px] text-violet-400/50 pl-3">
+                <p className="text-[11px] text-violet-400/50 pl-3">
                   Why space: 1,361 W/m² unfiltered solar, zero water cooling, no
                   grid queue. Market: $1.77B by 2029 → $39B by 2035 (67% CAGR).
                 </p>
@@ -298,7 +298,7 @@ export default function PowerSupply() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          <p className="text-[10px] text-red-200 leading-relaxed">
+          <p className="text-xs text-red-200 leading-relaxed">
             <span className="font-semibold text-red-300">
               The grid can&apos;t keep up.
             </span>{" "}
@@ -310,7 +310,7 @@ export default function PowerSupply() {
           </p>
         </motion.div>
 
-        <p className="text-[8px] text-slate-600 mt-2">
+        <p className="text-[11px] text-slate-600 mt-2">
           Source: IEA, Goldman Sachs, GE Vernova, FCC filings, CNBC, company
           announcements
         </p>

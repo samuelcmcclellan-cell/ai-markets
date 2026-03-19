@@ -139,7 +139,7 @@ export default function SemiMarketSize() {
                 transition={{ delay: 0.3 + i * 0.05, duration: 0.5 }}
               >
                 {seg.value >= 90 && (
-                  <span className="absolute inset-0 flex items-center justify-center text-[10px] font-mono font-bold text-white/90">
+                  <span className="absolute inset-0 flex items-center justify-center text-xs font-mono font-bold text-white/90">
                     {seg.name} ${seg.value}B
                   </span>
                 )}
@@ -153,7 +153,7 @@ export default function SemiMarketSize() {
                   className="w-2 h-2 rounded-sm flex-shrink-0"
                   style={{ backgroundColor: seg.color }}
                 />
-                <span className="text-[9px] text-slate-500 font-mono">
+                <span className="text-xs text-slate-500 font-mono">
                   {seg.name} ${seg.value}B
                 </span>
               </div>
@@ -189,10 +189,10 @@ export default function SemiMarketSize() {
                       >
                         {cat.revenue.split(" \u2192 ")[1]}
                       </span>
-                      <span className="text-[10px] text-emerald-400 font-mono">
+                      <span className="text-xs text-emerald-400 font-mono">
                         {cat.growth.split(" \u2192 ")[1]}
                       </span>
-                      <span className="text-[10px] text-slate-600">
+                      <span className="text-xs text-slate-600">
                         2026E
                       </span>
                     </div>
@@ -203,14 +203,14 @@ export default function SemiMarketSize() {
                   {cat.subs.map((sub, j) => (
                     <span
                       key={j}
-                      className={`text-[9px] font-mono px-1.5 py-0.5 rounded ${sub.accent}`}
+                      className={`text-xs font-mono px-1.5 py-0.5 rounded ${sub.accent}`}
                     >
                       {sub.tag}
                     </span>
                   ))}
                 </div>
 
-                <p className="text-[10px] font-mono text-slate-500 border-t border-slate-700/30 pt-1.5">
+                <p className="text-xs font-mono text-slate-500 border-t border-slate-700/30 pt-1.5">
                   {cat.callout}
                 </p>
               </motion.div>
@@ -232,7 +232,7 @@ export default function SemiMarketSize() {
               >
                 <Icon className="w-4 h-4 text-slate-500 flex-shrink-0" />
                 <div>
-                  <span className="text-[11px] font-heading font-bold text-white">
+                  <span className="text-xs font-heading font-bold text-white">
                     {cat.name}
                   </span>
                   <p className="text-xs font-mono font-bold text-slate-400">
@@ -251,7 +251,7 @@ export default function SemiMarketSize() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.85 }}
         >
-          <span className="text-[9px] font-mono text-slate-500 uppercase tracking-wider">
+          <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">
             Who captures value:
           </span>
           {funnel.map((c, i) => (
@@ -264,7 +264,7 @@ export default function SemiMarketSize() {
                 {c.name}
               </span>
               <span
-                className="text-[10px] font-mono"
+                className="text-xs font-mono"
                 style={{ color: c.color }}
               >
                 {c.stat}
@@ -274,7 +274,7 @@ export default function SemiMarketSize() {
         </motion.div>
 
         <motion.p
-          className="text-[8px] text-slate-600 mt-2"
+          className="text-[11px] text-slate-600 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}

@@ -220,7 +220,7 @@ export default function WhatIsAI() {
                   >
                     <div className="flex items-center justify-center gap-1 mb-0.5">
                       <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                      <span className="text-[10px] font-mono text-amber-400 uppercase tracking-widest">
+                      <span className="text-xs font-mono text-amber-400 uppercase tracking-widest">
                         Inflection Point
                       </span>
                       <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />

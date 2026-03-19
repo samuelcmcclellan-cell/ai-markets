@@ -148,7 +148,7 @@ export default function MemoryDeepDive() {
                 </div>
               ))}
             </div>
-            <p className="text-[9px] text-slate-600 mt-1.5">
+            <p className="text-[11px] text-slate-600 mt-1.5">
               HBM4 delivers 56x the bandwidth of standard DDR5
             </p>
           </motion.div>
@@ -211,7 +211,7 @@ export default function MemoryDeepDive() {
                 </AreaChart>
               </ResponsiveContainer>
             </div>
-            <p className="text-[9px] text-slate-500 mt-1">
+            <p className="text-[11px] text-slate-500 mt-1">
               25x growth: $4B (2023) &rarr; $100B (2028E)
             </p>
           </motion.div>
@@ -263,7 +263,7 @@ export default function MemoryDeepDive() {
                 ))}
               </div>
             </div>
-            <p className="text-[9px] text-slate-500 mt-1">
+            <p className="text-[11px] text-slate-500 mt-1">
               SK Hynix is NVIDIA&apos;s primary HBM supplier
             </p>
           </motion.div>
@@ -325,7 +325,7 @@ export default function MemoryDeepDive() {
           </p>
         </motion.div>
 
-        <p className="text-[10px] text-slate-600 mt-2">
+        <p className="text-[11px] text-slate-600 mt-2">
           Source: Micron, Counterpoint Research, BofA, TrendForce, IDC,
           Bloomberg
         </p>

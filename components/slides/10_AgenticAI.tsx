@@ -157,7 +157,7 @@ export default function AgenticAI() {
             <div className="rounded-xl border border-slate-500/20 bg-slate-500/5 p-3 pt-2">
               <div className="flex items-center gap-1.5 mb-2">
                 <GitBranch className="w-3 h-3 text-slate-400" />
-                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">
                   Orchestration Layer &mdash; Goal decomposition, tool selection, error recovery
                 </span>
               </div>
@@ -172,7 +172,7 @@ export default function AgenticAI() {
                     <span className="text-xs font-heading font-semibold text-emerald-400">
                       {archComponents[0].label}
                     </span>
-                    <p className="text-[10px] text-slate-400">
+                    <p className="text-xs text-slate-400">
                       {archComponents[0].desc}
                     </p>
                   </div>
@@ -195,7 +195,7 @@ export default function AgenticAI() {
                       <span className="text-xs font-heading font-semibold text-blue-400">
                         {archComponents[1].label}
                       </span>
-                      <p className="text-[10px] text-slate-400">
+                      <p className="text-xs text-slate-400">
                         {archComponents[1].desc}
                       </p>
                     </div>
@@ -213,7 +213,7 @@ export default function AgenticAI() {
                       <span className="text-xs font-heading font-semibold text-amber-400">
                         {archComponents[2].label}
                       </span>
-                      <p className="text-[10px] text-slate-400">
+                      <p className="text-xs text-slate-400">
                         {archComponents[2].desc}
                       </p>
                     </div>
@@ -235,18 +235,18 @@ export default function AgenticAI() {
           >
             {/* Header row */}
             <div className="grid grid-cols-[1fr_1.2fr_1.2fr] bg-navy-800/50 px-3 py-2 border-b border-slate-700/30">
-              <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wide">
+              <span className="text-xs font-mono text-slate-500 uppercase tracking-wide">
                 Dimension
               </span>
               <div className="flex items-center gap-1.5">
                 <MessageSquare className="w-3 h-3 text-slate-500" />
-                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wide">
+                <span className="text-xs font-mono text-slate-500 uppercase tracking-wide">
                   Chatbot (2023&ndash;24)
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Bot className="w-3 h-3 text-emerald-400" />
-                <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-wide">
+                <span className="text-xs font-mono text-emerald-400 uppercase tracking-wide">
                   Agent (2025+)
                 </span>
               </div>
@@ -266,10 +266,10 @@ export default function AgenticAI() {
                     {row.dimension}
                   </span>
                 </div>
-                <span className="text-[11px] text-slate-500">
+                <span className="text-xs text-slate-500">
                   {row.chatbot}
                 </span>
-                <span className="text-[11px] text-emerald-300 font-medium">
+                <span className="text-xs text-emerald-300 font-medium">
                   {row.agent}
                 </span>
               </motion.div>
@@ -282,13 +282,13 @@ export default function AgenticAI() {
               transition={{ delay: 0.8 }}
             >
               <div className="grid grid-cols-[1fr_1.2fr_1.2fr]">
-                <span className="text-[10px] font-heading font-semibold text-slate-400">
+                <span className="text-xs font-heading font-semibold text-slate-400">
                   Example
                 </span>
-                <span className="text-[10px] text-slate-500 italic">
+                <span className="text-xs text-slate-500 italic">
                   &ldquo;Write me an email&rdquo;
                 </span>
-                <span className="text-[10px] text-emerald-300 italic">
+                <span className="text-xs text-emerald-300 italic">
                   &ldquo;Research competitors, build a model, write a memo,
                   email the team&rdquo;
                 </span>
@@ -299,7 +299,7 @@ export default function AgenticAI() {
           {/* Evidence cards — 2 cols */}
           <div className="lg:col-span-2 space-y-2">
             <motion.h3
-              className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest mb-1"
+              className="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-1"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -318,11 +318,11 @@ export default function AgenticAI() {
                   <span className="text-base font-mono font-bold text-emerald-400">
                     {e.metric}
                   </span>
-                  <span className="text-[10px] font-heading font-semibold text-slate-400">
+                  <span className="text-xs font-heading font-semibold text-slate-400">
                     {e.label}
                   </span>
                 </div>
-                <p className="text-[10px] text-slate-500 leading-relaxed">
+                <p className="text-xs text-slate-500 leading-relaxed">
                   {e.context}
                 </p>
               </motion.div>
@@ -342,7 +342,7 @@ export default function AgenticAI() {
               key={i}
               className="bg-navy-700/20 rounded-lg px-3 py-2 text-center"
             >
-              <p className="text-[10px] text-slate-400 leading-relaxed">
+              <p className="text-xs text-slate-400 leading-relaxed">
                 {stat}
               </p>
             </div>
@@ -350,7 +350,7 @@ export default function AgenticAI() {
         </motion.div>
 
         <motion.p
-          className="text-[9px] text-slate-600 mt-1"
+          className="text-[11px] text-slate-600 mt-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}

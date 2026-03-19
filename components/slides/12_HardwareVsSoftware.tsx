@@ -12,17 +12,17 @@ import {
 
 const divergenceChart = [
   { week: "Jan 1", semis: 100.0, nasdaq: 100.0, software: 100.0 },
-  { week: "Jan 9", semis: 109.2, nasdaq: 101.5, software: 97.6 },
-  { week: "Jan 16", semis: 113.7, nasdaq: 102.4, software: 95.3 },
-  { week: "Jan 23", semis: 114.5, nasdaq: 102.0, software: 93.4 },
-  { week: "Jan 30", semis: 115.0, nasdaq: 101.0, software: 90.6 },
-  { week: "Feb 6", semis: 115.7, nasdaq: 102.0, software: 87.7 },
-  { week: "Feb 13", semis: 117.8, nasdaq: 102.9, software: 84.9 },
-  { week: "Feb 20", semis: 119.4, nasdaq: 103.9, software: 79.2 },
-  { week: "Feb 27", semis: 117.0, nasdaq: 101.5, software: 77.4 },
-  { week: "Mar 6", semis: 107.4, nasdaq: 99.5, software: 75.5 },
-  { week: "Mar 13", semis: 112.2, nasdaq: 105.4, software: 78.3 },
-  { week: "Mar 19", semis: 113.0, nasdaq: 107.8, software: 80.2 },
+  { week: "Jan 10", semis: 109.2, nasdaq: 100.7, software: 98.4 },
+  { week: "Jan 17", semis: 113.7, nasdaq: 102.0, software: 96.0 },
+  { week: "Jan 24", semis: 114.5, nasdaq: 102.6, software: 91.8 },
+  { week: "Jan 31", semis: 115.0, nasdaq: 101.1, software: 88.5 },
+  { week: "Feb 7", semis: 115.7, nasdaq: 100.2, software: 84.2 },
+  { week: "Feb 14", semis: 117.8, nasdaq: 99.8, software: 83.3 },
+  { week: "Feb 21", semis: 119.4, nasdaq: 98.1, software: 75.7 },
+  { week: "Feb 28", semis: 117.0, nasdaq: 96.4, software: 74.7 },
+  { week: "Mar 7", semis: 107.4, nasdaq: 95.1, software: 74.3 },
+  { week: "Mar 14", semis: 112.2, nasdaq: 96.8, software: 78.5 },
+  { week: "Mar 19", semis: 113.0, nasdaq: 95.0, software: 79.9 },
 ];
 
 const resilient = [
@@ -117,7 +117,7 @@ export default function HardwareVsSoftware() {
                   interval={1}
                 />
                 <YAxis
-                  domain={[72, 125]}
+                  domain={[70, 125]}
                   ticks={[75, 85, 95, 100, 105, 115, 120]}
                   tick={{ fill: "#64748b", fontSize: 11 }}
                   axisLine={{ stroke: "#334155" }}
@@ -168,10 +168,10 @@ export default function HardwareVsSoftware() {
               +13%
             </span>
           </div>
-          <div className="absolute right-0 top-[28%]">
-            <span className="text-sm font-mono text-slate-400">+8%</span>
+          <div className="absolute right-0 top-[48%]">
+            <span className="text-sm font-mono text-slate-400">&minus;5%</span>
           </div>
-          <div className="absolute right-0 top-[68%]">
+          <div className="absolute right-0 top-[72%]">
             <span className="text-sm font-mono font-bold text-red-400">
               -20%
             </span>
@@ -273,8 +273,8 @@ export default function HardwareVsSoftware() {
           animate={{ opacity: 1 }}
           transition={{ delay: 2.4 }}
         >
-          Source: Yahoo Finance, Morgan Stanley CIO Survey, company filings. YTD
-          as of March 2026.
+          Source: Google Finance, Morgan Stanley CIO Survey, company filings. As
+          of March 19, 2026.
         </motion.p>
       </div>
     </div>

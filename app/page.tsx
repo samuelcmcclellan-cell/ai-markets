@@ -12,7 +12,6 @@ import SemiMarketSize from "@/components/slides/08_SemiMarketSize";
 import MemoryDeepDive from "@/components/slides/09_MemoryDeepDive";
 import AILabs from "@/components/slides/09_AILabs";
 import AgenticAI from "@/components/slides/10_AgenticAI";
-import SoftwareUnderPressure from "@/components/slides/11_SoftwareUnderPressure";
 import HardwareVsSoftware from "@/components/slides/12_HardwareVsSoftware";
 import SupplyChainRisk from "@/components/slides/13_SupplyChainRisk";
 import PowerSupply from "@/components/slides/14_PowerSupply";
@@ -32,8 +31,7 @@ const slides = [
   <MemoryDeepDive key="08" />,
   <AILabs key="09" />,
   <AgenticAI key="10" />,
-  <SoftwareUnderPressure key="11" />,
-  <HardwareVsSoftware key="12" />,
+  <HardwareVsSoftware key="11" />,
   <BubbleDebunk key="13" />,
   <SupplyChainRisk key="14" />,
   <PowerSupply key="15" />,
@@ -55,8 +53,7 @@ const sectionColors = [
   "#f59e0b", // 8  Memory Deep Dive - THE MARKET
   "#f59e0b", // 9  AI Labs          - THE MARKET
   "#10b981", // 10 Agentic AI       - THE SHIFTS
-  "#10b981", // 11 Software         - THE SHIFTS
-  "#10b981", // 12 HW vs SW         - THE SHIFTS
+  "#10b981", // 11 HW vs SW         - THE SHIFTS
   "#ef4444", // 13 Bubble Debunk    - THE RISKS
   "#ef4444", // 14 Supply Chain Risk- THE RISKS
   "#ef4444", // 15 Power Supply     - THE RISKS
@@ -77,7 +74,6 @@ const sectionLabels = [
   "THE MARKET",
   "THE MARKET",
   "THE MARKET",
-  "THE SHIFTS",
   "THE SHIFTS",
   "THE SHIFTS",
   "THE RISKS",

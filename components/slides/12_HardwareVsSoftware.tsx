@@ -233,7 +233,7 @@ export default function HardwareVsSoftware() {
             </div>
             <p className="text-sm text-slate-300 mb-4">
               <span className="text-red-400 font-semibold">$1 trillion</span> wiped from software stocks
-              in a single month. Jefferies calls it the <span className="text-red-400 font-semibold">&ldquo;SaaSpocalypse.&rdquo;</span>
+              in a single month.
             </p>
             <div className="flex gap-2 mb-4">
               {[
@@ -264,7 +264,7 @@ export default function HardwareVsSoftware() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.8 }}
         >
-          Source: Yahoo Finance, Counterpoint Research, Jefferies, Morgan Stanley CIO Survey
+          Source: Yahoo Finance, Counterpoint Research, Morgan Stanley CIO Survey
         </motion.p>
       </div>
     </div>

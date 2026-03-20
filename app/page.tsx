@@ -15,6 +15,7 @@ import SoftwareUnderPressure from "@/components/slides/11_SoftwareUnderPressure"
 import HardwareVsSoftware from "@/components/slides/12_HardwareVsSoftware";
 import SupplyChainRisk from "@/components/slides/13_SupplyChainRisk";
 import PowerSupply from "@/components/slides/14_PowerSupply";
+import PowerResponse from "@/components/slides/14B_PowerResponse";
 import PoliticalChallenges from "@/components/slides/15_PoliticalChallenges";
 import KeyTakeaways from "@/components/slides/16_KeyTakeaways";
 
@@ -33,8 +34,9 @@ const slides = [
   <BubbleDebunk key="12" />,
   <SupplyChainRisk key="13" />,
   <PowerSupply key="14" />,
-  <PoliticalChallenges key="15" />,
-  <KeyTakeaways key="16" />,
+  <PowerResponse key="15" />,
+  <PoliticalChallenges key="16" />,
+  <KeyTakeaways key="17" />,
 ];
 
 // Section color per slide
@@ -53,8 +55,9 @@ const sectionColors = [
   "#ef4444", // 12 Bubble Debunk    - THE RISKS
   "#ef4444", // 13 Supply Chain Risk- THE RISKS
   "#ef4444", // 14 Power Supply     - THE RISKS
-  "#ef4444", // 15 Political        - THE RISKS
-  "#f59e0b", // 16 Key Takeaways
+  "#ef4444", // 15 Power Response   - THE RISKS
+  "#ef4444", // 16 Political        - THE RISKS
+  "#f59e0b", // 17 Key Takeaways
 ];
 
 // Section labels shown as corner badges
@@ -70,6 +73,7 @@ const sectionLabels = [
   "THE SHIFTS",
   "THE SHIFTS",
   "THE SHIFTS",
+  "THE RISKS",
   "THE RISKS",
   "THE RISKS",
   "THE RISKS",

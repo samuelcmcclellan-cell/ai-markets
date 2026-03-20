@@ -113,7 +113,7 @@ export default function SupplyChainMap() {
               center: [30, 30],
             }}
             style={{ width: "100%", height: "auto" }}
-            viewBox="0 60 800 300"
+            viewBox="0 90 800 310"
           >
             <Geographies geography={geoUrl}>
               {({ geographies }) =>

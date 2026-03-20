@@ -122,37 +122,57 @@ export default function SupplyChainRisk() {
                     ))
                   }
                 </Geographies>
-                {mapMarkers.map((marker, i) => (
-                  <Marker key={i} coordinates={marker.coordinates}>
-                    <circle r={5} fill={marker.color} opacity={0.9} />
-                    <circle r={8} fill={marker.color} opacity={0.2} />
-                    <text
-                      textAnchor={marker.label === "China" ? "end" : "start"}
-                      x={marker.label === "China" ? -12 : 12}
-                      y={-2}
-                      style={{
-                        fontSize: "11px",
-                        fontWeight: 700,
-                        fill: marker.color,
-                        fontFamily: "system-ui, sans-serif",
-                      }}
-                    >
-                      {marker.label}
-                    </text>
-                    <text
-                      textAnchor={marker.label === "China" ? "end" : "start"}
-                      x={marker.label === "China" ? -12 : 12}
-                      y={10}
-                      style={{
-                        fontSize: "10px",
-                        fill: "#94a3b8",
-                        fontFamily: "system-ui, sans-serif",
-                      }}
-                    >
-                      {marker.role}
-                    </text>
-                  </Marker>
-                ))}
+                {mapMarkers.map((marker, i) => {
+                  const isChina = marker.label === "China";
+                  const isJapan = marker.label === "Japan";
+                  const anchor = isChina ? "end" : "start";
+                  const labelX = isChina ? -14 : 14;
+                  // Offset Japan labels down to avoid overlap with South Korea
+                  const labelY = isJapan ? 18 : -4;
+                  const roleY = isJapan ? 32 : 10;
+                  return (
+                    <Marker key={i} coordinates={marker.coordinates}>
+                      <circle r={5} fill={marker.color} opacity={0.9} />
+                      <circle r={8} fill={marker.color} opacity={0.2} />
+                      {isJapan && (
+                        <line
+                          x1={0}
+                          y1={8}
+                          x2={10}
+                          y2={16}
+                          stroke={marker.color}
+                          strokeWidth={1}
+                          opacity={0.4}
+                        />
+                      )}
+                      <text
+                        textAnchor={anchor}
+                        x={labelX}
+                        y={labelY}
+                        style={{
+                          fontSize: "12px",
+                          fontWeight: 700,
+                          fill: marker.color,
+                          fontFamily: "system-ui, sans-serif",
+                        }}
+                      >
+                        {marker.label}
+                      </text>
+                      <text
+                        textAnchor={anchor}
+                        x={labelX}
+                        y={roleY}
+                        style={{
+                          fontSize: "10px",
+                          fill: "#94a3b8",
+                          fontFamily: "system-ui, sans-serif",
+                        }}
+                      >
+                        {marker.role}
+                      </text>
+                    </Marker>
+                  );
+                })}
               </ComposableMap>
             </div>
           </motion.div>

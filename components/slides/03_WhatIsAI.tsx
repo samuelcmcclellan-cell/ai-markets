@@ -7,6 +7,7 @@ import {
   Sparkles,
   Lightbulb,
   Bot,
+  MessageSquare,
 } from "lucide-react";
 
 const eraLogos: Record<string, string[]> = {
@@ -216,11 +217,24 @@ export default function WhatIsAI() {
               >
                 {item.isInflection && (
                   <motion.div
-                    className="mx-auto max-w-[180px] bg-amber-500/10 border border-amber-500/30 rounded-lg p-2.5 text-center glow-amber"
+                    className="relative mx-auto max-w-[180px] bg-amber-500/10 border border-amber-500/30 rounded-lg p-2.5 text-center glow-amber"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.6 }}
                   >
+                    {/* Chatbots era annotation */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 2.0 }}
+                      className="absolute -top-10 right-[-60px] flex items-center gap-1.5"
+                    >
+                      <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
+                      <span className="text-xs font-semibold text-emerald-400 tracking-wide">
+                        Chatbots
+                      </span>
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-3 bg-emerald-400/40" />
+                    </motion.div>
                     <div className="flex items-center justify-center gap-1 mb-0.5">
                       <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                       <span className="text-xs font-mono text-amber-400 uppercase tracking-widest">

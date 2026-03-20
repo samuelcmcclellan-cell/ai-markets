@@ -88,18 +88,6 @@ const stack = [
     heatColor: "#ef4444",
   },
   {
-    icon: Cpu,
-    layer: "Chip Design",
-    color: "#06b6d4",
-    description:
-      "NVIDIA designs the GPUs. AMD, Intel, and Broadcom compete. The architecture decisions here determine what\u2019s possible above.",
-    companies: "NVIDIA, AMD, Broadcom, Qualcomm",
-    investability:
-      "NVIDIA trades at 35x forward. AMD gaining share. Broadcom\u2019s custom ASIC business surging.",
-    heatWidth: 60,
-    heatColor: "#ef4444",
-  },
-  {
     icon: Factory,
     layer: "Foundry / Fabrication",
     color: "#3b82f6",
@@ -109,6 +97,18 @@ const stack = [
     investability:
       "TSMC\u2019s monopoly on advanced nodes is structural. 90% market share at sub-7nm.",
     heatWidth: 50,
+    heatColor: "#ef4444",
+  },
+  {
+    icon: Cpu,
+    layer: "Chip Design",
+    color: "#06b6d4",
+    description:
+      "NVIDIA designs the GPUs. AMD, Intel, and Broadcom compete. The architecture decisions here determine what\u2019s possible above.",
+    companies: "NVIDIA, AMD, Broadcom, Qualcomm",
+    investability:
+      "NVIDIA trades at 35x forward. AMD gaining share. Broadcom\u2019s custom ASIC business surging.",
+    heatWidth: 60,
     heatColor: "#ef4444",
   },
   {

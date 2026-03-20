@@ -18,7 +18,7 @@ const markers = [
   {
     id: 0,
     label: "USA",
-    coordinates: [-95, 40] as [number, number],
+    coordinates: [-122.4, 37.8] as [number, number],
     region: "United States",
     labelOffset: { x: 0, yName: -14, yRole: -3 },
     anchor: "middle" as const,
@@ -113,7 +113,7 @@ export default function SupplyChainMap() {
               center: [30, 30],
             }}
             style={{ width: "100%", height: "auto" }}
-            viewBox="0 0 800 450"
+            viewBox="0 60 800 300"
           >
             <Geographies geography={geoUrl}>
               {({ geographies }) =>

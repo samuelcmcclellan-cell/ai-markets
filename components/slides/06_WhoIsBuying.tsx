@@ -22,60 +22,45 @@ const hyperscalerLogos: Record<string, React.ReactNode> = {
 };
 
 const hyperscalers = [
-  { company: "Amazon", capex: "$200B", color: "#ff9900" },
-  { company: "Alphabet", capex: "$180B", color: "#4285f4" },
-  { company: "Microsoft", capex: "$130B", color: "#00a4ef" },
-  { company: "Meta", capex: "$125B", color: "#0668e1" },
-  { company: "Oracle", capex: "$50B", color: "#f80000" },
+  { company: "Amazon", desc: "AWS + custom Trainium chips", color: "#ff9900" },
+  { company: "Alphabet", desc: "GCP + TPU silicon", color: "#4285f4" },
+  { company: "Microsoft", desc: "Azure + OpenAI partnership", color: "#00a4ef" },
+  { company: "Meta", desc: "Llama models + largest GPU fleet", color: "#0668e1" },
+  { company: "Oracle", desc: "Stargate JV + OCI growth", color: "#f80000" },
 ];
 
 const aiLabs = [
   {
     name: "OpenAI",
-    metric: "$25B",
-    metricLabel: "ARR",
-    detail: "910M weekly users. Stargate JV with SoftBank/Oracle.",
-    color: "#a855f7",
+    desc: "GPT series, 910M weekly users",
     logo: (
       <img src="/images/logos/openai.png" alt="OpenAI" className="w-6 h-6 rounded" />
     ),
   },
   {
     name: "Anthropic",
-    metric: "$19B",
-    metricLabel: "ARR",
-    detail: "300K+ enterprise customers. Claude Code + Cowork.",
-    color: "#ec4899",
+    desc: "Claude, 300K+ enterprise customers",
     logo: (
       <img src="/images/logos/anthropic.png" alt="Anthropic" className="w-6 h-6 rounded" />
     ),
   },
   {
     name: "xAI",
-    metric: "$3B+",
-    metricLabel: "est. ARR",
-    detail: "Grok powers X/Twitter. Colossus 2 cluster in Mississippi.",
-    color: "#f472b6",
+    desc: "Grok, Colossus 2 supercluster",
     logo: (
       <img src="/images/logos/xai.png" alt="xAI" className="w-6 h-6 rounded" />
     ),
   },
   {
     name: "DeepSeek",
-    metric: "$1B+",
-    metricLabel: "est. ARR",
-    detail: "Open-source models. R1 reasoning drives enterprise adoption.",
-    color: "#f9a8d4",
+    desc: "Open-source R1 reasoning models",
     logo: (
       <img src="/images/logos/deepseek.png" alt="DeepSeek" className="w-6 h-6 rounded" />
     ),
   },
   {
     name: "Meta AI",
-    metric: "$5B+",
-    metricLabel: "est. ARR",
-    detail: "Llama 4 open-source. Largest in-house GPU fleet.",
-    color: "#f0abfc",
+    desc: "Llama 4 open-weight models",
     logo: (
       <img src="/images/logos/meta.png" alt="Meta AI" className="w-6 h-6 rounded" />
     ),
@@ -168,11 +153,8 @@ export default function WhoIsBuying() {
                 <p className="text-sm font-heading font-bold text-white">
                   {c.company}
                 </p>
-                <p
-                  className="text-xl font-mono font-bold mt-1"
-                  style={{ color: c.color }}
-                >
-                  {c.capex}
+                <p className="text-[10px] text-slate-500 mt-1 leading-snug">
+                  {c.desc}
                 </p>
               </motion.div>
             ))}
@@ -210,19 +192,8 @@ export default function WhoIsBuying() {
                     {lab.name}
                   </span>
                 </div>
-                <div className="mb-1">
-                  <span
-                    className="text-base font-mono font-bold"
-                    style={{ color: lab.color }}
-                  >
-                    {lab.metric}
-                  </span>
-                  <span className="text-xs text-slate-500 ml-1">
-                    {lab.metricLabel}
-                  </span>
-                </div>
-                <p className="text-xs text-slate-500 leading-snug line-clamp-1">
-                  {lab.detail}
+                <p className="text-[10px] text-slate-500 leading-snug">
+                  {lab.desc}
                 </p>
               </motion.div>
             ))}

@@ -39,6 +39,15 @@ export default function SlideController({
   const accentColor = sectionColors[currentSlide] || "#f59e0b";
   const sectionLabel = sectionLabels[currentSlide] || "";
 
+  const sections = [
+    { name: "Landscape", fullName: "THE LANDSCAPE", startIndex: 0, color: "#3b82f6" },
+    { name: "Money", fullName: "THE MONEY", startIndex: 5, color: "#f59e0b" },
+    { name: "Shifts", fullName: "THE SHIFTS", startIndex: 8, color: "#10b981" },
+    { name: "Risks", fullName: "THE RISKS", startIndex: 11, color: "#ef4444" },
+    { name: "Frontier", fullName: "THE FRONTIER", startIndex: 16, color: "#8b5cf6" },
+  ];
+  const currentSection = [...sections].reverse().find(s => currentSlide >= s.startIndex) || sections[0];
+
   const goTo = useCallback(
     (index: number) => {
       if (isAnimating.current) return;
@@ -64,6 +73,10 @@ export default function SlideController({
       } else if (e.key === "ArrowLeft") {
         e.preventDefault();
         prev();
+      } else if (e.key >= "1" && e.key <= "5") {
+        e.preventDefault();
+        const sectionTargets = [0, 5, 8, 11, 16];
+        goTo(sectionTargets[parseInt(e.key) - 1]);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -117,6 +130,32 @@ export default function SlideController({
           </span>
         </motion.div>
       )}
+
+      {/* Section navigation buttons — top center */}
+      <div className="fixed top-3.5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 whitespace-nowrap">
+        {sections.map((section) => {
+          const isActive = currentSection.fullName === section.fullName;
+          return (
+            <button
+              key={section.name}
+              onClick={() => goTo(section.startIndex)}
+              className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono tracking-wider transition-all duration-300 cursor-pointer ${
+                isActive ? 'font-semibold' : 'text-slate-600 hover:text-slate-400'
+              }`}
+              style={isActive ? {
+                backgroundColor: section.color + '20',
+                color: section.color,
+                border: `1px solid ${section.color}40`,
+              } : {
+                backgroundColor: 'transparent',
+                border: '1px solid transparent',
+              }}
+            >
+              {section.name}
+            </button>
+          );
+        })}
+      </div>
 
       {/* Slide counter — top right */}
       <div className="fixed top-4 right-6 z-50 text-sm text-slate-500 font-mono">

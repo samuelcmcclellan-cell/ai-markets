@@ -1,68 +1,162 @@
 "use client";
 import { motion } from "framer-motion";
-import { softwareDeclines } from "@/data/equities";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  ResponsiveContainer,
+  Cell,
+} from "recharts";
 
-const CustomTooltip = ({ active, payload }: any) => {
-  if (active && payload && payload.length) {
-    const data = payload[0].payload;
-    return (
-      <div className="bg-navy-800 border border-slate-700 rounded-lg p-3 shadow-xl">
-        <p className="text-sm font-heading font-medium text-white">{data.company} ({data.ticker})</p>
-        <p className="text-xs text-red-400">{data.ytd}% YTD</p>
-        {data.note && <p className="text-xs text-slate-500 mt-1">{data.note}</p>}
-      </div>
-    );
-  }
-  return null;
-};
-
-const reasons = [
-  { title: "Seat-based models are threatened", content: "If AI agents do the work of 100 employees, you don't need 100 Salesforce seats. You need 10. That's a 90% reduction in seat revenue for the same work output." },
-  { title: "Budget displacement", content: "Every dollar going to AI infrastructure ($650B+) is a dollar NOT going to another SaaS subscription. CIOs are consolidating vendors, not adding them." },
-  { title: "Lower barriers to entry", content: "Vibe coding and AI-native tools let companies build custom solutions in hours that would have taken teams months. Enterprise software moats are eroding." },
+const saasPerformance = [
+  { name: "CrowdStrike", value: 7 },
+  { name: "Fortinet", value: 5 },
+  { name: "Palantir", value: -15 },
+  { name: "Shopify", value: -16 },
+  { name: "Datadog", value: -18 },
+  { name: "Microsoft", value: -19 },
+  { name: "Adobe", value: -23 },
+  { name: "Salesforce", value: -28 },
 ];
 
 export default function SoftwareUnderPressure() {
   return (
     <div className="slide-container">
       <div className="slide-content">
-        <motion.h2 className="text-sm uppercase tracking-widest text-emerald-400 font-mono mb-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>Software Under Pressure</motion.h2>
-        <motion.p className="text-2xl md:text-3xl font-heading font-semibold text-white mb-2" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>The SaaS Reckoning</motion.p>
-        <motion.p className="text-sm text-slate-400 mb-8 max-w-3xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-          The iShares Software ETF (IGV) is down ~20% YTD — while the broader tech sector (XLK) is down only ~3-5%. That divergence is nearly 4 standard deviations from the historical norm.
+        <motion.h2
+          className="text-sm uppercase tracking-widest text-emerald-400 font-mono mb-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          Software Under Pressure
+        </motion.h2>
+        <motion.p
+          className="text-2xl md:text-3xl font-heading font-semibold text-white mb-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+        >
+          The SaaS Reckoning
+        </motion.p>
+        <motion.p
+          className="text-lg text-slate-400 mb-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.25 }}
+        >
+          Software is falling 5× faster than broad tech. Only 2 of 8 major
+          names are positive.
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <motion.div className="h-[260px]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
+        <div className="grid grid-cols-[30%_70%] gap-8">
+          {/* Left: ETF comparison */}
+          <div className="flex flex-col gap-4">
+            <motion.div
+              className="bg-red-500/10 border border-red-500/30 rounded-xl p-5 text-center"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <p className="text-xs font-mono text-red-400 uppercase tracking-wider mb-1">
+                IGV &middot; Software ETF
+              </p>
+              <p className="text-4xl font-mono font-bold text-red-400">-20%</p>
+              <p className="text-xs text-slate-500 mt-1">YTD 2026</p>
+            </motion.div>
+
+            <p className="text-sm text-slate-600 text-center font-mono">vs.</p>
+
+            <motion.div
+              className="bg-slate-500/10 border border-slate-500/30 rounded-xl p-5 text-center"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <p className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">
+                XLK &middot; Broad Tech
+              </p>
+              <p className="text-4xl font-mono font-bold text-slate-300">-4%</p>
+              <p className="text-xs text-slate-500 mt-1">YTD 2026</p>
+            </motion.div>
+
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <p className="text-2xl font-mono font-bold text-amber-400">
+                16pt gap
+              </p>
+              <p className="text-xs text-slate-500">
+                Historically rare divergence
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Right: Horizontal bar chart */}
+          <motion.div
+            className="h-[320px]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={softwareDeclines} layout="vertical" margin={{ left: 20 }}>
-                <XAxis type="number" tick={{ fill: "#94a3b8", fontSize: 11 }} axisLine={{ stroke: "#334155" }} tickLine={false} tickFormatter={(v) => `${v}%`} />
-                <YAxis type="category" dataKey="ticker" tick={{ fill: "#94a3b8", fontSize: 11 }} axisLine={{ stroke: "#334155" }} tickLine={false} width={50} />
-                <Tooltip content={<CustomTooltip />} />
-                <Bar dataKey="ytd" radius={[0, 4, 4, 0]}>
-                  {softwareDeclines.map((_, i) => (<Cell key={i} fill="#ef4444" fillOpacity={0.7 + i * 0.05} />))}
+              <BarChart
+                data={saasPerformance}
+                layout="vertical"
+                margin={{ left: 10 }}
+              >
+                <XAxis
+                  type="number"
+                  tick={{ fill: "#94a3b8", fontSize: 13 }}
+                  axisLine={{ stroke: "#334155" }}
+                  tickLine={false}
+                  tickFormatter={(v) => `${v}%`}
+                  domain={[-35, 15]}
+                />
+                <YAxis
+                  type="category"
+                  dataKey="name"
+                  tick={{ fill: "#e2e8f0", fontSize: 14, fontWeight: 600 }}
+                  axisLine={false}
+                  tickLine={false}
+                  width={110}
+                />
+                <Bar dataKey="value" radius={[0, 4, 4, 0]}>
+                  {saasPerformance.map((entry, i) => (
+                    <Cell
+                      key={i}
+                      fill={entry.value >= 0 ? "#10b981" : "#ef4444"}
+                    />
+                  ))}
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
           </motion.div>
-
-          <div className="space-y-3">
-            {reasons.map((r, i) => (
-              <motion.div key={i} className="bg-navy-700/30 rounded-lg p-3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 + i * 0.12 }}>
-                <h4 className="text-sm font-heading font-semibold text-white mb-1">{r.title}</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">{r.content}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
 
-        <motion.div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
-          <p className="text-xs text-blue-200 leading-relaxed">
-            <span className="font-medium text-blue-300">BofA counter-argument:</span> &ldquo;Investors fear AI capex has bad ROI AND that AI will be so good it kills SaaS. Both cannot be true simultaneously. If AI is powerful enough to disrupt established industries, the infrastructure spending supporting it cannot collapse.&rdquo;
-          </p>
-        </motion.div>
-        <p className="text-xs text-slate-600 mt-4">Source: Bloomberg, Bank of America, company filings</p>
+        {/* Closing line */}
+        <motion.p
+          className="text-base text-slate-500 italic mt-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7 }}
+        >
+          The same AI wave powering semis is crushing the software it threatens
+          to replace.
+        </motion.p>
+
+        <motion.p
+          className="text-xs text-slate-600 mt-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+        >
+          Source: Bloomberg, Yahoo Finance, company filings (as of mid-March
+          2026)
+        </motion.p>
       </div>
     </div>
   );

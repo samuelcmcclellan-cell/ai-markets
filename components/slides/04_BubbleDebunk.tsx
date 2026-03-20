@@ -30,7 +30,7 @@ export default function BubbleDebunk() {
       <div className="slide-content">
         {/* Header */}
         <motion.h2
-          className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-1"
+          className="text-sm uppercase tracking-widest text-red-400 font-mono mb-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >

@@ -22,15 +22,15 @@ const slides = [
   <Title key="01" />,
   <WhyAIMatters key="02" />,
   <WhatIsAI key="03" />,
-  <BubbleDebunk key="04" />,
-  <TheAIStack key="05" />,
-  <SupplyChainMap key="06" />,
-  <WhoIsBuying key="07" />,
-  <SemiMarketSize key="08" />,
-  <MemoryDeepDive key="09" />,
-  <AgenticAI key="10" />,
-  <SoftwareUnderPressure key="11" />,
-  <HardwareVsSoftware key="12" />,
+  <TheAIStack key="04" />,
+  <SupplyChainMap key="05" />,
+  <WhoIsBuying key="06" />,
+  <SemiMarketSize key="07" />,
+  <MemoryDeepDive key="08" />,
+  <AgenticAI key="09" />,
+  <SoftwareUnderPressure key="10" />,
+  <HardwareVsSoftware key="11" />,
+  <BubbleDebunk key="12" />,
   <SupplyChainRisk key="13" />,
   <PowerSupply key="14" />,
   <PoliticalChallenges key="15" />,
@@ -42,15 +42,15 @@ const sectionColors = [
   "#3b82f6", // 1  Title            - THE LANDSCAPE
   "#3b82f6", // 2  Why AI Matters   - THE LANDSCAPE
   "#3b82f6", // 3  What Is AI?      - THE LANDSCAPE
-  "#f59e0b", // 4  Bubble Debunk    - THE DEBATE
-  "#3b82f6", // 5  AI Stack         - THE LANDSCAPE
-  "#3b82f6", // 6  Supply Chain     - THE LANDSCAPE
-  "#f59e0b", // 7  Who Is Buying    - THE MONEY
-  "#f59e0b", // 8  Semi Market      - THE MONEY
-  "#f59e0b", // 9  Memory Deep Dive - THE MONEY
-  "#10b981", // 10 Agentic AI       - THE SHIFTS
-  "#10b981", // 11 Software         - THE SHIFTS
-  "#10b981", // 12 HW vs SW         - THE SHIFTS
+  "#3b82f6", // 4  AI Stack         - THE LANDSCAPE
+  "#3b82f6", // 5  Supply Chain     - THE LANDSCAPE
+  "#f59e0b", // 6  Who Is Buying    - THE MONEY
+  "#f59e0b", // 7  Semi Market      - THE MONEY
+  "#f59e0b", // 8  Memory Deep Dive - THE MONEY
+  "#10b981", // 9  Agentic AI       - THE SHIFTS
+  "#10b981", // 10 Software         - THE SHIFTS
+  "#10b981", // 11 HW vs SW         - THE SHIFTS
+  "#ef4444", // 12 Bubble Debunk    - THE RISKS
   "#ef4444", // 13 Supply Chain Risk- THE RISKS
   "#ef4444", // 14 Power Supply     - THE RISKS
   "#ef4444", // 15 Political        - THE RISKS
@@ -62,7 +62,6 @@ const sectionLabels = [
   "THE LANDSCAPE",
   "THE LANDSCAPE",
   "THE LANDSCAPE",
-  "THE DEBATE",
   "THE LANDSCAPE",
   "THE LANDSCAPE",
   "THE MONEY",
@@ -71,6 +70,7 @@ const sectionLabels = [
   "THE SHIFTS",
   "THE SHIFTS",
   "THE SHIFTS",
+  "THE RISKS",
   "THE RISKS",
   "THE RISKS",
   "THE RISKS",

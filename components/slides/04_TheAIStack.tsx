@@ -39,7 +39,7 @@ const stackLayers = [
   {
     name: "Data Centers",
     icon: Server,
-    oneLiner: "Warehouses of compute at hyperscale",
+    oneLiner: "Warehouses of compute",
     companies: ["AWS", "Azure", "Google Cloud", "CoreWeave"],
     color: "#ef4444",
   },

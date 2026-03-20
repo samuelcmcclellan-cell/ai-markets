@@ -92,7 +92,7 @@ export default function SupplyChainMap() {
           The Global Supply Chain
         </motion.h2>
         <motion.p
-          className="text-lg md:text-xl font-heading font-semibold text-white mb-4"
+          className="text-xl md:text-2xl font-heading font-semibold text-white mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}

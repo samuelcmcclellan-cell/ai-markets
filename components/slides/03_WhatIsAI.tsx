@@ -79,7 +79,7 @@ export default function WhatIsAI() {
           What Is AI?
         </motion.h2>
         <motion.p
-          className="text-base text-white mb-6 max-w-3xl"
+          className="text-lg text-white mb-6 max-w-3xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}

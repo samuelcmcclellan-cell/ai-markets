@@ -112,7 +112,7 @@ export default function TheAIStack() {
           The AI Stack
         </motion.h2>
         <motion.p
-          className="text-base md:text-lg font-heading font-semibold text-white mb-5"
+          className="text-lg md:text-xl font-heading font-semibold text-white mb-5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}

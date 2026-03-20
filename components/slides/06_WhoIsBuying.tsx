@@ -182,7 +182,7 @@ export default function WhoIsBuying() {
           Who Is Buying All These Chips?
         </motion.h2>
         <motion.p
-          className="text-lg md:text-xl font-heading font-bold text-white mb-4"
+          className="text-xl md:text-2xl font-heading font-bold text-white mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}

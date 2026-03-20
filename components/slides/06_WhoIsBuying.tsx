@@ -2,72 +2,22 @@
 import { motion } from "framer-motion";
 import { Server, Brain, Building2, Globe, Briefcase } from "lucide-react";
 
-/* ── Inline company logos ── */
+/* ── Company logos via Clearbit ── */
 const hyperscalerLogos: Record<string, React.ReactNode> = {
   Amazon: (
-    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
-      <path
-        d="M1.5 16.5c5 3 12.5 4 19 1"
-        stroke="#ff9900"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M17 14.5l3.5 3-3.5 3"
-        stroke="#ff9900"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" className="w-6 h-6 rounded" />
   ),
   Alphabet: (
-    <svg viewBox="0 0 24 24" className="w-6 h-6">
-      <text
-        x="12"
-        y="18"
-        textAnchor="middle"
-        fill="#4285f4"
-        fontSize="18"
-        fontWeight="700"
-        fontFamily="Arial, sans-serif"
-      >
-        G
-      </text>
-    </svg>
+    <img src="https://logo.clearbit.com/google.com" alt="Alphabet" className="w-6 h-6 rounded" />
   ),
   Microsoft: (
-    <svg viewBox="0 0 24 24" className="w-5 h-5">
-      <rect x="2" y="2" width="9" height="9" fill="#f25022" />
-      <rect x="13" y="2" width="9" height="9" fill="#7fba00" />
-      <rect x="2" y="13" width="9" height="9" fill="#00a4ef" />
-      <rect x="13" y="13" width="9" height="9" fill="#ffb900" />
-    </svg>
+    <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" className="w-6 h-6 rounded" />
   ),
   Meta: (
-    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
-      <path
-        d="M4 18C4 12 6 6 9 6c2 0 3.5 3 3.5 3S14 6 16 6c3 0 5 6 5 12"
-        stroke="#0668e1"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-    </svg>
+    <img src="https://logo.clearbit.com/meta.com" alt="Meta" className="w-6 h-6 rounded" />
   ),
   Oracle: (
-    <svg viewBox="0 0 24 24" className="w-6 h-6">
-      <text
-        x="12"
-        y="17"
-        textAnchor="middle"
-        fill="#f80000"
-        fontSize="14"
-        fontWeight="700"
-        fontFamily="Arial, sans-serif"
-      >
-        O
-      </text>
-    </svg>
+    <img src="https://logo.clearbit.com/oracle.com" alt="Oracle" className="w-6 h-6 rounded" />
   ),
 };
 
@@ -87,7 +37,7 @@ const aiLabs = [
     detail: "910M weekly users. Stargate JV with SoftBank/Oracle.",
     color: "#a855f7",
     logo: (
-      <span className="text-sm font-bold text-white tracking-tight">AI</span>
+      <img src="https://logo.clearbit.com/openai.com" alt="OpenAI" className="w-6 h-6 rounded" />
     ),
   },
   {
@@ -97,7 +47,7 @@ const aiLabs = [
     detail: "300K+ enterprise customers. Claude Code + Cowork.",
     color: "#ec4899",
     logo: (
-      <span className="text-sm font-bold text-orange-400">A</span>
+      <img src="https://logo.clearbit.com/anthropic.com" alt="Anthropic" className="w-6 h-6 rounded" />
     ),
   },
   {
@@ -107,7 +57,7 @@ const aiLabs = [
     detail: "Grok powers X/Twitter. Colossus 2 cluster in Mississippi.",
     color: "#f472b6",
     logo: (
-      <span className="text-sm font-bold text-white">xAI</span>
+      <img src="https://logo.clearbit.com/x.ai" alt="xAI" className="w-6 h-6 rounded" />
     ),
   },
   {
@@ -117,24 +67,17 @@ const aiLabs = [
     detail: "Open-source models. R1 reasoning drives enterprise adoption.",
     color: "#f9a8d4",
     logo: (
-      <span className="text-sm font-bold text-blue-300">DS</span>
+      <img src="https://logo.clearbit.com/deepseek.com" alt="DeepSeek" className="w-6 h-6 rounded" />
     ),
   },
   {
     name: "Meta AI",
     metric: "$5B+",
-    metricLabel: "est. compute",
+    metricLabel: "est. ARR",
     detail: "Llama 4 open-source. Largest in-house GPU fleet.",
     color: "#f0abfc",
     logo: (
-      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
-        <path
-          d="M4 18C4 12 6 6 9 6c2 0 3.5 3 3.5 3S14 6 16 6c3 0 5 6 5 12"
-          stroke="#f0abfc"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
-      </svg>
+      <img src="https://logo.clearbit.com/meta.com" alt="Meta AI" className="w-6 h-6 rounded" />
     ),
   },
 ];

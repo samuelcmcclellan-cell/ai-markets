@@ -10,7 +10,7 @@ const comparisons = [
   {
     metric: "PROFITABILITY OF THE LEADERS",
     dotcom: { value: "14%", context: "of tech IPOs were profitable" },
-    ai: { value: "53%", context: "NVIDIA net margin (on $216B revenue)" },
+    ai: { value: "26%", context: "Mag 7 average net margin (2× the S&P 500)" },
   },
   {
     metric: "SUPPLY vs. DEMAND",
@@ -34,7 +34,7 @@ export default function BubbleDebunk() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          The #1 Objection
+          The Bubble Question
         </motion.h2>
         <motion.p
           className="text-3xl md:text-4xl font-heading font-bold text-white mb-1"
@@ -135,7 +135,7 @@ export default function BubbleDebunk() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}
         >
-          Source: GuruFocus, Barron&apos;s, CreditSights, CoreWeave, company filings
+          Source: GuruFocus, Barron&apos;s, CreditSights, CoreWeave, Morningstar, company filings
         </motion.p>
       </div>
     </div>

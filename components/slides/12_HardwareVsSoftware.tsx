@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { TrendingUp, TrendingDown, BarChart3, AlertTriangle } from "lucide-react";
 import {
   LineChart,
   Line,
@@ -25,19 +26,6 @@ const divergenceChart = [
   { week: "Mar 19", semis: 113.0, nasdaq: 95.0, software: 79.9 },
 ];
 
-const resilient = [
-  { name: "CrowdStrike", ytd: "+48%" },
-  { name: "Palantir", ytd: "+35%" },
-  { name: "Fortinet", ytd: "+12%" },
-  { name: "Datadog", ytd: "+8%" },
-];
-
-const underPressure = [
-  { name: "Salesforce", ytd: "-30%" },
-  { name: "Adobe", ytd: "-27%" },
-  { name: "Shopify", ytd: "-26%" },
-  { name: "Microsoft", ytd: "-17%" },
-];
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -178,103 +166,105 @@ export default function HardwareVsSoftware() {
           </div>
         </motion.div>
 
-        {/* Zone 2: Spotlight */}
-        <div className="grid grid-cols-1 md:grid-cols-[45%_55%] gap-4 mb-3">
-          {/* Left: Callout card */}
-          <motion.div
-            className="bg-blue-500/8 border border-blue-500/20 rounded-xl p-4"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.7 }}
-          >
-            <p className="text-base font-heading font-bold text-white mb-2">
-              Not all software is created equal.
-            </p>
-            <p className="text-xs text-slate-400 leading-relaxed mb-3">
-              Generic SaaS with seat-based models is under pressure. But
-              cybersecurity, data infra, and mission-critical code are in higher
-              demand than ever.
-            </p>
-            <p className="text-2xl font-mono font-bold text-blue-400">$520B</p>
-            <p className="text-xs text-slate-500 mb-1">
-              Global cybersecurity spend 2026
-            </p>
-            <p className="text-xs text-slate-500">
-              Cyber budgets growing 50% faster than overall software &mdash; MS
-              CIO Survey
-            </p>
-          </motion.div>
-
-          {/* Right: Resilient vs Under Pressure */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.9 }}
-          >
-            {/* Outperforming */}
-            <p className="text-xs font-mono text-emerald-400 uppercase tracking-wider mb-2">
-              Outperforming
-            </p>
-            <div className="space-y-1.5 mb-4">
-              {resilient.map((s, i) => (
-                <motion.div
-                  key={i}
-                  className="flex items-center justify-between bg-emerald-500/5 border border-emerald-500/10 rounded-lg px-3 py-2"
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.9 + i * 0.06 }}
-                >
-                  <span className="text-sm text-white">{s.name}</span>
-                  <span className="text-sm font-mono font-bold text-emerald-400">
-                    {s.ytd}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Under Pressure */}
-            <p className="text-xs font-mono text-red-400 uppercase tracking-wider mb-2">
-              Under Pressure
-            </p>
-            <div className="space-y-1.5">
-              {underPressure.map((s, i) => (
-                <motion.div
-                  key={i}
-                  className="flex items-center justify-between bg-red-500/5 border border-red-500/10 rounded-lg px-3 py-2"
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 2.1 + i * 0.06 }}
-                >
-                  <span className="text-sm text-white">{s.name}</span>
-                  <span className="text-sm font-mono font-bold text-red-400">
-                    {s.ytd}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Bottom line */}
-        <motion.p
-          className="text-xs text-slate-400 leading-relaxed"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.3 }}
+        {/* Bottom section — Memory Supercycle vs DiSaaSter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.0 }}
+          className="flex gap-3 mt-4 px-2"
         >
-          <span className="text-amber-400 font-medium">The pattern:</span>{" "}
-          Infrastructure wins today. Generic software is under pressure. But
-          mission-critical software &mdash; cybersecurity, data, AI-native tools
-          &mdash; is a different story entirely.
-        </motion.p>
+          {/* LEFT PANEL: Memory Supercycle */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.2 }}
+            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-5"
+          >
+            <div className="flex items-center gap-2 mb-4">
+              <TrendingUp className="w-4 h-4 text-cyan-400" />
+              <h3 className="text-xs font-mono tracking-[0.15em] text-cyan-400 uppercase">
+                Memory Supercycle
+              </h3>
+            </div>
+            <p className="text-sm text-slate-300 mb-4">
+              HBM demand <span className="text-cyan-400 font-semibold">sold out through 2026</span>.
+              SK Hynix targets <span className="text-cyan-400 font-semibold">70% HBM4 share</span> for NVIDIA Rubin.
+            </p>
+            <div className="flex gap-2 mb-4">
+              {[
+                { name: "SK Hynix", ticker: "000660.KS", change: "+49%", detail: "62% HBM share, HBM4 shipping Q4" },
+                { name: "Micron", ticker: "MU", change: "+54%", detail: "NY megafab breaking ground, HBM3E ramp" },
+                { name: "Samsung", ticker: "005930.KS", change: "+57%", detail: "HBM production doubling, DRAM leader" },
+              ].map((stock, i) => (
+                <div key={i} className="flex-1 bg-slate-900/50 border border-slate-700/30 rounded px-3 py-2.5 text-center">
+                  <p className="text-[10px] font-mono text-slate-500 mb-0.5">{stock.ticker}</p>
+                  <p className="text-sm font-semibold text-slate-200">{stock.name}</p>
+                  <p className="text-lg font-bold text-cyan-400 my-1">{stock.change}</p>
+                  <p className="text-[10px] text-slate-500 leading-tight">{stock.detail}</p>
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center gap-2 pt-2 border-t border-slate-700/30">
+              <BarChart3 className="w-3 h-3 text-cyan-400/60" />
+              <p className="text-[11px] text-slate-500">
+                DRAM prices <span className="text-cyan-400">+40%</span> through Q2 2026 — Counterpoint Research
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Vertical divider */}
+          <div className="w-px bg-slate-700/40 self-stretch" />
+
+          {/* RIGHT PANEL: The DiSaaSter */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.4 }}
+            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-5"
+          >
+            <div className="flex items-center gap-2 mb-4">
+              <TrendingDown className="w-4 h-4 text-red-400" />
+              <h3 className="text-xs font-mono tracking-[0.15em] uppercase">
+                <span className="text-slate-400">The </span>
+                <span className="text-slate-400">Di</span>
+                <span className="text-red-400 font-bold text-sm">SaaS</span>
+                <span className="text-slate-400">ter</span>
+              </h3>
+            </div>
+            <p className="text-sm text-slate-300 mb-4">
+              <span className="text-red-400 font-semibold">$1 trillion</span> wiped from software stocks
+              in a single month. Jefferies calls it the <span className="text-red-400 font-semibold">&ldquo;SaaSpocalypse.&rdquo;</span>
+            </p>
+            <div className="flex gap-2 mb-4">
+              {[
+                { name: "Salesforce", ticker: "CRM", change: "-26%", detail: "Seat-based model under AI agent threat" },
+                { name: "Adobe", ticker: "ADBE", change: "-28%", detail: "AI-generated content eroding moat" },
+                { name: "ServiceNow", ticker: "NOW", change: "-23%", detail: "Workflow automation disrupted by agents" },
+              ].map((stock, i) => (
+                <div key={i} className="flex-1 bg-slate-900/50 border border-slate-700/30 rounded px-3 py-2.5 text-center">
+                  <p className="text-[10px] font-mono text-slate-500 mb-0.5">{stock.ticker}</p>
+                  <p className="text-sm font-semibold text-slate-200">{stock.name}</p>
+                  <p className="text-lg font-bold text-red-400 my-1">{stock.change}</p>
+                  <p className="text-[10px] text-slate-500 leading-tight">{stock.detail}</p>
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center gap-2 pt-2 border-t border-slate-700/30">
+              <AlertTriangle className="w-3 h-3 text-red-400/60" />
+              <p className="text-[11px] text-slate-500">
+                IGV <span className="text-red-400">-23% YTD</span> — worst monthly decline since 2008
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+
         <motion.p
           className="text-[11px] text-slate-600 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2.4 }}
+          transition={{ delay: 1.8 }}
         >
-          Source: Google Finance, Morgan Stanley CIO Survey, company filings. As
-          of March 19, 2026.
+          Source: Yahoo Finance, Counterpoint Research, Jefferies, Morgan Stanley CIO Survey
         </motion.p>
       </div>
     </div>

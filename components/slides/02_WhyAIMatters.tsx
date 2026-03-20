@@ -5,7 +5,7 @@ const statements = [
   {
     headline: "AI is the largest capital expenditure cycle in history.",
     supporting:
-      "The 5 biggest tech companies will spend over $650 billion on AI infrastructure in 2026 alone — more than the GDP of Sweden.",
+      "The 5 biggest tech companies will spend over $650 billion on AI infrastructure in 2026 alone \u2014 and cumulative AI-related investment is on track to exceed $4 trillion by 2030.",
   },
   {
     headline: "It touches every layer of the economy.",

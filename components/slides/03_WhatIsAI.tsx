@@ -9,13 +9,20 @@ import {
   Bot,
 } from "lucide-react";
 
+const eraLogos: Record<string, string[]> = {
+  "Symbolic AI": ["IBM", "LISP", "Deep Blue"],
+  "Machine Learning": ["SVM", "Random Forest", "Kaggle"],
+  "Deep Learning": ["AlexNet", "TensorFlow", "GPT-2", "DALL\u00B7E"],
+  "Reasoning": ["GPT-4", "Claude", "Gemini", "DeepSeek R1"],
+  "Agentic AI": ["Claude Code", "Codex", "Devin", "AutoGPT"],
+};
+
 const timeline = [
   {
     year: "1950s\u201380s",
     label: "Symbolic AI",
     icon: BookOpen,
-    description:
-      "Hand-coded rules. Expert systems. Could play chess but couldn\u2019t recognize a cat.",
+    description: "Hand-coded rules and expert systems.",
     color: "#475569",
     position: "above" as const,
   },
@@ -23,8 +30,7 @@ const timeline = [
     year: "1990s\u20132000s",
     label: "Machine Learning",
     icon: BarChart3,
-    description:
-      "Systems learn from data instead of rules. Statistical pattern recognition.",
+    description: "Systems learn patterns from data.",
     color: "#6366f1",
     position: "below" as const,
   },
@@ -32,7 +38,7 @@ const timeline = [
     year: "2012",
     label: "Deep Learning",
     icon: Brain,
-    description: "Neural networks with many layers. AlexNet wins ImageNet.",
+    description: "Neural networks go deep. AlexNet moment.",
     color: "#3b82f6",
     position: "above" as const,
   },
@@ -50,8 +56,7 @@ const timeline = [
     year: "2023\u201324",
     label: "Reasoning",
     icon: Lightbulb,
-    description:
-      "Chain-of-thought, multi-step logic. DeepSeek R1 shocks the industry with open-source reasoning.",
+    description: "Multi-step logic and chain-of-thought.",
     color: "#10b981",
     position: "below" as const,
   },
@@ -59,13 +64,28 @@ const timeline = [
     year: "2025+",
     label: "Agentic AI",
     icon: Bot,
-    description:
-      "AI that sets goals, uses tools, and executes autonomously. Claude Code, OpenClaw, and Codex lead the shift.",
+    description: "AI that acts autonomously with tools.",
     color: "#f59e0b",
     position: "above" as const,
   },
 ];
 
+function LogoPills({ label }: { label: string }) {
+  const logos = eraLogos[label];
+  if (!logos) return null;
+  return (
+    <div className="flex flex-wrap gap-1 mt-2 justify-center">
+      {logos.map((logo, i) => (
+        <span
+          key={i}
+          className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-slate-700/60 text-slate-300 border border-slate-600/40"
+        >
+          {logo}
+        </span>
+      ))}
+    </div>
+  );
+}
 
 export default function WhatIsAI() {
   return (
@@ -94,7 +114,7 @@ export default function WhatIsAI() {
           {/* Items above the line */}
           <div
             className="flex items-end justify-between mb-2"
-            style={{ minHeight: "90px" }}
+            style={{ minHeight: "110px" }}
           >
             {timeline.map((item, i) => (
               <div
@@ -127,9 +147,10 @@ export default function WhatIsAI() {
                     >
                       {item.year}
                     </p>
-                    <p className="text-xs text-slate-500 leading-tight">
+                    <p className="text-[10px] text-slate-500 leading-tight">
                       {item.description}
                     </p>
+                    <LogoPills label={item.label} />
                   </motion.div>
                 )}
               </div>
@@ -179,7 +200,7 @@ export default function WhatIsAI() {
           {/* Items below the line + inflection card */}
           <div
             className="flex items-start justify-between mt-2"
-            style={{ minHeight: "95px" }}
+            style={{ minHeight: "115px" }}
           >
             {timeline.map((item, i) => (
               <div
@@ -246,16 +267,16 @@ export default function WhatIsAI() {
                     >
                       {item.year}
                     </p>
-                    <p className="text-xs text-slate-500 leading-tight">
+                    <p className="text-[10px] text-slate-500 leading-tight">
                       {item.description}
                     </p>
+                    <LogoPills label={item.label} />
                   </motion.div>
                 )}
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );

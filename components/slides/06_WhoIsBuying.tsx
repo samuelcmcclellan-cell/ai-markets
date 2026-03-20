@@ -2,22 +2,22 @@
 import { motion } from "framer-motion";
 import { Server, Brain, Building2, Globe, Briefcase } from "lucide-react";
 
-/* ── Company logos via Clearbit ── */
+/* ── Company logos (local static assets) ── */
 const hyperscalerLogos: Record<string, React.ReactNode> = {
   Amazon: (
-    <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" className="w-6 h-6 rounded" />
+    <img src="/images/logos/amazon.png" alt="Amazon" className="w-6 h-6 rounded" />
   ),
   Alphabet: (
-    <img src="https://logo.clearbit.com/google.com" alt="Alphabet" className="w-6 h-6 rounded" />
+    <img src="/images/logos/google.png" alt="Alphabet" className="w-6 h-6 rounded" />
   ),
   Microsoft: (
-    <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" className="w-6 h-6 rounded" />
+    <img src="/images/logos/microsoft.png" alt="Microsoft" className="w-6 h-6 rounded" />
   ),
   Meta: (
-    <img src="https://logo.clearbit.com/meta.com" alt="Meta" className="w-6 h-6 rounded" />
+    <img src="/images/logos/meta.png" alt="Meta" className="w-6 h-6 rounded" />
   ),
   Oracle: (
-    <img src="https://logo.clearbit.com/oracle.com" alt="Oracle" className="w-6 h-6 rounded" />
+    <img src="/images/logos/oracle.png" alt="Oracle" className="w-6 h-6 rounded" />
   ),
 };
 
@@ -37,7 +37,7 @@ const aiLabs = [
     detail: "910M weekly users. Stargate JV with SoftBank/Oracle.",
     color: "#a855f7",
     logo: (
-      <img src="https://logo.clearbit.com/openai.com" alt="OpenAI" className="w-6 h-6 rounded" />
+      <img src="/images/logos/openai.png" alt="OpenAI" className="w-6 h-6 rounded" />
     ),
   },
   {
@@ -47,7 +47,7 @@ const aiLabs = [
     detail: "300K+ enterprise customers. Claude Code + Cowork.",
     color: "#ec4899",
     logo: (
-      <img src="https://logo.clearbit.com/anthropic.com" alt="Anthropic" className="w-6 h-6 rounded" />
+      <img src="/images/logos/anthropic.png" alt="Anthropic" className="w-6 h-6 rounded" />
     ),
   },
   {
@@ -57,7 +57,7 @@ const aiLabs = [
     detail: "Grok powers X/Twitter. Colossus 2 cluster in Mississippi.",
     color: "#f472b6",
     logo: (
-      <img src="https://logo.clearbit.com/x.ai" alt="xAI" className="w-6 h-6 rounded" />
+      <img src="/images/logos/xai.png" alt="xAI" className="w-6 h-6 rounded" />
     ),
   },
   {
@@ -67,7 +67,7 @@ const aiLabs = [
     detail: "Open-source models. R1 reasoning drives enterprise adoption.",
     color: "#f9a8d4",
     logo: (
-      <img src="https://logo.clearbit.com/deepseek.com" alt="DeepSeek" className="w-6 h-6 rounded" />
+      <img src="/images/logos/deepseek.png" alt="DeepSeek" className="w-6 h-6 rounded" />
     ),
   },
   {
@@ -77,7 +77,7 @@ const aiLabs = [
     detail: "Llama 4 open-source. Largest in-house GPU fleet.",
     color: "#f0abfc",
     logo: (
-      <img src="https://logo.clearbit.com/meta.com" alt="Meta AI" className="w-6 h-6 rounded" />
+      <img src="/images/logos/meta.png" alt="Meta AI" className="w-6 h-6 rounded" />
     ),
   },
 ];

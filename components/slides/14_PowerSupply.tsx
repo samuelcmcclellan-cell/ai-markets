@@ -1,28 +1,66 @@
 "use client";
 import { motion } from "framer-motion";
-import { powerDemandGrowth } from "@/data/power";
 import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
-import { Zap, Clock } from "lucide-react";
+  Zap,
+  Clock,
+  Atom,
+  Sun,
+  Flame,
+  Wind,
+  Battery,
+  PlugZap,
+} from "lucide-react";
 
-const CustomTooltip = ({ active, payload, label }: any) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="bg-navy-800 border border-slate-700 rounded-lg p-2 shadow-xl">
-        <p className="text-xs text-white">
-          {label}: {payload[0].value} TWh
-        </p>
-      </div>
-    );
-  }
-  return null;
-};
+const energyCards = [
+  {
+    icon: Atom,
+    label: "Nuclear",
+    color: "amber",
+    colorHex: "#f59e0b",
+    stat: "4 GW",
+    context: "All 5 hyperscalers building or restarting reactors",
+  },
+  {
+    icon: Sun,
+    label: "Solar",
+    color: "yellow",
+    colorHex: "#eab308",
+    stat: "15+ GW",
+    context: "Largest corporate PPA buyers globally",
+  },
+  {
+    icon: Flame,
+    label: "Gas",
+    color: "orange",
+    colorHex: "#f97316",
+    stat: "<1 yr",
+    context: "Only source deployable now, bypassing grid queue",
+  },
+  {
+    icon: Wind,
+    label: "Wind",
+    color: "sky",
+    colorHex: "#38bdf8",
+    stat: "15+ GW",
+    context: "Combined with solar in hyperscaler procurement",
+  },
+  {
+    icon: Battery,
+    label: "Battery",
+    color: "emerald",
+    colorHex: "#34d399",
+    stat: "4-hour",
+    context: "Li-ion storage co-located with solar for partial baseload",
+  },
+  {
+    icon: PlugZap,
+    label: "BTM",
+    color: "cyan",
+    colorHex: "#22d3ee",
+    stat: "1.2 GW",
+    context: "Behind-the-meter: xAI Colossus 2, GE Vernova 80 GW backlog",
+  },
+];
 
 export default function PowerSupply() {
   return (
@@ -36,17 +74,17 @@ export default function PowerSupply() {
           Power Supply
         </motion.h2>
         <motion.p
-          className="text-2xl md:text-3xl font-heading font-semibold text-white mb-6"
+          className="text-2xl md:text-3xl font-heading font-semibold text-white mb-5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
         >
-          The grid{" "}
-          <span className="text-red-400">can&apos;t keep up</span>.
+          The AI buildout is{" "}
+          <span className="text-red-400">straining the power grid</span>.
         </motion.p>
 
-        <div className="grid grid-cols-2 gap-6">
-          {/* Left: Two stat cards */}
+        <div className="grid grid-cols-2 gap-8">
+          {/* Left: The Problem */}
           <div className="flex flex-col gap-4">
             <motion.div
               className="stat-card flex items-center gap-4 p-4"
@@ -58,8 +96,12 @@ export default function PowerSupply() {
                 <Zap className="w-5 h-5 text-red-400" />
               </div>
               <div>
-                <p className="text-3xl md:text-4xl font-mono font-bold text-red-400">96 GW</p>
-                <p className="text-sm text-slate-400">Global DC power demand by 2026</p>
+                <p className="text-3xl md:text-4xl font-mono font-bold text-red-400">
+                  96 GW
+                </p>
+                <p className="text-sm text-slate-400">
+                  Global DC power demand by 2026
+                </p>
               </div>
             </motion.div>
 
@@ -73,94 +115,89 @@ export default function PowerSupply() {
                 <Clock className="w-5 h-5 text-blue-400" />
               </div>
               <div>
-                <p className="text-3xl md:text-4xl font-mono font-bold text-blue-400">3–5 yrs</p>
-                <p className="text-sm text-slate-400">Average grid connection wait</p>
+                <p className="text-3xl md:text-4xl font-mono font-bold text-blue-400">
+                  3–5 yrs
+                </p>
+                <p className="text-sm text-slate-400">
+                  Average grid connection wait
+                </p>
               </div>
             </motion.div>
 
-            {/* Supporting text */}
             <motion.div
               className="mt-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <p className="text-lg text-slate-300 leading-relaxed">
-                Demand is growing <span className="text-red-400 font-semibold">5× by 2030</span>.
-              </p>
-              <p className="text-lg text-slate-300 leading-relaxed mt-1">
-                The grid queue has <span className="text-amber-400 font-semibold">2,600 GW</span> waiting.
-                Modernization will cost <span className="text-emerald-400 font-semibold">$2T+</span>.
+              <p className="text-base text-slate-400 leading-relaxed">
+                Demand is growing{" "}
+                <span className="text-red-400 font-semibold">5× by 2030</span>.
+                The grid queue has{" "}
+                <span className="text-amber-400 font-semibold">2,600 GW</span>{" "}
+                waiting. Modernization will cost{" "}
+                <span className="text-emerald-400 font-semibold">$2T+</span>.
               </p>
             </motion.div>
           </div>
 
-          {/* Right: Chart — hero visual */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.35 }}
-          >
-            <h3 className="text-sm font-heading font-medium text-slate-500 uppercase tracking-wider mb-3">
-              US Data Center Power Demand (TWh)
-            </h3>
-            <div className="h-[280px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={powerDemandGrowth}>
-                  <defs>
-                    <linearGradient
-                      id="powerGrad"
-                      x1="0"
-                      y1="0"
-                      x2="0"
-                      y2="1"
-                    >
-                      <stop
-                        offset="0%"
-                        stopColor="#ef4444"
-                        stopOpacity={0.3}
-                      />
-                      <stop
-                        offset="100%"
-                        stopColor="#ef4444"
-                        stopOpacity={0}
-                      />
-                    </linearGradient>
-                  </defs>
-                  <XAxis
-                    dataKey="year"
-                    tick={{ fill: "#94a3b8", fontSize: 13 }}
-                    axisLine={{ stroke: "#334155" }}
-                    tickLine={false}
-                  />
-                  <YAxis
-                    tick={{ fill: "#94a3b8", fontSize: 13 }}
-                    axisLine={{ stroke: "#334155" }}
-                    tickLine={false}
-                    tickFormatter={(v) => `${v}`}
-                    width={40}
-                  />
-                  <Tooltip content={<CustomTooltip />} />
-                  <Area
-                    type="monotone"
-                    dataKey="twh"
-                    stroke="#ef4444"
-                    fill="url(#powerGrad)"
-                    strokeWidth={2}
-                  />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
-          </motion.div>
+          {/* Right: The Response — 3×2 icon card grid */}
+          <div className="grid grid-cols-3 gap-3">
+            {energyCards.map((card, i) => {
+              const Icon = card.icon;
+              return (
+                <motion.div
+                  key={card.label}
+                  className="bg-navy-700/30 border border-slate-700/40 rounded-xl p-4 flex flex-col items-center text-center"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + i * 0.08 }}
+                >
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-3"
+                    style={{ backgroundColor: `${card.colorHex}20` }}
+                  >
+                    <Icon
+                      className="w-6 h-6"
+                      style={{ color: card.colorHex }}
+                    />
+                  </div>
+                  <p
+                    className="text-xs font-mono font-bold uppercase tracking-wider mb-2"
+                    style={{ color: card.colorHex }}
+                  >
+                    {card.label}
+                  </p>
+                  <p className="text-2xl font-mono font-bold text-white mb-1">
+                    {card.stat}
+                  </p>
+                  <p className="text-xs text-slate-400 leading-snug">
+                    {card.context}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
+        {/* Closing line */}
         <motion.p
-          className="text-[11px] text-slate-600 mt-4"
+          className="text-base text-slate-500 italic mt-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.7 }}
         >
-          Source: IEA, Goldman Sachs
+          The grid can&apos;t keep up. That&apos;s why they&apos;re building
+          their own.
+        </motion.p>
+
+        <motion.p
+          className="text-[11px] text-slate-600 mt-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+        >
+          Source: IEA, Goldman Sachs, GE Vernova, company filings
         </motion.p>
       </div>
     </div>

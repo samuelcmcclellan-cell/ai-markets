@@ -125,11 +125,12 @@ export default function SupplyChainRisk() {
                 {mapMarkers.map((marker, i) => {
                   const isChina = marker.label === "China";
                   const isJapan = marker.label === "Japan";
+                  const isSK = marker.label === "South Korea";
                   const anchor = isChina ? "end" : "start";
                   const labelX = isChina ? -14 : 14;
-                  // Offset Japan labels down to avoid overlap with South Korea
-                  const labelY = isJapan ? 18 : -4;
-                  const roleY = isJapan ? 32 : 10;
+                  // Offset South Korea up and Japan down to avoid overlap
+                  const labelY = isJapan ? 18 : isSK ? -16 : -4;
+                  const roleY = isJapan ? 32 : isSK ? -4 : 10;
                   return (
                     <Marker key={i} coordinates={marker.coordinates}>
                       <circle r={5} fill={marker.color} opacity={0.9} />
@@ -246,13 +247,13 @@ export default function SupplyChainRisk() {
 
         {/* Bottom insight */}
         <motion.div
-          className="bg-red-500/10 border border-red-500/20 rounded-lg p-3"
+          className="bg-red-500/10 border border-red-500/20 rounded-lg p-5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
         >
-          <p className="text-xs text-red-200 leading-relaxed">
-            <span className="font-medium text-red-300">Key insight:</span>{" "}
+          <p className="text-base text-red-200 leading-relaxed">
+            <span className="text-sm font-medium text-red-300">Key insight:</span>{" "}
             Four countries control virtually the entire advanced semiconductor
             supply chain. US reshoring efforts are underway but won&apos;t
             meaningfully diversify supply until 2028+.

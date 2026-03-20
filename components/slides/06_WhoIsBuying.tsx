@@ -271,21 +271,12 @@ export default function WhoIsBuying() {
           })}
         </div>
 
-        {/* Bottom line */}
-        <motion.p
-          className="text-xs text-slate-500 leading-relaxed"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.0 }}
-        >
-          Everyone is competing for the same constrained GPU supply. The demand
-          base has never been this broad.
-        </motion.p>
+        {/* Source line */}
         <motion.p
           className="text-[11px] text-slate-600 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.1 }}
+          transition={{ delay: 1.0 }}
         >
           Source: Company filings, BofA, Morgan Stanley estimates
         </motion.p>

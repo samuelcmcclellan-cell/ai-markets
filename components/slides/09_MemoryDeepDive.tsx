@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { Database, Zap, Cpu } from "lucide-react";
 import { hbmTam, hbmMarketShare } from "@/data/memory";
 import { memoryEquities } from "@/data/equities";
 import {
@@ -36,7 +37,7 @@ const whyMemoryMatters = [
   {
     label: "Every AI query loads the entire model into memory",
     detail:
-      "GPT-4 has ~1.8 trillion parameters. Each one needs to be read from memory during inference.",
+      "Meta\u2019s Llama 4 Behemoth has 2 trillion parameters. Each one needs to be read from memory during inference.",
   },
   {
     label: "GPUs spend most of their time waiting for data",
@@ -51,7 +52,7 @@ const whyMemoryMatters = [
   {
     label: "Context windows are exploding",
     detail:
-      "From 4K tokens (GPT-3) to 1M+ (Gemini). Longer context = proportionally more memory per request.",
+      "From 4K tokens (early ChatGPT) to 1M+ (Gemini). Longer context = proportionally more memory per request.",
   },
 ];
 
@@ -80,7 +81,7 @@ export default function MemoryDeepDive() {
         >
           Compute gets the headlines, but{" "}
           <span className="text-amber-400">memory is the binding constraint</span>.
-          Every AI chip needs bandwidth &mdash; and there isn&apos;t enough.
+          Every AI chip needs bandwidth, and there isn&apos;t enough.
         </motion.p>
 
         {/* Why memory matters — the narrative */}
@@ -106,6 +107,60 @@ export default function MemoryDeepDive() {
               </p>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* The Memory Wall — visual bottleneck diagram */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="mb-4"
+        >
+          <h3 className="text-sm font-mono text-amber-400/80 tracking-wider mb-3">
+            THE MEMORY WALL — VISUALIZED
+          </h3>
+          <div className="flex items-center justify-center gap-0 flex-wrap md:flex-nowrap">
+            {/* Stage 1: Model Weights (wide) */}
+            <div className="bg-slate-800/60 border border-slate-700/50 rounded-l-lg px-6 py-5 w-full md:w-[280px] text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Database className="w-5 h-5 text-cyan-400" />
+                <span className="text-sm font-semibold text-slate-200">Model Weights</span>
+              </div>
+              <p className="text-xs text-slate-400">Stored in HBM</p>
+              <p className="text-lg font-bold text-cyan-400 mt-1">~4 TB</p>
+              <p className="text-[10px] text-slate-500">for a 2T parameter model</p>
+            </div>
+            {/* Arrow into bottleneck */}
+            <div className="text-amber-400 text-xl hidden md:block">▶</div>
+            {/* Stage 2: Memory Bus (narrow — the bottleneck) */}
+            <div className="bg-amber-500/10 border-2 border-amber-500/50 rounded px-4 py-3 w-full md:w-[160px] text-center relative my-2 md:my-0">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-black text-[9px] font-bold px-2 py-0.5 rounded-full">
+                BOTTLENECK
+              </div>
+              <div className="flex items-center justify-center gap-1 mb-1">
+                <Zap className="w-4 h-4 text-amber-400" />
+                <span className="text-xs font-semibold text-amber-300">Memory Bus</span>
+              </div>
+              <p className="text-lg font-bold text-amber-400">~3 TB/s</p>
+              <p className="text-[10px] text-slate-400">bandwidth limit</p>
+            </div>
+            {/* Arrow out of bottleneck */}
+            <div className="text-amber-400 text-xl hidden md:block">▶</div>
+            {/* Stage 3: GPU Compute (wide) */}
+            <div className="bg-slate-800/60 border border-slate-700/50 rounded-r-lg px-6 py-5 w-full md:w-[280px] text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Cpu className="w-5 h-5 text-green-400" />
+                <span className="text-sm font-semibold text-slate-200">GPU Compute</span>
+              </div>
+              <p className="text-xs text-slate-400">Ready to process</p>
+              <p className="text-lg font-bold text-green-400 mt-1">10×</p>
+              <p className="text-[10px] text-slate-500">faster than memory can feed it</p>
+            </div>
+          </div>
+          {/* Punchline below the diagram */}
+          <p className="text-center text-xs text-slate-500 mt-3 italic">
+            The GPU can compute 10× faster than memory can deliver data. That gap is the memory wall.
+          </p>
         </motion.div>
 
         {/* Middle row: Bandwidth + HBM TAM + Market Share */}

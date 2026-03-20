@@ -59,10 +59,10 @@ const aiLabs = [
     ),
   },
   {
-    name: "Meta AI",
-    desc: "Llama 4 open-weight models",
+    name: "Mistral",
+    desc: "European frontier lab, open models",
     logo: (
-      <img src="/images/logos/meta.png" alt="Meta AI" className="w-6 h-6 rounded" />
+      <img src="/images/logos/mistral.png" alt="Mistral" className="w-6 h-6 rounded" />
     ),
   },
 ];

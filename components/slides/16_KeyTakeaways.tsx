@@ -19,8 +19,8 @@ const takeaways = [
   },
   {
     number: "04",
-    headline: "Your clients already have significant AI exposure — whether they know it or not.",
-    detail: "AI-linked stocks now make up over 30% of US large-cap benchmarks. Anyone holding an S&P 500 index fund is making an implicit bet on $685B in annual capex paying off. That's not a sector allocation decision — it's a market-level concentration risk. And it cuts both ways: if the capex cycle delivers, today's valuations may look cheap. If it doesn't, the drawdown won't be confined to tech.",
+    headline: "The question isn\u2019t whether you have AI exposure \u2014 it\u2019s whether you chose it.",
+    detail: "AI-linked stocks now make up over 30% of US large-cap benchmarks \u2014 but concentration is only the first question. The harder ones: Is the exposure intentional or did index drift put it there? Which layer of the stack are you in \u2014 picks-and-shovels (semis, memory), infrastructure (cloud, power), or application (SaaS, AI labs)? Is it positioned for today\u2019s bottleneck or last year\u2019s? And if $685B in annual capex disappoints, what in the portfolio offsets a drawdown in the Mag 7? Passive exposure to a $685B capex cycle is not a neutral position. It\u2019s a thesis \u2014 make sure your clients can name it.",
   },
 ];
 

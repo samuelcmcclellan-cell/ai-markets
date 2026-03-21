@@ -23,6 +23,7 @@ const panels = [
     stat: "Only 26%",
     statLabel: "view AI positively",
     photo: "anti-ai-rally.jpg",
+    image: "/images/anti-ai-rally.png",
     points: [
       "NBC poll: more Americans view AI negatively than ICE.",
       "\"Pause AI\" and \"Pull the Plug\" rallies drawing thousands.",
@@ -91,11 +92,17 @@ export default function PoliticalChallenges() {
               transition={{ delay: 0.4 + i * 0.15 }}
               className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-4"
             >
-              {/* Photo placeholder */}
-              <div className="w-full h-[100px] rounded border border-dashed border-slate-600/50 bg-slate-900/50 flex flex-col items-center justify-center mb-3 overflow-hidden">
-                <ImageIcon className="w-5 h-5 text-slate-600 mb-1" />
-                <span className="text-[8px] text-slate-700 font-mono">{panel.photo}</span>
-              </div>
+              {/* Photo */}
+              {panel.image ? (
+                <div className="w-full h-[100px] rounded bg-slate-900/50 mb-3 overflow-hidden">
+                  <img src={panel.image} alt={panel.label} className="w-full h-full object-cover" />
+                </div>
+              ) : (
+                <div className="w-full h-[100px] rounded border border-dashed border-slate-600/50 bg-slate-900/50 flex flex-col items-center justify-center mb-3 overflow-hidden">
+                  <ImageIcon className="w-5 h-5 text-slate-600 mb-1" />
+                  <span className="text-[8px] text-slate-700 font-mono">{panel.photo}</span>
+                </div>
+              )}
 
               {/* Icon + label */}
               <div className="flex items-center gap-2 mb-2">

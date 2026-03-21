@@ -89,19 +89,19 @@ export default function AgenticAI() {
           transition={{ delay: 0.5 }}
         >
           {/* Header row */}
-          <div className="grid grid-cols-[1fr_1.5fr_1.5fr] bg-navy-800/50 px-5 py-3 border-b border-slate-700/30">
-            <span className="text-sm font-mono font-semibold text-slate-400 uppercase tracking-wide">
+          <div className="grid grid-cols-[1fr_1.5fr_1.5fr] bg-navy-800/50 px-3 md:px-5 py-2 md:py-3 border-b border-slate-700/30">
+            <span className="text-[10px] md:text-sm font-mono font-semibold text-slate-400 uppercase tracking-wide">
               Dimension
             </span>
             <div className="flex items-center gap-2">
-              <MessageSquare className="w-4 h-4 text-slate-500" />
-              <span className="text-sm font-mono font-semibold text-slate-400 uppercase tracking-wide">
+              <MessageSquare className="w-4 h-4 text-slate-500 hidden md:block" />
+              <span className="text-[10px] md:text-sm font-mono font-semibold text-slate-400 uppercase tracking-wide">
                 Chatbot (2023&ndash;24)
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <Bot className="w-4 h-4 text-emerald-400" />
-              <span className="text-sm font-mono font-semibold text-emerald-400 uppercase tracking-wide">
+              <Bot className="w-4 h-4 text-emerald-400 hidden md:block" />
+              <span className="text-[10px] md:text-sm font-mono font-semibold text-emerald-400 uppercase tracking-wide">
                 Agent (2025+)
               </span>
             </div>
@@ -110,21 +110,21 @@ export default function AgenticAI() {
           {comparison.map((row, i) => (
             <motion.div
               key={i}
-              className="grid grid-cols-[1fr_1.5fr_1.5fr] px-5 py-3 border-b border-slate-700/10 last:border-b-0"
+              className="grid grid-cols-[1fr_1.5fr_1.5fr] px-3 md:px-5 py-2 md:py-3 border-b border-slate-700/10 last:border-b-0"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6 + i * 0.06 }}
             >
               <div className="flex items-center gap-2">
                 <row.icon className="w-4 h-4 text-slate-600 flex-shrink-0" />
-                <span className="text-base font-heading font-semibold text-white">
+                <span className="text-xs md:text-base font-heading font-semibold text-white">
                   {row.dimension}
                 </span>
               </div>
-              <span className="text-base text-slate-500">
+              <span className="text-xs md:text-base text-slate-500">
                 {row.chatbot}
               </span>
-              <span className="text-base text-emerald-400 font-bold">
+              <span className="text-xs md:text-base text-emerald-400 font-bold">
                 {row.agent}
               </span>
             </motion.div>

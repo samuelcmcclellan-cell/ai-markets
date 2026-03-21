@@ -95,7 +95,7 @@ export default function SemiMarketSize() {
 
         {/* Headline stats */}
         <motion.div
-          className="flex gap-6 mb-4"
+          className="flex flex-wrap gap-4 md:gap-6 mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -146,7 +146,7 @@ export default function SemiMarketSize() {
               </motion.div>
             ))}
           </div>
-          <div className="flex gap-3 mt-1.5">
+          <div className="flex flex-wrap gap-2 md:gap-3 mt-1.5">
             {segments.map((seg, i) => (
               <div key={i} className="flex items-center gap-1">
                 <div
@@ -219,7 +219,7 @@ export default function SemiMarketSize() {
         </div>
 
         {/* ═══ Bottom row — compact ═══ */}
-        <div className="grid grid-cols-4 gap-2 mb-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3">
           {supportCategories.map((cat, i) => {
             const Icon = cat.icon;
             return (

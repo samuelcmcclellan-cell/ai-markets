@@ -112,7 +112,7 @@ export default function SlideController({
       {/* Section badge — top left */}
       {sectionLabel && (
         <motion.div
-          className="fixed top-4 left-6 z-50 flex items-center gap-2"
+          className="fixed top-4 left-6 z-50 hidden md:flex items-center gap-2"
           key={sectionLabel}
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
@@ -132,14 +132,14 @@ export default function SlideController({
       )}
 
       {/* Section navigation buttons — top center */}
-      <div className="fixed top-3.5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1.5 whitespace-nowrap">
+      <div className="fixed top-3.5 left-4 md:left-1/2 md:-translate-x-1/2 z-50 flex items-center gap-1 md:gap-1.5 whitespace-nowrap">
         {sections.map((section) => {
           const isActive = currentSection.fullName === section.fullName;
           return (
             <button
               key={section.name}
               onClick={() => goTo(section.startIndex)}
-              className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono tracking-wider transition-all duration-300 cursor-pointer ${
+              className={`px-1.5 md:px-2.5 py-0.5 rounded-full text-[9px] md:text-[10px] font-mono tracking-wider transition-all duration-300 cursor-pointer ${
                 isActive ? 'font-semibold' : 'text-slate-600 hover:text-slate-400'
               }`}
               style={isActive ? {
@@ -158,7 +158,7 @@ export default function SlideController({
       </div>
 
       {/* Slide counter — top right */}
-      <div className="fixed top-4 right-6 z-50 text-sm text-slate-500 font-mono">
+      <div className="fixed top-4 right-3 md:right-6 z-50 text-xs md:text-sm text-slate-500 font-mono">
         {currentSlide + 1} / {totalSlides}
       </div>
 

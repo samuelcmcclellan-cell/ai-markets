@@ -36,7 +36,7 @@ export default function KeyTakeaways() {
           Key Takeaways
         </motion.h2>
 
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           {takeaways.map((t, i) => (
             <motion.div
               key={i}
@@ -45,7 +45,7 @@ export default function KeyTakeaways() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 + i * 0.25 }}
             >
-              <span className="text-3xl font-mono font-bold text-amber-500/30 leading-none">
+              <span className="text-2xl md:text-3xl font-mono font-bold text-amber-500/30 leading-none">
                 {t.number}
               </span>
               <div>

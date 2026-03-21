@@ -47,7 +47,7 @@ export default function PoweringTheBuildout() {
 
         {/* Two panels side by side */}
         <motion.div
-          className="flex gap-3"
+          className="flex flex-col md:flex-row gap-3"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
@@ -97,7 +97,7 @@ export default function PoweringTheBuildout() {
           </motion.div>
 
           {/* Vertical divider */}
-          <div className="w-px bg-slate-700/40 self-stretch" />
+          <div className="hidden md:block w-px bg-slate-700/40 self-stretch" />
 
           {/* RIGHT PANEL: Solar & Renewables — Scale Wins */}
           <motion.div
@@ -145,7 +145,7 @@ export default function PoweringTheBuildout() {
 
         {/* Bottom strip — Nuclear footnote + quote */}
         <motion.div
-          className="flex items-start justify-between mt-4 gap-6"
+          className="flex flex-col md:flex-row items-start justify-between mt-4 gap-3 md:gap-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
@@ -157,7 +157,7 @@ export default function PoweringTheBuildout() {
               ~10 GW committed (TMI 835 MW, Amazon/Talen 1.9 GW, Meta/Constellation 1.1 GW) — online 2027–2032
             </p>
           </div>
-          <p className="text-[11px] text-slate-500 italic text-right shrink-0 max-w-[300px]">
+          <p className="text-[11px] text-slate-500 italic md:text-right shrink-0 md:max-w-[300px]">
             &ldquo;The cost of AI will converge to the cost of energy. An electron is an electron.&rdquo;
             <span className="text-slate-600 not-italic"> — Sam Altman</span>
           </p>

@@ -247,12 +247,12 @@ export default function SupplyChainRisk() {
 
         {/* Bottom insight */}
         <motion.div
-          className="bg-red-500/10 border border-red-500/20 rounded-lg p-5"
+          className="bg-red-500/10 border border-red-500/20 rounded-lg p-3 md:p-5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
         >
-          <p className="text-base text-red-200 leading-relaxed">
+          <p className="text-sm md:text-base text-red-200 leading-relaxed">
             <span className="text-sm font-medium text-red-300">Key insight:</span>{" "}
             Four countries control virtually the entire advanced semiconductor
             supply chain. US reshoring efforts are underway but won&apos;t

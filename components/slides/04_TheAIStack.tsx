@@ -136,34 +136,34 @@ export default function TheAIStack() {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 + i * 0.07 }}
-                className="flex items-center bg-slate-800/50 border border-slate-700/30 rounded-lg px-4 py-2.5 hover:bg-slate-800/70 transition-colors"
+                className="flex items-center bg-slate-800/50 border border-slate-700/30 rounded-lg px-2 md:px-4 py-1.5 md:py-2.5 hover:bg-slate-800/70 transition-colors"
               >
                 {/* Icon with colored background */}
                 <div
-                  className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mr-4"
+                  className="w-7 md:w-9 h-7 md:h-9 rounded-lg flex items-center justify-center shrink-0 mr-2 md:mr-4"
                   style={{
                     backgroundColor: layer.color + "18",
                     border: `1px solid ${layer.color}40`,
                   }}
                 >
                   <layer.icon
-                    className="w-5 h-5"
+                    className="w-4 md:w-5 h-4 md:h-5"
                     style={{ color: layer.color }}
                   />
                 </div>
 
                 {/* Layer name + one-liner */}
                 <div className="flex-1 min-w-0 mr-4">
-                  <span className="text-base font-bold text-white block leading-tight">
+                  <span className="text-sm md:text-base font-bold text-white block leading-tight">
                     {layer.name}
                   </span>
-                  <span className="text-sm text-slate-400 block leading-tight mt-0.5">
+                  <span className="text-sm text-slate-400 hidden md:block leading-tight mt-0.5">
                     {layer.oneLiner}
                   </span>
                 </div>
 
                 {/* Key companies */}
-                <div className="flex gap-1.5 shrink-0 flex-wrap justify-end max-w-[280px]">
+                <div className="hidden md:flex gap-1.5 shrink-0 flex-wrap justify-end max-w-[280px]">
                   {layer.companies.slice(0, 4).map((company, j) => (
                     <span
                       key={j}

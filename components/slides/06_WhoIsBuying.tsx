@@ -126,19 +126,19 @@ export default function WhoIsBuying() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
             <Server className="w-6 h-6 text-amber-400" />
             <h3 className="text-sm font-heading font-bold text-amber-400">
               Hyperscalers
             </h3>
-            <span className="text-xs text-slate-500 ml-auto">
+            <span className="text-xs text-slate-500 ml-0 md:ml-auto mt-1 md:mt-0 block md:inline">
               <span className="font-mono font-bold text-amber-400">$685B</span>{" "}
               combined 2026 capex &middot;{" "}
               <span className="font-mono font-bold text-amber-400">75%</span>{" "}
               AI-related
             </span>
           </div>
-          <div className="grid grid-cols-5 gap-3">
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-3">
             {hyperscalers.map((c, i) => (
               <motion.div
                 key={i}
@@ -177,7 +177,7 @@ export default function WhoIsBuying() {
               Building the models. Consuming compute through cloud partnerships.
             </span>
           </div>
-          <div className="grid grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3">
             {aiLabs.map((lab, i) => (
               <motion.div
                 key={i}
@@ -201,7 +201,7 @@ export default function WhoIsBuying() {
         </motion.div>
 
         {/* Row 3: Neoclouds, Governments, Enterprises — equal, smaller */}
-        <div className="grid grid-cols-3 gap-3 mb-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 mb-3">
           {smallCategories.map((cat, i) => {
             const Icon = cat.icon;
             return (

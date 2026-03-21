@@ -171,7 +171,7 @@ export default function HardwareVsSoftware() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.0 }}
-          className="flex gap-3 mt-4 px-2"
+          className="flex flex-col md:flex-row gap-3 mt-4 px-0 md:px-2"
         >
           {/* LEFT PANEL: Memory Supercycle */}
           <motion.div
@@ -213,7 +213,7 @@ export default function HardwareVsSoftware() {
           </motion.div>
 
           {/* Vertical divider */}
-          <div className="w-px bg-slate-700/40 self-stretch" />
+          <div className="hidden md:block w-px bg-slate-700/40 self-stretch" />
 
           {/* RIGHT PANEL: The DiSaaSter */}
           <motion.div

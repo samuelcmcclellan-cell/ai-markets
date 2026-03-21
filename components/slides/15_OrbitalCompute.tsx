@@ -77,7 +77,7 @@ export default function OrbitalCompute() {
           <span className="text-violet-400">permission to build</span>?
         </motion.p>
 
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           {/* Left: What Space Solves */}
           <div>
             <motion.h3
@@ -152,7 +152,7 @@ export default function OrbitalCompute() {
 
         {/* Bottom bar */}
         <motion.div
-          className="flex items-center justify-between mt-6 pt-4 border-t border-slate-700/30"
+          className="flex flex-col md:flex-row items-start md:items-center justify-between mt-4 md:mt-6 pt-4 gap-2 md:gap-0 border-t border-slate-700/30"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.0 }}

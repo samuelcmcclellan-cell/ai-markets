@@ -1,119 +1,177 @@
 "use client";
 import { motion } from "framer-motion";
-import { politicalRisks, permitTimeline } from "@/data/political";
-import { Building2, FileWarning, ShieldAlert, Globe } from "lucide-react";
+import { Ban, Megaphone, HardHat, Clock, ImageIcon } from "lucide-react";
 
-const iconMap: Record<string, any> = {
-  Building2,
-  FileWarning,
-  ShieldAlert,
-  Globe,
-};
+const panels = [
+  {
+    icon: Ban,
+    iconColor: "text-red-400",
+    label: "NIMBY REVOLT",
+    stat: "$98B",
+    statLabel: "in projects stalled",
+    photo: "nimby-protest.jpg",
+    points: [
+      "142 activist groups across 24 states opposing data center builds.",
+      "Moratoriums in New Orleans, Madison, Loudoun County.",
+      "46% of Americans would oppose a data center in their community.",
+    ],
+  },
+  {
+    icon: Megaphone,
+    iconColor: "text-orange-400",
+    label: "ANTI-AI SENTIMENT",
+    stat: "Only 26%",
+    statLabel: "view AI positively",
+    photo: "anti-ai-rally.jpg",
+    points: [
+      "NBC poll: more Americans view AI negatively than ICE.",
+      "\"Pause AI\" and \"Pull the Plug\" rallies drawing thousands.",
+      "56% of Americans say they are anxious about AI.",
+    ],
+  },
+  {
+    icon: HardHat,
+    iconColor: "text-amber-400",
+    label: "LABOR SHORTAGE",
+    stat: "439,000",
+    statLabel: "workers short",
+    photo: "construction-worker.jpg",
+    points: [
+      "Electricians are 45–70% of build cost — and scarce.",
+      "400+ data centers under construction with year-long backlogs.",
+      "Talent may be the binding constraint, not capital.",
+    ],
+  },
+];
+
+const timelineSteps = [
+  { label: "Site", range: "3–6 mo" },
+  { label: "Permits", range: "12–48 mo" },
+  { label: "Grid", range: "36–60 mo" },
+  { label: "Build", range: "18–36 mo" },
+];
 
 export default function PoliticalChallenges() {
   return (
     <div className="slide-container">
       <div className="slide-content">
+        {/* Header */}
         <motion.h2
-          className="text-sm uppercase tracking-widest text-red-400 font-mono mb-4"
+          className="text-sm uppercase tracking-widest text-red-400 font-mono mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          Political & Regulatory Headwinds
+          The Backlash
         </motion.h2>
         <motion.p
-          className="text-2xl md:text-3xl font-heading font-semibold text-white mb-6"
+          className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}
+          transition={{ delay: 0.1 }}
         >
-          Building the AI future requires{" "}
-          <span className="text-red-400">permission</span> — and that&apos;s getting harder.
+          The public is turning against the{" "}
+          <span className="text-red-400">buildout</span>.
         </motion.p>
-
-        {/* Risk category cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          {politicalRisks.map((risk, i) => {
-            const Icon = iconMap[risk.icon];
-            return (
-              <motion.div
-                key={i}
-                className="stat-card accent-border-red"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + i * 0.12 }}
-              >
-                <div className="flex items-center gap-2.5 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center flex-shrink-0">
-                    {Icon && <Icon className="w-4 h-4 text-red-400" />}
-                  </div>
-                  <h3 className="text-sm font-heading font-semibold text-white">
-                    {risk.category}
-                  </h3>
-                </div>
-                <ul className="space-y-1.5">
-                  {risk.items.map((item, j) => (
-                    <li
-                      key={j}
-                      className="text-xs text-slate-400 leading-relaxed flex items-start gap-1.5"
-                    >
-                      <span className="text-red-500/60 mt-0.5 flex-shrink-0">•</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* Permit timeline */}
-        <motion.div
+        <motion.p
+          className="text-sm text-slate-500 mb-5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 0.2 }}
         >
-          <h3 className="text-xs font-heading font-medium text-slate-500 uppercase tracking-wider mb-3">
-            Time to Build a Data Center: 5-12 years
-          </h3>
-          <div className="space-y-2">
-            {permitTimeline.map((stage, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <span className="text-xs text-slate-400 w-32 text-right flex-shrink-0">
-                  {stage.stage}
+          NIMBY opposition, anti-AI sentiment, and a 439,000-worker shortage are slowing the infrastructure boom.
+        </motion.p>
+
+        {/* Three panels */}
+        <div className="flex gap-3">
+          {panels.map((panel, i) => (
+            <motion.div
+              key={panel.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 + i * 0.15 }}
+              className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-4"
+            >
+              {/* Photo placeholder */}
+              <div className="w-full h-[100px] rounded border border-dashed border-slate-600/50 bg-slate-900/50 flex flex-col items-center justify-center mb-3 overflow-hidden">
+                <ImageIcon className="w-5 h-5 text-slate-600 mb-1" />
+                <span className="text-[8px] text-slate-700 font-mono">{panel.photo}</span>
+              </div>
+
+              {/* Icon + label */}
+              <div className="flex items-center gap-2 mb-2">
+                <panel.icon className={`w-4 h-4 ${panel.iconColor}`} />
+                <span className="text-[10px] font-mono tracking-[0.15em] text-slate-400 uppercase">
+                  {panel.label}
                 </span>
-                <div className="flex-1 h-5 bg-navy-900/50 rounded overflow-hidden">
-                  <motion.div
-                    className="h-full rounded bg-red-500/30 flex items-center pl-2"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${stage.width}%` }}
-                    transition={{ duration: 0.8, delay: 0.9 + i * 0.1 }}
-                  >
-                    <span className="text-xs font-mono text-red-300 whitespace-nowrap">
-                      {stage.months}
-                    </span>
-                  </motion.div>
+              </div>
+
+              {/* Stat */}
+              <div className="mb-3">
+                <span className="text-2xl font-mono font-bold text-red-400">{panel.stat}</span>
+                <span className="text-xs text-slate-500 ml-2">{panel.statLabel}</span>
+              </div>
+
+              {/* Points */}
+              <ul className="space-y-1.5">
+                {panel.points.map((point, j) => (
+                  <li key={j} className="text-[11px] text-slate-400 leading-relaxed flex items-start gap-1.5">
+                    <span className="text-red-500/60 mt-0.5 flex-shrink-0">•</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom: Permitting callout bar */}
+        <motion.div
+          className="mt-4 bg-red-500/8 border border-red-500/20 rounded-lg px-5 py-3 flex items-center justify-between"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.0 }}
+        >
+          {/* Left: Time to build */}
+          <div className="flex items-center gap-2">
+            <Clock className="w-4 h-4 text-red-400/70" />
+            <div>
+              <p className="text-[10px] font-mono text-red-400/60 uppercase tracking-wider">
+                Time to build a data center
+              </p>
+              <p className="text-lg font-mono font-bold text-red-400">5–12 years</p>
+            </div>
+          </div>
+
+          {/* Center: Timeline steps */}
+          <div className="flex items-center gap-1">
+            {timelineSteps.map((step, i) => (
+              <div key={i} className="flex items-center">
+                <div className="bg-slate-800/60 border border-slate-700/30 rounded px-2 py-1 text-center">
+                  <p className="text-[9px] font-mono text-slate-500">{step.label}</p>
+                  <p className="text-[10px] font-mono font-semibold text-slate-300">{step.range}</p>
                 </div>
+                {i < timelineSteps.length - 1 && (
+                  <span className="text-slate-600 text-xs mx-0.5">→</span>
+                )}
               </div>
             ))}
           </div>
+
+          {/* Right: Queue stat */}
+          <div className="text-right">
+            <p className="text-lg font-mono font-bold text-red-400">2,600 GW</p>
+            <p className="text-[10px] text-slate-500">in the queue — 5× grid capacity</p>
+          </div>
         </motion.div>
 
-        <motion.div
-          className="mt-5 bg-amber-500/10 border border-amber-500/20 rounded-lg p-3"
+        <motion.p
+          className="text-[11px] text-slate-600 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
+          transition={{ delay: 1.3 }}
         >
-          <p className="text-xs text-amber-200 leading-relaxed">
-            <span className="font-mono font-medium text-amber-400">2,600 GW</span>{" "}
-            in the US interconnection queue — 5x current grid capacity. The bottleneck isn&apos;t demand or capital. It&apos;s permits, power, and politics.
-          </p>
-        </motion.div>
-
-        <p className="text-xs text-slate-600 mt-3">
-          Source: LBNL, EIA, state/local government filings
-        </p>
+          Source: NBC News, Echelon Insights, ITIF, LBNL, Data Center Watch, Fortune
+        </motion.p>
       </div>
     </div>
   );

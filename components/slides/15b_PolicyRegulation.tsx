@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ShieldAlert, Scale, Globe, ImageIcon } from "lucide-react";
+import { ShieldAlert, Scale, Globe } from "lucide-react";
 import { policyPillars, policyBottomLine, policyFootnotes } from "@/data/policy";
 
 const iconMap = {
@@ -51,10 +51,8 @@ export default function PolicyRegulation() {
                 transition={{ delay: 0.35 + i * 0.15 }}
                 className="bg-navy-700/50 border border-slate-700/50 rounded-xl overflow-hidden"
               >
-                {/* Photo placeholder */}
-                <div className="w-full h-24 bg-slate-800/80 flex items-center justify-center border-b border-slate-700/30">
-                  <ImageIcon className="w-8 h-8 text-slate-600" />
-                </div>
+                {/* Photo */}
+                <img src={pillar.image} alt={pillar.label} className="w-full h-24 object-cover object-center" />
 
                 <div className="p-4">
                   {/* Icon + label row */}

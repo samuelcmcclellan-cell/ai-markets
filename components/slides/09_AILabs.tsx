@@ -23,7 +23,7 @@ const labRevenue = [
 const burnStats = [
   { lab: "OpenAI", stat: "$14B", detail: "projected 2026 net loss", sub: "$25B ARR" },
   { lab: "Anthropic", stat: "$8B", detail: "est. 2026 compute spend", sub: "$19B → $26B target" },
-  { lab: "xAI", stat: "$250B", detail: "SpaceX acquisition · Feb '26", sub: "~$3B ARR" },
+  { lab: "xAI", stat: "$18B", detail: "Colossus 2 GPU spend alone", sub: "$1.2B/mo burn rate" },
 ];
 
 const marginStats = [
@@ -125,9 +125,8 @@ export default function AILabs() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}
         >
-          AI labs are the R&amp;D powerhouses that train and deploy the largest AI models.
-          They rent tens of thousands of GPUs, burn billions in compute, and sell access
-          via API and subscription. They are the demand signal driving the entire semiconductor buildout.
+          They train and deploy frontier AI models, burn billions in compute, and sell access via API.
+          They are the demand signal driving the semiconductor buildout.
         </motion.p>
 
         {/* Zone 1: Revenue Race — Horizontal Bar Chart */}

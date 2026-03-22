@@ -119,14 +119,15 @@ export default function BubbleDebunk() {
 
         {/* Bottom caveat */}
         <motion.p
-          className="text-sm text-slate-400 text-center mb-2"
+          className="text-xl md:text-2xl text-slate-300 text-center mb-2 max-w-3xl mx-auto leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.0 }}
         >
           <span className="text-white font-heading font-bold">Not the same.</span>{" "}
           Corrections happen. But a bubble requires valuations detached from
-          fundamentals and supply exceeding demand. Neither condition exists today.
+          fundamentals and supply exceeding demand.{" "}
+          <span className="text-emerald-400 font-heading font-bold">Neither condition exists today.</span>
         </motion.p>
 
         <motion.p

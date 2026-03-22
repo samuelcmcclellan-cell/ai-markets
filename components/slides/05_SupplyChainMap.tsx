@@ -274,14 +274,16 @@ export default function SupplyChainMap() {
         </motion.div>
 
         <motion.p
-          className="text-sm text-slate-500 mt-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          className="text-xl md:text-2xl font-heading font-semibold text-slate-300 mt-4 leading-snug max-w-3xl"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2 }}
         >
-          A single advanced chip crosses 70+ international borders before
-          reaching a consumer. The supply chain is the most globally
-          interdependent system ever built.
+          A single chip crosses{" "}
+          <span className="text-blue-400 font-bold">70+ borders</span> and
+          touches{" "}
+          <span className="text-blue-400 font-bold">6 countries</span> before
+          it reaches a data center. There is no domestic alternative.
         </motion.p>
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ShieldAlert, Scale, Globe } from "lucide-react";
+import { ShieldAlert, Scale, Globe, ImageIcon } from "lucide-react";
 import { policyPillars, policyBottomLine, policyFootnotes } from "@/data/policy";
 
 const iconMap = {
@@ -31,16 +31,16 @@ export default function PolicyRegulation() {
           <span className="text-red-400">rules of the game</span>.
         </motion.p>
         <motion.p
-          className="text-sm text-slate-500 mb-5"
+          className="text-base text-slate-400 mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          Export controls, regulatory divergence, and reshoring subsidies are reshaping who wins the AI infrastructure race.
+          Export controls, regulatory divergence, and reshoring subsidies are reshaping who wins.
         </motion.p>
 
-        {/* Three pillar cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+        {/* Three pillar cards — icon-driven with photo placeholders */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
           {policyPillars.map((pillar, i) => {
             const Icon = iconMap[pillar.icon as keyof typeof iconMap];
             return (
@@ -49,43 +49,47 @@ export default function PolicyRegulation() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35 + i * 0.15 }}
-                className={`bg-navy-700/50 border border-slate-700/50 rounded-xl p-4 backdrop-blur-sm border-t-2 ${pillar.borderColor}`}
+                className="bg-navy-700/50 border border-slate-700/50 rounded-xl overflow-hidden"
               >
-                {/* Icon + label */}
-                <div className="flex items-center gap-2 mb-3">
-                  <Icon className={`w-4 h-4 shrink-0 ${pillar.iconColor}`} />
-                  <span className="text-xs font-mono tracking-[0.15em] text-slate-400 uppercase">
-                    {pillar.label}
-                  </span>
+                {/* Photo placeholder */}
+                <div className="w-full h-24 bg-slate-800/80 flex items-center justify-center border-b border-slate-700/30">
+                  <ImageIcon className="w-8 h-8 text-slate-600" />
                 </div>
 
-                {/* Key stat */}
-                <div className="mb-3">
-                  <span className="text-2xl font-mono font-bold text-white leading-none">
-                    {pillar.stat}
-                  </span>
-                  <p className="text-[11px] text-slate-500 mt-0.5 leading-tight">
-                    {pillar.statLabel}
-                  </p>
+                <div className="p-4">
+                  {/* Icon + label row */}
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center bg-slate-800 border border-slate-600/50">
+                      <Icon className={`w-4 h-4 ${pillar.iconColor}`} />
+                    </div>
+                    <span className="text-sm font-semibold text-white tracking-wide">
+                      {pillar.label}
+                    </span>
+                  </div>
+
+                  {/* Hero stat */}
+                  <div className="mb-3">
+                    <span className="text-3xl font-mono font-bold text-white leading-none">
+                      {pillar.stat}
+                    </span>
+                    <p className="text-xs text-slate-500 mt-1 leading-snug">
+                      {pillar.statLabel}
+                    </p>
+                  </div>
+
+                  {/* Short bullets */}
+                  <ul className="space-y-2">
+                    {pillar.bullets.map((bullet, j) => (
+                      <li
+                        key={j}
+                        className="text-sm text-slate-400 leading-relaxed flex items-start gap-2"
+                      >
+                        <span className="text-red-500/60 mt-0.5 shrink-0">•</span>
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                {/* Bullets */}
-                <ul className="space-y-2">
-                  {pillar.bullets.map((bullet, j) => (
-                    <li
-                      key={j}
-                      className="text-xs text-slate-400 leading-relaxed flex items-start gap-1.5"
-                    >
-                      <span className="text-red-500/50 mt-0.5 shrink-0">•</span>
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Source */}
-                <p className="text-[10px] text-slate-600 font-mono mt-3 pt-2 border-t border-slate-700/30">
-                  {pillar.source}
-                </p>
               </motion.div>
             );
           })}
@@ -93,12 +97,12 @@ export default function PolicyRegulation() {
 
         {/* Bottom line strip */}
         <motion.div
-          className="bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3"
+          className="bg-red-500/10 border border-red-500/20 rounded-lg px-5 py-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.35 + 3 * 0.15 }}
         >
-          <p className="text-sm text-red-200 leading-relaxed">
+          <p className="text-base text-red-200 leading-relaxed">
             <span className="font-semibold text-red-300">Bottom line: </span>
             {policyBottomLine}
           </p>

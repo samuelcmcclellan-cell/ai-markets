@@ -1,17 +1,56 @@
 "use client";
 import { motion } from "framer-motion";
-import { Flame, Sun, Atom } from "lucide-react";
+import { Flame, Sun, Zap, Battery, ImageIcon } from "lucide-react";
 
-const gasDeals = [
-  { company: "xAI Colossus", location: "Memphis", gw: "1.2 GW", detail: "35 gas turbines running, BTM" },
-  { company: "Stargate / VoltaGrid", location: "Texas", gw: "2.3 GW", detail: "Modular gas via Energy Transfer" },
-  { company: "Crusoe", location: "Abilene, TX", gw: "4.5 GW", detail: "GE Vernova turbines, NVIDIA-backed" },
-];
-
-const solarDeals = [
-  { company: "Amazon", scope: "700+ projects", gw: "40 GW", detail: "World's largest corporate buyer" },
-  { company: "Microsoft / Brookfield", scope: "Global", gw: "10.5 GW", detail: "Largest single clean energy deal" },
-  { company: "Meta", scope: "2025 procurement", gw: "15+ GW", detail: "Largest corporate offtaker in 2025" },
+const energyThemes = [
+  {
+    icon: Flame,
+    iconColor: "text-orange-400",
+    bgAccent: "bg-orange-500/10",
+    borderAccent: "border-orange-500/30",
+    label: "Natural Gas",
+    stat: "83 GW",
+    statLabel: "GE Vernova turbine commitments — sold out through 2030",
+    image: "/images/gas-turbines.png",
+    detail:
+      "Only source deployable in under a year. xAI (1.2 GW Memphis), Crusoe (4.5 GW Abilene), Stargate/VoltaGrid (2.3 GW Texas).",
+  },
+  {
+    icon: Sun,
+    iconColor: "text-emerald-400",
+    bgAccent: "bg-emerald-500/10",
+    borderAccent: "border-emerald-500/30",
+    label: "Solar & Renewables",
+    stat: "84 GW",
+    statLabel: "contracted by Big 4 hyperscalers — up 69% YoY",
+    image: "/images/solar-farm.png",
+    detail:
+      "Amazon (40 GW, 700+ projects), Microsoft/Brookfield (10.5 GW), Meta (15+ GW). Largest corporate procurement wave in energy history.",
+  },
+  {
+    icon: Zap,
+    iconColor: "text-yellow-400",
+    bgAccent: "bg-yellow-500/10",
+    borderAccent: "border-yellow-500/30",
+    label: "Behind-the-Meter",
+    stat: "<1 yr",
+    statLabel: "time to power vs. 4–8 years on-grid",
+    image: "/images/btm-datacenter.png",
+    detail:
+      "Hyperscalers bypass grid queues entirely. On-site generation lets data centers go live years ahead of utility interconnection.",
+  },
+  {
+    icon: Battery,
+    iconColor: "text-cyan-400",
+    bgAccent: "bg-cyan-500/10",
+    borderAccent: "border-cyan-500/30",
+    label: "Batteries & Storage",
+    stat: "89 GW",
+    statLabel: "global battery storage pipeline (BloombergNEF 2025)",
+    image: "/images/battery-storage.png",
+    detail:
+      "Grid-scale lithium-ion costs down 90% since 2010. Storage smooths intermittent solar/wind and enables 24/7 renewable-powered data centers.",
+  },
 ];
 
 export default function PoweringTheBuildout() {
@@ -32,143 +71,66 @@ export default function PoweringTheBuildout() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          AI needs a lot of power.{" "}
-          <span className="text-red-400">The market is responding</span>.
+          AI needs{" "}
+          <span className="text-red-400">unprecedented power</span>.
         </motion.p>
         <motion.p
-          className="text-sm text-slate-500 mb-5"
+          className="text-base text-slate-400 mb-5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          945 TWh by 2030 (IEA base case) to 1,587 TWh (accelerated scenario)\u00b9 — every major forecaster revised up in 2025. More electricity processing data than manufacturing all physical goods combined.
+          945–1,587 TWh by 2030 (IEA). Four investable themes are emerging to fill the gap.
         </motion.p>
 
-        {/* Two panels side by side */}
-        <motion.div
-          className="flex flex-col md:flex-row gap-3"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          {/* LEFT PANEL: Gas — Speed Wins */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6 }}
-            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-5"
-          >
-            <div className="flex items-center gap-2 mb-3">
-              <Flame className="w-4 h-4 text-orange-400" />
-              <h3 className="text-xs font-mono tracking-[0.15em] text-orange-400 uppercase">
-                Gas &amp; BTM — Speed Wins
-              </h3>
-            </div>
-            <p className="text-sm text-slate-300 mb-4">
-              Gas is the only source deployable in{" "}
-              <span className="text-orange-400 font-semibold">under a year</span>.
-              Behind-the-meter lets hyperscalers{" "}
-              <span className="text-orange-400 font-semibold">bypass 4–8 year grid queues</span>.
-            </p>
-
-            {/* Deal cards */}
-            <div className="flex gap-2 mb-4">
-              {gasDeals.map((deal, i) => (
-                <div key={i} className="flex-1 bg-slate-900/50 border border-slate-700/30 rounded px-3 py-2.5 text-center">
-                  <p className="text-[10px] font-mono text-slate-500 mb-0.5">{deal.location}</p>
-                  <p className="text-sm font-semibold text-slate-200">{deal.company}</p>
-                  <p className="text-lg font-bold text-orange-400 my-1">{deal.gw}</p>
-                  <p className="text-[10px] text-slate-500 leading-tight">{deal.detail}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* GE Vernova hero stat */}
-            <div className="bg-orange-500/5 border border-orange-500/20 rounded-lg px-4 py-3">
-              <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-mono font-bold text-orange-400">83 GW</span>
-                <span className="text-xs text-slate-400">GE Vernova total gas turbine commitments</span>
+        {/* 2x2 grid of energy theme cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {energyThemes.map((theme, i) => (
+            <motion.div
+              key={theme.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35 + i * 0.12 }}
+              className="bg-slate-800/30 border border-slate-700/40 rounded-xl overflow-hidden flex"
+            >
+              {/* Photo placeholder — left side */}
+              <div className="w-32 shrink-0 bg-slate-800/80 flex items-center justify-center border-r border-slate-700/30">
+                <ImageIcon className="w-8 h-8 text-slate-600" />
               </div>
-              <p className="text-[11px] text-slate-500 mt-1">
-                Sold out through 2030. Production ramping to 24 GW/yr by mid-2028.
-              </p>
-            </div>
-          </motion.div>
 
-          {/* Vertical divider */}
-          <div className="hidden md:block w-px bg-slate-700/40 self-stretch" />
-
-          {/* RIGHT PANEL: Solar & Renewables — Scale Wins */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8 }}
-            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-5"
-          >
-            <div className="flex items-center gap-2 mb-3">
-              <Sun className="w-4 h-4 text-emerald-400" />
-              <h3 className="text-xs font-mono tracking-[0.15em] text-emerald-400 uppercase">
-                Solar &amp; Renewables — Scale Wins
-              </h3>
-            </div>
-            <p className="text-sm text-slate-300 mb-4">
-              The Big 4 signed{" "}
-              <span className="text-emerald-400 font-semibold">84 GW of renewable PPAs</span>{" "}
-              — up 69% in 12 months. The largest corporate procurement wave in energy history.
-            </p>
-
-            {/* Deal cards */}
-            <div className="flex gap-2 mb-4">
-              {solarDeals.map((deal, i) => (
-                <div key={i} className="flex-1 bg-slate-900/50 border border-slate-700/30 rounded px-3 py-2.5 text-center">
-                  <p className="text-[10px] font-mono text-slate-500 mb-0.5">{deal.scope}</p>
-                  <p className="text-sm font-semibold text-slate-200">{deal.company}</p>
-                  <p className="text-lg font-bold text-emerald-400 my-1">{deal.gw}</p>
-                  <p className="text-[10px] text-slate-500 leading-tight">{deal.detail}</p>
+              {/* Content — right side */}
+              <div className="p-4 flex-1 min-w-0">
+                {/* Icon + label */}
+                <div className="flex items-center gap-2 mb-2">
+                  <div className={`w-7 h-7 rounded-full flex items-center justify-center ${theme.bgAccent} border ${theme.borderAccent}`}>
+                    <theme.icon className={`w-3.5 h-3.5 ${theme.iconColor}`} />
+                  </div>
+                  <span className="text-sm font-semibold text-white">{theme.label}</span>
                 </div>
-              ))}
-            </div>
 
-            {/* 84 GW hero stat */}
-            <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-lg px-4 py-3">
-              <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-mono font-bold text-emerald-400">84 GW</span>
-                <span className="text-xs text-slate-400">contracted by Big 4 hyperscalers</span>
+                {/* Hero stat */}
+                <div className="mb-2">
+                  <span className="text-2xl font-mono font-bold text-white leading-none">
+                    {theme.stat}
+                  </span>
+                  <p className="text-xs text-slate-500 mt-0.5 leading-snug">{theme.statLabel}</p>
+                </div>
+
+                {/* Detail */}
+                <p className="text-sm text-slate-400 leading-relaxed">{theme.detail}</p>
               </div>
-              <p className="text-[11px] text-slate-500 mt-1">
-                Corporate PPA market hit 68 GW in 2024 — more than double 2023.
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
+            </motion.div>
+          ))}
+        </div>
 
-        {/* Bottom strip — Nuclear footnote + quote */}
-        <motion.div
-          className="flex flex-col md:flex-row items-start justify-between mt-4 gap-3 md:gap-6"
+        {/* Source */}
+        <motion.p
+          className="text-[10px] text-slate-600 font-mono mt-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
         >
-          <div className="flex items-center gap-2">
-            <Atom className="w-3.5 h-3.5 text-amber-400/60 shrink-0" />
-            <p className="text-[11px] text-slate-500">
-              <span className="text-amber-400/80 font-medium">Nuclear:</span>{" "}
-              ~10 GW committed (TMI 835 MW, Amazon/Talen 1.9 GW, Meta/Constellation 1.1 GW) — online 2027–2032
-            </p>
-          </div>
-          <p className="text-[11px] text-slate-500 italic md:text-right shrink-0 md:max-w-[300px]">
-            &ldquo;The cost of AI will converge to the cost of energy. An electron is an electron.&rdquo;
-            <span className="text-slate-600 not-italic"> — Sam Altman</span>
-          </p>
-        </motion.div>
-
-        <motion.p
-          className="text-[10px] text-slate-600 mt-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4 }}
-        >
-          ¹ IEA &ldquo;Energy and AI&rdquo; (Apr 2025): base case 945 TWh; accelerated scenario up to ~1,587 TWh by 2030. Sources: IEA, Goldman Sachs, GE Vernova 2025 annual report, BloombergNEF, Global Energy Monitor, company filings
+          Sources: IEA &ldquo;Energy and AI&rdquo; (Apr 2025); GE Vernova 2025 annual report; BloombergNEF; company filings
         </motion.p>
       </div>
     </div>

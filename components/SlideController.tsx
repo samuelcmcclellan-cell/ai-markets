@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Download, Loader2 } from "lucide-react";
+import { generatePptx } from "@/lib/generatePptx";
 
 interface SlideControllerProps {
   slides: React.ReactNode[];
@@ -31,6 +33,7 @@ export default function SlideController({
 }: SlideControllerProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [isGenerating, setIsGenerating] = useState(false);
   const touchStartX = useRef(0);
   const isAnimating = useRef(false);
 
@@ -92,6 +95,17 @@ export default function SlideController({
     if (Math.abs(delta) > 50) {
       if (delta > 0) next();
       else prev();
+    }
+  };
+
+  const handleDownload = async () => {
+    setIsGenerating(true);
+    try {
+      await generatePptx();
+    } catch (err) {
+      console.error("PPTX generation failed:", err);
+    } finally {
+      setIsGenerating(false);
     }
   };
 
@@ -157,9 +171,23 @@ export default function SlideController({
         })}
       </div>
 
-      {/* Slide counter — top right */}
-      <div className="fixed top-4 right-3 md:right-6 z-50 text-xs md:text-sm text-slate-500 font-mono">
-        {currentSlide + 1} / {totalSlides}
+      {/* Download button + Slide counter — top right */}
+      <div className="fixed top-3.5 right-3 md:right-6 z-50 flex items-center gap-2">
+        <button
+          onClick={handleDownload}
+          disabled={isGenerating}
+          className="p-1.5 rounded-lg bg-white/5 border border-slate-700/30 hover:bg-white/10 transition-all duration-300 text-slate-400 hover:text-slate-200 disabled:opacity-50 cursor-pointer"
+          title="Download as PowerPoint"
+        >
+          {isGenerating ? (
+            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+          ) : (
+            <Download className="w-3.5 h-3.5" />
+          )}
+        </button>
+        <span className="text-xs md:text-sm text-slate-500 font-mono">
+          {currentSlide + 1} / {totalSlides}
+        </span>
       </div>
 
       {/* Section accent line */}

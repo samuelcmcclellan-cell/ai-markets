@@ -37,7 +37,7 @@ const whyMemoryMatters = [
   {
     label: "Every AI query loads the entire model into memory",
     detail:
-      "Meta\u2019s Llama 4 Behemoth has 2 trillion parameters. Each one needs to be read from memory during inference.",
+      "Each one needs to be read from memory during inference.",
   },
   {
     label: "GPUs spend most of their time waiting for data",

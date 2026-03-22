@@ -28,7 +28,7 @@ const heroCategories = [
       { tag: "FPGAs", accent: "bg-emerald-500/10 text-emerald-300" },
       { tag: "CPUs", accent: "bg-emerald-500/10 text-emerald-300" },
     ],
-    callout: "NVIDIA \u2014 ~$130B+ FY2026 revenue, data center dominant",
+    callout: "NVIDIA \u2014 ~$216B FY2026 revenue (reported Jan\u202026)\u00b9, data center dominant",
   },
   {
     name: "Memory",
@@ -42,7 +42,7 @@ const heroCategories = [
       { tag: "DRAM (DDR5)", accent: "bg-blue-500/10 text-blue-300" },
       { tag: "NAND Flash", accent: "bg-blue-500/10 text-blue-300" },
     ],
-    callout: "SK Hynix \u2014 62% HBM share, 56% operating margin",
+    callout: "SK Hynix \u2014 62% HBM share\u00b2, 56% op margin (Q4\u202025)",
   },
 ];
 
@@ -56,7 +56,7 @@ const supportCategories = [
 
 /* ── Supply chain funnel ── */
 const funnel = [
-  { name: "NVIDIA", color: "#f59e0b", stat: "~$130B+ rev" },
+  { name: "NVIDIA", color: "#f59e0b", stat: "~$216B FY26" },
   { name: "TSMC", color: "#3b82f6", stat: "~$100B+ rev" },
   { name: "SK Hynix", color: "#10b981", stat: "56% op margin" },
   { name: "ASML", color: "#a855f7", stat: "<100 EUV/yr" },
@@ -274,12 +274,12 @@ export default function SemiMarketSize() {
         </motion.div>
 
         <motion.p
-          className="text-[11px] text-slate-600 mt-2"
+          className="text-[10px] text-slate-600 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          Source: SIA, WSTS, SemiAnalysis, Deloitte, company filings
+          ¹ NVIDIA FY2026 10-K (Jan 26, 2026): $215.9B total revenue, +65% YoY. ² TrendForce / SK Hynix FY2025 results; HBM share approximate, varies by quarter. Sources: WSTS Autumn 2025 forecast, SIA, SemiAnalysis, company filings
         </motion.p>
       </div>
     </div>

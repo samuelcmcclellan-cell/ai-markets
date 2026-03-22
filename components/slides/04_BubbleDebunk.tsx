@@ -4,23 +4,23 @@ import { motion } from "framer-motion";
 const comparisons = [
   {
     metric: "PRICE PER DOLLAR OF EARNINGS",
-    dotcom: { value: "131×", context: "Cisco forward P/E at peak" },
-    ai: { value: "22×", context: "NVIDIA forward P/E today" },
+    dotcom: { value: "131×", context: "Cisco fwd P/E at peak (Mar 2000)\u00b9" },
+    ai: { value: "~21×", context: "NVIDIA fwd P/E (Mar 2026)\u00b2" },
   },
   {
     metric: "PROFITABILITY OF THE LEADERS",
-    dotcom: { value: "14%", context: "of tech IPOs were profitable" },
-    ai: { value: "26%", context: "Mag 7 average net margin (2× the S&P 500)" },
+    dotcom: { value: "14%", context: "of tech IPOs were profitable\u00b3" },
+    ai: { value: "26%", context: "Mag 7 avg net margin \u2014 2\u00d7 the S&P 500\u2074" },
   },
   {
     metric: "SUPPLY vs. DEMAND",
-    dotcom: { value: "Oversupply", context: "$500B in dark fiber sat unused for years" },
-    ai: { value: "Sold Out", context: "3-yr-old GPUs rebook at 95% of original price" },
+    dotcom: { value: "Oversupply", context: "$500B in dark fiber sat unused for years\u2075" },
+    ai: { value: "Sold Out", context: "GPU secondary market at 90\u201395% of list price\u2076" },
   },
   {
     metric: "BUYER BALANCE SHEETS",
-    dotcom: { value: "20+", context: "major telecom carriers went bankrupt" },
-    ai: { value: "48%", context: "hyperscaler leverage ratio (vs 80% S&P avg)" },
+    dotcom: { value: "20+", context: "major telecom carriers went bankrupt\u2077" },
+    ai: { value: "~48%", context: "hyperscaler net debt/EBITDA (vs ~80% S&P avg)\u2078" },
   },
 ];
 
@@ -131,12 +131,12 @@ export default function BubbleDebunk() {
         </motion.p>
 
         <motion.p
-          className="text-[11px] text-slate-600 text-center"
+          className="text-[10px] text-slate-600 text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}
         >
-          Source: GuruFocus, Barron&apos;s, CreditSights, CoreWeave, Morningstar, company filings
+          ¹ Harding Loevner; Cisco peak fwd P/E Mar 27, 2000. ² GuruFocus, Mar 2026. ³ Jay Ritter (UF), dotcom-era IPO data. ⁴ Bloomberg, company filings. ⁵ FCC/Telegeography dark fiber data. ⁶ CoreWeave secondary GPU market. ⁷ S&P/Telecom Bankruptcy Monitor. ⁸ CreditSights, Jan 2026.
         </motion.p>
       </div>
     </div>

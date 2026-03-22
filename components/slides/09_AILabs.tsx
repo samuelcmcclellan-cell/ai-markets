@@ -21,9 +21,9 @@ const labRevenue = [
 ];
 
 const burnStats = [
-  { lab: "OpenAI", stat: "$14B", detail: "projected 2026 net loss", sub: "$25B ARR" },
-  { lab: "Anthropic", stat: "$8B", detail: "est. 2026 compute spend", sub: "$19B → $26B target" },
-  { lab: "xAI", stat: "$18B", detail: "Colossus 2 GPU spend alone", sub: "$1.2B/mo burn rate" },
+  { lab: "OpenAI", stat: "$14B", detail: "projected 2026 net loss\u00b9", sub: "$25B ARR\u00b2" },
+  { lab: "Anthropic", stat: "$8B", detail: "est. 2026 compute spend\u00b3", sub: "$19B \u2192 $26B target\u00b3" },
+  { lab: "xAI", stat: "$18B", detail: "Colossus 2 GPU spend\u2074", sub: "$1.2B/mo burn rate\u2074" },
 ];
 
 const marginStats = [
@@ -37,32 +37,32 @@ const valuations = [
     lab: "OpenAI",
     logo: "/images/logos/openai.png",
     valuation: "$840B",
-    round: "$110B raise · IPO H2 '26",
-    multiple: "~33× ARR",
+    round: "$110B raise \u00b7 Feb \u202726\u2075",
+    multiple: "~34\u00d7 ARR",
     color: "#10b981",
   },
   {
     lab: "Anthropic",
     logo: "/images/logos/anthropic.png",
     valuation: "$380B",
-    round: "$30B Series G · Feb '26",
-    multiple: "~20× ARR",
+    round: "$30B Series G \u00b7 Feb \u202726\u2076",
+    multiple: "~20\u00d7 ARR",
     color: "#f59e0b",
   },
   {
     lab: "xAI",
     logo: "/images/logos/xai.png",
     valuation: "$250B",
-    round: "Acquired by SpaceX · Feb '26",
-    multiple: "~83× ARR*",
+    round: "Merged w/ SpaceX \u00b7 Feb \u202726\u2077",
+    multiple: "~83\u00d7 ARR*",
     color: "#94a3b8",
   },
   {
     lab: "Mistral",
     logo: "/images/logos/mistral.png",
     valuation: "$14B",
-    round: "€1.7B Series C",
-    multiple: "~14× ARR",
+    round: "\u20ac1.7B Series C \u00b7 Jun \u202724",
+    multiple: "~14\u00d7 ARR",
     color: "#06b6d4",
   },
 ];
@@ -301,12 +301,12 @@ export default function AILabs() {
         </motion.div>
 
         <motion.p
-          className="text-[11px] text-slate-600 mt-2"
+          className="text-[10px] text-slate-600 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6 }}
         >
-          Source: The Information, Bloomberg, Fortune, CNBC, Sacra, PYMNTS, Anthropic, Crunchbase, company filings
+          ¹ The Information, Jan 2026. ² Sacra, Feb 2026 run-rate. ³ Dario Amodei, Morgan Stanley TMT conf., Mar 2026; Bloomberg. ⁴ The Information, Jan 2026. ⁵ Crunchbase; Amazon $50B, Nvidia $30B, SoftBank $30B — Feb 2026. ⁶ Anthropic press release, Feb 12, 2026. ⁷ CNBC, Feb 2026; $250B combined valuation at merger close. * xAI ARR est. ~$3B; multiple reflects early-stage revenue base. Sources: Bloomberg, Fortune, CNBC, Crunchbase, company filings
         </motion.p>
       </div>
     </div>

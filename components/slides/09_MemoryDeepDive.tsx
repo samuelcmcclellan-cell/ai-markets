@@ -203,7 +203,7 @@ export default function MemoryDeepDive() {
               ))}
             </div>
             <p className="text-[11px] text-slate-600 mt-1.5">
-              HBM4 delivers 56x the bandwidth of standard DDR5
+              HBM4 delivers 56&times; the bandwidth of standard DDR5<sup className="text-[8px]">³</sup>
             </p>
           </motion.div>
 
@@ -318,7 +318,7 @@ export default function MemoryDeepDive() {
               </div>
             </div>
             <p className="text-[11px] text-slate-500 mt-1">
-              SK Hynix is NVIDIA&apos;s primary HBM supplier
+              SK Hynix is NVIDIA&apos;s primary HBM supplier<sup className="text-[8px]">¹</sup>
             </p>
           </motion.div>
         </div>
@@ -359,9 +359,8 @@ export default function MemoryDeepDive() {
           ))}
         </div>
 
-        <p className="text-[11px] text-slate-600 mt-2">
-          Source: Micron, Counterpoint Research, BofA, TrendForce, IDC,
-          Bloomberg
+        <p className="text-[10px] text-slate-600 mt-2">
+          ¹ SK Hynix HBM share approx. Q2\u202025 peak; ~55–57% by Q3–Q4\u202025 per TrendForce. ² SK Hynix Q4\u202025 op margin 56%; FY2025 avg ~49% (SK Hynix FY2025 results). ³ HBM TAM: Micron, TrendForce, BofA est. $4B (2023) \u2192 $55B (2026E) \u2192 $100B (2028E). Sources: TrendForce, BofA, Counterpoint Research, IDC, Bloomberg, company filings
         </p>
       </div>
     </div>

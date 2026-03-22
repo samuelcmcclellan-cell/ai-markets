@@ -141,9 +141,9 @@ export default function WhoIsBuying() {
             </h3>
             <span className="text-xs text-slate-500 ml-0 md:ml-auto mt-1 md:mt-0 block md:inline">
               <span className="font-mono font-bold text-amber-400">$685B</span>{" "}
-              combined 2026 capex &middot;{" "}
-              <span className="font-mono font-bold text-amber-400">75%</span>{" "}
-              AI-related
+              combined 2026 capex\u00b9 &middot;{" "}
+              <span className="font-mono font-bold text-amber-400">~75%</span>{" "}
+              AI-related\u00b2
             </span>
           </div>
           <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-3">
@@ -252,12 +252,12 @@ export default function WhoIsBuying() {
 
         {/* Source line */}
         <motion.p
-          className="text-[11px] text-slate-600 mt-2"
+          className="text-[10px] text-slate-600 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.0 }}
         >
-          Source: Company filings, BofA, Morgan Stanley estimates
+          ¹ Amazon $200B, Alphabet $175–185B, Microsoft $120–145B, Meta $115–135B, Oracle ~$50B per Q4 2025 earnings guidance; company filings. ² AI-related share: Morgan Stanley, Feb 2026.
         </motion.p>
       </div>
     </div>

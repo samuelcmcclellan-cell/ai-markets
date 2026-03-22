@@ -41,8 +41,7 @@ export default function PoweringTheBuildout() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          945–1,587 TWh by 2030 — every major forecaster revised up in 2025. More electricity
-          processing data than manufacturing all physical goods combined.
+          945 TWh by 2030 (IEA base case) to 1,587 TWh (accelerated scenario)\u00b9 — every major forecaster revised up in 2025. More electricity processing data than manufacturing all physical goods combined.
         </motion.p>
 
         {/* Two panels side by side */}
@@ -164,12 +163,12 @@ export default function PoweringTheBuildout() {
         </motion.div>
 
         <motion.p
-          className="text-[11px] text-slate-600 mt-2"
+          className="text-[10px] text-slate-600 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
         >
-          Source: IEA (Apr 2025), Goldman Sachs, GE Vernova filings, RatedPower, BloombergNEF, Global Energy Monitor
+          ¹ IEA &ldquo;Energy and AI&rdquo; (Apr 2025): base case 945 TWh; accelerated scenario up to ~1,587 TWh by 2030. Sources: IEA, Goldman Sachs, GE Vernova 2025 annual report, BloombergNEF, Global Energy Monitor, company filings
         </motion.p>
       </div>
     </div>

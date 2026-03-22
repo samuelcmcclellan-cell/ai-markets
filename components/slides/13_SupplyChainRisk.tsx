@@ -129,8 +129,8 @@ export default function SupplyChainRisk() {
                   const anchor = isChina ? "end" : "start";
                   const labelX = isChina ? -14 : 14;
                   // Offset South Korea up and Japan down to avoid overlap
-                  const labelY = isJapan ? 18 : isSK ? -16 : -4;
-                  const roleY = isJapan ? 32 : isSK ? -4 : 10;
+                  const labelY = isJapan ? 22 : isSK ? -20 : -6;
+                  const roleY = isJapan ? 38 : isSK ? -4 : 12;
                   return (
                     <Marker key={i} coordinates={marker.coordinates}>
                       <circle r={5} fill={marker.color} opacity={0.9} />
@@ -151,7 +151,7 @@ export default function SupplyChainRisk() {
                         x={labelX}
                         y={labelY}
                         style={{
-                          fontSize: "12px",
+                          fontSize: "16px",
                           fontWeight: 700,
                           fill: marker.color,
                           fontFamily: "system-ui, sans-serif",
@@ -164,7 +164,7 @@ export default function SupplyChainRisk() {
                         x={labelX}
                         y={roleY}
                         style={{
-                          fontSize: "10px",
+                          fontSize: "13px",
                           fill: "#94a3b8",
                           fontFamily: "system-ui, sans-serif",
                         }}

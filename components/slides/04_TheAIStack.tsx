@@ -164,7 +164,7 @@ export default function TheAIStack() {
 
                 {/* Key companies */}
                 <div className="hidden md:flex gap-1.5 shrink-0 flex-wrap justify-end max-w-[280px]">
-                  {layer.companies.slice(0, 4).map((company, j) => (
+                  {layer.companies.slice(0, 5).map((company, j) => (
                     <span
                       key={j}
                       className="text-xs font-mono px-2 py-0.5 rounded-md bg-slate-700/50 text-slate-300 whitespace-nowrap"
@@ -172,9 +172,9 @@ export default function TheAIStack() {
                       {company}
                     </span>
                   ))}
-                  {layer.companies.length > 4 && (
+                  {layer.companies.length > 5 && (
                     <span className="text-xs font-mono px-1.5 py-0.5 text-slate-500">
-                      +{layer.companies.length - 4}
+                      +{layer.companies.length - 5}
                     </span>
                   )}
                 </div>

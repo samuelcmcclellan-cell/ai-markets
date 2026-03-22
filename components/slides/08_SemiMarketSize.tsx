@@ -28,7 +28,7 @@ const heroCategories = [
       { tag: "FPGAs", accent: "bg-emerald-500/10 text-emerald-300" },
       { tag: "CPUs", accent: "bg-emerald-500/10 text-emerald-300" },
     ],
-    callout: "NVIDIA \u2014 ~$130B+ FY2026 revenue, data center dominant",
+    callout: "NVIDIA ~$130B+ FY2026 revenue",
   },
   {
     name: "Memory",
@@ -42,7 +42,7 @@ const heroCategories = [
       { tag: "DRAM (DDR5)", accent: "bg-blue-500/10 text-blue-300" },
       { tag: "NAND Flash", accent: "bg-blue-500/10 text-blue-300" },
     ],
-    callout: "SK Hynix \u2014 62% HBM share, 56% operating margin",
+    callout: "SK Hynix \u2014 62% HBM share, 56% margin",
   },
 ];
 
@@ -82,15 +82,6 @@ export default function SemiMarketSize() {
           transition={{ delay: 0.1 }}
         >
           Anatomy of a $1 Trillion Market
-        </motion.p>
-        <motion.p
-          className="text-sm text-slate-400 mb-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.15 }}
-        >
-          AI has flipped the growth engine. Two segments &mdash; logic and
-          memory &mdash; now drive the entire industry.
         </motion.p>
 
         {/* Headline stats */}
@@ -244,34 +235,6 @@ export default function SemiMarketSize() {
           })}
         </div>
 
-        {/* ═══ Zone 3: Funnel — inline row ═══ */}
-        <motion.div
-          className="flex items-center gap-4 flex-wrap"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.85 }}
-        >
-          <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">
-            Who captures value:
-          </span>
-          {funnel.map((c, i) => (
-            <div key={i} className="flex items-center gap-1.5">
-              <div
-                className="w-2 h-2 rounded-full flex-shrink-0"
-                style={{ backgroundColor: c.color }}
-              />
-              <span className="text-xs font-heading font-bold text-white">
-                {c.name}
-              </span>
-              <span
-                className="text-xs font-mono"
-                style={{ color: c.color }}
-              >
-                {c.stat}
-              </span>
-            </div>
-          ))}
-        </motion.div>
 
         <motion.p
           className="text-[11px] text-slate-600 mt-2"

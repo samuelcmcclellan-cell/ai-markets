@@ -116,7 +116,8 @@ export default function AILabs() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          Six companies are consuming most of the world&apos;s AI compute.
+          The companies building{" "}
+          <span className="text-amber-400">frontier intelligence</span>.
         </motion.p>
         <motion.p
           className="text-sm text-slate-400 mb-4 max-w-3xl"
@@ -124,7 +125,9 @@ export default function AILabs() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}
         >
-          Their burn rates justify the buildout. Their revenue justifies the burn.
+          AI labs are the R&amp;D powerhouses that train and deploy the largest AI models.
+          They rent tens of thousands of GPUs, burn billions in compute, and sell access
+          via API and subscription. They are the demand signal driving the entire semiconductor buildout.
         </motion.p>
 
         {/* Zone 1: Revenue Race — Horizontal Bar Chart */}

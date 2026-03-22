@@ -62,7 +62,15 @@ const aiLabs = [
     name: "Mistral",
     desc: "European frontier lab, open models",
     logo: (
-      <img src="/images/logos/mistral.png" alt="Mistral" className="w-6 h-6 rounded" />
+      <img
+        src="/images/logos/mistral.png"
+        alt="Mistral"
+        className="w-6 h-6 rounded"
+        style={{ background: "#f97316" }}
+        onError={(e) => {
+          (e.target as HTMLImageElement).style.display = "none";
+        }}
+      />
     ),
   },
 ];

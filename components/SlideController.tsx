@@ -41,9 +41,9 @@ export default function SlideController({
 
   const sections = [
     { name: "Landscape", fullName: "THE LANDSCAPE", startIndex: 0, color: "#3b82f6" },
-    { name: "Market", fullName: "THE MARKET", startIndex: 6, color: "#f59e0b" },
-    { name: "Shifts", fullName: "THE SHIFTS", startIndex: 10, color: "#10b981" },
-    { name: "Risks", fullName: "THE RISKS", startIndex: 12, color: "#ef4444" },
+    { name: "Market", fullName: "THE MARKET", startIndex: 7, color: "#f59e0b" },
+    { name: "Shifts", fullName: "THE SHIFTS", startIndex: 11, color: "#10b981" },
+    { name: "Risks", fullName: "THE RISKS", startIndex: 13, color: "#ef4444" },
     { name: "Frontier", fullName: "THE FRONTIER", startIndex: 17, color: "#8b5cf6" },
   ];
   const currentSection = [...sections].reverse().find(s => currentSlide >= s.startIndex) || sections[0];
@@ -75,7 +75,7 @@ export default function SlideController({
         prev();
       } else if (e.key >= "1" && e.key <= "5") {
         e.preventDefault();
-        const sectionTargets = [0, 6, 10, 12, 17];
+        const sectionTargets = [0, 7, 11, 13, 17];
         goTo(sectionTargets[parseInt(e.key) - 1]);
       }
     };

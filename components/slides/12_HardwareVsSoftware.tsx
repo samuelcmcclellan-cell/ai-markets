@@ -51,7 +51,7 @@ export default function HardwareVsSoftware() {
       <div className="slide-content">
         {/* Header */}
         <motion.h2
-          className="text-sm uppercase tracking-widest text-emerald-400 font-mono mb-1"
+          className="text-sm uppercase tracking-widest text-emerald-400 font-mono mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >

@@ -29,14 +29,14 @@ export default function KeyTakeaways() {
     <div className="slide-container">
       <div className="slide-content max-w-4xl">
         <motion.h2
-          className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-8"
+          className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
           Key Takeaways
         </motion.h2>
 
-        <div className="space-y-4 md:space-y-6">
+        <div className="space-y-4 md:space-y-6 mt-6">
           {takeaways.map((t, i) => (
             <motion.div
               key={i}

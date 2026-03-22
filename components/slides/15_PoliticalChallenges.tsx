@@ -67,7 +67,7 @@ export default function PoliticalChallenges() {
           <span className="text-red-400">buildout</span>.
         </motion.p>
         <motion.p
-          className="text-base text-slate-500 mb-5"
+          className="text-sm text-slate-400 mb-4 max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}

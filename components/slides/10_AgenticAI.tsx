@@ -68,7 +68,7 @@ export default function AgenticAI() {
       <div className="slide-content">
         {/* Header */}
         <motion.h2
-          className="text-sm uppercase tracking-widest text-emerald-400 font-mono mb-1"
+          className="text-sm uppercase tracking-widest text-emerald-400 font-mono mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
@@ -84,7 +84,7 @@ export default function AgenticAI() {
           <span className="text-emerald-400">coworkers</span>.
         </motion.p>
         <motion.p
-          className="text-sm text-slate-400 mb-3 max-w-3xl"
+          className="text-sm text-slate-400 mb-4 max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}

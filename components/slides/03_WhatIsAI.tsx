@@ -67,17 +67,17 @@ export default function WhatIsAI() {
     <div className="slide-container">
       <div className="slide-content">
         <motion.h2
-          className="text-base uppercase tracking-widest text-blue-400 font-mono mb-2"
+          className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
           What Is AI?
         </motion.h2>
         <motion.p
-          className="text-lg text-white mb-6 max-w-3xl"
+          className="text-2xl md:text-3xl font-heading font-bold text-white mb-4 max-w-3xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}
+          transition={{ delay: 0.1 }}
         >
           Artificial intelligence is software that learns from data, reasons
           through problems, and takes action &mdash; increasingly without human

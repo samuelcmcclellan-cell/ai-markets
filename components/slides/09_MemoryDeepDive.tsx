@@ -67,17 +67,17 @@ export default function MemoryDeepDive() {
     <div className="slide-container">
       <div className="slide-content">
         <motion.h2
-          className="text-base uppercase tracking-widest text-amber-400 font-mono mb-3"
+          className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
           Memory &amp; HBM
         </motion.h2>
         <motion.p
-          className="text-xl md:text-2xl font-heading font-semibold text-white mb-5"
+          className="text-2xl md:text-3xl font-heading font-bold text-white mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}
+          transition={{ delay: 0.1 }}
         >
           Compute gets the headlines, but{" "}
           <span className="text-amber-400">memory is the binding constraint</span>.

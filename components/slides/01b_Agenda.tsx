@@ -14,7 +14,7 @@ export default function Agenda() {
     <div className="slide-container">
       <div className="slide-content max-w-4xl">
         <motion.p
-          className="text-base uppercase tracking-widest text-blue-400 font-mono mb-8"
+          className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4 }}
@@ -22,7 +22,7 @@ export default function Agenda() {
           Agenda
         </motion.p>
 
-        <div className="space-y-4">
+        <div className="space-y-4 mt-6">
           {sections.map((section, i) => (
             <motion.div
               key={section.number}

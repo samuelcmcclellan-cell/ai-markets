@@ -6,35 +6,17 @@ const pillars = [
   {
     icon: FlaskConical,
     label: "Drug Discovery",
-    stat: "200+",
-    statLabel: "AI-discovered drugs in development",
-    bullets: [
-      "AlphaFold predicted 200M+ protein structures. Won 2024 Nobel Prize. 3M+ researchers across 190+ countries.",
-      "Isomorphic Labs raised $600M, partnered with Lilly & Novartis (~$3B). Preparing first human trials.",
-    ],
-    source: "DeepMind, Isomorphic Labs, Recursion",
+    body: "AI designs molecules that used to take years to find.",
   },
   {
     icon: ScanEye,
     label: "Medical Imaging",
-    stat: "1,250+",
-    statLabel: "FDA-cleared AI medical devices",
-    bullets: [
-      "258 devices cleared in 2025 alone — all-time record. ~80% in radiology.",
-      "AI triage cuts interpretation from 11.2 to 2.7 days. Viz.ai in 1,700+ hospitals.",
-    ],
-    source: "FDA, Nature Digital Medicine, Viz.ai, Aidoc",
+    body: "AI reads scans faster and catches what humans miss.",
   },
   {
     icon: Dna,
     label: "Precision Medicine",
-    stat: "$100",
-    statLabel: "whole genome cost (was $100M in 2001)",
-    bullets: [
-      "AI accelerates trials 30–50%, cuts costs up to 40%. Cleveland Clinic: recruitment 170× faster.",
-      "Tempus AI: $1.59B revenue. Lilly built largest pharma AI factory — 1,016 Blackwell Ultra GPUs.",
-    ],
-    source: "Tempus, Eli Lilly, Illumina, Element Biosciences",
+    body: "Treatment tailored to your specific biology.",
   },
 ];
 
@@ -50,90 +32,79 @@ export default function HealthcareAI() {
           AI in Healthcare
         </motion.h2>
         <motion.p
-          className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
+          className="text-2xl md:text-3xl font-heading font-bold text-white mb-5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          AI rewrites{" "}
-          <span className="text-violet-400">medicine</span>.
-        </motion.p>
-        <motion.p
-          className="text-sm text-slate-400 mb-2 max-w-3xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          From protein folding to diagnostics to clinical trials — healthcare is becoming one of the largest verticals for AI compute.
+          AI Meets <span className="text-violet-400">Biology</span>
         </motion.p>
 
-        {/* Three-column pillar cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
+        {/* Hero image */}
+        <motion.div
+          className="w-full h-40 md:h-48 rounded-xl border-2 border-dashed border-violet-500/30 bg-violet-950/20 flex items-center justify-center mb-5"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <p className="text-violet-400/50 font-mono text-sm">[ Image: Molecular/protein structure visualization ]</p>
+        </motion.div>
+
+        {/* Amodei quote */}
+        <motion.blockquote
+          className="border-l-2 border-violet-500/60 pl-4 mb-5"
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.35 }}
+        >
+          <p className="text-sm md:text-base text-slate-200 italic leading-relaxed">
+            &ldquo;It may be possible to compress [the] 50 to 100 years of biological and medical progress into perhaps 10 years.&rdquo;
+          </p>
+          <p className="text-xs text-violet-400/70 font-mono mt-1.5">— Dario Amodei, <em>Machines of Loving Grace</em></p>
+        </motion.blockquote>
+
+        {/* Three pillars */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {pillars.map((pillar, i) => {
             const Icon = pillar.icon;
             return (
               <motion.div
                 key={pillar.label}
+                className="flex flex-col gap-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + i * 0.15 }}
-                className="bg-navy-700/50 border border-slate-700/50 rounded-xl p-3 border-t-2 border-t-violet-500"
+                transition={{ delay: 0.5 + i * 0.15 }}
               >
-                {/* Icon + label */}
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2">
                   <div className="w-7 h-7 rounded-lg bg-violet-500/20 flex items-center justify-center shrink-0">
                     <Icon className="w-3.5 h-3.5 text-violet-400" />
                   </div>
-                  <span className="text-sm font-semibold text-white">{pillar.label}</span>
+                  <p className="text-sm font-heading font-bold text-white">{pillar.label}</p>
                 </div>
-
-                {/* Hero stat */}
-                <div className="mb-2">
-                  <span className="text-2xl font-mono font-bold text-white leading-none">{pillar.stat}</span>
-                  <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">{pillar.statLabel}</p>
-                </div>
-
-                {/* Bullets */}
-                <ul className="space-y-2">
-                  {pillar.bullets.map((bullet, j) => (
-                    <li key={j} className="text-xs text-slate-400 leading-relaxed flex items-start gap-1.5">
-                      <span className="text-violet-500/60 mt-0.5 shrink-0">&bull;</span>
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Source */}
-                <p className="text-[10px] text-slate-600 font-mono mt-3 pt-2 border-t border-slate-700/30">
-                  {pillar.source}
-                </p>
+                <p className="text-xs text-slate-400 leading-relaxed">{pillar.body}</p>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Bottom insight */}
+        {/* Bottom strip */}
         <motion.div
-          className="bg-violet-500/10 border border-violet-500/20 rounded-lg px-4 py-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-        >
-          <p className="text-sm text-slate-300 leading-relaxed">
-            <span className="text-violet-400 font-heading font-bold">Infrastructure demand: </span>
-            Pharma is building its own GPU clusters — Eli Lilly (1,016 Blackwell GPUs, 9+ exaflops), Roche (3,500+ Blackwell GPUs), Recursion (504 H100s).
-            Healthcare AI market projected to reach $187B by 2030 at 38% CAGR. The sector deploys AI at 2× the rate of the broader economy.
-          </p>
-        </motion.div>
-
-        <motion.p
-          className="text-[10px] text-slate-600 font-mono mt-2"
+          className="flex flex-col md:flex-row items-start md:items-center justify-between mt-6 pt-4 gap-2 md:gap-0 border-t border-slate-700/30"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.0 }}
         >
-          Source: FDA, DeepMind, NVIDIA GTC 2026, Eli Lilly, MarketsandMarkets, Nature Digital Medicine
-        </motion.p>
+          <div className="flex flex-wrap items-center gap-2">
+            {["DeepMind", "Isomorphic Labs", "Tempus", "Viz.ai"].map((name) => (
+              <span key={name} className="text-[11px] font-mono text-slate-500 bg-slate-800/50 px-2 py-0.5 rounded">
+                {name}
+              </span>
+            ))}
+          </div>
+          <p className="text-[10px] text-slate-600 font-mono italic">
+            Source: DeepMind, FDA, Nature Digital Medicine, Dario Amodei
+          </p>
+        </motion.div>
       </div>
     </div>
   );

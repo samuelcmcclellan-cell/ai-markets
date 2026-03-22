@@ -103,7 +103,7 @@ export default function TheAIStack() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <p className="text-base font-mono tracking-[0.2em] text-blue-400 mb-2 uppercase">
+          <p className="text-sm font-mono tracking-widest text-blue-400 mb-2 uppercase">
             The AI Stack
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-5">

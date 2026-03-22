@@ -44,22 +44,14 @@ const timeline = [
     position: "above" as const,
   },
   {
-    year: "Nov 2022",
-    label: "ChatGPT",
-    icon: MessageSquare,
-    description:
-      "100M users in 2 months. The moment AI went mainstream.",
-    color: "#f59e0b",
-    position: "inflection" as const,
-    isInflection: true,
-  },
-  {
     year: "2022\u201324",
     label: "LLM Chatbots",
     icon: MessageSquare,
-    description: "ChatGPT, Claude, Gemini, Copilot.",
+    description:
+      "ChatGPT hit 100M users in 2 months. Claude, Gemini, Copilot followed.",
     color: "#f59e0b",
-    position: "below" as const,
+    position: "inflection" as const,
+    isInflection: true,
   },
   {
     year: "2023\u201324",

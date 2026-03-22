@@ -74,7 +74,7 @@ export default function MemoryDeepDive() {
           Memory &amp; HBM
         </motion.h2>
         <motion.p
-          className="text-2xl md:text-3xl font-heading font-bold text-white mb-4"
+          className="text-2xl md:text-3xl font-heading font-bold text-white mb-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -85,7 +85,7 @@ export default function MemoryDeepDive() {
 
         {/* Why memory matters — the narrative */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-4"
+          className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.25 }}
@@ -113,46 +113,43 @@ export default function MemoryDeepDive() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="mb-4"
+          className="mb-2"
         >
-          <h3 className="text-sm font-mono text-amber-400/80 tracking-wider mb-3">
+          <h3 className="text-sm font-mono text-amber-400/80 tracking-wider mb-2">
             THE MEMORY WALL — VISUALIZED
           </h3>
           <div className="flex items-center justify-center gap-0 flex-wrap md:flex-nowrap">
             {/* Stage 1: Model Weights (wide) */}
-            <div className="bg-slate-800/60 border border-slate-700/50 rounded-l-lg px-6 py-5 w-full md:w-[280px] text-center">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <Database className="w-5 h-5 text-cyan-400" />
+            <div className="bg-slate-800/60 border border-slate-700/50 rounded-l-lg px-4 py-3 w-full md:w-[260px] text-center">
+              <div className="flex items-center justify-center gap-2 mb-1">
+                <Database className="w-4 h-4 text-cyan-400" />
                 <span className="text-sm font-semibold text-slate-200">Model Weights</span>
               </div>
-              <p className="text-xs text-slate-400">Stored in HBM</p>
-              <p className="text-lg font-bold text-cyan-400 mt-1">~4 TB</p>
+              <p className="text-lg font-bold text-cyan-400">~4 TB</p>
               <p className="text-[10px] text-slate-500">for a 2T parameter model</p>
             </div>
             {/* Arrow into bottleneck */}
             <div className="text-amber-400 text-xl hidden md:block">▶</div>
             {/* Stage 2: Memory Bus (narrow — the bottleneck) */}
-            <div className="bg-amber-500/10 border-2 border-amber-500/50 rounded px-4 py-3 w-full md:w-[160px] text-center relative my-2 md:my-0">
+            <div className="bg-amber-500/10 border-2 border-amber-500/50 rounded px-3 py-2 w-full md:w-[150px] text-center relative my-2 md:my-0">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-black text-[9px] font-bold px-2 py-0.5 rounded-full">
                 BOTTLENECK
               </div>
-              <div className="flex items-center justify-center gap-1 mb-1">
-                <Zap className="w-4 h-4 text-amber-400" />
+              <div className="flex items-center justify-center gap-1 mb-0.5">
+                <Zap className="w-3.5 h-3.5 text-amber-400" />
                 <span className="text-xs font-semibold text-amber-300">Memory Bus</span>
               </div>
               <p className="text-lg font-bold text-amber-400">~3 TB/s</p>
-              <p className="text-[10px] text-slate-400">bandwidth limit</p>
             </div>
             {/* Arrow out of bottleneck */}
             <div className="text-amber-400 text-xl hidden md:block">▶</div>
             {/* Stage 3: GPU Compute (wide) */}
-            <div className="bg-slate-800/60 border border-slate-700/50 rounded-r-lg px-6 py-5 w-full md:w-[280px] text-center">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <Cpu className="w-5 h-5 text-green-400" />
+            <div className="bg-slate-800/60 border border-slate-700/50 rounded-r-lg px-4 py-3 w-full md:w-[260px] text-center">
+              <div className="flex items-center justify-center gap-2 mb-1">
+                <Cpu className="w-4 h-4 text-green-400" />
                 <span className="text-sm font-semibold text-slate-200">GPU Compute</span>
               </div>
-              <p className="text-xs text-slate-400">Ready to process</p>
-              <p className="text-lg font-bold text-green-400 mt-1">10×</p>
+              <p className="text-lg font-bold text-green-400">10×</p>
               <p className="text-[10px] text-slate-500">faster than memory can feed it</p>
             </div>
           </div>
@@ -163,7 +160,7 @@ export default function MemoryDeepDive() {
         </motion.div>
 
         {/* Middle row: Bandwidth + HBM TAM + Market Share */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
           {/* Bandwidth bars */}
           <motion.div
             className="stat-card accent-border-amber"
@@ -324,7 +321,7 @@ export default function MemoryDeepDive() {
         </div>
 
         {/* Equity cards row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
           {memoryEquities.map((stock, i) => (
             <motion.div
               key={i}

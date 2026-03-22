@@ -58,7 +58,7 @@ export default function HardwareVsSoftware() {
           The Great Divergence
         </motion.h2>
         <motion.p
-          className="text-2xl md:text-3xl font-heading font-bold text-white mb-4"
+          className="text-2xl md:text-3xl font-heading font-bold text-white mb-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -94,7 +94,7 @@ export default function HardwareVsSoftware() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <div className="h-[250px] md:h-[280px]">
+          <div className="h-[180px] md:h-[200px]">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={divergenceChart}>
                 <XAxis
@@ -171,32 +171,32 @@ export default function HardwareVsSoftware() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.0 }}
-          className="flex flex-col md:flex-row gap-3 mt-4 px-0 md:px-2"
+          className="flex flex-col md:flex-row gap-2 mt-2 px-0 md:px-2"
         >
           {/* LEFT PANEL: Memory Supercycle */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1.2 }}
-            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-5"
+            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-3"
           >
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-2">
               <TrendingUp className="w-4 h-4 text-cyan-400" />
               <h3 className="text-xs font-mono tracking-[0.15em] text-cyan-400 uppercase">
                 Memory Supercycle
               </h3>
             </div>
-            <p className="text-sm text-slate-300 mb-4">
+            <p className="text-xs text-slate-300 mb-2">
               HBM demand <span className="text-cyan-400 font-semibold">sold out through 2026</span>.
               SK Hynix targets <span className="text-cyan-400 font-semibold">70% HBM4 share</span> for NVIDIA Rubin.
             </p>
-            <div className="flex gap-2 mb-4">
+            <div className="flex gap-2 mb-2">
               {[
                 { name: "SK Hynix", ticker: "000660.KS", change: "+49%", detail: "62% HBM share, HBM4 shipping Q4" },
                 { name: "Micron", ticker: "MU", change: "+54%", detail: "NY megafab breaking ground, HBM3E ramp" },
                 { name: "Samsung", ticker: "005930.KS", change: "+57%", detail: "HBM production doubling, DRAM leader" },
               ].map((stock, i) => (
-                <div key={i} className="flex-1 bg-slate-900/50 border border-slate-700/30 rounded px-3 py-2.5 text-center">
+                <div key={i} className="flex-1 bg-slate-900/50 border border-slate-700/30 rounded px-2 py-1.5 text-center">
                   <p className="text-xs font-mono text-slate-500 mb-0.5">{stock.ticker}</p>
                   <p className="text-sm font-semibold text-slate-200">{stock.name}</p>
                   <p className="text-lg font-bold text-cyan-400 my-1">{stock.change}</p>
@@ -220,9 +220,9 @@ export default function HardwareVsSoftware() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1.4 }}
-            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-5"
+            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-3"
           >
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-2">
               <TrendingDown className="w-4 h-4 text-red-400" />
               <h3 className="text-xs font-mono tracking-[0.15em] uppercase">
                 <span className="text-slate-400">The </span>
@@ -231,17 +231,17 @@ export default function HardwareVsSoftware() {
                 <span className="text-slate-400">ter</span>
               </h3>
             </div>
-            <p className="text-sm text-slate-300 mb-4">
+            <p className="text-xs text-slate-300 mb-2">
               <span className="text-red-400 font-semibold">$1 trillion</span> wiped from software stocks
               in a single month.
             </p>
-            <div className="flex gap-2 mb-4">
+            <div className="flex gap-2 mb-2">
               {[
                 { name: "Salesforce", ticker: "CRM", change: "-26%", detail: "Seat-based model under AI agent threat" },
                 { name: "Adobe", ticker: "ADBE", change: "-28%", detail: "AI-generated content eroding moat" },
                 { name: "ServiceNow", ticker: "NOW", change: "-23%", detail: "Workflow automation disrupted by agents" },
               ].map((stock, i) => (
-                <div key={i} className="flex-1 bg-slate-900/50 border border-slate-700/30 rounded px-3 py-2.5 text-center">
+                <div key={i} className="flex-1 bg-slate-900/50 border border-slate-700/30 rounded px-2 py-1.5 text-center">
                   <p className="text-xs font-mono text-slate-500 mb-0.5">{stock.ticker}</p>
                   <p className="text-sm font-semibold text-slate-200">{stock.name}</p>
                   <p className="text-lg font-bold text-red-400 my-1">{stock.change}</p>

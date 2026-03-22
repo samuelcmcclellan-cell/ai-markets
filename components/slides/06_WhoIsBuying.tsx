@@ -118,7 +118,7 @@ export default function WhoIsBuying() {
           Who Is Buying All These Chips?
         </motion.h2>
         <motion.p
-          className="text-2xl md:text-3xl font-heading font-bold text-white mb-4"
+          className="text-2xl md:text-3xl font-heading font-bold text-white mb-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -129,7 +129,7 @@ export default function WhoIsBuying() {
 
         {/* Row 1: Hyperscalers — largest section */}
         <motion.div
-          className="bg-amber-500/5 border border-amber-500/15 rounded-xl p-4 mb-3"
+          className="bg-amber-500/5 border border-amber-500/15 rounded-xl p-3 mb-2"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -171,7 +171,7 @@ export default function WhoIsBuying() {
 
         {/* Row 2: AI Labs — medium section */}
         <motion.div
-          className="bg-pink-500/5 border border-pink-500/15 rounded-xl p-4 mb-3"
+          className="bg-pink-500/5 border border-pink-500/15 rounded-xl p-3 mb-2"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55 }}
@@ -209,7 +209,7 @@ export default function WhoIsBuying() {
         </motion.div>
 
         {/* Row 3: Neoclouds, Governments, Enterprises — equal, smaller */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 mb-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
           {smallCategories.map((cat, i) => {
             const Icon = cat.icon;
             return (

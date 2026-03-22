@@ -209,7 +209,7 @@ export default function SlideController({
           animate="center"
           exit="exit"
           transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-          className="h-full w-full overflow-y-auto"
+          className="h-full w-full overflow-hidden"
         >
           {slides[currentSlide]}
         </motion.div>

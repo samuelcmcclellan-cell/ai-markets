@@ -120,7 +120,7 @@ export default function AILabs() {
           <span className="text-amber-400">frontier intelligence</span>.
         </motion.p>
         <motion.p
-          className="text-sm text-slate-400 mb-4 max-w-3xl"
+          className="text-sm text-slate-400 mb-2 max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}
@@ -136,7 +136,7 @@ export default function AILabs() {
           transition={{ delay: 0.3 }}
           className="mb-3"
         >
-          <div className="h-[220px] md:h-[240px]">
+          <div className="h-[160px] md:h-[180px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={labRevenue} layout="vertical" margin={{ left: 10, right: 40 }}>
                 <XAxis
@@ -191,19 +191,19 @@ export default function AILabs() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-4 md:p-5"
+            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-3 md:p-4"
           >
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-2">
               <Flame className="w-4 h-4 text-orange-400" />
               <h3 className="text-xs font-mono tracking-[0.15em] text-orange-400 uppercase">
                 The Burn
               </h3>
             </div>
-            <div className="mb-3">
-              <span className="text-3xl font-mono font-bold text-orange-400">$30B+</span>
-              <p className="text-xs text-slate-500 mt-0.5">
-                combined annual compute spend — OpenAI alone won&apos;t be cash-flow positive until 2029
-              </p>
+            <div className="mb-2">
+              <span className="text-2xl font-mono font-bold text-orange-400">$30B+</span>
+              <span className="text-xs text-slate-500 ml-2">
+                combined annual compute spend
+              </span>
             </div>
             <div className="flex gap-2">
               {burnStats.map((s, i) => (
@@ -225,19 +225,19 @@ export default function AILabs() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-4 md:p-5"
+            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-3 md:p-4"
           >
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-2">
               <TrendingUp className="w-4 h-4 text-emerald-400" />
               <h3 className="text-xs font-mono tracking-[0.15em] text-emerald-400 uppercase">
                 The Margins
               </h3>
             </div>
-            <div className="mb-3">
-              <span className="text-3xl font-mono font-bold text-emerald-400">40–50%</span>
-              <p className="text-xs text-slate-500 mt-0.5">
-                inference gross margins — already profitable at the unit level
-              </p>
+            <div className="mb-2">
+              <span className="text-2xl font-mono font-bold text-emerald-400">40–50%</span>
+              <span className="text-xs text-slate-500 ml-2">
+                inference gross margins
+              </span>
             </div>
             <div className="flex gap-2">
               {marginStats.map((s, i) => (

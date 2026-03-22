@@ -32,7 +32,7 @@
 
 @layer components {
   .slide-container {
-    @apply min-h-screen w-full flex flex-col items-center justify-center px-3 md:px-8 py-6 md:py-12 pt-10 md:pt-12 relative overflow-hidden;
+    @apply h-screen max-h-screen w-full flex flex-col items-center justify-center px-3 md:px-8 py-4 md:py-6 pt-10 md:pt-12 relative overflow-hidden;
   }
 
   .slide-content {

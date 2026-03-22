@@ -9,8 +9,8 @@ const pillars = [
     stat: "200+",
     statLabel: "AI-discovered drugs in development",
     bullets: [
-      "AlphaFold predicted 200M+ protein structures. Won 2024 Nobel Prize. 3M+ researchers using it in 190+ countries.",
-      "Isomorphic Labs (DeepMind) raised $600M, partnered with Eli Lilly & Novartis (~$3B deal value). Preparing first human trials of AI-designed drugs.",
+      "AlphaFold predicted 200M+ protein structures. Won 2024 Nobel Prize. 3M+ researchers across 190+ countries.",
+      "Isomorphic Labs raised $600M, partnered with Lilly & Novartis (~$3B). Preparing first human trials.",
     ],
     source: "DeepMind, Isomorphic Labs, Recursion",
   },
@@ -20,8 +20,8 @@ const pillars = [
     stat: "1,250+",
     statLabel: "FDA-cleared AI medical devices",
     bullets: [
-      "258 AI devices cleared in 2025 alone — all-time record. ~80% in radiology. Growth accelerating every year since 2018.",
-      "AI triage cuts interpretation time from 11.2 days to 2.7 days. Viz.ai deployed in 1,700+ hospitals. Aidoc in 1,000+ centers.",
+      "258 devices cleared in 2025 alone — all-time record. ~80% in radiology.",
+      "AI triage cuts interpretation from 11.2 to 2.7 days. Viz.ai in 1,700+ hospitals.",
     ],
     source: "FDA, Nature Digital Medicine, Viz.ai, Aidoc",
   },
@@ -31,8 +31,8 @@ const pillars = [
     stat: "$100",
     statLabel: "whole genome cost (was $100M in 2001)",
     bullets: [
-      "AI accelerates clinical trials 30–50% and reduces costs up to 40%. Cleveland Clinic: AI recruitment 170× faster. $9.2B AI trials market.",
-      "Tempus AI: $1.59B revenue. Eli Lilly built largest pharma AI factory — 1,016 Blackwell Ultra GPUs, $1B joint investment with NVIDIA.",
+      "AI accelerates trials 30–50%, cuts costs up to 40%. Cleveland Clinic: recruitment 170× faster.",
+      "Tempus AI: $1.59B revenue. Lilly built largest pharma AI factory — 1,016 Blackwell Ultra GPUs.",
     ],
     source: "Tempus, Eli Lilly, Illumina, Element Biosciences",
   },
@@ -59,7 +59,7 @@ export default function HealthcareAI() {
           <span className="text-violet-400">medicine</span>.
         </motion.p>
         <motion.p
-          className="text-sm text-slate-400 mb-4 max-w-3xl"
+          className="text-sm text-slate-400 mb-2 max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -68,7 +68,7 @@ export default function HealthcareAI() {
         </motion.p>
 
         {/* Three-column pillar cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
           {pillars.map((pillar, i) => {
             const Icon = pillar.icon;
             return (
@@ -77,20 +77,20 @@ export default function HealthcareAI() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + i * 0.15 }}
-                className="bg-navy-700/50 border border-slate-700/50 rounded-xl p-4 border-t-2 border-t-violet-500"
+                className="bg-navy-700/50 border border-slate-700/50 rounded-xl p-3 border-t-2 border-t-violet-500"
               >
                 {/* Icon + label */}
-                <div className="flex items-center gap-2.5 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center shrink-0">
-                    <Icon className="w-4 h-4 text-violet-400" />
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-7 h-7 rounded-lg bg-violet-500/20 flex items-center justify-center shrink-0">
+                    <Icon className="w-3.5 h-3.5 text-violet-400" />
                   </div>
                   <span className="text-sm font-semibold text-white">{pillar.label}</span>
                 </div>
 
                 {/* Hero stat */}
-                <div className="mb-3">
-                  <span className="text-3xl font-mono font-bold text-white leading-none">{pillar.stat}</span>
-                  <p className="text-xs text-slate-500 mt-1 leading-snug">{pillar.statLabel}</p>
+                <div className="mb-2">
+                  <span className="text-2xl font-mono font-bold text-white leading-none">{pillar.stat}</span>
+                  <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">{pillar.statLabel}</p>
                 </div>
 
                 {/* Bullets */}

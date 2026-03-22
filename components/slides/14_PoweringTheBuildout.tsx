@@ -75,7 +75,7 @@ export default function PoweringTheBuildout() {
           <span className="text-blue-400">core AI stack</span>.
         </motion.h2>
         <motion.p
-          className="text-sm text-slate-400 mb-4 max-w-3xl leading-relaxed"
+          className="text-sm text-slate-400 mb-2 max-w-3xl leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}
@@ -87,7 +87,7 @@ export default function PoweringTheBuildout() {
         </motion.p>
 
         {/* Three-layer ecosystem map */}
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-2 mb-3">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-2 mb-2">
 
           {/* Layer 1: Generation — gas + solar prominent */}
           <motion.div

@@ -84,7 +84,7 @@ export default function SemiMarketSize() {
           Anatomy of a $1 Trillion Market
         </motion.p>
         <motion.p
-          className="text-sm text-slate-400 mb-4 max-w-3xl"
+          className="text-sm text-slate-400 mb-2 max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}
@@ -95,7 +95,7 @@ export default function SemiMarketSize() {
 
         {/* Headline stats */}
         <motion.div
-          className="flex flex-wrap gap-4 md:gap-6 mb-4"
+          className="flex flex-wrap gap-4 md:gap-6 mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -120,12 +120,12 @@ export default function SemiMarketSize() {
 
         {/* ═══ Proportional market bar ═══ */}
         <motion.div
-          className="mb-4"
+          className="mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.25 }}
         >
-          <div className="flex h-7 rounded-lg overflow-hidden">
+          <div className="flex h-6 rounded-lg overflow-hidden">
             {segments.map((seg, i) => (
               <motion.div
                 key={i}
@@ -162,7 +162,7 @@ export default function SemiMarketSize() {
         </motion.div>
 
         {/* ═══ Zone 2: Hero cards ═══ */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
           {heroCategories.map((cat, i) => {
             const Icon = cat.icon;
             return (
@@ -219,7 +219,7 @@ export default function SemiMarketSize() {
         </div>
 
         {/* ═══ Bottom row — compact ═══ */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2">
           {supportCategories.map((cat, i) => {
             const Icon = cat.icon;
             return (

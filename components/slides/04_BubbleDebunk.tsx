@@ -45,7 +45,7 @@ export default function BubbleDebunk() {
           Is this a bubble?
         </motion.p>
         <motion.p
-          className="text-sm text-slate-400 mb-4"
+          className="text-sm text-slate-400 mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}
@@ -55,7 +55,7 @@ export default function BubbleDebunk() {
 
         {/* Column Headers */}
         <motion.div
-          className="grid grid-cols-[1fr_1fr_1fr] gap-3 mb-3 px-1"
+          className="grid grid-cols-[1fr_1fr_1fr] gap-3 mb-2 px-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -70,7 +70,7 @@ export default function BubbleDebunk() {
         </motion.div>
 
         {/* Scorecard Rows */}
-        <div className="space-y-2 mb-3">
+        <div className="space-y-1.5 mb-2">
           {comparisons.map((row, i) => (
             <motion.div
               key={i}

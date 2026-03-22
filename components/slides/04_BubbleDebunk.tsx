@@ -37,7 +37,7 @@ export default function BubbleDebunk() {
           The Bubble Question
         </motion.h2>
         <motion.p
-          className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
+          className="text-xl md:text-2xl font-heading font-bold text-white mb-1"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -70,11 +70,11 @@ export default function BubbleDebunk() {
         </motion.div>
 
         {/* Scorecard Rows */}
-        <div className="space-y-2.5 mb-5">
+        <div className="space-y-2 mb-3">
           {comparisons.map((row, i) => (
             <motion.div
               key={i}
-              className="grid grid-cols-[1fr_1fr_1fr] gap-3 items-center bg-navy-700/20 border border-slate-700/30 rounded-xl px-4 py-3"
+              className="grid grid-cols-[1fr_1fr_1fr] gap-3 items-center bg-navy-700/20 border border-slate-700/30 rounded-xl px-3 py-2"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25 + i * 0.12 }}
@@ -87,7 +87,7 @@ export default function BubbleDebunk() {
               {/* Dotcom value */}
               <div className="text-center">
                 <motion.p
-                  className="text-2xl md:text-3xl font-mono font-bold text-red-400"
+                  className="text-xl md:text-2xl font-mono font-bold text-red-400"
                   initial={{ scale: 0.5, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.4 + i * 0.12, type: "spring", stiffness: 200 }}
@@ -102,7 +102,7 @@ export default function BubbleDebunk() {
               {/* AI value */}
               <div className="text-center">
                 <motion.p
-                  className="text-2xl md:text-3xl font-mono font-bold text-emerald-400"
+                  className="text-xl md:text-2xl font-mono font-bold text-emerald-400"
                   initial={{ scale: 0.5, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.5 + i * 0.12, type: "spring", stiffness: 200 }}
@@ -119,7 +119,7 @@ export default function BubbleDebunk() {
 
         {/* Bottom caveat */}
         <motion.p
-          className="text-xl md:text-2xl text-slate-300 text-center mb-2 max-w-3xl mx-auto leading-relaxed"
+          className="text-base md:text-lg text-slate-300 text-center mb-1 max-w-3xl mx-auto leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.0 }}

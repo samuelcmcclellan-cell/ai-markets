@@ -31,7 +31,7 @@ export default function WhyAIMatters() {
         >
           Why AI Matters to Markets
         </motion.h2>
-        <div className="space-y-12 mt-6">
+        <div className="space-y-6 mt-4">
           {statements.map((s, i) => (
             <motion.div
               key={i}
@@ -39,10 +39,10 @@ export default function WhyAIMatters() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 + i * 0.4 }}
             >
-              <h3 className="text-2xl md:text-3xl font-heading font-bold text-white leading-tight mb-3">
+              <h3 className="text-xl md:text-2xl font-heading font-bold text-white leading-tight mb-2">
                 {s.headline}
               </h3>
-              <p className="text-base md:text-lg text-slate-400 font-body leading-relaxed max-w-3xl">
+              <p className="text-sm md:text-base text-slate-400 font-body leading-relaxed max-w-3xl">
                 {s.supporting}
               </p>
             </motion.div>

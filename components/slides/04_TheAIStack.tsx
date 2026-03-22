@@ -106,7 +106,7 @@ export default function TheAIStack() {
           <p className="text-sm font-mono tracking-widest text-blue-400 mb-2 uppercase">
             The AI Stack
           </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-5">
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
             The full AI ecosystem &mdash; from raw materials to agents.
           </h2>
         </motion.div>
@@ -129,35 +129,35 @@ export default function TheAIStack() {
             PHYSICAL LAYER &darr;
           </span>
 
-          <div className="flex flex-col gap-[2px] ml-3">
+          <div className="flex flex-col gap-px ml-3">
             {stackLayers.map((layer, i) => (
               <motion.div
                 key={layer.name}
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 + i * 0.07 }}
-                className="flex items-center bg-slate-800/50 border border-slate-700/30 rounded-lg px-2 md:px-4 py-1.5 md:py-2.5 hover:bg-slate-800/70 transition-colors"
+                className="flex items-center bg-slate-800/50 border border-slate-700/30 rounded-lg px-2 md:px-3 py-1 md:py-1.5 hover:bg-slate-800/70 transition-colors"
               >
                 {/* Icon with colored background */}
                 <div
-                  className="w-7 md:w-9 h-7 md:h-9 rounded-lg flex items-center justify-center shrink-0 mr-2 md:mr-4"
+                  className="w-6 md:w-7 h-6 md:h-7 rounded-lg flex items-center justify-center shrink-0 mr-2 md:mr-3"
                   style={{
                     backgroundColor: layer.color + "18",
                     border: `1px solid ${layer.color}40`,
                   }}
                 >
                   <layer.icon
-                    className="w-4 md:w-5 h-4 md:h-5"
+                    className="w-3.5 md:w-4 h-3.5 md:h-4"
                     style={{ color: layer.color }}
                   />
                 </div>
 
                 {/* Layer name + one-liner */}
                 <div className="flex-1 min-w-0 mr-4">
-                  <span className="text-sm md:text-base font-bold text-white block leading-tight">
+                  <span className="text-xs md:text-sm font-bold text-white block leading-tight">
                     {layer.name}
                   </span>
-                  <span className="text-sm text-slate-400 hidden md:block leading-tight mt-0.5">
+                  <span className="text-xs text-slate-400 hidden md:block leading-tight mt-0.5">
                     {layer.oneLiner}
                   </span>
                 </div>
@@ -167,7 +167,7 @@ export default function TheAIStack() {
                   {layer.companies.slice(0, 5).map((company, j) => (
                     <span
                       key={j}
-                      className="text-xs font-mono px-2 py-0.5 rounded-md bg-slate-700/50 text-slate-300 whitespace-nowrap"
+                      className="text-[10px] font-mono px-1.5 py-0.5 rounded-md bg-slate-700/50 text-slate-300 whitespace-nowrap"
                     >
                       {company}
                     </span>
@@ -187,7 +187,7 @@ export default function TheAIStack() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.6 }}
           transition={{ delay: 1.5 }}
-          className="text-sm italic text-slate-500 mt-6 px-2"
+          className="text-xs italic text-slate-500 mt-3 px-2"
         >
           Most investment has concentrated in the middle. The question: will the
           apps on top ever justify the infrastructure below?

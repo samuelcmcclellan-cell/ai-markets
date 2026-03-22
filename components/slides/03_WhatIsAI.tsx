@@ -74,7 +74,7 @@ export default function WhatIsAI() {
           What Is AI?
         </motion.h2>
         <motion.p
-          className="text-2xl md:text-3xl font-heading font-bold text-white mb-4 max-w-3xl"
+          className="text-lg md:text-xl font-heading font-bold text-white mb-2 max-w-3xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -85,11 +85,11 @@ export default function WhatIsAI() {
         </motion.p>
 
         {/* Horizontal timeline */}
-        <div className="relative w-full px-2 mb-6">
+        <div className="relative w-full px-2 mb-3">
           {/* Items above the line */}
           <div
-            className="flex items-end justify-between mb-2"
-            style={{ minHeight: "120px" }}
+            className="flex items-end justify-between mb-1"
+            style={{ minHeight: "90px" }}
           >
             {timeline.map((item, i) => (
               <div
@@ -108,10 +108,10 @@ export default function WhatIsAI() {
                   >
                     <div className="flex items-center justify-center gap-1.5 mb-0.5">
                       <item.icon
-                        className="w-5 h-5"
+                        className="w-4 h-4"
                         style={{ color: item.color }}
                       />
-                      <p className="text-base font-heading font-bold text-white leading-tight">
+                      <p className="text-sm font-heading font-bold text-white leading-tight">
                         {item.label}
                       </p>
                     </div>
@@ -172,8 +172,8 @@ export default function WhatIsAI() {
 
           {/* Items below the line */}
           <div
-            className="flex items-start justify-between mt-2"
-            style={{ minHeight: "125px" }}
+            className="flex items-start justify-between mt-1"
+            style={{ minHeight: "95px" }}
           >
             {timeline.map((item, i) => (
               <div
@@ -192,10 +192,10 @@ export default function WhatIsAI() {
                   >
                     <div className="flex items-center justify-center gap-1.5 mb-0.5">
                       <item.icon
-                        className="w-5 h-5"
+                        className="w-4 h-4"
                         style={{ color: item.color }}
                       />
-                      <p className="text-base font-heading font-bold text-white leading-tight">
+                      <p className="text-sm font-heading font-bold text-white leading-tight">
                         {item.label}
                       </p>
                     </div>
@@ -218,8 +218,8 @@ export default function WhatIsAI() {
                     transition={{ delay: 0.6 }}
                   >
                     <div className="flex items-center justify-center gap-1.5 mb-0.5">
-                      <item.icon className="w-5 h-5 text-amber-400" />
-                      <p className="text-base font-heading font-bold text-amber-400 leading-tight">
+                      <item.icon className="w-4 h-4 text-amber-400" />
+                      <p className="text-sm font-heading font-bold text-amber-400 leading-tight">
                         {item.label}
                       </p>
                     </div>

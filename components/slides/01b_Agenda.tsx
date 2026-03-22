@@ -22,7 +22,7 @@ export default function Agenda() {
           Agenda
         </motion.p>
 
-        <div className="space-y-4 mt-6">
+        <div className="space-y-3 mt-4">
           {sections.map((section, i) => (
             <motion.div
               key={section.number}
@@ -35,7 +35,7 @@ export default function Agenda() {
                 {section.number}
               </span>
               <span
-                className="text-4xl md:text-5xl font-heading font-bold tracking-tight"
+                className="text-3xl md:text-4xl font-heading font-bold tracking-tight"
                 style={{ color: section.color }}
               >
                 {section.name}
@@ -45,7 +45,7 @@ export default function Agenda() {
         </div>
 
         <motion.div
-          className="mt-10 h-px bg-gradient-to-r from-blue-500/40 to-purple-500/40"
+          className="mt-6 h-px bg-gradient-to-r from-blue-500/40 to-purple-500/40"
           style={{ width: "60%" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

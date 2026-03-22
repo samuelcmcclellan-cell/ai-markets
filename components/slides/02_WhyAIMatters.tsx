@@ -22,7 +22,7 @@ const statements = [
 export default function WhyAIMatters() {
   return (
     <div className="slide-container">
-      <div className="slide-content max-w-4xl">
+      <div className="slide-content">
         <motion.h2
           className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2"
           initial={{ opacity: 0 }}

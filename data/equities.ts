@@ -17,7 +17,7 @@ export const memoryEquities = [
     company: "SK Hynix",
     ytd2026: "+49%", // TODO: verify YTD as of March 19, 2026
     trailing12m: "strong",
-    fwdPE: "Korea-listed",
+    fwdPE: "~5.2x",
     revenueQ4: "30.7T KRW",
     opMarginQ4: "56%",
     hbmShare: "62%",
@@ -28,7 +28,7 @@ export const memoryEquities = [
     company: "Samsung Electronics",
     ytd2026: "+57%", // TODO: verify YTD as of March 19, 2026
     trailing12m: "recovering",
-    fwdPE: "Korea-listed",
+    fwdPE: "~8.0x",
     memoryOpGrowth: "+250% YoY",
     aspGrowth: "+40%",
     hbmShare: "17%",

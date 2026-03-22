@@ -9,18 +9,9 @@ import {
   MessageSquare,
 } from "lucide-react";
 
-const eraLogos: Record<string, string[]> = {
-  "Symbolic AI": ["IBM", "LISP", "Deep Blue"],
-  "Machine Learning": ["SVM", "Random Forest", "Kaggle"],
-  "Deep Learning": ["AlexNet", "TensorFlow", "GPT-2", "DALL\u00B7E"],
-  "LLM Chatbots": ["ChatGPT", "Claude", "Gemini", "Copilot"],
-  "Reasoning": ["GPT-4", "Claude", "Gemini", "DeepSeek R1"],
-  "Agentic AI": ["Claude Code", "Codex", "Devin", "AutoGPT"],
-};
-
 const timeline = [
   {
-    year: "1950s\u201380s",
+    year: "1950s–80s",
     label: "Symbolic AI",
     icon: BookOpen,
     description: "Hand-coded rules and expert systems.",
@@ -28,7 +19,7 @@ const timeline = [
     position: "above" as const,
   },
   {
-    year: "1990s\u20132000s",
+    year: "1990s–2000s",
     label: "Machine Learning",
     icon: BarChart3,
     description: "Systems learn patterns from data.",
@@ -44,17 +35,17 @@ const timeline = [
     position: "above" as const,
   },
   {
-    year: "2022\u201324",
+    year: "2022–24",
     label: "LLM Chatbots",
     icon: MessageSquare,
     description:
       "ChatGPT hit 100M users in 2 months. Claude, Gemini, Copilot followed.",
     color: "#f59e0b",
-    position: "inflection" as const,
+    position: "below" as const,
     isInflection: true,
   },
   {
-    year: "2023\u201324",
+    year: "2023–24",
     label: "Reasoning",
     icon: Lightbulb,
     description: "Multi-step logic and chain-of-thought.",
@@ -66,27 +57,10 @@ const timeline = [
     label: "Agentic AI",
     icon: Bot,
     description: "AI that acts autonomously with tools.",
-    color: "#f59e0b",
+    color: "#8b5cf6",
     position: "above" as const,
   },
 ];
-
-function LogoPills({ label }: { label: string }) {
-  const logos = eraLogos[label];
-  if (!logos) return null;
-  return (
-    <div className="flex flex-wrap gap-1 mt-2 justify-center">
-      {logos.map((logo, i) => (
-        <span
-          key={i}
-          className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-slate-700/60 text-slate-300 border border-slate-600/40"
-        >
-          {logo}
-        </span>
-      ))}
-    </div>
-  );
-}
 
 export default function WhatIsAI() {
   return (
@@ -115,15 +89,14 @@ export default function WhatIsAI() {
           {/* Items above the line */}
           <div
             className="flex items-end justify-between mb-2"
-            style={{ minHeight: "110px" }}
+            style={{ minHeight: "120px" }}
           >
             {timeline.map((item, i) => (
               <div
                 key={`above-${i}`}
                 className="flex-1 px-1"
                 style={{
-                  visibility:
-                    item.position === "above" ? "visible" : "hidden",
+                  visibility: item.position === "above" ? "visible" : "hidden",
                 }}
               >
                 {item.position === "above" && (
@@ -148,10 +121,9 @@ export default function WhatIsAI() {
                     >
                       {item.year}
                     </p>
-                    <p className="text-[10px] text-slate-500 leading-tight">
+                    <p className="text-xs text-slate-500 leading-tight">
                       {item.description}
                     </p>
-                    <LogoPills label={item.label} />
                   </motion.div>
                 )}
               </div>
@@ -198,55 +170,20 @@ export default function WhatIsAI() {
             ))}
           </div>
 
-          {/* Items below the line + inflection card */}
+          {/* Items below the line */}
           <div
             className="flex items-start justify-between mt-2"
-            style={{ minHeight: "115px" }}
+            style={{ minHeight: "125px" }}
           >
             {timeline.map((item, i) => (
               <div
                 key={`below-${i}`}
                 className="flex-1 px-1"
                 style={{
-                  visibility:
-                    item.position === "below" ||
-                    item.position === "inflection"
-                      ? "visible"
-                      : "hidden",
+                  visibility: item.position === "below" ? "visible" : "hidden",
                 }}
               >
-                {item.isInflection && (
-                  <motion.div
-                    className="relative mx-auto max-w-[180px] bg-amber-500/10 border border-amber-500/30 rounded-lg p-2.5 text-center glow-amber"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.6 }}
-                  >
-                    <div className="flex items-center justify-center gap-1 mb-0.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                      <span className="text-xs font-mono text-amber-400 uppercase tracking-widest">
-                        Inflection Point
-                      </span>
-                      <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                    </div>
-                    <div className="flex items-center justify-center gap-1.5 mb-0.5">
-                      <item.icon
-                        className="w-5 h-5"
-                        style={{ color: item.color }}
-                      />
-                      <p className="text-xl font-heading font-bold text-amber-400">
-                        {item.label}
-                      </p>
-                    </div>
-                    <p className="text-sm font-mono text-amber-500/70">
-                      {item.year}
-                    </p>
-                    <p className="text-xs text-slate-400 leading-tight mt-0.5">
-                      {item.description}
-                    </p>
-                  </motion.div>
-                )}
-                {item.position === "below" && !item.isInflection && (
+                {item.position === "below" && (
                   <motion.div
                     className="text-center"
                     initial={{ opacity: 0, y: -10 }}
@@ -258,7 +195,12 @@ export default function WhatIsAI() {
                         className="w-5 h-5"
                         style={{ color: item.color }}
                       />
-                      <p className="text-base font-heading font-bold text-white leading-tight">
+                      <p
+                        className="text-base font-heading font-bold leading-tight"
+                        style={{
+                          color: item.isInflection ? "#fbbf24" : "white",
+                        }}
+                      >
                         {item.label}
                       </p>
                     </div>
@@ -268,10 +210,16 @@ export default function WhatIsAI() {
                     >
                       {item.year}
                     </p>
-                    <p className="text-[10px] text-slate-500 leading-tight">
+                    <p
+                      className="text-xs leading-tight max-w-[160px] mx-auto"
+                      style={{
+                        color: item.isInflection
+                          ? "rgba(253,230,138,0.6)"
+                          : "rgb(100,116,139)",
+                      }}
+                    >
                       {item.description}
                     </p>
-                    <LogoPills label={item.label} />
                   </motion.div>
                 )}
               </div>

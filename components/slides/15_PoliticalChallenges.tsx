@@ -12,7 +12,7 @@ const panels = [
     photo: "nimby-protest.jpg",
     image: "/images/nimby-protest.png",
     points: [
-      "142 activist groups across 24 states. $98B in projects stalled.",
+      "142 activist groups across 24 states blocking data center builds.",
       "Data center delays are \"the defining theme of 2026.\"",
     ],
   },
@@ -25,21 +25,21 @@ const panels = [
     photo: "anti-ai-rally.jpg",
     image: "/images/anti-ai-rally.png",
     points: [
-      "\"Stop the AI Race\" marching to Anthropic, OpenAI, xAI HQs today (Mar 21).",
-      "Anthropic dropped its safety pause commitment (Feb 24). 56% of Americans anxious about AI.",
+      "\"Stop the AI Race\" march to Anthropic, OpenAI, and xAI HQs — March 21, 2026.",
+      "Anthropic dropped its safety pause commitment in February. 56% of Americans anxious about AI.",
     ],
   },
   {
     icon: HardHat,
     iconColor: "text-amber-400",
-    label: "LABOR & DEMAND RISK",
+    label: "LABOR SHORTAGE",
     stat: "439,000",
     statLabel: "workers short",
     photo: "construction-worker.jpg",
     image: "/images/construction-worker.png",
     points: [
-      "439,000 workers short. 400+ data centers have year-long backlogs.",
-      "DeepSeek effect: customers switching to models at 5% the cost. Microsoft cut Azure quotas 40%.",
+      "Electricians are 45\u201370% of data center build cost — and critically scarce.",
+      "400+ data centers under construction with year-long backlogs. Talent, not capital, is the binding constraint.",
     ],
   },
 ];
@@ -67,7 +67,7 @@ export default function PoliticalChallenges() {
           <span className="text-red-400">buildout</span>.
         </motion.p>
         <motion.p
-          className="text-sm text-slate-500 mb-5"
+          className="text-base text-slate-500 mb-5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -108,13 +108,13 @@ export default function PoliticalChallenges() {
               {/* Stat */}
               <div className="mb-3">
                 <span className="text-3xl font-mono font-bold text-red-400">{panel.stat}</span>
-                <span className="text-xs text-slate-500 ml-2">{panel.statLabel}</span>
+                <span className="text-sm text-slate-500 ml-2">{panel.statLabel}</span>
               </div>
 
               {/* Points */}
               <ul className="space-y-1.5">
                 {panel.points.map((point, j) => (
-                  <li key={j} className="text-xs text-slate-400 leading-snug flex items-start gap-1.5">
+                  <li key={j} className="text-sm text-slate-400 leading-relaxed flex items-start gap-1.5">
                     <span className="text-red-500/60 mt-0.5 flex-shrink-0">•</span>
                     {point}
                   </li>
@@ -125,7 +125,7 @@ export default function PoliticalChallenges() {
         </div>
 
         <motion.p
-          className="text-[11px] text-slate-600 mt-2"
+          className="text-xs text-slate-600 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3 }}

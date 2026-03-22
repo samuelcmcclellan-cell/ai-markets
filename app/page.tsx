@@ -19,6 +19,9 @@ import PolicyRegulation from "@/components/slides/15b_PolicyRegulation";
 import PoweringTheBuildout from "@/components/slides/14_PoweringTheBuildout";
 import PoliticalChallenges from "@/components/slides/15_PoliticalChallenges";
 import OrbitalCompute from "@/components/slides/15_OrbitalCompute";
+import Humanoids from "@/components/slides/17_Humanoids";
+import SelfDriving from "@/components/slides/18_SelfDriving";
+import HealthcareAI from "@/components/slides/19_HealthcareAI";
 import KeyTakeaways from "@/components/slides/16_KeyTakeaways";
 
 const slides = [
@@ -40,6 +43,9 @@ const slides = [
   <PoweringTheBuildout key="14b" />,
   <PoliticalChallenges key="17" />,
   <OrbitalCompute key="18" />,
+  <Humanoids key="humanoids" />,
+  <SelfDriving key="selfdriving" />,
+  <HealthcareAI key="healthcareai" />,
   <KeyTakeaways key="19" />,
 ];
 
@@ -63,7 +69,10 @@ const sectionColors = [
   "#ef4444", // 15 Powering Buildout  - THE RISKS
   "#ef4444", // 15 Political          - THE RISKS
   "#8b5cf6", // 18 Orbital Compute  - THE FRONTIER
-  "#f59e0b", // 19 Key Takeaways
+  "#8b5cf6", // 19 Humanoids        - THE FRONTIER
+  "#8b5cf6", // 20 Self-Driving     - THE FRONTIER
+  "#8b5cf6", // 21 Healthcare AI    - THE FRONTIER
+  "#f59e0b", // 22 Key Takeaways
 ];
 
 // Section labels shown as corner badges
@@ -85,6 +94,9 @@ const sectionLabels = [
   "THE RISKS",
   "THE RISKS",
   "THE RISKS",
+  "THE FRONTIER",
+  "THE FRONTIER",
+  "THE FRONTIER",
   "THE FRONTIER",
   "", // Key Takeaways — no section label
 ];

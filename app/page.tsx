@@ -15,6 +15,7 @@ import AILabs from "@/components/slides/09_AILabs";
 import AgenticAI from "@/components/slides/10_AgenticAI";
 import HardwareVsSoftware from "@/components/slides/12_HardwareVsSoftware";
 import SupplyChainRisk from "@/components/slides/13_SupplyChainRisk";
+import PolicyRegulation from "@/components/slides/15b_PolicyRegulation";
 import PoweringTheBuildout from "@/components/slides/14_PoweringTheBuildout";
 import PoliticalChallenges from "@/components/slides/15_PoliticalChallenges";
 import OrbitalCompute from "@/components/slides/15_OrbitalCompute";
@@ -35,7 +36,8 @@ const slides = [
   <HardwareVsSoftware key="11" />,
   <BubbleDebunk key="13" />,
   <SupplyChainRisk key="14" />,
-  <PoweringTheBuildout key="14" />,
+  <PolicyRegulation key="policy" />,
+  <PoweringTheBuildout key="14b" />,
   <PoliticalChallenges key="17" />,
   <OrbitalCompute key="18" />,
   <KeyTakeaways key="19" />,
@@ -57,7 +59,8 @@ const sectionColors = [
   "#10b981", // 11 HW vs SW         - THE SHIFTS
   "#ef4444", // 12 Bubble Debunk       - THE RISKS
   "#ef4444", // 13 Supply Chain Risk  - THE RISKS
-  "#ef4444", // 14 Powering Buildout  - THE RISKS
+  "#ef4444", // 14 Policy Regulation  - THE RISKS
+  "#ef4444", // 15 Powering Buildout  - THE RISKS
   "#ef4444", // 15 Political          - THE RISKS
   "#8b5cf6", // 18 Orbital Compute  - THE FRONTIER
   "#f59e0b", // 19 Key Takeaways
@@ -77,6 +80,7 @@ const sectionLabels = [
   "THE MARKET",
   "THE SHIFTS",
   "THE SHIFTS",
+  "THE RISKS",
   "THE RISKS",
   "THE RISKS",
   "THE RISKS",

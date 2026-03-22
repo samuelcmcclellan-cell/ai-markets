@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Ban, Megaphone, HardHat, Clock, ImageIcon } from "lucide-react";
+import { Ban, Megaphone, HardHat, ImageIcon } from "lucide-react";
 
 const panels = [
   {
@@ -10,6 +10,7 @@ const panels = [
     stat: "$98B",
     statLabel: "in projects stalled",
     photo: "nimby-protest.jpg",
+    image: "/images/nimby-protest.png",
     points: [
       "142 activist groups across 24 states opposing data center builds.",
       "Moratoriums in New Orleans, Madison, Loudoun County.",
@@ -37,6 +38,7 @@ const panels = [
     stat: "439,000",
     statLabel: "workers short",
     photo: "construction-worker.jpg",
+    image: "/images/construction-worker.png",
     points: [
       "Electricians are 45–70% of build cost — and scarce.",
       "400+ data centers under construction with year-long backlogs.",
@@ -45,12 +47,6 @@ const panels = [
   },
 ];
 
-const timelineSteps = [
-  { label: "Site", range: "3–6 mo" },
-  { label: "Permits", range: "12–48 mo" },
-  { label: "Grid", range: "36–60 mo" },
-  { label: "Build", range: "18–36 mo" },
-];
 
 export default function PoliticalChallenges() {
   return (
@@ -130,46 +126,6 @@ export default function PoliticalChallenges() {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom: Permitting callout bar */}
-        <motion.div
-          className="mt-4 bg-red-500/8 border border-red-500/20 rounded-lg px-5 py-3 flex items-center justify-between"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0 }}
-        >
-          {/* Left: Time to build */}
-          <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-red-400/70" />
-            <div>
-              <p className="text-[10px] font-mono text-red-400/60 uppercase tracking-wider">
-                Time to build a data center
-              </p>
-              <p className="text-lg font-mono font-bold text-red-400">5–12 years</p>
-            </div>
-          </div>
-
-          {/* Center: Timeline steps */}
-          <div className="flex items-center gap-1">
-            {timelineSteps.map((step, i) => (
-              <div key={i} className="flex items-center">
-                <div className="bg-slate-800/60 border border-slate-700/30 rounded px-2 py-1 text-center">
-                  <p className="text-[9px] font-mono text-slate-500">{step.label}</p>
-                  <p className="text-[10px] font-mono font-semibold text-slate-300">{step.range}</p>
-                </div>
-                {i < timelineSteps.length - 1 && (
-                  <span className="text-slate-600 text-xs mx-0.5">→</span>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Right: Queue stat */}
-          <div className="text-right">
-            <p className="text-lg font-mono font-bold text-red-400">2,600 GW</p>
-            <p className="text-[10px] text-slate-500">in the queue — 5× grid capacity</p>
-          </div>
-        </motion.div>
 
         <motion.p
           className="text-[11px] text-slate-600 mt-2"

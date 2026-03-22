@@ -13,8 +13,8 @@ const panels = [
     image: "/images/nimby-protest.png",
     points: [
       "142 activist groups across 24 states opposing data center builds.",
-      "Moratoriums in New Orleans, Madison, Loudoun County.",
-      "46% of Americans would oppose a data center in their community.",
+      "Data center delays are \"the defining theme of 2026\" — The Information.",
+      "Nvidia Blackwell overheating issues causing rack-level deployment snags.",
     ],
   },
   {
@@ -26,23 +26,23 @@ const panels = [
     photo: "anti-ai-rally.jpg",
     image: "/images/anti-ai-rally.png",
     points: [
-      "NBC poll: more Americans view AI negatively than ICE.",
-      "\"Pause AI\" and \"Pull the Plug\" rallies drawing thousands.",
-      "56% of Americans say they are anxious about AI.",
+      "\"Stop the AI Race\" march — today (Mar 21) — hitting Anthropic, OpenAI, and xAI HQs in SF.",
+      "Anthropic dropped its Responsible Scaling Policy hard limits (Feb 24). TIME, CNN covered it as a major safety rollback.",
+      "56% of Americans say they are anxious about AI. Anti-AI sentiment now outpolls anti-ICE.",
     ],
   },
   {
     icon: HardHat,
     iconColor: "text-amber-400",
-    label: "LABOR SHORTAGE",
+    label: "LABOR & DEMAND RISK",
     stat: "439,000",
     statLabel: "workers short",
     photo: "construction-worker.jpg",
     image: "/images/construction-worker.png",
     points: [
-      "Electricians are 45–70% of build cost — and scarce.",
-      "400+ data centers under construction with year-long backlogs.",
-      "Talent may be the binding constraint, not capital.",
+      "Electricians are 45\u201370% of build cost and scarce. 400+ data centers have year-long backlogs.",
+      "DeepSeek effect: large cloud customers (Intuit, Palo Alto Networks) switching to models at 5% the cost.",
+      "Microsoft cut Azure sales quotas by up to 40%. Build it — but will they pay top dollar?",
     ],
   },
 ];
@@ -75,7 +75,7 @@ export default function PoliticalChallenges() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          NIMBY opposition, anti-AI sentiment, and a 439,000-worker shortage are slowing the infrastructure boom.
+          NIMBY opposition, anti-AI protests, and cheaper alternatives are threatening the infrastructure bet.
         </motion.p>
 
         {/* Three panels */}
@@ -133,7 +133,7 @@ export default function PoliticalChallenges() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3 }}
         >
-          Source: NBC News, Echelon Insights, ITIF, LBNL, Data Center Watch, Fortune
+          Source: The Information, TIME, CNN, NBC News, Echelon Insights, Stop The AI Race, Fortune, Data Center Watch
         </motion.p>
       </div>
     </div>

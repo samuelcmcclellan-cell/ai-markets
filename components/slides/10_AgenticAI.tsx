@@ -35,6 +35,32 @@ const comparison = [
   },
 ];
 
+const agentProducts = [
+  {
+    name: "Claude Code",
+    logo: "/images/logos/anthropic.png",
+    stat: "$2.5B",
+    detail: "ARR — over half of Anthropic's enterprise revenue. #1 AI coding tool.",
+  },
+  {
+    name: "Codex",
+    logo: "/images/logos/openai.png",
+    stat: "Superapp",
+    detail: "Merging ChatGPT + Codex + browser into one desktop agent. Acquired Astral (Mar 19).",
+  },
+  {
+    name: "Responses API",
+    logo: "/images/logos/openai.png",
+    stat: "10×",
+    detail: "Faster container spin-up for agent workflows. Warm pools for reuse across sessions.",
+  },
+  {
+    name: "OpenClaw",
+    logo: "",
+    stat: "#1",
+    detail: "Hottest AI agent framework on GitHub. Trending with 3,400+ posts on X today.",
+  },
+];
 
 export default function AgenticAI() {
   return (
@@ -130,6 +156,65 @@ export default function AgenticAI() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Agents in the Wild — Evidence Strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9 }}
+        >
+          <p className="text-[10px] font-mono tracking-[0.15em] text-emerald-400/70 uppercase mb-2">
+            Agents in the Wild — March 2026
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+            {agentProducts.map((p, i) => (
+              <motion.div
+                key={p.name}
+                className="bg-slate-800/30 border border-slate-700/30 rounded-lg p-3"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.0 + i * 0.08 }}
+              >
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  {p.logo ? (
+                    <img src={p.logo} alt={p.name} className="w-4 h-4 rounded" />
+                  ) : (
+                    <Bot className="w-4 h-4 text-emerald-400" />
+                  )}
+                  <span className="text-xs font-heading font-semibold text-white">{p.name}</span>
+                </div>
+                <p className="text-lg font-mono font-bold text-emerald-400">{p.stat}</p>
+                <p className="text-[10px] text-slate-500 leading-tight mt-0.5">{p.detail}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="bg-emerald-500/5 border border-emerald-500/20 rounded-lg px-4 py-2.5 mt-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.4 }}
+        >
+          <p className="text-xs text-slate-300 leading-relaxed">
+            <span className="text-emerald-400 font-heading font-bold text-sm">
+              Why this matters for the buildout{" "}
+            </span>
+            — Each agent session uses 10&ndash;100&times; more compute than a chatbot.
+            Claude Code alone is $2.5B ARR. AI labs are now acquiring developer tool
+            companies (Anthropic &rarr; Bun, OpenAI &rarr; Astral) to lock in their
+            coding stacks. The agent era turns every user into an infrastructure customer.
+          </p>
+        </motion.div>
+
+        <motion.p
+          className="text-[11px] text-slate-600 mt-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.6 }}
+        >
+          Source: Anthropic, OpenAI, GitHub Trending, Investing.com, company announcements
+        </motion.p>
       </div>
     </div>
   );

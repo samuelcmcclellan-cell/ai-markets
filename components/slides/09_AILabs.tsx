@@ -21,14 +21,14 @@ const labRevenue = [
 ];
 
 const burnStats = [
-  { lab: "OpenAI", stat: "$17B", detail: "projected 2026 loss", sub: "$25B ARR" },
-  { lab: "Anthropic", stat: "$8B", detail: "estimated 2026 spend", sub: "$19B ARR" },
-  { lab: "xAI", stat: "$20B", detail: "Series E raised Jan '26", sub: "$230B val" },
+  { lab: "OpenAI", stat: "$14B", detail: "projected 2026 net loss", sub: "$25B ARR" },
+  { lab: "Anthropic", stat: "$8B", detail: "est. 2026 compute spend", sub: "$19B → $26B target" },
+  { lab: "xAI", stat: "$250B", detail: "SpaceX acquisition · Feb '26", sub: "~$3B ARR" },
 ];
 
 const marginStats = [
   { label: "OpenAI inference", stat: "48%", detail: "$6.1B rev / $3.2B cost" },
-  { label: "Anthropic target", stat: "77%", detail: "from 40% today" },
+  { label: "Anthropic actual", stat: "~40%", detail: "lowered from 50% target" },
   { label: "Cost per query", stat: "↓90%", detail: "since GPT-4 launch" },
 ];
 
@@ -36,9 +36,9 @@ const valuations = [
   {
     lab: "OpenAI",
     logo: "/images/logos/openai.png",
-    valuation: "$500B",
-    round: "Exploring $100B raise",
-    multiple: "~20× ARR",
+    valuation: "$840B",
+    round: "$110B raise · IPO H2 '26",
+    multiple: "~33× ARR",
     color: "#10b981",
   },
   {
@@ -52,9 +52,9 @@ const valuations = [
   {
     lab: "xAI",
     logo: "/images/logos/xai.png",
-    valuation: "$230B",
-    round: "$20B Series E · Jan '26",
-    multiple: "~77× ARR*",
+    valuation: "$250B",
+    round: "Acquired by SpaceX · Feb '26",
+    multiple: "~83× ARR*",
     color: "#94a3b8",
   },
   {
@@ -200,7 +200,7 @@ export default function AILabs() {
             <div className="mb-3">
               <span className="text-3xl font-mono font-bold text-orange-400">$30B+</span>
               <p className="text-xs text-slate-500 mt-0.5">
-                combined annual compute + infrastructure spend
+                combined annual compute spend — OpenAI alone won&apos;t be cash-flow positive until 2029
               </p>
             </div>
             <div className="flex gap-2">
@@ -290,11 +290,11 @@ export default function AILabs() {
         >
           <p className="text-xs text-slate-300 leading-relaxed">
             <span className="text-amber-400 font-heading font-bold text-sm">
-              $189B in a single month{" "}
+              $189B deployed in a single month{" "}
             </span>
-            — February 2026 saw the largest monthly VC deployment in history, with OpenAI ($110B),
-            Anthropic ($30B), and Waymo ($16B) leading. Two months into 2026, over 50% of all 2025
-            capital has already been redeployed.
+            — Feb 2026 saw history&apos;s largest VC month: OpenAI ($110B), Anthropic ($30B),
+            Waymo ($16B). OpenAI completed its for-profit conversion and is testing ads in
+            ChatGPT ($1B projected 2026 ad revenue). Anthropic projects $70B revenue by 2028.
           </p>
         </motion.div>
 
@@ -304,7 +304,7 @@ export default function AILabs() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6 }}
         >
-          Source: CNBC, Sacra, PYMNTS, Anthropic, Crunchbase, MLQ.ai, company filings
+          Source: The Information, Bloomberg, Fortune, CNBC, Sacra, PYMNTS, Anthropic, Crunchbase, company filings
         </motion.p>
       </div>
     </div>

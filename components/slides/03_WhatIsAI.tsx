@@ -183,7 +183,7 @@ export default function WhatIsAI() {
                   visibility: item.position === "below" ? "visible" : "hidden",
                 }}
               >
-                {item.position === "below" && (
+                {item.position === "below" && !item.isInflection && (
                   <motion.div
                     className="text-center"
                     initial={{ opacity: 0, y: -10 }}
@@ -195,12 +195,7 @@ export default function WhatIsAI() {
                         className="w-5 h-5"
                         style={{ color: item.color }}
                       />
-                      <p
-                        className="text-base font-heading font-bold leading-tight"
-                        style={{
-                          color: item.isInflection ? "#fbbf24" : "white",
-                        }}
-                      >
+                      <p className="text-base font-heading font-bold text-white leading-tight">
                         {item.label}
                       </p>
                     </div>
@@ -210,14 +205,26 @@ export default function WhatIsAI() {
                     >
                       {item.year}
                     </p>
-                    <p
-                      className="text-xs leading-tight max-w-[160px] mx-auto"
-                      style={{
-                        color: item.isInflection
-                          ? "rgba(253,230,138,0.6)"
-                          : "rgb(100,116,139)",
-                      }}
-                    >
+                    <p className="text-xs text-slate-500 leading-tight">
+                      {item.description}
+                    </p>
+                  </motion.div>
+                )}
+                {item.isInflection && (
+                  <motion.div
+                    className="text-center"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.6 }}
+                  >
+                    <div className="flex items-center justify-center gap-1.5 mb-0.5">
+                      <item.icon className="w-5 h-5 text-amber-400" />
+                      <p className="text-base font-heading font-bold text-amber-400 leading-tight">
+                        {item.label}
+                      </p>
+                    </div>
+                    <p className="text-sm font-mono text-amber-500/80 mb-0.5">{item.year}</p>
+                    <p className="text-xs text-amber-200/60 leading-tight max-w-[160px] mx-auto">
                       {item.description}
                     </p>
                   </motion.div>

@@ -81,7 +81,6 @@ export default function MemoryDeepDive() {
         >
           Compute gets the headlines, but{" "}
           <span className="text-amber-400">memory is the binding constraint</span>.
-          Every AI chip needs bandwidth, and there isn&apos;t enough.
         </motion.p>
 
         {/* Why memory matters — the narrative */}
@@ -359,26 +358,6 @@ export default function MemoryDeepDive() {
             </motion.div>
           ))}
         </div>
-
-        {/* Agentic AI + consumer spillover callout */}
-        <motion.div
-          className="bg-amber-500/5 border border-amber-500/20 rounded-lg px-4 py-2.5"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1 }}
-        >
-          <p className="text-xs text-slate-300 leading-relaxed">
-            <span className="text-amber-400 font-heading text-sm font-bold">
-              Why agentic AI changes the math:{" "}
-            </span>
-            A single chatbot query loads the model once. An AI agent running a
-            20-step workflow holds the full context window open the entire time.
-            Multiply by millions of concurrent agents, and memory demand scales
-            non-linearly. Meanwhile, every HBM bit produced costs 3 bits of
-            conventional DRAM &mdash; DRAM prices are up 50%+ QoQ, PCs face
-            15&ndash;20% price hikes.
-          </p>
-        </motion.div>
 
         <p className="text-[11px] text-slate-600 mt-2">
           Source: Micron, Counterpoint Research, BofA, TrendForce, IDC,

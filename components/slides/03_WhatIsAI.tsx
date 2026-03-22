@@ -50,7 +50,7 @@ const timeline = [
     icon: Lightbulb,
     description: "Multi-step logic and chain-of-thought.",
     color: "#10b981",
-    position: "below" as const,
+    position: "above" as const,
   },
   {
     year: "2025+",
@@ -58,7 +58,7 @@ const timeline = [
     icon: Bot,
     description: "AI that acts autonomously with tools.",
     color: "#8b5cf6",
-    position: "above" as const,
+    position: "below" as const,
   },
 ];
 

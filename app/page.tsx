@@ -2,6 +2,7 @@
 
 import SlideController from "@/components/SlideController";
 import Title from "@/components/slides/01_Title";
+import Agenda from "@/components/slides/01b_Agenda";
 import WhyAIMatters from "@/components/slides/02_WhyAIMatters";
 import WhatIsAI from "@/components/slides/03_WhatIsAI";
 import BubbleDebunk from "@/components/slides/04_BubbleDebunk";
@@ -21,6 +22,7 @@ import KeyTakeaways from "@/components/slides/16_KeyTakeaways";
 
 const slides = [
   <Title key="01" />,
+  <Agenda key="01b" />,
   <WhyAIMatters key="02" />,
   <WhatIsAI key="03" />,
   <TheAIStack key="04" />,
@@ -42,7 +44,8 @@ const slides = [
 // Section color per slide
 const sectionColors = [
   "#3b82f6", // 1  Title            - THE LANDSCAPE
-  "#3b82f6", // 2  Why AI Matters   - THE LANDSCAPE
+  "#3b82f6", // 2  Agenda           - THE LANDSCAPE
+  "#3b82f6", // 3  Why AI Matters   - THE LANDSCAPE
   "#3b82f6", // 3  What Is AI?      - THE LANDSCAPE
   "#3b82f6", // 4  AI Stack         - THE LANDSCAPE
   "#3b82f6", // 5  Supply Chain     - THE LANDSCAPE
@@ -62,6 +65,7 @@ const sectionColors = [
 
 // Section labels shown as corner badges
 const sectionLabels = [
+  "THE LANDSCAPE",
   "THE LANDSCAPE",
   "THE LANDSCAPE",
   "THE LANDSCAPE",

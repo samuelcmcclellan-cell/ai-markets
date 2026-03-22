@@ -12,9 +12,8 @@ const panels = [
     photo: "nimby-protest.jpg",
     image: "/images/nimby-protest.png",
     points: [
-      "142 activist groups across 24 states opposing data center builds.",
-      "Data center delays are \"the defining theme of 2026\" — The Information.",
-      "Nvidia Blackwell overheating issues causing rack-level deployment snags.",
+      "142 activist groups across 24 states. $98B in projects stalled.",
+      "Data center delays are \"the defining theme of 2026.\"",
     ],
   },
   {
@@ -26,9 +25,8 @@ const panels = [
     photo: "anti-ai-rally.jpg",
     image: "/images/anti-ai-rally.png",
     points: [
-      "\"Stop the AI Race\" march — today (Mar 21) — hitting Anthropic, OpenAI, and xAI HQs in SF.",
-      "Anthropic dropped its Responsible Scaling Policy hard limits (Feb 24). TIME, CNN covered it as a major safety rollback.",
-      "56% of Americans say they are anxious about AI. Anti-AI sentiment now outpolls anti-ICE.",
+      "\"Stop the AI Race\" marching to Anthropic, OpenAI, xAI HQs today (Mar 21).",
+      "Anthropic dropped its safety pause commitment (Feb 24). 56% of Americans anxious about AI.",
     ],
   },
   {
@@ -40,9 +38,8 @@ const panels = [
     photo: "construction-worker.jpg",
     image: "/images/construction-worker.png",
     points: [
-      "Electricians are 45\u201370% of build cost and scarce. 400+ data centers have year-long backlogs.",
-      "DeepSeek effect: large cloud customers (Intuit, Palo Alto Networks) switching to models at 5% the cost.",
-      "Microsoft cut Azure sales quotas by up to 40%. Build it — but will they pay top dollar?",
+      "439,000 workers short. 400+ data centers have year-long backlogs.",
+      "DeepSeek effect: customers switching to models at 5% the cost. Microsoft cut Azure quotas 40%.",
     ],
   },
 ];
@@ -90,11 +87,11 @@ export default function PoliticalChallenges() {
             >
               {/* Photo */}
               {panel.image ? (
-                <div className="w-full h-[100px] rounded bg-slate-900/50 mb-3 overflow-hidden">
+                <div className="w-full h-[160px] rounded bg-slate-900/50 mb-3 overflow-hidden">
                   <img src={panel.image} alt={panel.label} className="w-full h-full object-cover" />
                 </div>
               ) : (
-                <div className="w-full h-[100px] rounded border border-dashed border-slate-600/50 bg-slate-900/50 flex flex-col items-center justify-center mb-3 overflow-hidden">
+                <div className="w-full h-[160px] rounded border border-dashed border-slate-600/50 bg-slate-900/50 flex flex-col items-center justify-center mb-3 overflow-hidden">
                   <ImageIcon className="w-5 h-5 text-slate-600 mb-1" />
                   <span className="text-[8px] text-slate-700 font-mono">{panel.photo}</span>
                 </div>
@@ -103,21 +100,21 @@ export default function PoliticalChallenges() {
               {/* Icon + label */}
               <div className="flex items-center gap-2 mb-2">
                 <panel.icon className={`w-4 h-4 ${panel.iconColor}`} />
-                <span className="text-[10px] font-mono tracking-[0.15em] text-slate-400 uppercase">
+                <span className="text-xs font-mono tracking-[0.15em] text-slate-400 uppercase">
                   {panel.label}
                 </span>
               </div>
 
               {/* Stat */}
               <div className="mb-3">
-                <span className="text-2xl font-mono font-bold text-red-400">{panel.stat}</span>
+                <span className="text-3xl font-mono font-bold text-red-400">{panel.stat}</span>
                 <span className="text-xs text-slate-500 ml-2">{panel.statLabel}</span>
               </div>
 
               {/* Points */}
               <ul className="space-y-1.5">
                 {panel.points.map((point, j) => (
-                  <li key={j} className="text-[11px] text-slate-400 leading-relaxed flex items-start gap-1.5">
+                  <li key={j} className="text-xs text-slate-400 leading-snug flex items-start gap-1.5">
                     <span className="text-red-500/60 mt-0.5 flex-shrink-0">•</span>
                     {point}
                   </li>

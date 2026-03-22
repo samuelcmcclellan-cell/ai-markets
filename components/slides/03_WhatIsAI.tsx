@@ -13,6 +13,7 @@ const eraLogos: Record<string, string[]> = {
   "Symbolic AI": ["IBM", "LISP", "Deep Blue"],
   "Machine Learning": ["SVM", "Random Forest", "Kaggle"],
   "Deep Learning": ["AlexNet", "TensorFlow", "GPT-2", "DALL\u00B7E"],
+  "LLM Chatbots": ["ChatGPT", "Claude", "Gemini", "Copilot"],
   "Reasoning": ["GPT-4", "Claude", "Gemini", "DeepSeek R1"],
   "Agentic AI": ["Claude Code", "Codex", "Devin", "AutoGPT"],
 };
@@ -43,14 +44,22 @@ const timeline = [
     position: "above" as const,
   },
   {
-    year: "2022\u201324",
-    label: "LLM Chatbots",
+    year: "Nov 2022",
+    label: "ChatGPT",
     icon: MessageSquare,
     description:
-      "ChatGPT reaches 100M users in 2 months. Generative AI goes mainstream.",
+      "100M users in 2 months. The moment AI went mainstream.",
     color: "#f59e0b",
     position: "inflection" as const,
     isInflection: true,
+  },
+  {
+    year: "2022\u201324",
+    label: "LLM Chatbots",
+    icon: MessageSquare,
+    description: "ChatGPT, Claude, Gemini, Copilot.",
+    color: "#f59e0b",
+    position: "below" as const,
   },
   {
     year: "2023\u201324",

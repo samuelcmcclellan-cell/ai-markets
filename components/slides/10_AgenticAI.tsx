@@ -86,7 +86,7 @@ export default function AgenticAI() {
 
         {/* Hero Diagram Image */}
         <div
-          className="w-full max-w-3xl mx-auto mb-4"
+          className="w-full max-w-2xl mx-auto mb-3"
         >
           <img
             src="/images/agentic-ai-diagram.jpg"
@@ -100,7 +100,7 @@ export default function AgenticAI() {
           className="bg-navy-700/20 rounded-xl border border-slate-700/30 overflow-hidden mb-3"
         >
           {/* Header row */}
-          <div className="grid grid-cols-[1fr_1.5fr_1.5fr] bg-navy-800/50 px-3 md:px-5 py-2 md:py-3 border-b border-slate-700/30">
+          <div className="grid grid-cols-[1fr_1.5fr_1.5fr] bg-navy-800/50 px-3 md:px-5 py-1.5 md:py-2 border-b border-slate-700/30">
             <span className="text-[10px] md:text-sm font-mono font-semibold text-slate-400 uppercase tracking-wide">
               Dimension
             </span>
@@ -121,7 +121,7 @@ export default function AgenticAI() {
           {comparison.map((row, i) => (
             <div
               key={i}
-              className="grid grid-cols-[1fr_1.5fr_1.5fr] px-3 md:px-5 py-2 md:py-3 border-b border-slate-700/10 last:border-b-0"
+              className="grid grid-cols-[1fr_1.5fr_1.5fr] px-3 md:px-5 py-1.5 md:py-2 border-b border-slate-700/10 last:border-b-0"
             >
               <div className="flex items-center gap-2">
                 <row.icon className="w-4 h-4 text-slate-600 flex-shrink-0" />
@@ -149,7 +149,7 @@ export default function AgenticAI() {
             {agentProducts.map((p, i) => (
               <div
                 key={p.name}
-                className="bg-slate-800/30 border border-slate-700/30 rounded-lg p-3"
+                className="bg-slate-800/30 border border-slate-700/30 rounded-lg p-2.5"
               >
                 <div className="flex items-center gap-1.5 mb-1.5">
                   {p.logo ? (
@@ -159,7 +159,7 @@ export default function AgenticAI() {
                   )}
                   <span className="text-xs font-heading font-semibold text-white">{p.name}</span>
                 </div>
-                <p className="text-lg font-mono font-bold text-emerald-400">{p.stat}</p>
+                <p className="text-base font-mono font-bold text-emerald-400">{p.stat}</p>
                 <p className="text-[10px] text-slate-500 leading-tight mt-0.5">{p.detail}</p>
               </div>
             ))}
@@ -167,7 +167,7 @@ export default function AgenticAI() {
         </div>
 
         <div
-          className="bg-emerald-500/5 border border-emerald-500/20 rounded-lg px-4 py-2.5 mt-3"
+          className="bg-emerald-500/5 border border-emerald-500/20 rounded-lg px-4 py-2 mt-3"
         >
           <p className="text-xs text-slate-300 leading-relaxed">
             <span className="text-emerald-400 font-heading font-bold text-sm">

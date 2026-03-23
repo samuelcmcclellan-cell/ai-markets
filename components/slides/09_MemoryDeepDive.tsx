@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { Database, Zap, Cpu } from "lucide-react";
 import { hbmTam, hbmMarketShare } from "@/data/memory";
 import { memoryEquities } from "@/data/equities";
@@ -66,37 +65,26 @@ export default function MemoryDeepDive() {
   return (
     <div className="slide-container">
       <div className="slide-content">
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           Memory &amp; HBM
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-3"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
         >
           Compute gets the headlines, but{" "}
           <span className="text-amber-400">memory is the binding constraint</span>.
-        </motion.p>
+        </p>
 
         {/* Why memory matters — the narrative */}
-        <motion.div
+        <div
           className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.25 }}
         >
           {whyMemoryMatters.map((item, i) => (
-            <motion.div
+            <div
               key={i}
               className="bg-navy-700/30 border-l-2 border-amber-500/40 rounded-r-lg px-3 py-2"
-              initial={{ opacity: 0, x: -15 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 + i * 0.08 }}
             >
               <p className="text-sm font-heading font-bold text-white mb-0.5">
                 {item.label}
@@ -104,15 +92,12 @@ export default function MemoryDeepDive() {
               <p className="text-xs text-slate-400 leading-relaxed">
                 {item.detail}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* The Memory Wall — visual bottleneck diagram */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
+        <div
           className="mb-2"
         >
           <h3 className="text-sm font-mono text-amber-400/80 tracking-wider mb-2">
@@ -157,16 +142,13 @@ export default function MemoryDeepDive() {
           <p className="text-center text-xs text-slate-500 mt-3 italic">
             The GPU can compute 10× faster than memory can deliver data. That gap is the memory wall.
           </p>
-        </motion.div>
+        </div>
 
         {/* Middle row: Bandwidth + HBM TAM + Market Share */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
           {/* Bandwidth bars */}
-          <motion.div
+          <div
             className="stat-card accent-border-amber"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
           >
             <h3 className="text-sm font-heading font-semibold text-white mb-2">
               The Bandwidth Gap
@@ -178,9 +160,10 @@ export default function MemoryDeepDive() {
                     {b.type}
                   </span>
                   <div className="flex-1 h-4 bg-navy-900 rounded-full overflow-hidden">
-                    <motion.div
+                    <div
                       className="h-full rounded-full"
                       style={{
+                        width: `${b.bar}%`,
                         backgroundColor:
                           i === 0
                             ? "#475569"
@@ -188,9 +171,6 @@ export default function MemoryDeepDive() {
                             ? "#3b82f6"
                             : "#f59e0b",
                       }}
-                      initial={{ width: 0 }}
-                      animate={{ width: `${b.bar}%` }}
-                      transition={{ duration: 1, delay: 0.7 + i * 0.15 }}
                     />
                   </div>
                   <span className="text-xs font-mono font-bold text-slate-300 w-16 text-right">
@@ -202,14 +182,11 @@ export default function MemoryDeepDive() {
             <p className="text-[11px] text-slate-600 mt-1.5">
               HBM4 delivers 56&times; the bandwidth of standard DDR5<sup className="text-[8px]">³</sup>
             </p>
-          </motion.div>
+          </div>
 
           {/* HBM TAM chart */}
-          <motion.div
+          <div
             className="stat-card"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
           >
             <h3 className="text-sm font-heading font-semibold text-white mb-1.5">
               HBM TAM ($B)
@@ -265,14 +242,11 @@ export default function MemoryDeepDive() {
             <p className="text-[11px] text-slate-500 mt-1">
               25x growth: $4B (2023) &rarr; $100B (2028E)
             </p>
-          </motion.div>
+          </div>
 
           {/* Market share donut */}
-          <motion.div
+          <div
             className="stat-card"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
           >
             <h3 className="text-sm font-heading font-semibold text-white mb-1.5">
               Only 3 Companies Make HBM
@@ -317,18 +291,15 @@ export default function MemoryDeepDive() {
             <p className="text-[11px] text-slate-500 mt-1">
               SK Hynix is NVIDIA&apos;s primary HBM supplier<sup className="text-[8px]">¹</sup>
             </p>
-          </motion.div>
+          </div>
         </div>
 
         {/* Equity cards row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
           {memoryEquities.map((stock, i) => (
-            <motion.div
+            <div
               key={i}
               className="bg-navy-700/30 border border-slate-700/30 rounded-lg p-2.5"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9 + i * 0.08 }}
             >
               <div className="flex items-baseline justify-between mb-0.5">
                 <h4 className="text-sm font-heading font-bold text-white">
@@ -352,7 +323,7 @@ export default function MemoryDeepDive() {
                   </span>
                 )}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 

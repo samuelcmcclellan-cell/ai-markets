@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import {
   BookOpen,
   BarChart3,
@@ -66,23 +65,18 @@ export default function WhatIsAI() {
   return (
     <div className="slide-container">
       <div className="slide-content">
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           What Is AI?
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-3"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
         >
           Artificial intelligence is software that learns from data, reasons
           through problems, and takes action &mdash; increasingly without human
           direction.
-        </motion.p>
+        </p>
 
         {/* Horizontal timeline */}
         <div className="relative w-full px-2 mb-3">
@@ -100,11 +94,8 @@ export default function WhatIsAI() {
                 }}
               >
                 {item.position === "above" && (
-                  <motion.div
+                  <div
                     className="text-center"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 + i * 0.12 }}
                   >
                     <div className="flex items-center justify-center gap-1.5 mb-0.5">
                       <item.icon
@@ -124,7 +115,7 @@ export default function WhatIsAI() {
                     <p className="text-xs text-slate-500 leading-tight">
                       {item.description}
                     </p>
-                  </motion.div>
+                  </div>
                 )}
               </div>
             ))}
@@ -133,30 +124,21 @@ export default function WhatIsAI() {
           {/* The horizontal line + dots */}
           <div className="relative flex items-center justify-between">
             {/* Background line — muted before inflection */}
-            <motion.div
+            <div
               className="absolute top-1/2 left-0 h-[2px] -translate-y-1/2 bg-slate-700/60"
               style={{ width: "50%" }}
-              initial={{ scaleX: 0, transformOrigin: "left" }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
             />
             {/* Background line — bright after inflection */}
-            <motion.div
+            <div
               className="absolute top-1/2 left-1/2 h-[3px] -translate-y-1/2 bg-gradient-to-r from-amber-500/80 to-emerald-500/60"
               style={{ width: "50%" }}
-              initial={{ scaleX: 0, transformOrigin: "left" }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
             />
 
             {/* Dots */}
             {timeline.map((item, i) => (
-              <motion.div
+              <div
                 key={`dot-${i}`}
                 className="flex-1 flex justify-center relative z-10"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3 + i * 0.12 }}
               >
                 {item.isInflection ? (
                   <div className="w-6 h-6 rounded-full bg-amber-500 ring-4 ring-amber-500/30 shadow-[0_0_20px_rgba(245,158,11,0.4)] animate-pulse" />
@@ -166,7 +148,7 @@ export default function WhatIsAI() {
                     style={{ backgroundColor: item.color }}
                   />
                 )}
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -184,11 +166,8 @@ export default function WhatIsAI() {
                 }}
               >
                 {item.position === "below" && !item.isInflection && (
-                  <motion.div
+                  <div
                     className="text-center"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 + i * 0.12 }}
                   >
                     <div className="flex items-center justify-center gap-1.5 mb-0.5">
                       <item.icon
@@ -208,14 +187,11 @@ export default function WhatIsAI() {
                     <p className="text-xs text-slate-500 leading-tight">
                       {item.description}
                     </p>
-                  </motion.div>
+                  </div>
                 )}
                 {item.isInflection && (
-                  <motion.div
+                  <div
                     className="text-center"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.6 }}
                   >
                     <div className="flex items-center justify-center gap-1.5 mb-0.5">
                       <item.icon className="w-4 h-4 text-amber-400" />
@@ -227,7 +203,7 @@ export default function WhatIsAI() {
                     <p className="text-xs text-amber-200/60 leading-tight max-w-[160px] mx-auto">
                       {item.description}
                     </p>
-                  </motion.div>
+                  </div>
                 )}
               </div>
             ))}

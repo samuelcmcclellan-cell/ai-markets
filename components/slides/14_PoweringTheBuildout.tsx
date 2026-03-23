@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import {
   Zap,
   Activity,
@@ -57,44 +56,32 @@ export default function PoweringTheBuildout() {
     <div className="slide-container">
       <div className="slide-content">
         {/* Header */}
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4 }}
         >
           AI Infrastructure: Power
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.08 }}
         >
           Power is now part of the{" "}
           <span className="text-blue-400">core AI stack</span>.
-        </motion.p>
-        <motion.p
+        </p>
+        <p
           className="text-sm text-slate-400 mb-3 max-w-3xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.15 }}
         >
           Every AI query runs on electricity. Global data center demand is on
           track to more than double by 2030 (IEA). Understanding how power is
           generated, delivered, and procured is now essential to understanding
           the AI investment landscape.
-        </motion.p>
+        </p>
 
         {/* Three-layer ecosystem map */}
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-2 mb-2">
 
           {/* Layer 1: Generation — gas + solar prominent */}
-          <motion.div
+          <div
             className="bg-navy-700/40 border border-slate-700/40 rounded-xl p-3"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
           >
             <div className="flex items-center gap-2 mb-3">
               <Zap className="w-4 h-4 text-slate-400" />
@@ -145,14 +132,11 @@ export default function PoweringTheBuildout() {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Layer 2: Grid & Delivery */}
-          <motion.div
+          <div
             className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-3"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.42 }}
           >
             <div className="flex items-center gap-2 mb-2">
               <Network className="w-4 h-4 text-amber-400" />
@@ -167,14 +151,11 @@ export default function PoweringTheBuildout() {
               has quietly become one of the most significant constraints on
               how fast the AI buildout can proceed.
             </p>
-          </motion.div>
+          </div>
 
           {/* Layer 3: AI Demand Pull */}
-          <motion.div
+          <div
             className="bg-blue-500/5 border border-blue-500/20 rounded-xl p-3"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.54 }}
           >
             <div className="flex items-center gap-2 mb-2">
               <Activity className="w-4 h-4 text-blue-400" />
@@ -189,28 +170,22 @@ export default function PoweringTheBuildout() {
               programs — becoming active participants in energy markets, not
               just consumers.
             </p>
-          </motion.div>
+          </div>
         </div>
 
         {/* Exposure buckets */}
-        <motion.p
+        <p
           className="text-[10px] uppercase tracking-widest text-slate-600 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.62 }}
         >
           Market Exposure &mdash; Where Capital Flows
-        </motion.p>
+        </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           {exposureBuckets.map((bucket, i) => {
             const Icon = bucket.icon;
             return (
-              <motion.div
+              <div
                 key={bucket.label}
                 className={`${bucket.bgClass} border ${bucket.borderClass} rounded-xl p-3`}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.68 + i * 0.08 }}
               >
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <Icon
@@ -234,21 +209,18 @@ export default function PoweringTheBuildout() {
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* Source */}
-        <motion.p
+        <p
           className="text-[10px] text-slate-600 font-mono mt-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1 }}
         >
           Sources: IEA &ldquo;Energy and AI&rdquo; (Apr 2025); DOE/Berkeley Lab
           US Data Center Energy Report (2024); BloombergNEF; company filings
-        </motion.p>
+        </p>
       </div>
     </div>
   );

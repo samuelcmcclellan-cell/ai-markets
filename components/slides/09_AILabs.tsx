@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import {
   BarChart,
   Bar,
@@ -90,37 +89,26 @@ export default function AILabs() {
     <div className="slide-container">
       <div className="slide-content">
         {/* Header */}
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           The Labs
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
         >
           The companies building{" "}
           <span className="text-amber-400">frontier intelligence</span>.
-        </motion.p>
-        <motion.p
+        </p>
+        <p
           className="text-sm text-slate-400 mb-3 max-w-3xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.15 }}
         >
           They train and deploy frontier AI models, burn billions in compute, and sell access via API.
           They are the demand signal driving the semiconductor buildout.
-        </motion.p>
+        </p>
 
         {/* Revenue Race — Horizontal Bar Chart */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+        <div
           className="mb-2"
         >
           <div className="h-[160px] md:h-[180px]">
@@ -169,19 +157,16 @@ export default function AILabs() {
           <p className="text-[10px] text-slate-500 mt-1 italic">
             * Estimated — not publicly disclosed. DeepMind is a division of Alphabet.
           </p>
-        </motion.div>
+        </div>
 
         {/* Valuations + Funding — Two-Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-3 mb-2">
           {/* Left: Valuation Cards */}
           <div className="grid grid-cols-2 gap-2">
             {valuations.map((v, i) => (
-              <motion.div
+              <div
                 key={v.lab}
                 className="bg-navy-700/30 border border-slate-700/30 rounded-lg p-2.5 text-center"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + i * 0.08 }}
               >
                 <div className="flex items-center justify-center gap-1.5 mb-1">
                   <img src={v.logo} alt={v.lab} className="w-5 h-5 rounded" />
@@ -203,16 +188,13 @@ export default function AILabs() {
                 >
                   {v.multiple}
                 </span>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           {/* Right: Funding Callout */}
-          <motion.div
+          <div
             className="bg-amber-500/5 border border-amber-500/20 rounded-lg p-3 flex flex-col justify-center"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
           >
             <p className="text-amber-400 font-heading font-bold text-lg mb-2">
               $189B deployed in a single month
@@ -231,17 +213,14 @@ export default function AILabs() {
                 — projects $70B revenue by 2028
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.p
+        <p
           className="text-[10px] text-slate-600 mt-1"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
         >
           ¹ The Information, Jan 2026. ² Sacra, Feb 2026 run-rate. ³ Dario Amodei, Morgan Stanley TMT conf., Mar 2026; Bloomberg. ⁴ The Information, Jan 2026. ⁵ Crunchbase; Amazon $50B, Nvidia $30B, SoftBank $30B — Feb 2026. ⁶ Anthropic press release, Feb 12, 2026. ⁷ CNBC, Feb 2026; $250B combined valuation at merger close. * xAI ARR est. ~$3B; multiple reflects early-stage revenue base. Sources: Bloomberg, Fortune, CNBC, Crunchbase, company filings
-        </motion.p>
+        </p>
       </div>
     </div>
   );

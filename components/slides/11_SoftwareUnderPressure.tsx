@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import {
   BarChart,
   Bar,
@@ -24,67 +23,50 @@ export default function SoftwareUnderPressure() {
   return (
     <div className="slide-container">
       <div className="slide-content">
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-emerald-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           Software Under Pressure
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}
         >
           The SaaS Reckoning
-        </motion.p>
-        <motion.p
+        </p>
+        <p
           className="text-sm text-slate-400 mb-3 max-w-3xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.25 }}
         >
           Software is falling 5× faster than broad tech. Only 2 of 8 major
           names are positive.
-        </motion.p>
+        </p>
 
         <div className="grid grid-cols-[28%_72%] gap-4">
           {/* Left: ETF comparison */}
           <div className="flex flex-col gap-2">
-            <motion.div
+            <div
               className="bg-red-500/10 border border-red-500/30 rounded-xl p-3 text-center"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
             >
               <p className="text-xs font-mono text-red-400 uppercase tracking-wider mb-1">
                 IGV &middot; Software ETF
               </p>
               <p className="text-3xl font-mono font-bold text-red-400">-20%</p>
               <p className="text-xs text-slate-500 mt-0.5">YTD 2026</p>
-            </motion.div>
+            </div>
 
             <p className="text-xs text-slate-600 text-center font-mono">vs.</p>
 
-            <motion.div
+            <div
               className="bg-slate-500/10 border border-slate-500/30 rounded-xl p-3 text-center"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
             >
               <p className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">
                 XLK &middot; Broad Tech
               </p>
               <p className="text-3xl font-mono font-bold text-slate-300">-4%</p>
               <p className="text-xs text-slate-500 mt-0.5">YTD 2026</p>
-            </motion.div>
+            </div>
 
-            <motion.div
+            <div
               className="text-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
             >
               <p className="text-xl font-mono font-bold text-amber-400">
                 16pt gap
@@ -92,15 +74,12 @@ export default function SoftwareUnderPressure() {
               <p className="text-xs text-slate-500">
                 Historically rare divergence
               </p>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right: Horizontal bar chart */}
-          <motion.div
+          <div
             className="h-[280px]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
           >
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
@@ -134,29 +113,23 @@ export default function SoftwareUnderPressure() {
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
-          </motion.div>
+          </div>
         </div>
 
         {/* Closing line */}
-        <motion.p
+        <p
           className="text-sm text-slate-500 italic mt-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
         >
           The same AI wave powering semis is crushing the software it threatens
           to replace.
-        </motion.p>
+        </p>
 
-        <motion.p
+        <p
           className="text-xs text-slate-600 mt-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
         >
           Source: Bloomberg, Yahoo Finance, company filings (as of mid-March
           2026)
-        </motion.p>
+        </p>
       </div>
     </div>
   );

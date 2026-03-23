@@ -1,6 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
-
 const statements = [
   {
     headline: "AI is the largest capital expenditure cycle in history.",
@@ -23,21 +21,15 @@ export default function WhyAIMatters() {
   return (
     <div className="slide-container">
       <div className="slide-content">
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4 }}
         >
           Why AI Matters to Markets
-        </motion.h2>
+        </h2>
         <div className="space-y-6 mt-4">
           {statements.map((s, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 + i * 0.4 }}
             >
               <h3 className="text-xl md:text-2xl font-heading font-bold text-white leading-tight mb-2">
                 {s.headline}
@@ -45,17 +37,14 @@ export default function WhyAIMatters() {
               <p className="text-sm md:text-base text-slate-400 font-body leading-relaxed max-w-3xl">
                 {s.supporting}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
-        <motion.p
+        <p
           className="text-[10px] text-slate-600 mt-auto pt-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
         >
           ¹ Amazon, Alphabet, Microsoft, Meta, Oracle combined 2026 capex per Q4 2025 earnings calls; company filings. ² Jensen Huang, Sept 2025; Deutsche Bank projects $3–4T cumulative AI data center capex through 2030. ³ YTD as of Mar 19, 2026; Bloomberg.
-        </motion.p>
+        </p>
       </div>
     </div>
   );

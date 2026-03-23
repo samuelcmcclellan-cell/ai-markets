@@ -1,6 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
-
 const takeaways = [
   {
     number: "01",
@@ -28,22 +26,17 @@ export default function KeyTakeaways() {
   return (
     <div className="slide-container">
       <div className="slide-content">
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           Key Takeaways
-        </motion.h2>
+        </h2>
 
         <div className="space-y-3 md:space-y-4 mt-4">
           {takeaways.map((t, i) => (
-            <motion.div
+            <div
               key={i}
               className="flex gap-5"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + i * 0.25 }}
             >
               <span className="text-2xl md:text-3xl font-mono font-bold text-amber-500/30 leading-none">
                 {t.number}
@@ -56,15 +49,12 @@ export default function KeyTakeaways() {
                   {t.detail}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
+        <div
           className="mt-6 pt-4 border-t border-slate-700/50"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
         >
           <p className="text-sm font-heading font-medium text-white">
             AI Markets{" "}
@@ -73,7 +63,7 @@ export default function KeyTakeaways() {
           <p className="text-[10px] text-slate-600 mt-2 leading-relaxed">
             ¹ Company Q4 2025 guidance; Amazon $200B, Alphabet $175–185B, Microsoft $120–145B, Meta $115–135B, Oracle ~$50B. ² Morgan Stanley, Feb 2026. ³ Goldman Sachs correlation data, Jan 2026. ⁴ Bloomberg, YTD as of Mar 19, 2026. ⁵ SemiAnalysis, &ldquo;The Bottleneck Roadmap,&rdquo; Jan 2026. ⁶ ASML annual capacity guidance, 2025. ⁷ Counterpoint Research / TrendForce Q1 2026. ⁸ Morningstar / S&amp;P Dow Jones, Jan 2026. Sources: Goldman Sachs, Morgan Stanley, BofA, SemiAnalysis, IEA, Morningstar, company filings
           </p>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

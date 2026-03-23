@@ -1,8 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-
 interface AnimatedCounterProps {
   target: number;
   prefix?: string;
@@ -16,45 +13,14 @@ export default function AnimatedCounter({
   target,
   prefix = "",
   suffix = "",
-  duration = 1.5,
   decimals = 0,
   className = "",
 }: AnimatedCounterProps) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    if (!isInView || hasAnimated.current) return;
-    hasAnimated.current = true;
-
-    const startTime = performance.now();
-    const animate = (currentTime: number) => {
-      const elapsed = (currentTime - startTime) / 1000;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(eased * target);
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      } else {
-        setCount(target);
-      }
-    };
-    requestAnimationFrame(animate);
-  }, [isInView, target, duration]);
-
   return (
-    <motion.span
-      ref={ref}
-      className={`font-mono tabular-nums ${className}`}
-      initial={{ opacity: 0, y: 10 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.4 }}
-    >
+    <span className={`font-mono tabular-nums ${className}`}>
       {prefix}
-      {count.toFixed(decimals)}
+      {target.toFixed(decimals)}
       {suffix}
-    </motion.span>
+    </span>
   );
 }

@@ -1,6 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
-
 const comparisons = [
   {
     metric: "PRICE PER DOLLAR OF EARNINGS",
@@ -29,36 +27,25 @@ export default function BubbleDebunk() {
     <div className="slide-container">
       <div className="slide-content">
         {/* Header */}
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-red-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           The Bubble Question
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
         >
           Is this a bubble?
-        </motion.p>
-        <motion.p
+        </p>
+        <p
           className="text-sm text-slate-400 mb-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.15 }}
         >
           The same four tests. Different answers.
-        </motion.p>
+        </p>
 
         {/* Column Headers */}
-        <motion.div
+        <div
           className="grid grid-cols-[1fr_1fr_1fr] gap-3 mb-2 px-1"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
         >
           <div />
           <p className="text-xs font-mono font-bold text-red-400 text-center uppercase tracking-wider">
@@ -67,17 +54,14 @@ export default function BubbleDebunk() {
           <p className="text-xs font-mono font-bold text-emerald-400 text-center uppercase tracking-wider">
             AI 2026
           </p>
-        </motion.div>
+        </div>
 
         {/* Scorecard Rows */}
         <div className="space-y-1.5 mb-2">
           {comparisons.map((row, i) => (
-            <motion.div
+            <div
               key={i}
               className="grid grid-cols-[1fr_1fr_1fr] gap-3 items-center bg-navy-700/20 border border-slate-700/30 rounded-xl px-3 py-2"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25 + i * 0.12 }}
             >
               {/* Metric label */}
               <p className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider leading-snug">
@@ -86,14 +70,11 @@ export default function BubbleDebunk() {
 
               {/* Dotcom value */}
               <div className="text-center">
-                <motion.p
+                <p
                   className="text-xl md:text-2xl font-mono font-bold text-red-400"
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.4 + i * 0.12, type: "spring", stiffness: 200 }}
                 >
                   {row.dotcom.value}
-                </motion.p>
+                </p>
                 <p className="text-xs text-slate-500 mt-1 leading-snug">
                   {row.dotcom.context}
                 </p>
@@ -101,43 +82,34 @@ export default function BubbleDebunk() {
 
               {/* AI value */}
               <div className="text-center">
-                <motion.p
+                <p
                   className="text-xl md:text-2xl font-mono font-bold text-emerald-400"
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.5 + i * 0.12, type: "spring", stiffness: 200 }}
                 >
                   {row.ai.value}
-                </motion.p>
+                </p>
                 <p className="text-xs text-slate-500 mt-1 leading-snug">
                   {row.ai.context}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Bottom caveat */}
-        <motion.p
+        <p
           className="text-base md:text-lg text-slate-300 text-center mb-1 max-w-3xl mx-auto leading-relaxed"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.0 }}
         >
           <span className="text-white font-heading font-bold">Not the same.</span>{" "}
           Corrections happen. But a bubble requires valuations detached from
           fundamentals and supply exceeding demand.{" "}
           <span className="text-emerald-400 font-heading font-bold">Neither condition exists today.</span>
-        </motion.p>
+        </p>
 
-        <motion.p
+        <p
           className="text-[10px] text-slate-600 text-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1 }}
         >
           ¹ Harding Loevner; Cisco peak fwd P/E Mar 27, 2000. ² GuruFocus, Mar 2026. ³ Jay Ritter (UF), dotcom-era IPO data. ⁴ Bloomberg, company filings. ⁵ FCC/Telegeography dark fiber data. ⁶ CoreWeave secondary GPU market. ⁷ S&P/Telecom Bankruptcy Monitor. ⁸ CreditSights, Jan 2026.
-        </motion.p>
+        </p>
       </div>
     </div>
   );

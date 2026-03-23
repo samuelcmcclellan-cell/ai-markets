@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import {
   MessageSquare,
   Bot,
@@ -67,52 +66,38 @@ export default function AgenticAI() {
     <div className="slide-container">
       <div className="slide-content">
         {/* Header */}
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-emerald-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           What Is Agentic AI?
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
         >
           From chatbots to{" "}
           <span className="text-emerald-400">coworkers</span>.
-        </motion.p>
-        <motion.p
+        </p>
+        <p
           className="text-sm text-slate-400 mb-3 max-w-3xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
         >
           AI that doesn&apos;t wait for instructions &mdash; it sets goals, uses
           tools, and completes tasks end-to-end. And it&apos;s happening now.
-        </motion.p>
+        </p>
 
         {/* Hero Diagram Image */}
-        <motion.div
+        <div
           className="w-full max-w-3xl mx-auto mb-4"
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
         >
           <img
             src="/images/agentic-ai-diagram.jpg"
             alt="Agentic AI architecture: Traditional Software + LLMs + Context → Orchestration → Take Action"
             className="w-full rounded-xl border border-slate-700/30"
           />
-        </motion.div>
+        </div>
 
         {/* Comparison table — full width */}
-        <motion.div
+        <div
           className="bg-navy-700/20 rounded-xl border border-slate-700/30 overflow-hidden mb-3"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
         >
           {/* Header row */}
           <div className="grid grid-cols-[1fr_1.5fr_1.5fr] bg-navy-800/50 px-3 md:px-5 py-2 md:py-3 border-b border-slate-700/30">
@@ -134,12 +119,9 @@ export default function AgenticAI() {
           </div>
           {/* Data rows */}
           {comparison.map((row, i) => (
-            <motion.div
+            <div
               key={i}
               className="grid grid-cols-[1fr_1.5fr_1.5fr] px-3 md:px-5 py-2 md:py-3 border-b border-slate-700/10 last:border-b-0"
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6 + i * 0.06 }}
             >
               <div className="flex items-center gap-2">
                 <row.icon className="w-4 h-4 text-slate-600 flex-shrink-0" />
@@ -153,27 +135,21 @@ export default function AgenticAI() {
               <span className="text-xs md:text-base text-emerald-400 font-bold">
                 {row.agent}
               </span>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Agents in the Wild — Evidence Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
+        <div
         >
           <p className="text-[10px] font-mono tracking-[0.15em] text-emerald-400/70 uppercase mb-2">
             Agents in the Wild — March 2026
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             {agentProducts.map((p, i) => (
-              <motion.div
+              <div
                 key={p.name}
                 className="bg-slate-800/30 border border-slate-700/30 rounded-lg p-3"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.0 + i * 0.08 }}
               >
                 <div className="flex items-center gap-1.5 mb-1.5">
                   {p.logo ? (
@@ -185,16 +161,13 @@ export default function AgenticAI() {
                 </div>
                 <p className="text-lg font-mono font-bold text-emerald-400">{p.stat}</p>
                 <p className="text-[10px] text-slate-500 leading-tight mt-0.5">{p.detail}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           className="bg-emerald-500/5 border border-emerald-500/20 rounded-lg px-4 py-2.5 mt-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4 }}
         >
           <p className="text-xs text-slate-300 leading-relaxed">
             <span className="text-emerald-400 font-heading font-bold text-sm">
@@ -205,16 +178,13 @@ export default function AgenticAI() {
             companies (Anthropic &rarr; Bun, OpenAI &rarr; Astral) to lock in their
             coding stacks. The agent era turns every user into an infrastructure customer.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.p
+        <p
           className="text-[11px] text-slate-600 mt-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.6 }}
         >
           Source: Anthropic, OpenAI, GitHub Trending, Investing.com, company announcements
-        </motion.p>
+        </p>
       </div>
     </div>
   );

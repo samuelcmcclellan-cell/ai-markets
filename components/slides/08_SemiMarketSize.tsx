@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { Cpu, Database, Activity, Settings, Zap, Factory } from "lucide-react";
 
 /* ── Market segments for proportional bar ── */
@@ -68,37 +67,26 @@ export default function SemiMarketSize() {
     <div className="slide-container">
       <div className="slide-content">
         {/* ═══ Zone 1: Header ═══ */}
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           The Semiconductor Market
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
         >
           Anatomy of a $1 Trillion Market
-        </motion.p>
-        <motion.p
+        </p>
+        <p
           className="text-sm text-slate-400 mb-3 max-w-3xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.15 }}
         >
           AI has flipped the growth engine. Two segments &mdash; logic and
           memory &mdash; now drive the entire industry.
-        </motion.p>
+        </p>
 
         {/* Headline stats */}
-        <motion.div
+        <div
           className="flex flex-wrap gap-4 md:gap-6 mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
         >
           <div>
             <span className="text-3xl md:text-4xl font-mono font-bold text-amber-400">
@@ -116,34 +104,28 @@ export default function SemiMarketSize() {
               Logic + Memory (70% of total)
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* ═══ Proportional market bar ═══ */}
-        <motion.div
+        <div
           className="mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.25 }}
         >
           <div className="flex h-6 rounded-lg overflow-hidden">
             {segments.map((seg, i) => (
-              <motion.div
+              <div
                 key={i}
                 className="relative group"
                 style={{
                   width: `${(seg.value / totalRevenue) * 100}%`,
                   backgroundColor: seg.color,
                 }}
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.3 + i * 0.05, duration: 0.5 }}
               >
                 {seg.value >= 90 && (
                   <span className="absolute inset-0 flex items-center justify-center text-xs font-mono font-bold text-white/90">
                     {seg.name} ${seg.value}B
                   </span>
                 )}
-              </motion.div>
+              </div>
             ))}
           </div>
           <div className="flex flex-wrap gap-2 md:gap-3 mt-1.5">
@@ -159,19 +141,16 @@ export default function SemiMarketSize() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* ═══ Zone 2: Hero cards ═══ */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
           {heroCategories.map((cat, i) => {
             const Icon = cat.icon;
             return (
-              <motion.div
+              <div
                 key={i}
                 className={`bg-navy-700/30 rounded-xl p-3 border-l-4 ${cat.borderColor}`}
-                initial={{ opacity: 0, x: i === 0 ? -20 : 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 + i * 0.1 }}
               >
                 <div className="flex items-center gap-2 mb-2">
                   <Icon
@@ -213,7 +192,7 @@ export default function SemiMarketSize() {
                 <p className="text-xs font-mono text-slate-500 border-t border-slate-700/30 pt-1.5">
                   {cat.callout}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -223,12 +202,9 @@ export default function SemiMarketSize() {
           {supportCategories.map((cat, i) => {
             const Icon = cat.icon;
             return (
-              <motion.div
+              <div
                 key={i}
                 className="bg-navy-700/20 border border-slate-700/30 rounded-lg px-2.5 py-2 flex items-center gap-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 + i * 0.05 }}
               >
                 <Icon className="w-4 h-4 text-slate-500 flex-shrink-0" />
                 <div>
@@ -239,17 +215,14 @@ export default function SemiMarketSize() {
                     {cat.revenue}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* ═══ Zone 3: Funnel — inline row ═══ */}
-        <motion.div
+        <div
           className="flex items-center gap-4 flex-wrap"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.85 }}
         >
           <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">
             Who captures value:
@@ -271,16 +244,13 @@ export default function SemiMarketSize() {
               </span>
             </div>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.p
+        <p
           className="text-[10px] text-slate-600 mt-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
         >
           ¹ NVIDIA FY2026 10-K (Jan 26, 2026): $215.9B total revenue, +65% YoY. ² TrendForce / SK Hynix FY2025 results; HBM share approximate, varies by quarter. Sources: WSTS Autumn 2025 forecast, SIA, SemiAnalysis, company filings
-        </motion.p>
+        </p>
       </div>
     </div>
   );

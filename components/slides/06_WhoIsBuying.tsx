@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { Server, Brain, Building2, Globe, Briefcase } from "lucide-react";
 
 /* ── Company logos (local static assets) ── */
@@ -110,29 +109,21 @@ export default function WhoIsBuying() {
     <div className="slide-container">
       <div className="slide-content">
         {/* Header */}
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           Who Is Buying All These Chips?
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-3"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
         >
           $685B from the Big 5 &mdash; and the buyer base is{" "}
           <span className="text-amber-400">broadening</span>.
-        </motion.p>
+        </p>
 
         {/* Row 1: Hyperscalers — largest section */}
-        <motion.div
+        <div
           className="bg-amber-500/5 border border-amber-500/15 rounded-xl p-3 mb-2"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
         >
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <Server className="w-6 h-6 text-amber-400" />
@@ -148,12 +139,9 @@ export default function WhoIsBuying() {
           </div>
           <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-3">
             {hyperscalers.map((c, i) => (
-              <motion.div
+              <div
                 key={i}
                 className="bg-navy-700/30 rounded-lg p-3 text-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + i * 0.06 }}
               >
                 <div className="flex items-center justify-center mb-1.5">
                   {hyperscalerLogos[c.company]}
@@ -164,17 +152,14 @@ export default function WhoIsBuying() {
                 <p className="text-[10px] text-slate-500 mt-1 leading-snug">
                   {c.desc}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Row 2: AI Labs — medium section */}
-        <motion.div
+        <div
           className="bg-pink-500/5 border border-pink-500/15 rounded-xl p-3 mb-2"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.55 }}
         >
           <div className="flex items-center gap-2 mb-3">
             <Brain className="w-6 h-6 text-pink-400" />
@@ -187,12 +172,9 @@ export default function WhoIsBuying() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3">
             {aiLabs.map((lab, i) => (
-              <motion.div
+              <div
                 key={i}
                 className="bg-navy-700/30 border border-purple-500/10 rounded-lg px-3 py-2.5"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 + i * 0.05 }}
               >
                 <div className="flex items-center gap-1.5 mb-1.5">
                   {lab.logo}
@@ -203,22 +185,19 @@ export default function WhoIsBuying() {
                 <p className="text-[10px] text-slate-500 leading-snug">
                   {lab.desc}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Row 3: Neoclouds, Governments, Enterprises — equal, smaller */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
           {smallCategories.map((cat, i) => {
             const Icon = cat.icon;
             return (
-              <motion.div
+              <div
                 key={i}
                 className={`${cat.bg} border ${cat.border} rounded-xl p-3`}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 + i * 0.08 }}
               >
                 <div className="flex items-center gap-2 mb-2">
                   <Icon
@@ -245,20 +224,17 @@ export default function WhoIsBuying() {
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* Source line */}
-        <motion.p
+        <p
           className="text-[10px] text-slate-600 mt-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.0 }}
         >
           ¹ Amazon $200B, Alphabet $175–185B, Microsoft $120–145B, Meta $115–135B, Oracle ~$50B per Q4 2025 earnings guidance; company filings. ² AI-related share: Morgan Stanley, Feb 2026.
-        </motion.p>
+        </p>
       </div>
     </div>
   );

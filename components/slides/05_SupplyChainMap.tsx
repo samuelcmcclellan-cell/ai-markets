@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { supplyChainRegions } from "@/data/supplychain";
 import {
@@ -84,27 +83,19 @@ export default function SupplyChainMap() {
   return (
     <div className="slide-container">
       <div className="slide-content">
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           The Global Supply Chain
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-3"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}
         >
           No single country can make an advanced chip alone.
-        </motion.p>
+        </p>
 
-        <motion.div
+        <div
           className="relative w-full"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
         >
           <ComposableMap
             projection="geoMercator"
@@ -229,23 +220,17 @@ export default function SupplyChainMap() {
               );
             })}
           </ComposableMap>
-        </motion.div>
+        </div>
 
         {/* Detail panel */}
-        <motion.div
+        <div
           className="min-h-[90px] -mt-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
         >
           {selectedRegion ? (
-            <motion.div
+            <div
               key={selectedRegion.region}
               className="stat-card"
               style={{ borderLeft: `3px solid ${selectedRegion.highlight}` }}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.2 }}
             >
               <div className="flex items-center gap-2 mb-2">
                 <div
@@ -265,26 +250,23 @@ export default function SupplyChainMap() {
               <p className="text-xs text-red-400/80">
                 Risk: {selectedRegion.risk}
               </p>
-            </motion.div>
+            </div>
           ) : (
             <div className="text-center text-sm text-slate-500 py-3">
               Click a node on the map to explore each region&apos;s role
             </div>
           )}
-        </motion.div>
+        </div>
 
-        <motion.p
+        <p
           className="text-xl md:text-2xl font-heading font-semibold text-slate-300 mt-4 leading-snug max-w-3xl"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
         >
           A single chip crosses{" "}
           <span className="text-blue-400 font-bold">70+ borders</span> and
           touches{" "}
           <span className="text-blue-400 font-bold">6 countries</span> before
           it reaches a data center. There is no domestic alternative.
-        </motion.p>
+        </p>
       </div>
     </div>
   );

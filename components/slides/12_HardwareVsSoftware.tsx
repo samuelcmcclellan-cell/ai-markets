@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { TrendingUp, TrendingDown, BarChart3, AlertTriangle } from "lucide-react";
 import {
   LineChart,
@@ -50,28 +49,20 @@ export default function HardwareVsSoftware() {
     <div className="slide-container">
       <div className="slide-content">
         {/* Header */}
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-emerald-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           The Great Divergence
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-3"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
         >
           The market is paying for atoms over bits.
-        </motion.p>
+        </p>
 
         {/* Custom legend */}
-        <motion.div
+        <div
           className="flex gap-5 mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
         >
           <div className="flex items-center gap-1.5">
             <div className="w-2 h-2 rounded-full bg-emerald-400" />
@@ -85,14 +76,11 @@ export default function HardwareVsSoftware() {
             <div className="w-2 h-2 rounded-full bg-red-400" />
             <span className="text-xs text-slate-400">Software (IGV)</span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Zone 1: Line Chart */}
-        <motion.div
+        <div
           className="relative mb-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
         >
           <div className="h-[180px] md:h-[200px]">
             <ResponsiveContainer width="100%" height="100%">
@@ -164,20 +152,14 @@ export default function HardwareVsSoftware() {
               -20%
             </span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Bottom section — Memory Supercycle vs DiSaaSter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0 }}
+        <div
           className="flex flex-col md:flex-row gap-2 mt-2 px-0 md:px-2"
         >
           {/* LEFT PANEL: Memory Supercycle */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.2 }}
+          <div
             className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-3"
           >
             <div className="flex items-center gap-2 mb-2">
@@ -210,16 +192,13 @@ export default function HardwareVsSoftware() {
                 DRAM prices <span className="text-cyan-400">+40%</span> through Q2 2026 — Counterpoint Research
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Vertical divider */}
           <div className="hidden md:block w-px bg-slate-700/40 self-stretch" />
 
           {/* RIGHT PANEL: The DiSaaSter */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.4 }}
+          <div
             className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-3"
           >
             <div className="flex items-center gap-2 mb-2">
@@ -255,17 +234,14 @@ export default function HardwareVsSoftware() {
                 IGV <span className="text-red-400">-20% YTD</span> — trough hit -24% in Feb; worst run since 2022
               </p>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.p
+        <p
           className="text-[11px] text-slate-600 mt-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.8 }}
         >
           Source: Yahoo Finance, Counterpoint Research, Morgan Stanley CIO Survey
-        </motion.p>
+        </p>
       </div>
     </div>
   );

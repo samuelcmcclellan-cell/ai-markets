@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import {
   Bot,
   Smartphone,
@@ -98,10 +97,7 @@ export default function TheAIStack() {
   return (
     <div className="slide-container">
       <div className="slide-content">
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+        <div
         >
           <h2 className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2">
             The AI Stack
@@ -109,7 +105,7 @@ export default function TheAIStack() {
           <p className="text-2xl md:text-3xl font-heading font-bold text-white mb-3">
             The full AI ecosystem &mdash; from raw materials to agents.
           </p>
-        </motion.div>
+        </div>
 
         {/* Stack container */}
         <div className="relative">
@@ -131,11 +127,8 @@ export default function TheAIStack() {
 
           <div className="flex flex-col gap-px ml-3">
             {stackLayers.map((layer, i) => (
-              <motion.div
+              <div
                 key={layer.name}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 + i * 0.07 }}
                 className="flex items-center bg-slate-800/50 border border-slate-700/30 rounded-lg px-2 md:px-3 py-1 md:py-1.5 hover:bg-slate-800/70 transition-colors"
               >
                 {/* Icon with colored background */}
@@ -178,20 +171,17 @@ export default function TheAIStack() {
                     </span>
                   )}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.6 }}
-          transition={{ delay: 1.5 }}
+        <p
           className="text-xs italic text-slate-500 mt-3 px-2"
         >
           Most investment has concentrated in the middle. The question: will the
           apps on top ever justify the infrastructure below?
-        </motion.p>
+        </p>
       </div>
     </div>
   );

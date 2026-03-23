@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { Download, Loader2 } from "lucide-react";
 import { generatePptx } from "@/lib/generatePptx";
 
@@ -11,31 +10,14 @@ interface SlideControllerProps {
   sectionLabels: string[];
 }
 
-const contentVariants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? 300 : -300,
-    opacity: 0,
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => ({
-    x: direction > 0 ? -300 : 300,
-    opacity: 0,
-  }),
-};
-
 export default function SlideController({
   slides,
   sectionColors,
   sectionLabels,
 }: SlideControllerProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [direction, setDirection] = useState(0);
   const [isGenerating, setIsGenerating] = useState(false);
   const touchStartX = useRef(0);
-  const isAnimating = useRef(false);
 
   const totalSlides = slides.length;
   const progress = ((currentSlide + 1) / totalSlides) * 100;
@@ -53,16 +35,10 @@ export default function SlideController({
 
   const goTo = useCallback(
     (index: number) => {
-      if (isAnimating.current) return;
       if (index < 0 || index >= totalSlides) return;
-      isAnimating.current = true;
-      setDirection(index > currentSlide ? 1 : -1);
       setCurrentSlide(index);
-      setTimeout(() => {
-        isAnimating.current = false;
-      }, 500);
     },
-    [currentSlide, totalSlides]
+    [totalSlides]
   );
 
   const next = useCallback(() => goTo(currentSlide + 1), [currentSlide, goTo]);
@@ -125,12 +101,8 @@ export default function SlideController({
     >
       {/* Section badge — top left */}
       {sectionLabel && (
-        <motion.div
+        <div
           className="fixed top-4 left-6 z-50 hidden md:flex items-center gap-2"
-          key={sectionLabel}
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
         >
           <div
             className="w-1.5 h-1.5 rounded-full"
@@ -142,7 +114,7 @@ export default function SlideController({
           >
             {sectionLabel}
           </span>
-        </motion.div>
+        </div>
       )}
 
       {/* Section navigation buttons — top center */}
@@ -191,54 +163,32 @@ export default function SlideController({
       </div>
 
       {/* Section accent line */}
-      <motion.div
+      <div
         className="fixed top-0 left-0 right-0 h-0.5 z-50"
         style={{ backgroundColor: accentColor }}
-        initial={false}
-        animate={{ backgroundColor: accentColor }}
-        transition={{ duration: 0.3 }}
       />
 
       {/* Slide content */}
-      <AnimatePresence mode="wait" custom={direction}>
-        <motion.div
-          key={currentSlide}
-          custom={direction}
-          variants={contentVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-          className="h-full w-full overflow-hidden"
-        >
-          {slides[currentSlide]}
-        </motion.div>
-      </AnimatePresence>
+      <div className="h-full w-full overflow-hidden">
+        {slides[currentSlide]}
+      </div>
 
       {/* Progress bar */}
       <div
         className="fixed bottom-0 left-0 right-0 h-1 bg-navy-700 z-50 cursor-pointer"
         onClick={handleProgressClick}
       >
-        <motion.div
+        <div
           className="h-full"
-          style={{ backgroundColor: accentColor }}
-          initial={false}
-          animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.3 }}
+          style={{ backgroundColor: accentColor, width: `${progress}%` }}
         />
       </div>
 
       {/* Navigation hint (first slide only) */}
       {currentSlide === 0 && (
-        <motion.div
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 text-xs text-slate-600 z-40"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-        >
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 text-xs text-slate-600 z-40">
           Use arrow keys or swipe to navigate
-        </motion.div>
+        </div>
       )}
     </div>
   );

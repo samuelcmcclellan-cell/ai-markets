@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { Ban, Megaphone, HardHat, ImageIcon } from "lucide-react";
 
 const panels = [
@@ -50,39 +49,28 @@ export default function PoliticalChallenges() {
     <div className="slide-container">
       <div className="slide-content">
         {/* Header */}
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-red-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           The Backlash
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
         >
           The public is turning against the{" "}
           <span className="text-red-400">buildout</span>.
-        </motion.p>
-        <motion.p
+        </p>
+        <p
           className="text-sm text-slate-400 mb-3 max-w-3xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
         >
           NIMBY opposition, anti-AI protests, and cheaper alternatives are threatening the infrastructure bet.
-        </motion.p>
+        </p>
 
         {/* Three panels */}
         <div className="flex gap-3">
           {panels.map((panel, i) => (
-            <motion.div
+            <div
               key={panel.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + i * 0.15 }}
               className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-4"
             >
               {/* Photo */}
@@ -120,18 +108,15 @@ export default function PoliticalChallenges() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.p
+        <p
           className="text-xs text-slate-600 mt-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.3 }}
         >
           Source: The Information, TIME, CNN, NBC News, Echelon Insights, Stop The AI Race, Fortune, Data Center Watch
-        </motion.p>
+        </p>
       </div>
     </div>
   );

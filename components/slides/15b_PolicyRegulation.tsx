@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { ShieldAlert, Scale, Globe } from "lucide-react";
 import { policyPillars, policyBottomLine, policyFootnotes } from "@/data/policy";
 
@@ -14,41 +13,30 @@ export default function PolicyRegulation() {
     <div className="slide-container">
       <div className="slide-content">
         {/* Header */}
-        <motion.h2
+        <h2
           className="text-sm uppercase tracking-widest text-red-400 font-mono mb-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
         >
           Policy &amp; Regulation
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
         >
           Governments are redrawing the{" "}
           <span className="text-red-400">rules of the game</span>.
-        </motion.p>
-        <motion.p
+        </p>
+        <p
           className="text-sm text-slate-400 mb-3 max-w-3xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
         >
           Export controls, regulatory divergence, and reshoring subsidies are reshaping who wins.
-        </motion.p>
+        </p>
 
         {/* Three pillar cards — icon-driven with photo placeholders */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
           {policyPillars.map((pillar, i) => {
             const Icon = iconMap[pillar.icon as keyof typeof iconMap];
             return (
-              <motion.div
+              <div
                 key={pillar.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35 + i * 0.15 }}
                 className="bg-navy-700/50 border border-slate-700/50 rounded-xl overflow-hidden"
               >
                 {/* Photo */}
@@ -88,33 +76,27 @@ export default function PolicyRegulation() {
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* Bottom line strip */}
-        <motion.div
+        <div
           className="bg-red-500/10 border border-red-500/20 rounded-lg px-5 py-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.35 + 3 * 0.15 }}
         >
           <p className="text-base text-red-200 leading-relaxed">
             <span className="font-semibold text-red-300">Bottom line: </span>
             {policyBottomLine}
           </p>
-        </motion.div>
+        </div>
 
         {/* Footnotes */}
-        <motion.p
+        <p
           className="text-[10px] text-slate-600 font-mono mt-2 leading-relaxed"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1 }}
         >
           {policyFootnotes}
-        </motion.p>
+        </p>
       </div>
     </div>
   );

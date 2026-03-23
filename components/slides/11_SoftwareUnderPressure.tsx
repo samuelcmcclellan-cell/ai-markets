@@ -32,7 +32,7 @@ export default function SoftwareUnderPressure() {
           Software Under Pressure
         </motion.h2>
         <motion.p
-          className="text-2xl md:text-3xl font-heading font-semibold text-white mb-2"
+          className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
@@ -40,7 +40,7 @@ export default function SoftwareUnderPressure() {
           The SaaS Reckoning
         </motion.p>
         <motion.p
-          className="text-lg text-slate-400 mb-6"
+          className="text-sm text-slate-400 mb-3 max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.25 }}
@@ -49,11 +49,11 @@ export default function SoftwareUnderPressure() {
           names are positive.
         </motion.p>
 
-        <div className="grid grid-cols-[30%_70%] gap-8">
+        <div className="grid grid-cols-[28%_72%] gap-4">
           {/* Left: ETF comparison */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
             <motion.div
-              className="bg-red-500/10 border border-red-500/30 rounded-xl p-5 text-center"
+              className="bg-red-500/10 border border-red-500/30 rounded-xl p-3 text-center"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
@@ -61,14 +61,14 @@ export default function SoftwareUnderPressure() {
               <p className="text-xs font-mono text-red-400 uppercase tracking-wider mb-1">
                 IGV &middot; Software ETF
               </p>
-              <p className="text-4xl font-mono font-bold text-red-400">-20%</p>
-              <p className="text-xs text-slate-500 mt-1">YTD 2026</p>
+              <p className="text-3xl font-mono font-bold text-red-400">-20%</p>
+              <p className="text-xs text-slate-500 mt-0.5">YTD 2026</p>
             </motion.div>
 
-            <p className="text-sm text-slate-600 text-center font-mono">vs.</p>
+            <p className="text-xs text-slate-600 text-center font-mono">vs.</p>
 
             <motion.div
-              className="bg-slate-500/10 border border-slate-500/30 rounded-xl p-5 text-center"
+              className="bg-slate-500/10 border border-slate-500/30 rounded-xl p-3 text-center"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
@@ -76,8 +76,8 @@ export default function SoftwareUnderPressure() {
               <p className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-1">
                 XLK &middot; Broad Tech
               </p>
-              <p className="text-4xl font-mono font-bold text-slate-300">-4%</p>
-              <p className="text-xs text-slate-500 mt-1">YTD 2026</p>
+              <p className="text-3xl font-mono font-bold text-slate-300">-4%</p>
+              <p className="text-xs text-slate-500 mt-0.5">YTD 2026</p>
             </motion.div>
 
             <motion.div
@@ -86,7 +86,7 @@ export default function SoftwareUnderPressure() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <p className="text-2xl font-mono font-bold text-amber-400">
+              <p className="text-xl font-mono font-bold text-amber-400">
                 16pt gap
               </p>
               <p className="text-xs text-slate-500">
@@ -97,7 +97,7 @@ export default function SoftwareUnderPressure() {
 
           {/* Right: Horizontal bar chart */}
           <motion.div
-            className="h-[320px]"
+            className="h-[280px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -139,7 +139,7 @@ export default function SoftwareUnderPressure() {
 
         {/* Closing line */}
         <motion.p
-          className="text-base text-slate-500 italic mt-4"
+          className="text-sm text-slate-500 italic mt-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
@@ -149,7 +149,7 @@ export default function SoftwareUnderPressure() {
         </motion.p>
 
         <motion.p
-          className="text-xs text-slate-600 mt-3"
+          className="text-xs text-slate-600 mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}

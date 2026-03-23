@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { Flame, TrendingUp } from "lucide-react";
 import {
   BarChart,
   Bar,
@@ -18,18 +17,6 @@ const labRevenue = [
   { name: "xAI", arr: 3, logo: "/images/logos/xai.png", color: "#94a3b8", estimated: true },
   { name: "Mistral", arr: 1, logo: "/images/logos/mistral.png", color: "#06b6d4" },
   { name: "DeepSeek", arr: 0.5, logo: "/images/logos/deepseek.png", color: "#ef4444", estimated: true },
-];
-
-const burnStats = [
-  { lab: "OpenAI", stat: "$14B", detail: "projected 2026 net loss\u00b9", sub: "$25B ARR\u00b2" },
-  { lab: "Anthropic", stat: "$8B", detail: "est. 2026 compute spend\u00b3", sub: "$19B \u2192 $26B target\u00b3" },
-  { lab: "xAI", stat: "$18B", detail: "Colossus 2 GPU spend\u2074", sub: "$1.2B/mo burn rate\u2074" },
-];
-
-const marginStats = [
-  { label: "OpenAI inference", stat: "48%", detail: "$6.1B rev / $3.2B cost" },
-  { label: "Anthropic actual", stat: "~40%", detail: "lowered from 50% target" },
-  { label: "Cost per query", stat: "↓90%", detail: "since GPT-4 launch" },
 ];
 
 const valuations = [
@@ -120,7 +107,7 @@ export default function AILabs() {
           <span className="text-amber-400">frontier intelligence</span>.
         </motion.p>
         <motion.p
-          className="text-sm text-slate-400 mb-2 max-w-3xl"
+          className="text-sm text-slate-400 mb-3 max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}
@@ -129,12 +116,12 @@ export default function AILabs() {
           They are the demand signal driving the semiconductor buildout.
         </motion.p>
 
-        {/* Zone 1: Revenue Race — Horizontal Bar Chart */}
+        {/* Revenue Race — Horizontal Bar Chart */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="mb-3"
+          className="mb-2"
         >
           <div className="h-[160px] md:h-[180px]">
             <ResponsiveContainer width="100%" height="100%">
@@ -184,127 +171,74 @@ export default function AILabs() {
           </p>
         </motion.div>
 
-        {/* Zone 2: The Economics — Two Side-by-Side Panels */}
-        <div className="flex flex-col md:flex-row gap-3 mb-3">
-          {/* Left Panel: The Burn */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-3 md:p-4"
-          >
-            <div className="flex items-center gap-2 mb-2">
-              <Flame className="w-4 h-4 text-orange-400" />
-              <h3 className="text-xs font-mono tracking-[0.15em] text-orange-400 uppercase">
-                The Burn
-              </h3>
-            </div>
-            <div className="mb-2">
-              <span className="text-2xl font-mono font-bold text-orange-400">$30B+</span>
-              <span className="text-xs text-slate-500 ml-2">
-                combined annual compute spend
-              </span>
-            </div>
-            <div className="flex gap-2">
-              {burnStats.map((s, i) => (
-                <div key={i} className="flex-1 bg-slate-900/50 border border-slate-700/30 rounded px-3 py-2 text-center">
-                  <p className="text-[10px] font-mono text-slate-500">{s.lab}</p>
-                  <p className="text-lg font-bold text-orange-400">{s.stat}</p>
-                  <p className="text-[10px] text-slate-500 leading-tight">{s.detail}</p>
-                  <p className="text-[10px] text-slate-400 font-semibold mt-1">{s.sub}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Vertical divider */}
-          <div className="hidden md:block w-px bg-slate-700/40 self-stretch" />
-
-          {/* Right Panel: The Margins */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="flex-1 bg-slate-800/30 border border-slate-700/40 rounded-lg p-3 md:p-4"
-          >
-            <div className="flex items-center gap-2 mb-2">
-              <TrendingUp className="w-4 h-4 text-emerald-400" />
-              <h3 className="text-xs font-mono tracking-[0.15em] text-emerald-400 uppercase">
-                The Margins
-              </h3>
-            </div>
-            <div className="mb-2">
-              <span className="text-2xl font-mono font-bold text-emerald-400">40–50%</span>
-              <span className="text-xs text-slate-500 ml-2">
-                inference gross margins
-              </span>
-            </div>
-            <div className="flex gap-2">
-              {marginStats.map((s, i) => (
-                <div key={i} className="flex-1 bg-slate-900/50 border border-slate-700/30 rounded px-3 py-2 text-center">
-                  <p className="text-[10px] font-mono text-slate-500">{s.label}</p>
-                  <p className="text-lg font-bold text-emerald-400">{s.stat}</p>
-                  <p className="text-[10px] text-slate-500 leading-tight">{s.detail}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Zone 3: The Arms Race — Valuation Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3">
-          {valuations.map((v, i) => (
-            <motion.div
-              key={v.lab}
-              className="bg-navy-700/30 border border-slate-700/30 rounded-lg p-3 text-center"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9 + i * 0.08 }}
-            >
-              <img src={v.logo} alt={v.lab} className="w-6 h-6 rounded mx-auto" />
-              <p className="text-sm font-heading font-bold text-white mt-1">{v.lab}</p>
-              <p
-                className="text-xl md:text-2xl font-mono font-bold"
-                style={{ color: v.color }}
+        {/* Valuations + Funding — Two-Column Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-3 mb-2">
+          {/* Left: Valuation Cards */}
+          <div className="grid grid-cols-2 gap-2">
+            {valuations.map((v, i) => (
+              <motion.div
+                key={v.lab}
+                className="bg-navy-700/30 border border-slate-700/30 rounded-lg p-2.5 text-center"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + i * 0.08 }}
               >
-                {v.valuation}
+                <div className="flex items-center justify-center gap-1.5 mb-1">
+                  <img src={v.logo} alt={v.lab} className="w-5 h-5 rounded" />
+                  <p className="text-sm font-heading font-bold text-white">{v.lab}</p>
+                </div>
+                <p
+                  className="text-lg md:text-xl font-mono font-bold"
+                  style={{ color: v.color }}
+                >
+                  {v.valuation}
+                </p>
+                <p className="text-[10px] text-slate-500">{v.round}</p>
+                <span
+                  className="text-[10px] font-mono px-2 py-0.5 rounded-full mt-1 inline-block"
+                  style={{
+                    backgroundColor: v.color + "15",
+                    color: v.color,
+                  }}
+                >
+                  {v.multiple}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Right: Funding Callout */}
+          <motion.div
+            className="bg-amber-500/5 border border-amber-500/20 rounded-lg p-3 flex flex-col justify-center"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9 }}
+          >
+            <p className="text-amber-400 font-heading font-bold text-lg mb-2">
+              $189B deployed in a single month
+            </p>
+            <p className="text-xs text-slate-400 leading-relaxed mb-3">
+              Feb 2026 saw history&apos;s largest VC month: OpenAI ($110B), Anthropic ($30B),
+              Waymo ($16B). OpenAI completed its for-profit conversion.
+            </p>
+            <div className="space-y-1.5">
+              <p className="text-xs text-slate-300">
+                <span className="text-amber-400 font-bold">ChatGPT ads</span>{" "}
+                — $1B projected 2026 ad revenue
               </p>
-              <p className="text-[10px] text-slate-500 mt-0.5">{v.round}</p>
-              <span
-                className="text-[10px] font-mono px-2 py-0.5 rounded-full mt-1.5 inline-block"
-                style={{
-                  backgroundColor: v.color + "15",
-                  color: v.color,
-                }}
-              >
-                {v.multiple}
-              </span>
-            </motion.div>
-          ))}
+              <p className="text-xs text-slate-300">
+                <span className="text-amber-400 font-bold">Anthropic</span>{" "}
+                — projects $70B revenue by 2028
+              </p>
+            </div>
+          </motion.div>
         </div>
-
-        {/* Bottom Callout */}
-        <motion.div
-          className="bg-amber-500/5 border border-amber-500/20 rounded-lg px-4 py-2.5"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4 }}
-        >
-          <p className="text-xs text-slate-300 leading-relaxed">
-            <span className="text-amber-400 font-heading font-bold text-sm">
-              $189B deployed in a single month{" "}
-            </span>
-            — Feb 2026 saw history&apos;s largest VC month: OpenAI ($110B), Anthropic ($30B),
-            Waymo ($16B). OpenAI completed its for-profit conversion and is testing ads in
-            ChatGPT ($1B projected 2026 ad revenue). Anthropic projects $70B revenue by 2028.
-          </p>
-        </motion.div>
 
         <motion.p
-          className="text-[10px] text-slate-600 mt-2"
+          className="text-[10px] text-slate-600 mt-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.6 }}
+          transition={{ delay: 1.2 }}
         >
           ¹ The Information, Jan 2026. ² Sacra, Feb 2026 run-rate. ³ Dario Amodei, Morgan Stanley TMT conf., Mar 2026; Bloomberg. ⁴ The Information, Jan 2026. ⁵ Crunchbase; Amazon $50B, Nvidia $30B, SoftBank $30B — Feb 2026. ⁶ Anthropic press release, Feb 12, 2026. ⁷ CNBC, Feb 2026; $250B combined valuation at merger close. * xAI ARR est. ~$3B; multiple reflects early-stage revenue base. Sources: Bloomberg, Fortune, CNBC, Crunchbase, company filings
         </motion.p>

@@ -103,12 +103,12 @@ export default function TheAIStack() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <p className="text-sm font-mono tracking-widest text-blue-400 mb-2 uppercase">
+          <h2 className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2">
             The AI Stack
-          </p>
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
-            The full AI ecosystem &mdash; from raw materials to agents.
           </h2>
+          <p className="text-2xl md:text-3xl font-heading font-bold text-white mb-3">
+            The full AI ecosystem &mdash; from raw materials to agents.
+          </p>
         </motion.div>
 
         {/* Stack container */}

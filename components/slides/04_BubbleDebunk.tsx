@@ -37,7 +37,7 @@ export default function BubbleDebunk() {
           The Bubble Question
         </motion.h2>
         <motion.p
-          className="text-xl md:text-2xl font-heading font-bold text-white mb-1"
+          className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -45,7 +45,7 @@ export default function BubbleDebunk() {
           Is this a bubble?
         </motion.p>
         <motion.p
-          className="text-sm text-slate-400 mb-2"
+          className="text-sm text-slate-400 mb-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}

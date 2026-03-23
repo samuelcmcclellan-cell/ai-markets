@@ -24,7 +24,7 @@ export default function WhyAIMatters() {
     <div className="slide-container">
       <div className="slide-content">
         <motion.h2
-          className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2"
+          className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4 }}

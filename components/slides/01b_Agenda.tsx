@@ -12,7 +12,7 @@ const sections = [
 export default function Agenda() {
   return (
     <div className="slide-container">
-      <div className="slide-content">
+      <div className="slide-content flex flex-col justify-center min-h-[calc(100vh-theme(spacing.14))]">
         <motion.p
           className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2"
           initial={{ opacity: 0 }}

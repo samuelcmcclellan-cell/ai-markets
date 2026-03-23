@@ -57,25 +57,25 @@ export default function PoweringTheBuildout() {
     <div className="slide-container">
       <div className="slide-content">
         {/* Header */}
-        <motion.p
+        <motion.h2
           className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4 }}
         >
           AI Infrastructure: Power
-        </motion.p>
-        <motion.h2
-          className="text-2xl md:text-3xl font-heading font-bold text-white mb-1 leading-tight"
+        </motion.h2>
+        <motion.p
+          className="text-2xl md:text-3xl font-heading font-bold text-white mb-1"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.08 }}
         >
           Power is now part of the{" "}
           <span className="text-blue-400">core AI stack</span>.
-        </motion.h2>
+        </motion.p>
         <motion.p
-          className="text-sm text-slate-400 mb-2 max-w-3xl leading-relaxed"
+          className="text-sm text-slate-400 mb-3 max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}

@@ -31,7 +31,7 @@ export default function PolicyRegulation() {
           <span className="text-red-400">rules of the game</span>.
         </motion.p>
         <motion.p
-          className="text-sm text-slate-400 mb-4 max-w-3xl"
+          className="text-sm text-slate-400 mb-3 max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}

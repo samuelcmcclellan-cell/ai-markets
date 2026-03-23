@@ -84,7 +84,7 @@ export default function SemiMarketSize() {
           Anatomy of a $1 Trillion Market
         </motion.p>
         <motion.p
-          className="text-sm text-slate-400 mb-2 max-w-3xl"
+          className="text-sm text-slate-400 mb-3 max-w-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}

@@ -27,9 +27,9 @@ const takeaways = [
 export default function KeyTakeaways() {
   return (
     <div className="slide-container">
-      <div className="slide-content max-w-4xl">
+      <div className="slide-content">
         <motion.h2
-          className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-2"
+          className="text-sm uppercase tracking-widest text-amber-400 font-mono mb-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >

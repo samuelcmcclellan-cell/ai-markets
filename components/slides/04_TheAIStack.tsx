@@ -129,11 +129,11 @@ export default function TheAIStack() {
             {stackLayers.map((layer, i) => (
               <div
                 key={layer.name}
-                className="flex items-center bg-slate-800/50 border border-slate-700/30 rounded-lg px-2 md:px-3 py-1 md:py-1.5 hover:bg-slate-800/70 transition-colors"
+                className="flex items-center bg-slate-800/50 border border-slate-700/30 rounded-lg px-2 md:px-3 py-0.5 md:py-1 hover:bg-slate-800/70 transition-colors"
               >
                 {/* Icon with colored background */}
                 <div
-                  className="w-6 md:w-7 h-6 md:h-7 rounded-lg flex items-center justify-center shrink-0 mr-2 md:mr-3"
+                  className="w-5 md:w-6 h-5 md:h-6 rounded-lg flex items-center justify-center shrink-0 mr-2 md:mr-3"
                   style={{
                     backgroundColor: layer.color + "18",
                     border: `1px solid ${layer.color}40`,
@@ -150,7 +150,7 @@ export default function TheAIStack() {
                   <span className="text-xs md:text-sm font-bold text-white block leading-tight">
                     {layer.name}
                   </span>
-                  <span className="text-xs text-slate-400 hidden md:block leading-tight mt-0.5">
+                  <span className="text-[10px] text-slate-400 hidden md:block leading-tight mt-0.5">
                     {layer.oneLiner}
                   </span>
                 </div>

@@ -79,11 +79,11 @@ export default function WhatIsAI() {
         </p>
 
         {/* Horizontal timeline */}
-        <div className="relative w-full px-2 mb-3">
+        <div className="relative w-full px-2 mb-3 py-8">
           {/* Items above the line */}
           <div
-            className="flex items-end justify-between mb-1"
-            style={{ minHeight: "90px" }}
+            className="flex items-end justify-between mb-3"
+            style={{ minHeight: "120px" }}
           >
             {timeline.map((item, i) => (
               <div
@@ -154,8 +154,8 @@ export default function WhatIsAI() {
 
           {/* Items below the line */}
           <div
-            className="flex items-start justify-between mt-1"
-            style={{ minHeight: "95px" }}
+            className="flex items-start justify-between mt-3"
+            style={{ minHeight: "120px" }}
           >
             {timeline.map((item, i) => (
               <div

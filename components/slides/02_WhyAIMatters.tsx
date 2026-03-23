@@ -26,15 +26,15 @@ export default function WhyAIMatters() {
         >
           Why AI Matters to Markets
         </h2>
-        <div className="space-y-6 mt-4">
+        <div className="space-y-10 mt-6">
           {statements.map((s, i) => (
             <div
               key={i}
             >
-              <h3 className="text-xl md:text-2xl font-heading font-bold text-white leading-tight mb-2">
+              <h3 className="text-2xl md:text-3xl font-heading font-bold text-white leading-tight mb-3">
                 {s.headline}
               </h3>
-              <p className="text-sm md:text-base text-slate-400 font-body leading-relaxed max-w-3xl">
+              <p className="text-base md:text-lg text-slate-400 font-body leading-relaxed max-w-3xl">
                 {s.supporting}
               </p>
             </div>

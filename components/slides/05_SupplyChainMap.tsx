@@ -224,7 +224,7 @@ export default function SupplyChainMap() {
 
         {/* Detail panel */}
         <div
-          className="min-h-[90px] -mt-2"
+          className="min-h-[70px] -mt-2"
         >
           {selectedRegion ? (
             <div
@@ -259,7 +259,7 @@ export default function SupplyChainMap() {
         </div>
 
         <p
-          className="text-xl md:text-2xl font-heading font-semibold text-slate-300 mt-4 leading-snug max-w-3xl"
+          className="text-sm md:text-base font-heading font-semibold text-slate-300 mt-2 leading-snug max-w-3xl"
         >
           A single chip crosses{" "}
           <span className="text-blue-400 font-bold">70+ borders</span> and

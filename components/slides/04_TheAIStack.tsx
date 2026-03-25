@@ -145,12 +145,12 @@ export default function TheAIStack() {
                   />
                 </div>
 
-                {/* Layer name + one-liner */}
-                <div className="flex-1 min-w-0 mr-4">
-                  <span className="text-xs md:text-sm font-bold text-white block leading-tight">
+                {/* Layer name + one-liner — inline */}
+                <div className="flex-1 min-w-0 mr-4 flex items-center gap-2">
+                  <span className="text-xs md:text-sm font-bold text-white leading-tight whitespace-nowrap">
                     {layer.name}
                   </span>
-                  <span className="text-[10px] text-slate-400 hidden md:block leading-tight mt-0.5">
+                  <span className="text-[10px] text-slate-400 hidden md:inline leading-tight">
                     {layer.oneLiner}
                   </span>
                 </div>

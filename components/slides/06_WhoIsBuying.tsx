@@ -50,28 +50,6 @@ const aiLabs = [
       <img src="/images/logos/xai.png" alt="xAI" className="w-6 h-6 rounded" />
     ),
   },
-  {
-    name: "DeepSeek",
-    desc: "Open-source R1 reasoning models",
-    logo: (
-      <img src="/images/logos/deepseek.png" alt="DeepSeek" className="w-6 h-6 rounded" />
-    ),
-  },
-  {
-    name: "Mistral",
-    desc: "European frontier lab, open models",
-    logo: (
-      <img
-        src="/images/logos/mistral.png"
-        alt="Mistral"
-        className="w-6 h-6 rounded"
-        style={{ background: "#f97316" }}
-        onError={(e) => {
-          (e.target as HTMLImageElement).style.display = "none";
-        }}
-      />
-    ),
-  },
 ];
 
 const smallCategories = [
@@ -170,7 +148,7 @@ export default function WhoIsBuying() {
               Building the models. Consuming compute through cloud partnerships.
             </span>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
             {aiLabs.map((lab, i) => (
               <div
                 key={i}

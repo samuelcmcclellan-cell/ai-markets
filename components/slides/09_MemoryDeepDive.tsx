@@ -1,5 +1,5 @@
 "use client";
-import { Database, Zap, Cpu } from "lucide-react";
+
 import { hbmTam, hbmMarketShare } from "@/data/memory";
 import { memoryEquities } from "@/data/equities";
 import {
@@ -32,28 +32,6 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   return null;
 };
 
-const whyMemoryMatters = [
-  {
-    label: "Every AI query loads the entire model into memory",
-    detail:
-      "Each one needs to be read from memory during inference.",
-  },
-  {
-    label: "GPUs spend most of their time waiting for data",
-    detail:
-      "Modern GPUs can compute faster than memory can feed them. This is the \u2018memory wall.\u2019",
-  },
-  {
-    label: "Agentic AI multiplies memory demand",
-    detail:
-      "Agents run multi-step workflows, hold context across tasks, and call tools \u2014 each step keeps the full context in memory.",
-  },
-  {
-    label: "Context windows are exploding",
-    detail:
-      "From 4K tokens (early ChatGPT) to 1M+ (Gemini). Longer context = proportionally more memory per request.",
-  },
-];
 
 const bandwidth = [
   { type: "DDR5", value: "~50 GB/s", bar: 2 },
@@ -77,71 +55,42 @@ export default function MemoryDeepDive() {
           <span className="text-amber-400">memory is the binding constraint</span>.
         </p>
 
-        {/* Why memory matters — the narrative */}
+        {/* Why memory matters — the narrative with bold keywords */}
         <div
           className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2"
         >
-          {whyMemoryMatters.map((item, i) => (
-            <div
-              key={i}
-              className="bg-navy-700/30 border-l-2 border-amber-500/40 rounded-r-lg px-3 py-2"
-            >
-              <p className="text-sm font-heading font-bold text-white mb-0.5">
-                {item.label}
-              </p>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                {item.detail}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* The Memory Wall — visual bottleneck diagram */}
-        <div
-          className="mb-2"
-        >
-          <h3 className="text-sm font-mono text-amber-400/80 tracking-wider mb-2">
-            THE MEMORY WALL — VISUALIZED
-          </h3>
-          <div className="flex items-center justify-center gap-0 flex-wrap md:flex-nowrap">
-            {/* Stage 1: Model Weights (wide) */}
-            <div className="bg-slate-800/60 border border-slate-700/50 rounded-l-lg px-4 py-3 w-full md:w-[260px] text-center">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <Database className="w-4 h-4 text-cyan-400" />
-                <span className="text-sm font-semibold text-slate-200">Model Weights</span>
-              </div>
-              <p className="text-lg font-bold text-cyan-400">~4 TB</p>
-              <p className="text-[10px] text-slate-500">for a 2T parameter model</p>
-            </div>
-            {/* Arrow into bottleneck */}
-            <div className="text-amber-400 text-xl hidden md:block">▶</div>
-            {/* Stage 2: Memory Bus (narrow — the bottleneck) */}
-            <div className="bg-amber-500/10 border-2 border-amber-500/50 rounded px-3 py-2 w-full md:w-[150px] text-center relative my-2 md:my-0">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-black text-[9px] font-bold px-2 py-0.5 rounded-full">
-                BOTTLENECK
-              </div>
-              <div className="flex items-center justify-center gap-1 mb-0.5">
-                <Zap className="w-3.5 h-3.5 text-amber-400" />
-                <span className="text-xs font-semibold text-amber-300">Memory Bus</span>
-              </div>
-              <p className="text-lg font-bold text-amber-400">~3 TB/s</p>
-            </div>
-            {/* Arrow out of bottleneck */}
-            <div className="text-amber-400 text-xl hidden md:block">▶</div>
-            {/* Stage 3: GPU Compute (wide) */}
-            <div className="bg-slate-800/60 border border-slate-700/50 rounded-r-lg px-4 py-3 w-full md:w-[260px] text-center">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <Cpu className="w-4 h-4 text-green-400" />
-                <span className="text-sm font-semibold text-slate-200">GPU Compute</span>
-              </div>
-              <p className="text-lg font-bold text-green-400">10×</p>
-              <p className="text-[10px] text-slate-500">faster than memory can feed it</p>
-            </div>
+          <div className="bg-navy-700/30 border-l-2 border-amber-500/40 rounded-r-lg px-3 py-2">
+            <p className="text-sm font-heading font-bold text-white mb-0.5">
+              Every AI query loads the entire model into memory
+            </p>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Each one needs to be <span className="text-white font-semibold">read from memory</span> during inference.
+            </p>
           </div>
-          {/* Punchline below the diagram */}
-          <p className="text-center text-xs text-slate-500 mt-3 italic">
-            The GPU can compute 10× faster than memory can deliver data. That gap is the memory wall.
-          </p>
+          <div className="bg-navy-700/30 border-l-2 border-amber-500/40 rounded-r-lg px-3 py-2">
+            <p className="text-sm font-heading font-bold text-white mb-0.5">
+              GPUs spend most of their time waiting for data
+            </p>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Modern GPUs can <span className="text-white font-semibold">compute faster than memory can feed them</span>. This is the <span className="text-amber-400 font-semibold">&lsquo;memory wall.&rsquo;</span>
+            </p>
+          </div>
+          <div className="bg-navy-700/30 border-l-2 border-amber-500/40 rounded-r-lg px-3 py-2">
+            <p className="text-sm font-heading font-bold text-white mb-0.5">
+              Agentic AI multiplies memory demand
+            </p>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Agents run <span className="text-white font-semibold">multi-step workflows</span>, hold context across tasks, and call tools — each step keeps the <span className="text-white font-semibold">full context in memory</span>.
+            </p>
+          </div>
+          <div className="bg-navy-700/30 border-l-2 border-amber-500/40 rounded-r-lg px-3 py-2">
+            <p className="text-sm font-heading font-bold text-white mb-0.5">
+              Context windows are exploding
+            </p>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              From <span className="text-white font-semibold">4K tokens</span> (early ChatGPT) to <span className="text-white font-semibold">1M+</span> (Gemini). Longer context = <span className="text-amber-400 font-semibold">proportionally more memory</span> per request.
+            </p>
+          </div>
         </div>
 
         {/* Middle row: Bandwidth + HBM TAM + Market Share */}

@@ -76,100 +76,64 @@ export default function PoweringTheBuildout() {
           the AI investment landscape.
         </p>
 
-        {/* Three-layer ecosystem map */}
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-2 mb-2">
+        {/* Two-column: infographic placeholder + key points */}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-3 mb-2">
 
-          {/* Layer 1: Generation — gas + solar prominent */}
+          {/* Left: Infographic / Photo placeholder */}
           <div
-            className="bg-navy-700/40 border border-slate-700/40 rounded-xl p-3"
+            className="bg-navy-700/20 border-2 border-dashed border-slate-600/40 rounded-xl flex flex-col items-center justify-center min-h-[220px] p-4"
           >
-            <div className="flex items-center gap-2 mb-3">
-              <Zap className="w-4 h-4 text-slate-400" />
-              <span className="text-xs font-mono uppercase tracking-wider text-slate-400">
-                1. Generation
-              </span>
-            </div>
-
-            {/* Gas + Solar — primary, side by side */}
-            <div className="grid grid-cols-2 gap-2 mb-2">
-              <div className="bg-orange-500/8 border border-orange-500/20 rounded-lg p-2.5">
-                <div className="flex items-center gap-1.5 mb-1.5">
-                  <Flame className="w-4 h-4 text-orange-400 flex-shrink-0" />
-                  <span className="text-xs font-semibold text-white">Natural Gas</span>
-                  <span className="text-[9px] font-mono text-orange-400 ml-auto">Fast &amp; Firm</span>
-                </div>
-                <p className="text-[11px] text-slate-400 leading-relaxed">
-                  Gas turbines can power a data center in under a year — far
-                  faster than navigating grid interconnection queues. It&rsquo;s
-                  the near-term backbone of the buildout.
-                </p>
-              </div>
-              <div className="bg-yellow-500/8 border border-yellow-500/20 rounded-lg p-2.5">
-                <div className="flex items-center gap-1.5 mb-1.5">
-                  <Sun className="w-4 h-4 text-yellow-400 flex-shrink-0" />
-                  <span className="text-xs font-semibold text-white">Solar</span>
-                  <span className="text-[9px] font-mono text-yellow-400 ml-auto">Scalable &amp; Clean</span>
-                </div>
-                <p className="text-[11px] text-slate-400 leading-relaxed">
-                  Hyperscalers are the largest corporate buyers of renewable
-                  energy in history. Long-term solar PPAs lock in low-cost
-                  clean power at the scale AI demands.
-                </p>
-              </div>
-            </div>
-
-            {/* Nuclear + Geothermal — secondary, compact */}
-            <div className="flex items-center gap-2 px-2 py-1.5 bg-slate-800/30 rounded-lg">
-              <span className="text-[10px] text-slate-600 font-mono uppercase tracking-wider flex-shrink-0">Also developing:</span>
-              <div className="flex items-center gap-3">
-                <span className="flex items-center gap-1 text-[10px] text-slate-500">
-                  <Atom className="w-3 h-3 text-cyan-500/60" />
-                  Nuclear — firm 24/7, SMR pipeline
-                </span>
-                <span className="flex items-center gap-1 text-[10px] text-slate-500">
-                  <Leaf className="w-3 h-3 text-emerald-500/60" />
-                  Geothermal — emerging firm clean power
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Layer 2: Grid & Delivery */}
-          <div
-            className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-3"
-          >
-            <div className="flex items-center gap-2 mb-2">
-              <Network className="w-4 h-4 text-amber-400" />
-              <span className="text-xs font-mono uppercase tracking-wider text-amber-400">
-                2. Grid &amp; Delivery
-              </span>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Generated power has to reach the data center — through
-              transmission lines, substations, and transformers. Getting a new
-              connection approved and built can take years. Grid infrastructure
-              has quietly become one of the most significant constraints on
-              how fast the AI buildout can proceed.
+            <Zap className="w-10 h-10 text-blue-400/30 mb-2" />
+            <p className="text-sm text-slate-500 font-mono text-center">
+              [Infographic / Photo]
+            </p>
+            <p className="text-[10px] text-slate-600 text-center mt-1 max-w-[200px]">
+              Power flow diagram or data center photo
             </p>
           </div>
 
-          {/* Layer 3: AI Demand Pull */}
-          <div
-            className="bg-blue-500/5 border border-blue-500/20 rounded-xl p-3"
-          >
-            <div className="flex items-center gap-2 mb-2">
-              <Activity className="w-4 h-4 text-blue-400" />
-              <span className="text-xs font-mono uppercase tracking-wider text-blue-400">
-                3. Data Center Demand
+          {/* Right: Condensed key points */}
+          <div className="flex flex-col gap-2">
+            <div className="bg-orange-500/8 border border-orange-500/20 rounded-lg p-2.5">
+              <div className="flex items-center gap-1.5 mb-1">
+                <Flame className="w-4 h-4 text-orange-400 flex-shrink-0" />
+                <span className="text-xs font-semibold text-white">Natural Gas</span>
+                <span className="text-[9px] font-mono text-orange-400 ml-auto">Fast &amp; Firm</span>
+              </div>
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                Turbines can power a data center in under a year — the near-term backbone of the buildout.
+              </p>
+            </div>
+            <div className="bg-yellow-500/8 border border-yellow-500/20 rounded-lg p-2.5">
+              <div className="flex items-center gap-1.5 mb-1">
+                <Sun className="w-4 h-4 text-yellow-400 flex-shrink-0" />
+                <span className="text-xs font-semibold text-white">Solar &amp; Renewables</span>
+                <span className="text-[9px] font-mono text-yellow-400 ml-auto">Scalable</span>
+              </div>
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                Hyperscalers are the largest corporate buyers of renewable energy. Long-term PPAs lock in low-cost clean power.
+              </p>
+            </div>
+            <div className="bg-amber-500/5 border border-amber-500/20 rounded-lg p-2.5">
+              <div className="flex items-center gap-1.5 mb-1">
+                <Network className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <span className="text-xs font-semibold text-white">Grid &amp; Delivery</span>
+                <span className="text-[9px] font-mono text-amber-400 ml-auto">Bottleneck</span>
+              </div>
+              <p className="text-[11px] text-slate-400 leading-relaxed">
+                Interconnection queues can take years. Grid infrastructure is one of the biggest constraints on buildout speed.
+              </p>
+            </div>
+            <div className="flex items-center gap-3 px-2 py-1.5 bg-slate-800/30 rounded-lg">
+              <span className="flex items-center gap-1 text-[10px] text-slate-500">
+                <Atom className="w-3 h-3 text-cyan-500/60" />
+                Nuclear (SMR pipeline)
+              </span>
+              <span className="flex items-center gap-1 text-[10px] text-slate-500">
+                <Leaf className="w-3 h-3 text-emerald-500/60" />
+                Geothermal (emerging)
               </span>
             </div>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Hyperscalers aren&rsquo;t waiting for the utility system to catch
-              up. They&rsquo;re signing direct power purchase agreements,
-              co-developing generation projects, and running demand response
-              programs — becoming active participants in energy markets, not
-              just consumers.
-            </p>
           </div>
         </div>
 

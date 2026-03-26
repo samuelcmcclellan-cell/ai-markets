@@ -182,7 +182,7 @@ function slide03(pptx: any) {
     },
     {
       h: "The market is repricing everything.",
-      p: "Semiconductor stocks (SOXX) up ~13% YTD. Software stocks (IGV) down ~20% YTD. A 33-point spread — the same AI wave is creating winners and losers simultaneously.",
+      p: "Semiconductor stocks (SOXX) up ~15% YTD. Software stocks (IGV) down ~24% YTD. A 39-point spread — the same AI wave is creating winners and losers simultaneously.",
     },
   ];
 
@@ -200,7 +200,7 @@ function slide03(pptx: any) {
     });
   });
 
-  footnote(s, "¹ Company Q4 2025 guidance. ² Jensen Huang, Sept 2025; Deutsche Bank. ³ YTD as of Mar 19, 2026; Bloomberg.");
+  footnote(s, "¹ Company Q4 2025 guidance. ² Jensen Huang, Sept 2025; Deutsche Bank. ³ YTD as of Mar 25, 2026; Bloomberg.");
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -267,20 +267,20 @@ function slide05(pptx: any) {
   slideNum(s, 5);
 
   const layers = [
-    { name: "Agents", co: "Sierra, Harvey, Cognition", color: "A855F7" },
-    { name: "Apps", co: "OpenAI, Anthropic, Google, Perplexity", color: "8B5CF6" },
-    { name: "Models", co: "OpenAI, Anthropic, DeepMind, Meta AI, xAI", color: "EC4899" },
-    { name: "Data Centers", co: "AWS, Azure, Google Cloud, CoreWeave", color: "EF4444" },
-    { name: "Power", co: "NextEra, Vistra, Constellation, GE Vernova", color: "F59E0B" },
-    { name: "Networking", co: "Broadcom, Arista, NVIDIA, Cisco", color: "F59E0B" },
-    { name: "Packaging", co: "TSMC, ASE, Amkor", color: "14B8A6" },
-    { name: "Chip Design", co: "NVIDIA, AMD, Broadcom, Qualcomm", color: "06B6D4" },
-    { name: "Foundry", co: "TSMC, Samsung, Intel Foundry", color: "3B82F6" },
-    { name: "Equipment", co: "ASML, Applied Materials, Lam, TEL", color: "8B5CF6" },
-    { name: "Raw Materials", co: "Shin-Etsu, BASF, Linde", color: "6B7280" },
+    { name: "Agents", desc: "Autonomous AI that acts on your behalf", icon: "\u{1F916}", color: "A855F7" },
+    { name: "Apps", desc: "Products built on foundation models", icon: "\u{1F4F1}", color: "8B5CF6" },
+    { name: "Models", desc: "The intelligence layer", icon: "\u{1F9E0}", color: "EC4899" },
+    { name: "Data Centers", desc: "Warehouses of compute", icon: "\u{1F5A5}", color: "EF4444" },
+    { name: "Power", desc: "The hidden constraint", icon: "\u26A1", color: "F59E0B" },
+    { name: "Networking", desc: "Moving data at terabit speed", icon: "\u{1F310}", color: "F59E0B" },
+    { name: "Packaging", desc: "Stacking chiplets (CoWoS, HBM)", icon: "\u{1F4E6}", color: "14B8A6" },
+    { name: "Chip Design", desc: "GPUs, TPUs, ASICs", icon: "\u{1F4BB}", color: "06B6D4" },
+    { name: "Foundry", desc: "Fabricating at nanometer scale", icon: "\u{1F3ED}", color: "3B82F6" },
+    { name: "Equipment", desc: "Machines that make machines", icon: "\u{1F527}", color: "8B5CF6" },
+    { name: "Raw Materials", desc: "Silicon, neon, rare earths", icon: "\u{1F48E}", color: "6B7280" },
   ];
 
-  const rowH = 0.42;
+  const rowH = 0.36;
   const startY = 1.45;
 
   layers.forEach((layer, i) => {
@@ -297,14 +297,19 @@ function slide05(pptx: any) {
       fill: { color: CARD_BG },
       line: { color: CARD_BORDER, width: 0.5 },
     });
+    // Icon
+    s.addText(layer.icon, {
+      x: 0.68, y, w: 0.35, h: rowH - 0.04,
+      fontSize: 12, fontFace: FONT_SANS, valign: "middle", align: "center",
+    });
     // Layer name
     s.addText(layer.name, {
-      x: 0.75, y, w: 2, h: rowH - 0.04,
+      x: 1.05, y, w: 1.5, h: rowH - 0.04,
       fontSize: 10, fontFace: FONT_SANS, color: WHITE, bold: true, valign: "middle",
     });
-    // Companies
-    s.addText(layer.co, {
-      x: 2.8, y, w: 6.5, h: rowH - 0.04,
+    // Description
+    s.addText(layer.desc, {
+      x: 2.6, y, w: 6.8, h: rowH - 0.04,
       fontSize: 9, fontFace: FONT_SANS, color: DIM, valign: "middle",
     });
   });
@@ -1745,7 +1750,7 @@ function slideKeyTakeaways(pptx: any) {
     {
       num: "02",
       h: "The market is already picking winners — and the basket trade is over.",
-      d: "Correlation collapsed from ~80% to ~20%. Semis (SOXX) up ~13% YTD, software (IGV) down ~20% YTD.",
+      d: "Correlation collapsed from ~80% to ~20%. Semis (SOXX) up ~15% YTD, software (IGV) down ~24% YTD.",
     },
     {
       num: "03",

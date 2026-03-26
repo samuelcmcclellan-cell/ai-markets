@@ -10,24 +10,24 @@ const sections = [
 export default function Agenda() {
   return (
     <div className="slide-container">
-      <div className="slide-content flex flex-col justify-center min-h-[calc(100vh-theme(spacing.14))]">
-        <p
-          className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-2"
+      <div className="slide-content">
+        <h2
+          className="text-sm uppercase tracking-widest text-blue-400 font-mono mb-3"
         >
           Agenda
-        </p>
+        </h2>
 
-        <div className="space-y-3 mt-4">
+        <div className="space-y-5 mt-8">
           {sections.map((section, i) => (
             <div
               key={section.number}
               className="flex items-baseline gap-4"
             >
-              <span className="text-sm font-mono text-slate-600 w-6 shrink-0">
+              <span className="text-base font-mono text-slate-600 w-6 shrink-0">
                 {section.number}
               </span>
               <span
-                className="text-3xl md:text-4xl font-heading font-bold tracking-tight"
+                className="text-4xl md:text-5xl font-heading font-bold tracking-tight"
                 style={{ color: section.color }}
               >
                 {section.name}

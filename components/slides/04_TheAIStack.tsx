@@ -1,4 +1,5 @@
 "use client";
+import { useRef, useState, useEffect, useCallback } from "react";
 import {
   Bot,
   Smartphone,
@@ -48,11 +49,41 @@ const callouts = [
   },
 ];
 
-/* Row height + gap to calculate connector positions */
-const ROW_H = 28; // approx height of each stack row in px
-const GAP = 1;    // gap-px ≈ 1px
-
 export default function TheAIStack() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [lines, setLines] = useState<{ rowY: number; cardY: number; color: string }[]>([]);
+
+  const measure = useCallback(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const containerRect = container.getBoundingClientRect();
+
+    const newLines = callouts.map((c, ci) => {
+      const rowEl = rowRefs.current[c.stackIndex];
+      const cardEl = cardRefs.current[ci];
+      const rowRect = rowEl?.getBoundingClientRect();
+      const cardRect = cardEl?.getBoundingClientRect();
+      return {
+        rowY: rowRect ? rowRect.top + rowRect.height / 2 - containerRect.top : 0,
+        cardY: cardRect ? cardRect.top + cardRect.height / 2 - containerRect.top : 0,
+        color: c.color,
+      };
+    });
+    setLines(newLines);
+  }, []);
+
+  useEffect(() => {
+    // Measure after first paint and on resize
+    const frame = requestAnimationFrame(measure);
+    window.addEventListener("resize", measure);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", measure);
+    };
+  }, [measure]);
+
   return (
     <div className="slide-container">
       <div className="slide-content">
@@ -63,7 +94,7 @@ export default function TheAIStack() {
           The full AI ecosystem &mdash; from raw materials to agents.
         </p>
 
-        <div className="flex gap-0 items-start">
+        <div ref={containerRef} className="flex gap-0 items-start relative">
           {/* Left: Stack */}
           <div className="relative flex-1 min-w-0">
             {/* Value chain gradient bar */}
@@ -75,9 +106,10 @@ export default function TheAIStack() {
             />
 
             <div className="flex flex-col gap-px ml-3">
-              {stackLayers.map((layer) => (
+              {stackLayers.map((layer, i) => (
                 <div
                   key={layer.key}
+                  ref={(el) => { rowRefs.current[i] = el; }}
                   className="group flex items-center bg-slate-800/40 border border-slate-700/20 rounded-lg px-2 md:px-3 py-0.5 md:py-1 hover:bg-slate-800/70 hover:border-slate-600/40 transition-all duration-200"
                 >
                   <div
@@ -105,61 +137,31 @@ export default function TheAIStack() {
 
           {/* Right: Connector lines + callout cards */}
           <div className="hidden md:block relative w-[320px] shrink-0">
-            {/* SVG connector lines */}
+            {/* SVG connector lines — positioned via measured refs */}
             <svg
               className="absolute left-0 top-0 w-full h-full pointer-events-none"
               style={{ overflow: "visible" }}
             >
-              {callouts.map((c, ci) => {
-                // Y position of the stack row center
-                const rowY = c.stackIndex * (ROW_H + GAP) + ROW_H / 2;
-                // Y position of the card center (cards are ~80px tall, spaced with gap)
-                const cardY = ci === 0 ? 40 : 40 + 100;
-                return (
-                  <g key={c.stackKey}>
-                    {/* Horizontal line from stack to midpoint */}
-                    <line
-                      x1={0}
-                      y1={rowY}
-                      x2={32}
-                      y2={rowY}
-                      stroke={c.color + "50"}
-                      strokeWidth={1.5}
-                      strokeDasharray="4 3"
-                    />
-                    {/* Diagonal from midpoint down/up to card */}
-                    <line
-                      x1={32}
-                      y1={rowY}
-                      x2={56}
-                      y2={cardY}
-                      stroke={c.color + "50"}
-                      strokeWidth={1.5}
-                      strokeDasharray="4 3"
-                    />
-                    {/* Horizontal into the card */}
-                    <line
-                      x1={56}
-                      y1={cardY}
-                      x2={72}
-                      y2={cardY}
-                      stroke={c.color + "50"}
-                      strokeWidth={1.5}
-                    />
-                    {/* Dot at the stack end */}
-                    <circle cx={0} cy={rowY} r={3} fill={c.color} opacity={0.7} />
-                    {/* Dot at the card end */}
-                    <circle cx={72} cy={cardY} r={3} fill={c.color} opacity={0.7} />
-                  </g>
-                );
-              })}
+              {lines.map((l, i) => (
+                <g key={i}>
+                  <line x1={0} y1={l.rowY} x2={32} y2={l.rowY}
+                    stroke={l.color + "50"} strokeWidth={1.5} strokeDasharray="4 3" />
+                  <line x1={32} y1={l.rowY} x2={56} y2={l.cardY}
+                    stroke={l.color + "50"} strokeWidth={1.5} strokeDasharray="4 3" />
+                  <line x1={56} y1={l.cardY} x2={72} y2={l.cardY}
+                    stroke={l.color + "50"} strokeWidth={1.5} />
+                  <circle cx={0} cy={l.rowY} r={3} fill={l.color} opacity={0.7} />
+                  <circle cx={72} cy={l.cardY} r={3} fill={l.color} opacity={0.7} />
+                </g>
+              ))}
             </svg>
 
             {/* Cards */}
             <div className="flex flex-col gap-5 ml-[76px]">
-              {callouts.map((item) => (
+              {callouts.map((item, ci) => (
                 <div
                   key={item.stackKey}
+                  ref={(el) => { cardRefs.current[ci] = el; }}
                   className="rounded-xl p-4 border"
                   style={{
                     backgroundColor: item.color + "08",

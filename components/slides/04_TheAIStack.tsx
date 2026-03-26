@@ -14,83 +14,17 @@ import {
 } from "lucide-react";
 
 const stackLayers = [
-  {
-    name: "Agents",
-    icon: Bot,
-    oneLiner: "Autonomous AI that acts on your behalf",
-    companies: ["Sierra", "Harvey", "Cognition", "Salesforce"],
-    color: "#a855f7",
-  },
-  {
-    name: "Apps",
-    icon: Smartphone,
-    oneLiner: "Products built on foundation models",
-    companies: ["OpenAI", "Anthropic", "Google", "Perplexity"],
-    color: "#8b5cf6",
-  },
-  {
-    name: "Models",
-    icon: Brain,
-    oneLiner: "Foundation models — the intelligence layer",
-    companies: ["OpenAI", "Anthropic", "DeepMind", "Meta AI", "xAI"],
-    color: "#7c3aed",
-  },
-  {
-    name: "Data Centers",
-    icon: Server,
-    oneLiner: "Warehouses of compute",
-    companies: ["AWS", "Azure", "Google Cloud", "CoreWeave"],
-    color: "#ef4444",
-  },
-  {
-    name: "Power",
-    icon: Zap,
-    oneLiner: "Electricity — the hidden constraint",
-    companies: ["NextEra", "Vistra", "Constellation", "GE Vernova"],
-    color: "#f59e0b",
-  },
-  {
-    name: "Networking",
-    icon: Network,
-    oneLiner: "Moving data at terabit speed",
-    companies: ["Broadcom", "Arista", "NVIDIA", "Cisco"],
-    color: "#f97316",
-  },
-  {
-    name: "Packaging",
-    icon: Package,
-    oneLiner: "Stacking chiplets (CoWoS, HBM)",
-    companies: ["TSMC", "ASE", "Amkor"],
-    color: "#14b8a6",
-  },
-  {
-    name: "Chip Design",
-    icon: Cpu,
-    oneLiner: "Designing GPUs, TPUs, ASICs",
-    companies: ["NVIDIA", "AMD", "Broadcom", "Intel", "Qualcomm"],
-    color: "#06b6d4",
-  },
-  {
-    name: "Foundry",
-    icon: Factory,
-    oneLiner: "Fabricating chips at nanometer scale",
-    companies: ["TSMC", "Samsung", "Intel Foundry"],
-    color: "#3b82f6",
-  },
-  {
-    name: "Equipment",
-    icon: Wrench,
-    oneLiner: "The machines that make the machines",
-    companies: ["ASML", "Applied Materials", "Lam Research", "Tokyo Electron"],
-    color: "#6366f1",
-  },
-  {
-    name: "Raw Materials",
-    icon: Gem,
-    oneLiner: "Silicon, neon, rare earths, ultra-pure water",
-    companies: ["Sumco", "Shin-Etsu", "Entegris", "Air Liquide"],
-    color: "#64748b",
-  },
+  { name: "Agents", icon: Bot, oneLiner: "Autonomous AI that acts on your behalf", color: "#a855f7" },
+  { name: "Apps", icon: Smartphone, oneLiner: "Products built on foundation models", color: "#8b5cf6" },
+  { name: "Models", icon: Brain, oneLiner: "The intelligence layer", color: "#7c3aed" },
+  { name: "Data Centers", icon: Server, oneLiner: "Warehouses of compute", color: "#ef4444" },
+  { name: "Power", icon: Zap, oneLiner: "The hidden constraint", color: "#f59e0b" },
+  { name: "Networking", icon: Network, oneLiner: "Moving data at terabit speed", color: "#f97316" },
+  { name: "Packaging", icon: Package, oneLiner: "Stacking chiplets (CoWoS, HBM)", color: "#14b8a6" },
+  { name: "Chip Design", icon: Cpu, oneLiner: "GPUs, TPUs, ASICs", color: "#06b6d4" },
+  { name: "Foundry", icon: Factory, oneLiner: "Fabricating at nanometer scale", color: "#3b82f6" },
+  { name: "Equipment", icon: Wrench, oneLiner: "Machines that make machines", color: "#6366f1" },
+  { name: "Raw Materials", icon: Gem, oneLiner: "Silicon, neon, rare earths", color: "#64748b" },
 ];
 
 export default function TheAIStack() {
@@ -146,30 +80,13 @@ export default function TheAIStack() {
                 </div>
 
                 {/* Layer name + one-liner — inline */}
-                <div className="flex-1 min-w-0 mr-4 flex items-center gap-2">
+                <div className="flex-1 min-w-0 flex items-center gap-2">
                   <span className="text-xs md:text-sm font-bold text-white leading-tight whitespace-nowrap">
                     {layer.name}
                   </span>
-                  <span className="text-[10px] text-slate-400 hidden md:inline leading-tight">
+                  <span className="text-[10px] md:text-xs text-slate-400 leading-tight">
                     {layer.oneLiner}
                   </span>
-                </div>
-
-                {/* Key companies */}
-                <div className="hidden md:flex gap-1.5 shrink-0 flex-wrap justify-end max-w-[280px]">
-                  {layer.companies.slice(0, 5).map((company, j) => (
-                    <span
-                      key={j}
-                      className="text-[10px] font-mono px-1.5 py-0.5 rounded-md bg-slate-700/50 text-slate-300 whitespace-nowrap"
-                    >
-                      {company}
-                    </span>
-                  ))}
-                  {layer.companies.length > 5 && (
-                    <span className="text-xs font-mono px-1.5 py-0.5 text-slate-500">
-                      +{layer.companies.length - 5}
-                    </span>
-                  )}
                 </div>
               </div>
             ))}

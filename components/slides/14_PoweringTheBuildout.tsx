@@ -20,7 +20,6 @@ const exposureBuckets = [
     bgClass: "bg-blue-500/5",
     icon: Building2,
     note: "Own the generation and transmission assets AI depends on",
-    companies: ["NextEra", "Vistra", "Constellation", "NRG"],
   },
   {
     label: "Electrical Equipment",
@@ -29,7 +28,6 @@ const exposureBuckets = [
     bgClass: "bg-amber-500/5",
     icon: Wrench,
     note: "Build the transformers, switchgear, and substations that connect it all",
-    companies: ["GE Vernova", "ABB", "Eaton", "Hubbell"],
   },
   {
     label: "Power Developers",
@@ -38,7 +36,6 @@ const exposureBuckets = [
     bgClass: "bg-emerald-500/5",
     icon: TrendingUp,
     note: "Finance and build new generation — often under hyperscaler offtake agreements",
-    companies: ["AES", "Brookfield RE", "Pattern Energy"],
   },
   {
     label: "Grid Enablers",
@@ -47,7 +44,6 @@ const exposureBuckets = [
     bgClass: "bg-purple-500/5",
     icon: Activity,
     note: "Engineer and construct the transmission lines and interconnections",
-    companies: ["Quanta Services", "MYR Group", "Aecom"],
   },
 ];
 
@@ -68,7 +64,7 @@ export default function PoweringTheBuildout() {
           <span className="text-blue-400">core AI stack</span>.
         </p>
         <p
-          className="text-sm text-slate-400 mb-3 max-w-3xl"
+          className="text-sm text-slate-400 mb-2 max-w-3xl"
         >
           Every AI query runs on electricity. Global data center demand is on
           track to more than double by 2030 (IEA). Understanding how power is
@@ -81,7 +77,7 @@ export default function PoweringTheBuildout() {
 
           {/* Left: Infographic / Photo placeholder */}
           <div
-            className="bg-navy-700/20 border-2 border-dashed border-slate-600/40 rounded-xl flex flex-col items-center justify-center min-h-[220px] p-4"
+            className="bg-navy-700/20 border-2 border-dashed border-slate-600/40 rounded-xl flex flex-col items-center justify-center min-h-[180px] p-4"
           >
             <Zap className="w-10 h-10 text-blue-400/30 mb-2" />
             <p className="text-sm text-slate-500 font-mono text-center">
@@ -149,7 +145,7 @@ export default function PoweringTheBuildout() {
             return (
               <div
                 key={bucket.label}
-                className={`${bucket.bgClass} border ${bucket.borderClass} rounded-xl p-3`}
+                className={`${bucket.bgClass} border ${bucket.borderClass} rounded-xl p-2.5`}
               >
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <Icon
@@ -160,19 +156,9 @@ export default function PoweringTheBuildout() {
                     {bucket.label}
                   </span>
                 </div>
-                <p className="text-[10px] text-slate-500 leading-snug mb-1.5">
+                <p className="text-[10px] text-slate-500 leading-snug">
                   {bucket.note}
                 </p>
-                <div className="flex flex-wrap gap-1">
-                  {bucket.companies.map((c) => (
-                    <span
-                      key={c}
-                      className="text-[9px] font-mono bg-navy-700/60 text-slate-400 rounded px-1.5 py-0.5"
-                    >
-                      {c}
-                    </span>
-                  ))}
-                </div>
               </div>
             );
           })}

@@ -13,7 +13,7 @@ const statements = [
   {
     headline: "The market is repricing everything.",
     supporting:
-      "Semiconductor stocks (SOXX) up ~13% YTD.\u00b3 Software stocks (IGV) down ~20% YTD.\u00b3 A 33-point spread — the same AI wave is creating winners and losers simultaneously.",
+      "Semiconductor stocks (SOXX) up ~15% YTD.\u00b3 Software stocks (IGV) down ~24% YTD.\u00b3 A 39-point spread — the same AI wave is creating winners and losers simultaneously.",
   },
 ];
 
@@ -43,7 +43,7 @@ export default function WhyAIMatters() {
         <p
           className="text-[10px] text-slate-600 mt-auto pt-4"
         >
-          ¹ Amazon, Alphabet, Microsoft, Meta, Oracle combined 2026 capex per Q4 2025 earnings calls; company filings. ² Jensen Huang, Sept 2025; Deutsche Bank projects $3–4T cumulative AI data center capex through 2030. ³ YTD as of Mar 19, 2026; Bloomberg.
+          ¹ Amazon, Alphabet, Microsoft, Meta, Oracle combined 2026 capex per Q4 2025 earnings calls; company filings. ² Jensen Huang, Sept 2025; Deutsche Bank projects $3–4T cumulative AI data center capex through 2030. ³ YTD as of Mar 25, 2026; Bloomberg.
         </p>
       </div>
     </div>

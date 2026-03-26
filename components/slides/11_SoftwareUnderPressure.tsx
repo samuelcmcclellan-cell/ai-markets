@@ -49,7 +49,7 @@ export default function SoftwareUnderPressure() {
               <p className="text-xs font-mono text-red-400 uppercase tracking-wider mb-1">
                 IGV &middot; Software ETF
               </p>
-              <p className="text-3xl font-mono font-bold text-red-400">-20%</p>
+              <p className="text-3xl font-mono font-bold text-red-400">-24%</p>
               <p className="text-xs text-slate-500 mt-0.5">YTD 2026</p>
             </div>
 

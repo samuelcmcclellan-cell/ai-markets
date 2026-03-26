@@ -201,15 +201,15 @@ export default function SupplyChainMap() {
                     {marker.label}
                   </text>
                   {/* Role subtitle */}
-                  {isSelected && region && (
+                  {region && (
                     <text
                       textAnchor={textAnchor}
                       x={nameX}
                       y={roleY}
                       style={{
                         fontFamily: "Inter, sans-serif",
-                        fontSize: "10px",
-                        fill: color,
+                        fontSize: "9px",
+                        fill: isSelected ? color : "#64748b",
                         fontWeight: 500,
                       }}
                     >

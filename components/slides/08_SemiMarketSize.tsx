@@ -4,8 +4,8 @@ import { Cpu, Database, Activity, Settings, Zap, Factory } from "lucide-react";
 /* ── Market segments for proportional bar ── */
 const segments = [
   { name: "Logic", value: 390, color: "#10b981" },
-  { name: "Memory", value: 290, color: "#3b82f6" },
-  { name: "Analog", value: 90, color: "#64748b" },
+  { name: "Memory", value: 295, color: "#3b82f6" },
+  { name: "Analog", value: 95, color: "#64748b" },
   { name: "Micro", value: 90, color: "#78716c" },
   { name: "Discrete", value: 45, color: "#6b7280" },
   { name: "Other", value: 70, color: "#475569" },
@@ -34,30 +34,30 @@ const heroCategories = [
     icon: Database,
     color: "#3b82f6",
     borderColor: "border-blue-500/40",
-    revenue: "$223B \u2192 ~$290B+",
-    growth: "+35% \u2192 +30%+",
+    revenue: "$223B \u2192 ~$295B",
+    growth: "+35% \u2192 ~+39%",
     subs: [
       { tag: "HBM", accent: "bg-blue-500/15 text-blue-400" },
       { tag: "DRAM (DDR5)", accent: "bg-blue-500/10 text-blue-300" },
       { tag: "NAND Flash", accent: "bg-blue-500/10 text-blue-300" },
     ],
-    callout: "SK Hynix \u2014 62% HBM share\u00b2, 56% op margin (Q4\u202025)",
+    callout: "SK Hynix \u2014 ~57% HBM share\u00b2, 58% op margin (Q4\u202025)",
   },
 ];
 
 /* ── Bottom-row compact categories ── */
 const supportCategories = [
-  { name: "Analog ICs", icon: Activity, revenue: "~$85B" },
+  { name: "Analog ICs", icon: Activity, revenue: "~$95B" },
   { name: "Micro / MCUs", icon: Settings, revenue: "~$85B" },
   { name: "Discrete & Power", icon: Zap, revenue: "~$45B" },
-  { name: "Equipment & EDA", icon: Factory, revenue: "$133B+" },
+  { name: "Equipment & EDA", icon: Factory, revenue: "$145B+" },
 ];
 
 /* ── Supply chain funnel ── */
 const funnel = [
   { name: "NVIDIA", color: "#f59e0b", stat: "~$216B FY26" },
-  { name: "TSMC", color: "#3b82f6", stat: "~$100B+ rev" },
-  { name: "SK Hynix", color: "#10b981", stat: "56% op margin" },
+  { name: "TSMC", color: "#3b82f6", stat: "~$122B rev" },
+  { name: "SK Hynix", color: "#10b981", stat: "58% op margin" },
   { name: "ASML", color: "#a855f7", stat: "<100 EUV/yr" },
   { name: "Broadcom", color: "#06b6d4", stat: "Custom ASIC leader" },
 ];
@@ -98,7 +98,7 @@ export default function SemiMarketSize() {
           </div>
           <div>
             <span className="text-3xl md:text-4xl font-mono font-bold text-emerald-400">
-              $680B
+              $685B
             </span>
             <p className="text-xs text-slate-500">
               Logic + Memory (70% of total)
@@ -249,7 +249,7 @@ export default function SemiMarketSize() {
         <p
           className="text-[10px] text-slate-600 mt-2"
         >
-          ¹ NVIDIA FY2026 10-K (Jan 26, 2026): $215.9B total revenue, +65% YoY. ² TrendForce / SK Hynix FY2025 results; HBM share approximate, varies by quarter. Sources: WSTS Autumn 2025 forecast, SIA, SemiAnalysis, company filings
+          ¹ NVIDIA FY2026 10-K (Jan 26, 2026): $215.9B total revenue, +65% YoY. ² TrendForce; HBM share ~62% at Q2 2025 peak, declined to ~57% by Q3–Q4 2025. SK Hynix Q4 2025 op margin 58%. Sources: WSTS Autumn 2025 forecast, SIA, SEMI, TSMC FY2025 ($122.4B rev), company filings
         </p>
       </div>
     </div>

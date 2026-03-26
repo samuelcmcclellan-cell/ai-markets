@@ -8,7 +8,7 @@ const takeaways = [
   {
     number: "02",
     headline: "The market is picking winners — the basket trade is over.",
-    detail: "AI stock correlation collapsed from ~80% to ~20%.\u00b3 Semis (SOXX) +13% YTD, software (IGV) -20% YTD.\u2074 Memory makers with oligopoly pricing power outperform cloud providers burning cash. The investable question: which constraints persist?",
+    detail: "AI stock correlation collapsed from ~80% to ~20%.\u00b3 Semis (SOXX) +15% YTD, software (IGV) -24% YTD.\u2074 Memory makers with oligopoly pricing power outperform cloud providers burning cash. The investable question: which constraints persist?",
   },
   {
     number: "03",

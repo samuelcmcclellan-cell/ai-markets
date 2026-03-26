@@ -141,7 +141,7 @@ export default function HardwareVsSoftware() {
           {/* End-of-line labels */}
           <div className="absolute right-0 top-[12%] flex flex-col gap-0.5">
             <span className="text-sm font-mono font-bold text-emerald-400">
-              +13%
+              +15%
             </span>
           </div>
           <div className="absolute right-0 top-[48%]">
@@ -149,7 +149,7 @@ export default function HardwareVsSoftware() {
           </div>
           <div className="absolute right-0 top-[72%]">
             <span className="text-sm font-mono font-bold text-red-400">
-              -20%
+              -24%
             </span>
           </div>
         </div>
@@ -231,7 +231,7 @@ export default function HardwareVsSoftware() {
             <div className="flex items-center gap-2 pt-2 border-t border-slate-700/30">
               <AlertTriangle className="w-3 h-3 text-red-400/60" />
               <p className="text-sm text-slate-500">
-                IGV <span className="text-red-400">-20% YTD</span> — trough hit -24% in Feb; worst run since 2022
+                IGV <span className="text-red-400">-24% YTD</span> — trough hit -24% in Feb; worst run since 2022
               </p>
             </div>
           </div>

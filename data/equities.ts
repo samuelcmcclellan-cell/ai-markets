@@ -46,7 +46,7 @@ export const softwareDeclines = [
 ];
 
 export const hardwarePerformance = [
-  { ticker: "SOXX", name: "Semiconductor ETF", ytd: "+13%" },
+  { ticker: "SOXX", name: "Semiconductor ETF", ytd: "+15%" },
   { ticker: "MU", name: "Micron", ytd: "+62%" },
   { ticker: "005930.KS", name: "Samsung", ytd: "+57%" },
   { ticker: "000660.KS", name: "SK Hynix", ytd: "+49%" },
@@ -54,7 +54,7 @@ export const hardwarePerformance = [
 ];
 
 export const softwarePerformance = [
-  { ticker: "IGV", name: "Software ETF", ytd: "-20%" },
+  { ticker: "IGV", name: "Software ETF", ytd: "-24%" },
   { ticker: "CRM", name: "Salesforce", ytd: "-30%" },
   { ticker: "ADBE", name: "Adobe", ytd: "-27%" },
   { ticker: "SHOP", name: "Shopify", ytd: "-26%" },
